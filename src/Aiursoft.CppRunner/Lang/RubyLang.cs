@@ -10,15 +10,16 @@ public class RubyLang : ILang
 
     public string DefaultCode { get; set; } =
         """
-        def fibonacci
-          Enumerator.new do |y|
-            current, next = 1, 1
-            loop do
-              y << current
-              current, next = next, current + next
-            end
-          end
+        def fibonacci(n)
+          return n if n <= 1 
+          fibonacci(n - 1) + fibonacci(n - 2)
         end
+        
+        20.times do |n|
+          result = fibonacci(n)
+          puts result
+        end
+        
         """;
 
     public string EntryFileName { get; set; } = "main.rb";
