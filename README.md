@@ -13,6 +13,7 @@ Requirements about how to run
 
 1. Install [Docker](https://www.docker.com/)
 2. Configure `www-data` user in your host machine to allow access to Docker with: `sudo usermod -aG docker www-data`
+3. Add `www-data` home: `sudo mkdir /var/www && sudo chown www-data:www-data /var/www`
 3. Install [.NET 7 SDK](http://dot.net/)
 4. Execute `dotnet run` as www-data user in the project path.
 5. Use your browser to view [http://localhost:5000](http://localhost:5000)
