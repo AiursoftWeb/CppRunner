@@ -20,7 +20,7 @@ for _ in range(20):
     ";
 
     public string EntryFileName { get; set; } = "main.py";
-    public string DockerImage { get; set; } = "docker.io/python:3.11-alpine";
+    public string DockerImage { get; set; } = "python:3.11-alpine";
     public string RunCommand { get; set; } = "python3 /app/main.py";
 
     public Dictionary<string, string> OtherFiles { get; set; } = new();

@@ -1,4 +1,4 @@
-﻿namespace Aiursoft.CppRunner.Lang;
+﻿namespace Aiursoft.CppRunner;
 
 public interface ILang
 {
