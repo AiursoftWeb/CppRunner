@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using Aiursoft.Canon;
 using Aiursoft.CppRunner.Lang;
@@ -30,7 +29,7 @@ public class RunnerController : ControllerBase
 
     [Route("run")]
     [HttpPost]
-    public async Task<IActionResult> Run([FromQuery][Required]string lang)
+    public async Task<IActionResult> Run([FromQuery]string lang)
     {
         var langImplement = _langs.FirstOrDefault(t => string.Equals(t.LangExtension, lang, StringComparison.CurrentCultureIgnoreCase));
         if (langImplement == null)

@@ -36,9 +36,9 @@ public class IntegrationTests
     }
 
     [TestMethod]
-    [DataRow("/")]
-    [DataRow("/hOmE?aaaaaa=bbbbbb")]
-    [DataRow("/hOmE/InDeX")]
+    [DataRow("/langs")]
+    [DataRow("/langs/cpp/default")]
+    [DataRow("/langs/cs/default")]
     public async Task GetHome(string url)
     {
         var response = await _http.GetAsync(_endpointUrl + url);

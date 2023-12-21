@@ -33,7 +33,7 @@ public class Program
 }
 ";
 
-    public string FileName { get; set; } = "main.cs";
+    public string FileName { get; set; } = "Program.cs";
     public string DockerImage { get; set; } = "mcr.microsoft.com/dotnet/sdk:7.0";
     public string RunCommand { get; set; } = "dotnet run --project /app/Project.csproj";
 
