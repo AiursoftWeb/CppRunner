@@ -32,7 +32,7 @@ public class RustLang : ILang
 
     public string DockerImage { get; set; } = "rust:1.74.1";
 
-    public string RunCommand { get; set; } = "rustc /app/main.rs && /app/main";
+    public string RunCommand { get; set; } = "cd /app && rustc /app/main.rs && /app/main";
 
     public Dictionary<string, string> OtherFiles { get; set; } = new();
 }
