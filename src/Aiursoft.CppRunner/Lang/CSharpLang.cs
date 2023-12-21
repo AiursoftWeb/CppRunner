@@ -35,7 +35,7 @@ public class Program
 
     public string FileName { get; set; } = "main.cs";
     public string DockerImage { get; set; } = "mcr.microsoft.com/dotnet/sdk:7.0";
-    public string RunCommand { get; set; } = "dotnet run /app/main.cs";
+    public string RunCommand { get; set; } = "dotnet run --project /app/Project.csproj";
 
     public Dictionary<string, string> OtherFiles { get; set; } = new()
     {
