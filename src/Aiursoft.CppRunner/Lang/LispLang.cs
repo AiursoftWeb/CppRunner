@@ -2,7 +2,7 @@
 
 public class LispLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Lisp";
+    public string LangDisplayName { get; set; } = "Lisp (rigetti/lisp)";
 
     public string LangExtension { get; set; } = "lisp";
 

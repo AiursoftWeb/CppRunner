@@ -2,7 +2,7 @@
 
 public class HaskellLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Haskell (GHC 9.2)";
+    public string LangDisplayName { get; set; } = "Haskell (GHC 9.8.1)";
 
     public string LangExtension { get; set; } = "hs";
 
@@ -16,7 +16,7 @@ public class HaskellLang : ILang
 
     public string EntryFileName { get; set; } = "main.hs";
 
-    public string DockerImage { get; set; } = "haskell:9.2-alpine";
+    public string DockerImage { get; set; } = "haskell:9.8.1";
 
     public string RunCommand { get; set; } = "runhaskell /app/main.hs";
 

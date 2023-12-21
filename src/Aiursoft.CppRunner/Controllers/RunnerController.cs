@@ -58,7 +58,7 @@ public class RunnerController : ControllerBase
             var (resultCode, output, error) = await _commandService.RunCommandAsync(
                 bin: "docker",
                 arg:
-                $"run --rm --name {buildId} --cpus=0.5 --memory=256m --network none -v {folder}:/app {langImplement.DockerImage} sh -c \"{langImplement.RunCommand}\"",
+                $"run --rm --name {buildId} --cpus=8 --memory=512m --network none -v {folder}:/app {langImplement.DockerImage} sh -c \"{langImplement.RunCommand}\"",
                 path: _tempFolder,
                 timeout: TimeSpan.FromSeconds(30),
                 i => processId = i);
