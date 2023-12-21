@@ -26,7 +26,9 @@ public class Startup : IWebStartup
     public void Configure(WebApplication app)
     {
         app.UseMiddleware<AllowCrossOriginMiddleware>();
+        app.UseStaticFiles();
         app.UseRouting();
         app.MapDefaultControllerRoute();
+        app.UseDefaultFiles();
     }
 }
