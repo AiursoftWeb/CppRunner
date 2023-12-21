@@ -12,11 +12,13 @@ public class PhpLang : ILang
         """
         <?php
         function fibonacci() {
-            $current = 1;
+            $current = 0;
             $next = 1;
             while (true) {
                 yield $current;
-                $next = $current + ($current = $next);
+                $temp = $current;
+                $current = $next;
+                $next = $temp + $next;
             }
         }
 

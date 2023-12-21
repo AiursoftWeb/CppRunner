@@ -11,14 +11,18 @@ public class PowerShellLang : ILang
     public string DefaultCode { get; set; } =
         """
         function Get-Fibonacci {
-            $current, $next = 0, 1
+            $current = 0
+            $next = 1
             while ($true) {
                 $current
-                $current, $next = $next, $current + $next
+                $temp = $current
+                $current = $next
+                $next = $temp + $next
             }
         }
-
+        
         Get-Fibonacci | Select-Object -First 20
+        
         """;
 
     public string EntryFileName { get; set; } = "main.ps1";
