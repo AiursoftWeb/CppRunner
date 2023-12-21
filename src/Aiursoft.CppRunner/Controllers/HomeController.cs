@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Aiursoft.CSTools.Services;
 
-namespace Aiursoft.Cpp.Controllers;
+namespace Aiursoft.CppRunner.Controllers;
 
 public class HomeController : Controller
 {

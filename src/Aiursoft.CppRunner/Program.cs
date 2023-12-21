@@ -3,7 +3,7 @@ using Aiursoft.CSTools.Services;
 using Aiursoft.WebTools;
 using Aiursoft.WebTools.Models;
 
-namespace Aiursoft.Cpp;
+namespace Aiursoft.CppRunner;
 
 public class Program
 {

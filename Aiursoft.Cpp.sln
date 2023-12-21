@@ -1,25 +1,36 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.002.0
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.Cpp", "Aiursoft.Cpp.csproj", "{8BC9B669-D25C-4503-BD63-959CFBE34802}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A0A79FAE-211F-4BD2-9DE1-9AF4F1D3E48C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5043A0E6-E14A-41B4-BCDF-6E4B03490E1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aiursoft.CppRunner", "src\Aiursoft.CppRunner\Aiursoft.CppRunner.csproj", "{B7ADBF18-002A-460F-9570-6EA05F49FD1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aiursoft.CppRunner.Tests", "tests\Aiursoft.CppRunner.Tests\Aiursoft.CppRunner.Tests.csproj", "{F77A02DA-E7D6-4890-8779-C47F50E52784}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8BC9B669-D25C-4503-BD63-959CFBE34802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8BC9B669-D25C-4503-BD63-959CFBE34802}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8BC9B669-D25C-4503-BD63-959CFBE34802}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8BC9B669-D25C-4503-BD63-959CFBE34802}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B479A8E7-A344-4B76-8441-83E75EB12A0E}
+	GlobalSection(NestedProjects) = preSolution
+		{B7ADBF18-002A-460F-9570-6EA05F49FD1F} = {A0A79FAE-211F-4BD2-9DE1-9AF4F1D3E48C}
+		{F77A02DA-E7D6-4890-8779-C47F50E52784} = {5043A0E6-E14A-41B4-BCDF-6E4B03490E1A}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7ADBF18-002A-460F-9570-6EA05F49FD1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7ADBF18-002A-460F-9570-6EA05F49FD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7ADBF18-002A-460F-9570-6EA05F49FD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7ADBF18-002A-460F-9570-6EA05F49FD1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77A02DA-E7D6-4890-8779-C47F50E52784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77A02DA-E7D6-4890-8779-C47F50E52784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77A02DA-E7D6-4890-8779-C47F50E52784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77A02DA-E7D6-4890-8779-C47F50E52784}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
