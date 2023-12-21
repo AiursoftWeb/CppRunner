@@ -19,4 +19,8 @@
     <PackageReference Include="MSTest.TestFramework" Version="3.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Aiursoft.CppRunner\Aiursoft.CppRunner.csproj" />
+  </ItemGroup>
+
 </Project>
