@@ -8,7 +8,9 @@ public class CppLang : ILang
 
     public string LangName { get; set; } = "cpp";
 
-    public string DefaultCode { get; set; } = @"#include <iostream>
+    public string DefaultCode { get; set; } = 
+"""
+#include <iostream>
 #include <functional>
 std::function<int()> fibonacci()
 {
@@ -27,7 +29,9 @@ int main()
         std::cout << fib() << std::endl;
     }
     return 0;
-}";
+}
+
+""";
 
     public string EntryFileName { get; set; } = "main.cpp";
     public string DockerImage { get; set; } = "frolvlad/alpine-gxx";

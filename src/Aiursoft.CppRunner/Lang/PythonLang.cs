@@ -8,7 +8,9 @@ public class PythonLang : ILang
 
     public string LangName { get; set; } = "python";
 
-    public string DefaultCode { get; set; } = @"def fibonacci():
+    public string DefaultCode { get; set; } = 
+"""
+def fibonacci():
     current, next = 0, 1
     while True:
         yield current
@@ -17,7 +19,7 @@ public class PythonLang : ILang
 fib = fibonacci()
 for _ in range(20):
     print(next(fib))
-    ";
+""";
 
     public string EntryFileName { get; set; } = "main.py";
     public string DockerImage { get; set; } = "python:3.11-alpine";

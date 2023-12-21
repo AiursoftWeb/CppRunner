@@ -8,7 +8,9 @@ public class CSharpLang : ILang
 
     public string LangName { get; set; } = "csharp";
 
-    public string DefaultCode { get; set; } = @"using System;
+    public string DefaultCode { get; set; } = 
+"""
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,14 +28,15 @@ public class Program
   {
     int current = 1, next = 1;
 
-    while (true) 
+    while (true)
     {
       yield return current;
       next = current + (current = next);
     }
   }
 }
-";
+
+""";
 
     public string EntryFileName { get; set; } = "Program.cs";
     public string DockerImage { get; set; } = "mcr.microsoft.com/dotnet/sdk:8.0";
