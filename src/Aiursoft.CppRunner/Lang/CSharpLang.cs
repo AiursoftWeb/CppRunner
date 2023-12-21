@@ -45,6 +45,7 @@ public class Program
 <PropertyGroup>
 <OutputType>Exe</OutputType>
 <TargetFramework>net7.0</TargetFramework>
+<ImplicitUsings>enable</ImplicitUsings>
 </PropertyGroup>
 </Project>"
         }
