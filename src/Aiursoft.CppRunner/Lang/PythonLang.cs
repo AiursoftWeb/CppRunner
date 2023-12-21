@@ -2,7 +2,7 @@ namespace Aiursoft.CppRunner.Lang;
 
 public class PythonLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Python 3";
+    public string LangDisplayName { get; set; } = "Python (CPython 3.11)";
     
     public string LangExtension { get; set; } = "py";
 

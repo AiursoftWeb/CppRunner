@@ -2,7 +2,7 @@
 
 public class CppLang : ILang
 {
-    public string LangDisplayName { get; set; } = "C++";
+    public string LangDisplayName { get; set; } = "C++ (GNU G++, stdc++20)";
     
     public string LangExtension { get; set; } = "cpp";
 
@@ -33,7 +33,7 @@ int main()
 
     public string EntryFileName { get; set; } = "main.cpp";
     public string DockerImage { get; set; } = "frolvlad/alpine-gxx";
-    public string RunCommand { get; set; } = "g++ /app/main.cpp -o /tmp/main && /tmp/main";
+    public string RunCommand { get; set; } = "g++ -Wall -Wextra -O2 -std=c++20 /app/main.cpp -o /tmp/main && /tmp/main";
 
     public Dictionary<string, string> OtherFiles { get; set; } = new();
 }
