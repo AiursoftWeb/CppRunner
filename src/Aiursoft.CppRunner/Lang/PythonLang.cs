@@ -8,16 +8,15 @@ public class PythonLang : ILang
 
     public string LangName { get; set; } = "python";
 
-    public string DefaultCode { get; set; } = @"print(""ciallo"")
-def generate_fibonacci_sequence(n):
-    fibonacci_sequence = []
-    a, b = 0, 1
-    for _ in range(n):
-        fibonacci_sequence.append(a)
-        a, b = b, a + b
-    return fibonacci_sequence
+    public string DefaultCode { get; set; } = @"pdef fibonacci():
+    current, next = 0, 1
+    while True:
+        yield current
+        current, next = next, current + next
 
-print(generate_fibonacci_sequence(10))
+fib = fibonacci()
+for _ in range(20):
+    print(next(fib))
     ";
 
     public string EntryFileName { get; set; } = "main.py";

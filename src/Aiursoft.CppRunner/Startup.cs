@@ -29,6 +29,9 @@ public class Startup : IWebStartup
         app.UseStaticFiles();
         app.UseRouting();
         app.MapDefaultControllerRoute();
-        app.UseDefaultFiles();
+        app.UseDefaultFiles(new DefaultFilesOptions
+        {
+            DefaultFileNames = new List<string> { "index.html" }
+        });
     }
 }
