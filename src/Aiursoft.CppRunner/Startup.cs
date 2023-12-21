@@ -28,7 +28,7 @@ public class Startup : IWebStartup
         app.UseMiddleware<AllowCrossOriginMiddleware>();
         app.UseStaticFiles();
         app.UseRouting();
-        app.MapDefaultControllerRoute();
+        app.UseMvcWithDefaultRoute();
         app.UseDefaultFiles(new DefaultFilesOptions
         {
             DefaultFileNames = new List<string> { "index.html" }

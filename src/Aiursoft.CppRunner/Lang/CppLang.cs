@@ -22,8 +22,6 @@ std::function<int()> fibonacci()
 }
 int main()
 {
-    std::cout << ""Hello world!"" << std::endl;
-
     auto fib = fibonacci();
     for (int i = 0; i < 20; i++) {
         std::cout << fib() << std::endl;

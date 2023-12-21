@@ -8,7 +8,7 @@ public class PythonLang : ILang
 
     public string LangName { get; set; } = "python";
 
-    public string DefaultCode { get; set; } = @"pdef fibonacci():
+    public string DefaultCode { get; set; } = @"def fibonacci():
     current, next = 0, 1
     while True:
         yield current

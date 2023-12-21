@@ -25,7 +25,7 @@ function App() {
   const [data, setData] = useState('');
   const [code, setCode] = useState('');
   const [lang, setLang] = useState('');
-  const [runing, setRuning] = useState(false);
+  const [running, setRunning] = useState(false);
 
   const langSelectRef: MutableRefObject<HTMLSelectElement | null> = useRef(null);
 
@@ -41,7 +41,7 @@ function App() {
 
   const handleRun = async () => {
     try {
-      setRuning(true);
+      setRunning(true);
       const lang = langSelectRef.current!.value;
       const result: OutputResult = await runCode(lang, code);
       setData(result.output! || result.error!);
@@ -49,7 +49,7 @@ function App() {
       console.error(error);
     }
     finally {
-      setRuning(false);
+      setRunning(false);
     }
   }
 
@@ -70,7 +70,7 @@ function App() {
               }
             </select>
             <span className='flex-grow flex flex-row-reverse'>
-              <span><button className='p-2' disabled={runing} onClick={async () => { await handleRun() }}>Run</button></span>
+              <span><button className='p-2' disabled={running} onClick={async () => { await handleRun() }}>Run</button></span>
             </span>
           </div>
           <div className='h-full overflow-scroll'>
@@ -101,7 +101,7 @@ function App() {
             </span>
           </div>
           <div className='relative h-full p-2 rounded border border-gray-600 break-words'>
-            {runing && <div className='absolute bottom-1/2 left-1/2 z-50 center text-lg'>Runing...</div>}
+            {running && <div className='absolute bottom-1/2 left-1/2 z-50 center text-lg'>Running...</div>}
             <CodeEditor
               value={data}
               language={lang}
