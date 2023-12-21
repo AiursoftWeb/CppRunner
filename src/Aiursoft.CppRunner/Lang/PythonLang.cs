@@ -6,7 +6,7 @@ public class PythonLang : ILang
     
     public string LangExtension { get; set; } = "py";
 
-    public string LangName { get; set; } = "python3";
+    public string LangName { get; set; } = "python";
 
     public string DefaultCode { get; set; } = @"print(""ciallo"")
 def generate_fibonacci_sequence(n):
