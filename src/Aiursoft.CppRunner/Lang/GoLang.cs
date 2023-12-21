@@ -2,7 +2,7 @@
 
 public class GoLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Go (Go 1.17)";
+    public string LangDisplayName { get; set; } = "Go (Go 1.21.5)";
 
     public string LangExtension { get; set; } = "go";
 
@@ -33,7 +33,7 @@ public class GoLang : ILang
 
     public string EntryFileName { get; set; } = "main.go";
 
-    public string DockerImage { get; set; } = "golang:1.17-alpine";
+    public string DockerImage { get; set; } = "golang:1.21.5";
 
     public string RunCommand { get; set; } = "go run /app/main.go";
 
