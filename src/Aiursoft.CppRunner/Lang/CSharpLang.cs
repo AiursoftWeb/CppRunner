@@ -23,7 +23,7 @@ public class Program
         while (true)
         {
             yield return current;
-        n   ext = current + (current = next);
+            next = current + (current = next);
         }
     }
 
