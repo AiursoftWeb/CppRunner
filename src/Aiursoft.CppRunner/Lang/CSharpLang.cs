@@ -2,7 +2,7 @@
 
 public class CSharpLang : ILang
 {
-    public string LangDisplayName { get; set; } = "C# (.NET 8.0)";
+    public string LangDisplayName { get; set; } = "C# (.NET 7.0)";
     
     public string LangExtension { get; set; } = "cs";
 
@@ -39,7 +39,7 @@ public class Program
 """;
 
     public string EntryFileName { get; set; } = "Program.cs";
-    public string DockerImage { get; set; } = "mcr.microsoft.com/dotnet/sdk:8.0";
+    public string DockerImage { get; set; } = "mcr.microsoft.com/dotnet/sdk:7.0";
     public string RunCommand { get; set; } = "dotnet run --project /app/Project.csproj";
 
     public Dictionary<string, string> OtherFiles { get; set; } = new()
@@ -49,7 +49,7 @@ public class Program
             @"<Project Sdk=""Microsoft.NET.Sdk"">
 <PropertyGroup>
 <OutputType>Exe</OutputType>
-<TargetFramework>net8.0</TargetFramework>
+<TargetFramework>net7.0</TargetFramework>
 <ImplicitUsings>enable</ImplicitUsings>
 </PropertyGroup>
 </Project>"

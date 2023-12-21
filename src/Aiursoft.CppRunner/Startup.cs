@@ -17,6 +17,22 @@ public class Startup : IWebStartup
         services.AddScoped<ILang, CSharpLang>();
         services.AddScoped<ILang, PythonLang>();
         services.AddScoped<ILang, NodeJsLang>();
+        services.AddScoped<ILang, TypeScriptLang>();
+        services.AddScoped<ILang, GoLang>();
+        services.AddScoped<ILang, JavaLang>();
+        services.AddScoped<ILang, RustLang>();
+        services.AddScoped<ILang, RubyLang>();
+        services.AddScoped<ILang, PhpLang>();
+        services.AddScoped<ILang, PerlLang>();
+        services.AddScoped<ILang, SwiftLang>();
+        services.AddScoped<ILang, KotlinLang>();
+        services.AddScoped<ILang, HaskellLang>();
+        // TODO: 
+        // C
+        // Lisp
+        // Scala
+        // Haskell
+        
         
         services
             .AddControllersWithViews()
