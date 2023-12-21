@@ -1,4 +1,6 @@
 using System.Reflection;
+using Aiursoft.Canon;
+using Aiursoft.CppRunner.Lang;
 using Aiursoft.CSTools.Services;
 using Aiursoft.WebTools;
 using Aiursoft.WebTools.Models;
@@ -19,9 +21,13 @@ public class Startup : IWebStartup
     public void ConfigureServices(IConfiguration configuration, IWebHostEnvironment environment, IServiceCollection services)
     {
         services.AddScoped<CommandService>();
+
+        services.AddTaskCanon();
+        
+        services.AddScoped<ILang, CppLang>();
         
         services
-            .AddControllers()
+            .AddControllersWithViews()
             .AddApplicationPart(Assembly.GetExecutingAssembly());
     }
 
