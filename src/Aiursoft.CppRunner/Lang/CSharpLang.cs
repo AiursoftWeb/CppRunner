@@ -6,7 +6,7 @@ public class CSharpLang : ILang
     
     public string LangExtension { get; set; } = "cs";
 
-    public string LangName { get; set; } = "cpp";
+    public string LangName { get; set; } = "csharp";
 
     public string DefaultCode { get; set; } = @"using System;
 using System.Collections.Generic;
