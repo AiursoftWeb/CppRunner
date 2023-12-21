@@ -27,13 +27,11 @@ public class Startup : IWebStartup
         services.AddScoped<ILang, SwiftLang>();
         services.AddScoped<ILang, KotlinLang>();
         services.AddScoped<ILang, HaskellLang>();
-        // TODO: 
-        // C
-        // Lisp
-        // Scala
-        // Haskell
-        
-        
+        services.AddScoped<ILang, LuaLang>();
+        services.AddScoped<ILang, ObjCLang>();
+        services.AddScoped<ILang, PowerShellLang>();
+        services.AddScoped<ILang, LispLang>();
+
         services
             .AddControllersWithViews()
             .AddApplicationPart(Assembly.GetExecutingAssembly());

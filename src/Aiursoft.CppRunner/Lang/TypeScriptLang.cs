@@ -1,18 +1,18 @@
-namespace Aiursoft.CppRunner.Lang;
+﻿namespace Aiursoft.CppRunner.Lang;
 
-public class NodeJsLang : ILang
+public class TypeScriptLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Javascript (Node.js v21)";
+    public string LangDisplayName { get; set; } = "TypeScript (Node.js v21)";
 
-    public string LangExtension { get; set; } = "js";
+    public string LangExtension { get; set; } = "ts";
 
-    public string LangName { get; set; } = "javascript";
+    public string LangName { get; set; } = "typescript";
 
     public string DefaultCode { get; set; } =
         """
-        function fibonacci() {
+        function fibonacci(): () => number {
           let current = 1, next = 1;
-          return function() {
+          return function(): number {
               const temp = current;
               current = next;
               next = temp + current;
@@ -24,12 +24,11 @@ public class NodeJsLang : ILang
         for (let i = 0; i < 20; i++) {
           console.log(fib());
         }
-
         """;
 
-    public string EntryFileName { get; set; } = "main.js";
+    public string EntryFileName { get; set; } = "main.ts";
     public string DockerImage { get; set; } = "node:21-alpine";
-    public string RunCommand { get; set; } = "node /app/main.js";
+    public string RunCommand { get; set; } = "tsc /app/main.ts && node /app/main.js";
 
     public Dictionary<string, string> OtherFiles { get; set; } = new();
 }
