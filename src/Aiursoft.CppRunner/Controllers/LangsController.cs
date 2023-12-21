@@ -19,6 +19,7 @@ public class LangsController : ControllerBase
         return this.Ok(_langs.Select(l => new
         {
             l.LangName,
+            l.LangDisplayName,
             l.LangExtension,
         }));
     }
@@ -26,7 +27,7 @@ public class LangsController : ControllerBase
     [Route("{lang}/default")]
     public IActionResult GetlangDefaultCode(string lang)
     {
-        var langDetails = _langs.FirstOrDefault(l => string.Equals(l.LangExtension, lang, StringComparison.CurrentCultureIgnoreCase));
+        var langDetails = _langs.FirstOrDefault(l => string.Equals(l.LangName, lang, StringComparison.CurrentCultureIgnoreCase));
         if (langDetails == null)
         {
             return NotFound();

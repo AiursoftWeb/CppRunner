@@ -2,9 +2,11 @@
 
 public class CSharpLang : ILang
 {
-    public string LangName { get; set; } = "C#";
+    public string LangDisplayName { get; set; } = "C#";
     
     public string LangExtension { get; set; } = "cs";
+
+    public string LangName { get; set; } = "cpp";
 
     public string DefaultCode { get; set; } = @"using System;
 using System.Collections.Generic;
@@ -33,7 +35,7 @@ public class Program
 }
 ";
 
-    public string FileName { get; set; } = "Program.cs";
+    public string EntryFileName { get; set; } = "Program.cs";
     public string DockerImage { get; set; } = "mcr.microsoft.com/dotnet/sdk:7.0";
     public string RunCommand { get; set; } = "dotnet run --project /app/Project.csproj";
 

@@ -31,7 +31,7 @@ public class RunnerController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Run([FromQuery]string lang)
     {
-        var langImplement = _langs.FirstOrDefault(t => string.Equals(t.LangExtension, lang, StringComparison.CurrentCultureIgnoreCase));
+        var langImplement = _langs.FirstOrDefault(t => string.Equals(t.LangName, lang, StringComparison.CurrentCultureIgnoreCase));
         if (langImplement == null)
         {
             return BadRequest("Lang not found!");
@@ -44,7 +44,7 @@ public class RunnerController : ControllerBase
         Directory.CreateDirectory(folder);
         
         _logger.LogInformation("Build ID: {BuildId}", buildId);
-        var sourceFile = Path.Combine(folder, langImplement.FileName);
+        var sourceFile = Path.Combine(folder, langImplement.EntryFileName);
         await System.IO.File.WriteAllTextAsync(sourceFile, code);
 
         foreach (var otherFile in langImplement.OtherFiles)

@@ -2,9 +2,11 @@
 
 public class CppLang : ILang
 {
-    public string LangName { get; set; } = "C++";
+    public string LangDisplayName { get; set; } = "C++";
     
     public string LangExtension { get; set; } = "cpp";
+
+    public string LangName { get; set; } = "cpp";
 
     public string DefaultCode { get; set; } = @"#include <iostream>
 #include <functional>
@@ -29,7 +31,7 @@ int main()
     return 0;
 }";
 
-    public string FileName { get; set; } = "main.cpp";
+    public string EntryFileName { get; set; } = "main.cpp";
     public string DockerImage { get; set; } = "frolvlad/alpine-gxx";
     public string RunCommand { get; set; } = "g++ /app/main.cpp -o /tmp/main && /tmp/main";
 
