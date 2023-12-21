@@ -7,18 +7,19 @@ using Aiursoft.CSTools.Services;
 
 namespace Aiursoft.CppRunner.Controllers;
 
-public class HomeController : Controller
+[Route("runner")]
+public class RunnerController : ControllerBase
 {
     private readonly string _tempFolder = Path.GetTempPath();
     private readonly CanonQueue _queue;
     private readonly IEnumerable<ILang> _langs;
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<RunnerController> _logger;
     private readonly CommandService _commandService;
 
-    public HomeController(
+    public RunnerController(
         CanonQueue queue,
         IEnumerable<ILang> langs,
-        ILogger<HomeController> logger,
+        ILogger<RunnerController> logger,
         CommandService commandService)
     {
         _queue = queue;
@@ -27,24 +28,9 @@ public class HomeController : Controller
         _commandService = commandService;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    [Route("langs")]
-    public IActionResult GetSupportedLangs()
-    {
-        return this.Ok(_langs.Select(l => new
-        {
-            l.LangName,
-            l.LangExtension,
-        }));
-    }
-
     [Route("run")]
     [HttpPost]
-    public async Task<IActionResult> Run([FromQuery][Required]string lang, [FromForm]string content)
+    public async Task<IActionResult> Run([FromQuery][Required]string lang)
     {
         var langImplement = _langs.FirstOrDefault(t => string.Equals(t.LangExtension, lang, StringComparison.CurrentCultureIgnoreCase));
         if (langImplement == null)
@@ -52,29 +38,37 @@ public class HomeController : Controller
             return BadRequest("Lang not found!");
         }
         
+        var code = await new StreamReader(Request.Body).ReadToEndAsync();
+        
         var buildId = Guid.NewGuid().ToString("N");
         var folder = Path.Combine(_tempFolder, buildId);
         Directory.CreateDirectory(folder);
         
         _logger.LogInformation("Build ID: {BuildId}", buildId);
         var sourceFile = Path.Combine(folder, langImplement.FileName);
-        await System.IO.File.WriteAllTextAsync(sourceFile, content);
-        var processId = 0;
+        await System.IO.File.WriteAllTextAsync(sourceFile, code);
 
+        foreach (var otherFile in langImplement.OtherFiles)
+        {
+            _logger.LogInformation("Writing file {FileName} to {Folder}", otherFile.Key, folder);
+            await System.IO.File.WriteAllTextAsync(Path.Combine(folder, otherFile.Key), otherFile.Value);
+        }
+        
+        var processId = 0;
         try
         {
-            var (code, output, error) = await _commandService.RunCommandAsync(
+            var (resultCode, output, error) = await _commandService.RunCommandAsync(
                 bin: "docker",
                 arg:
                 $"run --rm --name {buildId} --cpus=0.5 --memory=256m --network none -v {folder}:/app {langImplement.DockerImage} sh -c \"{langImplement.RunCommand}\"",
                 path: _tempFolder,
                 timeout: TimeSpan.FromSeconds(10),
                 i => processId = i);
-            _logger.LogInformation("{Build} Code: {Code}", buildId, code);
+            _logger.LogInformation("{Build} Code: {Code}", buildId, resultCode);
 
             return Ok(new
             {
-                code,
+                resultCode,
                 output,
                 error
             });

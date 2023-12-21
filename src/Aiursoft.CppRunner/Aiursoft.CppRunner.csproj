@@ -22,4 +22,8 @@
     <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
     <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\Index.cshtml" />
+    <UpToDateCheckInput Remove="Views\_ViewImports.cshtml" />
+  </ItemGroup>
 </Project>

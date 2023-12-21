@@ -25,6 +25,7 @@ public class Startup : IWebStartup
         services.AddTaskCanon();
         
         services.AddScoped<ILang, CppLang>();
+        services.AddScoped<ILang, CSharpLang>();
         
         services
             .AddControllersWithViews()
@@ -33,6 +34,7 @@ public class Startup : IWebStartup
 
     public void Configure(WebApplication app)
     {
+        app.UseMiddleware<AllowCrossOriginMiddleware>();
         app.UseRouting();
         app.MapDefaultControllerRoute();
     }
