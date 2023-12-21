@@ -11,7 +11,7 @@ public class PythonLang : ILang
     public string DefaultCode { get; set; } = 
 """
 def fibonacci():
-    current, next = 0, 1
+    current, next = 1, 1
     while True:
         yield current
         current, next = next, current + next

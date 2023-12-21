@@ -11,7 +11,7 @@ public class NodeJsLang : ILang
     public string DefaultCode { get; set; } = 
 """
 function fibonacci() {
-  let current = 0, next = 1;
+  let current = 1, next = 1;
   return function() {
       const temp = current;
       current = next;
