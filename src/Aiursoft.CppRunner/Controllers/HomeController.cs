@@ -37,17 +37,18 @@ public class HomeController : Controller
         var sourceFile = Path.Combine(folder, "main.cpp");
         await System.IO.File.WriteAllTextAsync(sourceFile, content);
         var processId = 0;
-        
+
         try
         {
             var (code, output, error) = await _commandService.RunCommandAsync(
                 bin: "docker",
-                arg: $"run --rm --cpus=0.5 --memory=256m --network none -v {folder}:/app frolvlad/alpine-gxx sh -c \"g++ /app/main.cpp -o /tmp/main && /tmp/main\"",
+                arg:
+                $"run --rm --name {buildId} --cpus=0.5 --memory=256m --network none -v {folder}:/app frolvlad/alpine-gxx sh -c \"g++ /app/main.cpp -o /tmp/main && /tmp/main\"",
                 path: _tempFolder,
                 timeout: TimeSpan.FromSeconds(10),
                 i => processId = i);
             _logger.LogInformation("{Build} Code: {Code}", buildId, code);
-            
+
             return Ok(new
             {
                 code,
@@ -65,7 +66,28 @@ public class HomeController : Controller
                 var process = Process.GetProcessById(processId);
                 process.Kill();
             }
+
             return BadRequest(e.Message);
+        }
+        finally
+        {
+            // Kill and remove the container.
+            _logger.LogInformation("Killing container {Build}", buildId);
+            _ = await _commandService.RunCommandAsync(
+                bin: "docker",
+                arg: $"kill {buildId}",
+                path: _tempFolder,
+                timeout: TimeSpan.FromSeconds(10));
+            
+            _logger.LogInformation("Removing container {Build}", buildId);
+            _ = await _commandService.RunCommandAsync(
+                bin: "docker",
+                arg: $"rm -f {buildId}",
+                path: _tempFolder,
+                timeout: TimeSpan.FromSeconds(10));
+            
+            _logger.LogInformation("Removing folder {Build}", buildId);
+            CSTools.Tools.FolderDeleter.DeleteByForce(folder);
         }
     }
 }
