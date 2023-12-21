@@ -25,13 +25,10 @@ public class Startup : IWebStartup
 
     public void Configure(WebApplication app)
     {
-        app.UseMiddleware<AllowCrossOriginMiddleware>();
+        app.UseDefaultFiles();
         app.UseStaticFiles();
         app.UseRouting();
-        app.UseMvcWithDefaultRoute();
-        app.UseDefaultFiles(new DefaultFilesOptions
-        {
-            DefaultFileNames = new List<string> { "index.html" }
-        });
+        app.UseMiddleware<AllowCrossOriginMiddleware>();
+        app.MapDefaultControllerRoute();
     }
 }

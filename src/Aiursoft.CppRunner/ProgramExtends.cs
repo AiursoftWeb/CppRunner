@@ -1,11 +1,10 @@
-using Aiursoft.CppRunner.Lang;
 using Aiursoft.CSTools.Services;
 
 namespace Aiursoft.CppRunner;
 
 public static class ProgramExtends
 {
-    public static async Task<IHost> SeedAsync(this IHost host)
+    public static async Task<IHost> PullContainersAsync(this IHost host)
     {
         using var scope = host.Services.CreateScope();
         var services = scope.ServiceProvider;

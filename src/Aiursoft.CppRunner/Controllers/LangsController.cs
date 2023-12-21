@@ -1,5 +1,4 @@
-﻿using Aiursoft.CppRunner.Lang;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Aiursoft.CppRunner.Controllers;
 
@@ -25,7 +24,7 @@ public class LangsController : ControllerBase
     }
     
     [Route("{lang}/default")]
-    public IActionResult GetlangDefaultCode(string lang)
+    public IActionResult GetLangDefaultCode(string lang)
     {
         var langDetails = _langs.FirstOrDefault(l => string.Equals(l.LangName, lang, StringComparison.CurrentCultureIgnoreCase));
         if (langDetails == null)
