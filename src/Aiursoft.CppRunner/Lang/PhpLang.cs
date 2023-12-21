@@ -2,7 +2,7 @@
 
 public class PhpLang : ILang
 {
-    public string LangDisplayName { get; set; } = "PHP (PHP 8.0)";
+    public string LangDisplayName { get; set; } = "PHP (8.3.0)";
 
     public string LangExtension { get; set; } = "php";
 
@@ -29,7 +29,7 @@ public class PhpLang : ILang
 
     public string EntryFileName { get; set; } = "main.php";
 
-    public string DockerImage { get; set; } = "php:8.0-alpine";
+    public string DockerImage { get; set; } = "php:8.3.0-zts";
 
     public string RunCommand { get; set; } = "php /app/main.php";
 

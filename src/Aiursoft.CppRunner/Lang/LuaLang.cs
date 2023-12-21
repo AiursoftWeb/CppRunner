@@ -27,7 +27,7 @@ public class LuaLang : ILang
 
     public string EntryFileName { get; set; } = "main.lua";
 
-    public string DockerImage { get; set; } = "lua:5.4-alpine";
+    public string DockerImage { get; set; } = "lua:5.4";
 
     public string RunCommand { get; set; } = "lua /app/main.lua";
 

@@ -2,7 +2,7 @@
 
 public class PerlLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Perl (Perl 5.34)";
+    public string LangDisplayName { get; set; } = "Perl (5.39.5)";
 
     public string LangExtension { get; set; } = "pl";
 
@@ -27,7 +27,7 @@ public class PerlLang : ILang
 
     public string EntryFileName { get; set; } = "main.pl";
 
-    public string DockerImage { get; set; } = "perl:5.34-alpine";
+    public string DockerImage { get; set; } = "perl:5.39.5";
 
     public string RunCommand { get; set; } = "perl /app/main.pl";
 

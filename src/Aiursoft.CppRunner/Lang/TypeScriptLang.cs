@@ -28,7 +28,7 @@ public class TypeScriptLang : ILang
 
     public string EntryFileName { get; set; } = "main.ts";
     public string DockerImage { get; set; } = "node:21-alpine";
-    public string RunCommand { get; set; } = "tsc /app/main.ts && node /app/main.js";
+    public string RunCommand { get; set; } = "ts-node /app/main.ts";
 
     public Dictionary<string, string> OtherFiles { get; set; } = new();
 }

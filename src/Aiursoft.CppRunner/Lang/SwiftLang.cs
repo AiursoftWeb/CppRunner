@@ -2,7 +2,7 @@
 
 public class SwiftLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Swift (Swift 5.5)";
+    public string LangDisplayName { get; set; } = "Swift (5.8.1)";
 
     public string LangExtension { get; set; } = "swift";
 
@@ -28,7 +28,7 @@ public class SwiftLang : ILang
 
     public string EntryFileName { get; set; } = "main.swift";
 
-    public string DockerImage { get; set; } = "swift:5.5-alpine";
+    public string DockerImage { get; set; } = "swift:5.8.1";
 
     public string RunCommand { get; set; } = "swift /app/main.swift";
 

@@ -2,7 +2,7 @@
 
 public class LispLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Lisp (SBCL 2.1)";
+    public string LangDisplayName { get; set; } = "Lisp";
 
     public string LangExtension { get; set; } = "lisp";
 
@@ -21,7 +21,7 @@ public class LispLang : ILang
 
     public string EntryFileName { get; set; } = "main.lisp";
 
-    public string DockerImage { get; set; } = "sbcl:2.1-alpine";
+    public string DockerImage { get; set; } = "rigetti/lisp:latest";
 
     public string RunCommand { get; set; } = "sbcl --script /app/main.lisp";
 

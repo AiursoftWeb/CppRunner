@@ -2,7 +2,7 @@
 
 public class RubyLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Ruby (MRI 3.1)";
+    public string LangDisplayName { get; set; } = "Ruby (3.2.2)";
 
     public string LangExtension { get; set; } = "rb";
 
@@ -23,7 +23,7 @@ public class RubyLang : ILang
 
     public string EntryFileName { get; set; } = "main.rb";
 
-    public string DockerImage { get; set; } = "ruby:3.1-alpine";
+    public string DockerImage { get; set; } = "ruby:3.2.2";
 
     public string RunCommand { get; set; } = "ruby /app/main.rb";
 

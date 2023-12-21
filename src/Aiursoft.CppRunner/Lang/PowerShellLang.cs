@@ -2,7 +2,7 @@
 
 public class PowerShellLang : ILang
 {
-    public string LangDisplayName { get; set; } = "PowerShell (PowerShell 7.1)";
+    public string LangDisplayName { get; set; } = "PowerShell Core";
 
     public string LangExtension { get; set; } = "ps1";
 
@@ -23,7 +23,7 @@ public class PowerShellLang : ILang
 
     public string EntryFileName { get; set; } = "main.ps1";
 
-    public string DockerImage { get; set; } = "mcr.microsoft.com/powershell:7.1-alpine";
+    public string DockerImage { get; set; } = "mcr.microsoft.com/powershell";
 
     public string RunCommand { get; set; } = "pwsh /app/main.ps1";
 
