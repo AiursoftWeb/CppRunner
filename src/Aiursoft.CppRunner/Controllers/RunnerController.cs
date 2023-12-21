@@ -62,7 +62,7 @@ public class RunnerController : ControllerBase
                 arg:
                 $"run --rm --name {buildId} --cpus=0.5 --memory=256m --network none -v {folder}:/app {langImplement.DockerImage} sh -c \"{langImplement.RunCommand}\"",
                 path: _tempFolder,
-                timeout: TimeSpan.FromSeconds(10),
+                timeout: TimeSpan.FromSeconds(30),
                 i => processId = i);
             _logger.LogInformation("{Build} Code: {Code}", buildId, resultCode);
 
