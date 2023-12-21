@@ -31,14 +31,16 @@ public class HomeController : Controller
         
         var sourceFile = Path.Combine(folder, "main.cpp");
         await System.IO.File.WriteAllTextAsync(sourceFile, content);
-
+        var processId = 0;
+        
         try
         {
             var (code, output, error) = await _commandService.RunCommandAsync(
                 bin: "docker",
                 arg: $"run --rm --cpus=0.5 --memory=256m --network none -v {folder}:/app frolvlad/alpine-gxx sh -c \"g++ /app/main.cpp -o /tmp/main && /tmp/main\"",
                 path: _tempFolder,
-                timeout: TimeSpan.FromSeconds(10));
+                timeout: TimeSpan.FromSeconds(10),
+                i => processId = i);
             
             return Json(new
             {
@@ -50,12 +52,11 @@ public class HomeController : Controller
         catch (TimeoutException e)
         {
             // Kill the process.
-            var process = Process.GetProcessesByName("docker");
-            foreach (var p in process)
+            if (processId != 0)
             {
-                p.Kill();
+                var process = Process.GetProcessById(processId);
+                process.Kill();
             }
-            
             return BadRequest(e.Message);
         }
     }
