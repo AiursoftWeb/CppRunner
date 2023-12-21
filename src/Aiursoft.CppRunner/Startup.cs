@@ -15,6 +15,8 @@ public class Startup : IWebStartup
         services.AddTaskCanon();
         services.AddScoped<ILang, CppLang>();
         services.AddScoped<ILang, CSharpLang>();
+        services.AddScoped<ILang, PythonLang>();
+        services.AddScoped<ILang, NodeJSLang>();
         
         services
             .AddControllersWithViews()
