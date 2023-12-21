@@ -2,7 +2,7 @@
 
 public class JavaLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Java (OpenJDK 17)";
+    public string LangDisplayName { get; set; } = "Java (OpenJDK 23)";
 
     public string LangExtension { get; set; } = "java";
 
@@ -24,7 +24,7 @@ public class JavaLang : ILang
 
     public string EntryFileName { get; set; } = "Main.java";
 
-    public string DockerImage { get; set; } = "openjdk:17-alpine";
+    public string DockerImage { get; set; } = "openjdk:23-jdk";
 
     public string RunCommand { get; set; } = "javac /app/Main.java && java -cp /app Main";
 
