@@ -2,7 +2,7 @@
 
 public class GoLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Go (Go 1.21.5)";
+    public string LangDisplayName { get; set; } = "Go (Golang 1.21.5)";
 
     public string LangExtension { get; set; } = "go";
 
