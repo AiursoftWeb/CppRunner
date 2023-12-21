@@ -78,7 +78,7 @@ function App() {
               <CodeEditor
                 value={code}
                 language={lang}
-                placeholder="Please enter CPP code."
+                placeholder={`Enter ${lang} code:`}
                 onChange={(evn) => setCode(evn.target.value)}
                 padding={15}
                 minHeight={100}
@@ -100,7 +100,7 @@ function App() {
               <button type='button' className='p-2' onClick={() => { handleClear() }}>Clear</button>
             </span>
           </div>
-          <div className='relative h-full p-2 rounded border border-gray-600 break-words'>
+          <div className='relative h-full p-2 rounded border border-gray-600 break-words overflow-scroll'>
             {running && <div className='absolute bottom-1/2 left-1/2 z-50 center text-lg'>Running...</div>}
             <CodeEditor
               value={data}
