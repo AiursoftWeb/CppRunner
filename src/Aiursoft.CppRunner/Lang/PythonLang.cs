@@ -19,6 +19,7 @@ def fibonacci():
 fib = fibonacci()
 for _ in range(20):
     print(next(fib))
+
 """;
 
     public string EntryFileName { get; set; } = "main.py";

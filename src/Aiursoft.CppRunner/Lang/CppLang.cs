@@ -12,6 +12,7 @@ public class CppLang : ILang
 """
 #include <iostream>
 #include <functional>
+
 std::function<int()> fibonacci()
 {
     int current = 1, next = 1;
@@ -22,6 +23,7 @@ std::function<int()> fibonacci()
         return result;
     };
 }
+
 int main()
 {
     auto fib = fibonacci();

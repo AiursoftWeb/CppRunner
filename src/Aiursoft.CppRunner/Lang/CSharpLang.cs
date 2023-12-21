@@ -16,24 +16,24 @@ using System.Linq;
 
 public class Program
 {
-  public static void Main()
-  {
-    foreach (var i in Fibonacci().Take(20))
+    private static IEnumerable<int> Fibonacci()
     {
-      Console.WriteLine(i);
+        int current = 1, next = 1;
+
+        while (true)
+        {
+            yield return current;
+        n   ext = current + (current = next);
+        }
     }
-  }
 
-  private static IEnumerable<int> Fibonacci()
-  {
-    int current = 1, next = 1;
-
-    while (true)
+    public static void Main()
     {
-      yield return current;
-      next = current + (current = next);
+        foreach (var i in Fibonacci().Take(20))
+        {
+            Console.WriteLine(i);
+        }
     }
-  }
 }
 
 """;
