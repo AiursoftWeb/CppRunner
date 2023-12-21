@@ -38,7 +38,7 @@ public class IntegrationTests
     [TestMethod]
     [DataRow("/langs")]
     [DataRow("/langs/cpp/default")]
-    [DataRow("/langs/cs/default")]
+    [DataRow("/langs/csharp/default")]
     public async Task GetHome(string url)
     {
         var response = await _http.GetAsync(_endpointUrl + url);
