@@ -2,7 +2,7 @@
 
 public class LuaLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Lua (Lua 5.4)";
+    public string LangDisplayName { get; set; } = "Lua (5.4)";
 
     public string LangExtension { get; set; } = "lua";
 
@@ -27,7 +27,7 @@ public class LuaLang : ILang
 
     public string EntryFileName { get; set; } = "main.lua";
 
-    public string DockerImage { get; set; } = "lua:5.4";
+    public string DockerImage { get; set; } = "imolein/lua:5.4";
 
     public string RunCommand { get; set; } = "lua /app/main.lua";
 
