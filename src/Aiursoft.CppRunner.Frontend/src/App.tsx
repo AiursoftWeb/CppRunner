@@ -5,6 +5,8 @@ import { State as ViewState } from './view-status';
 import type { OutputResult } from './models/language';
 import './styles/tailwind.css';
 
+const OUTPUT_RENDER_MAX_LENGTH = 1024 * 2;
+
 function App() {
 
   let runCodeController: MutableRefObject<AbortController | null> = useRef(null);
@@ -107,6 +109,7 @@ function App() {
         Aiursoft C++ Runner Online
       </div>
       <div className='flex flex-row gap-4 h-[85vh] w-full px-2'>
+
         <div className='flex flex-col flex-grow max-w-[50vw]'>
           <div className='flex items-center my-4 space-x-4'>
             <span>Input:</span>
@@ -159,19 +162,26 @@ function App() {
             </div>
             <div className='relative p-2 h-5/6 rounded border border-gray-600 break-words overflow-scroll'>
               {data.running && <div className='absolute bottom-1/2 left-1/2 z-50 center text-lg'>Running...</div>}
-              <CodeEditor
-                value={result.output}
-                language={data.lang}
-                padding={15}
-                minHeight={100}
-                disabled={true}
-                data-color-mode="dark"
-                style={{
-                  backgroundColor: "#202b3c",
-                  minHeight: '100%',
-                  fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-                }}
-              />
+              {
+                result.output!.length < OUTPUT_RENDER_MAX_LENGTH ?
+                  (<CodeEditor
+                    value={result.output}
+                    language={data.lang}
+                    padding={15}
+                    minHeight={100}
+                    disabled={true}
+                    data-color-mode="dark"
+                    style={{
+                      backgroundColor: "#202b3c",
+                      minHeight: '100%',
+                      fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                    }}
+                  />) : (
+                    <textarea className='h-full w-full bg-[#202b3c] resize-none outline-none'
+                      value={result.output} readOnly>
+                    </textarea>
+                  )
+              }
             </div>
           </div>
 
@@ -184,19 +194,27 @@ function App() {
             </div>
             <div className='relative h-[80%] p-2 rounded border border-gray-600 break-words overflow-scroll'>
               {data.running && <div className='absolute bottom-1/2 left-1/2 z-50 center text-lg'>Running...</div>}
-              <CodeEditor
-                value={result.error}
-                language={data.lang}
-                padding={15}
-                minHeight={100}
-                disabled={true}
-                data-color-mode="dark"
-                style={{
-                  backgroundColor: "#202b3c",
-                  minHeight: '100%',
-                  fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-                }}
-              />
+              {
+                result.error!.length < OUTPUT_RENDER_MAX_LENGTH ?
+                  (<CodeEditor
+                    value={result.error}
+                    language={data.lang}
+                    padding={15}
+                    minHeight={100}
+                    disabled={true}
+                    data-color-mode="dark"
+                    style={{
+                      backgroundColor: "#202b3c",
+                      minHeight: '100%',
+                      fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                    }}
+                  />) : (
+                    <textarea className='h-full w-full bg-[#202b3c] resize-none outline-none'
+                      value={result.error} readOnly>
+                    </textarea>
+                  )
+              }
+
             </div>
           </div>
         </div>
