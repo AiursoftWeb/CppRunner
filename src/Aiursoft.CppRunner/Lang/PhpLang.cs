@@ -12,7 +12,7 @@ public class PhpLang : ILang
         """
         <?php
         function fibonacci() {
-            $current = 0;
+            $current = 1;
             $next = 1;
             while (true) {
                 yield $current;

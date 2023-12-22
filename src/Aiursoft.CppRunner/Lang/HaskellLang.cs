@@ -12,6 +12,9 @@ public class HaskellLang : ILang
         """
         fibonacci :: [Integer]
         fibonacci = 1 : 1 : zipWith (+) fibonacci (tail fibonacci)
+        
+        main :: IO ()
+        main = print $ take 20 fibonacci
         """;
 
     public string EntryFileName { get; set; } = "main.hs";
