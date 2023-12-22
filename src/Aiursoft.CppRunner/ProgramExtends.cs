@@ -13,8 +13,10 @@ public static class ProgramExtends
         var logger = services.GetRequiredService<ILogger<Startup>>();
         var langs = services.GetRequiredService<IEnumerable<ILang>>();
         var retryEngine = services.GetRequiredService<RetryEngine>();
-
+        var pool = services.GetRequiredService<CanonPool>();
+        
         var downloadedImages = await commandService.RunCommandAsync("docker", "images", Path.GetTempPath());
+        logger.LogInformation("Downloaded images: {Images}", downloadedImages.output);
         
         foreach (var lang in langs)
         {
@@ -23,8 +25,7 @@ public static class ProgramExtends
                 logger.LogInformation("Docker image {Image} already downloaded.", lang.DockerImage);
                 continue;
             }
-            
-            await retryEngine.RunWithRetry(async _ =>
+            pool.RegisterNewTaskToPool(() => retryEngine.RunWithRetry(async _ =>
             {
                 logger.LogInformation("Pulling docker image {Image}", lang.DockerImage);
                 var result = await commandService.RunCommandAsync("docker", $"pull {lang.DockerImage}", path: Path.GetTempPath(), timeout: TimeSpan.FromMinutes(5));
@@ -32,8 +33,10 @@ public static class ProgramExtends
                 {
                     throw new Exception($"Failed to pull docker image {lang.DockerImage}! Error: {result.error}");
                 }
-            }, 5);
+            }, 5));
         }
+
+        await pool.RunAllTasksInPoolAsync();
         return host;
     }
 }

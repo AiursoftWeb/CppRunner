@@ -28,20 +28,21 @@ public class RunnerController : ControllerBase
 
     [Route("run")]
     [HttpPost]
-    public async Task<IActionResult> Run([FromQuery]string lang)
+    public async Task<IActionResult> Run([FromQuery] string lang)
     {
-        var langImplement = _langs.FirstOrDefault(t => string.Equals(t.LangName, lang, StringComparison.CurrentCultureIgnoreCase));
+        var langImplement =
+            _langs.FirstOrDefault(t => string.Equals(t.LangName, lang, StringComparison.CurrentCultureIgnoreCase));
         if (langImplement == null)
         {
             return BadRequest("Lang not found!");
         }
-        
+
         var code = await new StreamReader(Request.Body).ReadToEndAsync();
-        
+
         var buildId = Guid.NewGuid().ToString("N");
         var folder = Path.Combine(_tempFolder, buildId);
         Directory.CreateDirectory(folder);
-        
+
         _logger.LogInformation("Build ID: {BuildId}", buildId);
         var sourceFile = Path.Combine(folder, langImplement.EntryFileName);
         await System.IO.File.WriteAllTextAsync(sourceFile, code);
@@ -51,7 +52,7 @@ public class RunnerController : ControllerBase
             _logger.LogInformation("Writing file {FileName} to {Folder}", otherFile.Key, folder);
             await System.IO.File.WriteAllTextAsync(Path.Combine(folder, otherFile.Key), otherFile.Value);
         }
-        
+
         var processId = 0;
         try
         {
@@ -82,7 +83,12 @@ public class RunnerController : ControllerBase
                 process.Kill();
             }
 
-            return BadRequest("Timeout");
+            return BadRequest(new
+            {
+                resultCode = 124,
+                output = "Timeout!",
+                error = e.Message
+            });
         }
         finally
         {
@@ -93,14 +99,14 @@ public class RunnerController : ControllerBase
                 arg: $"kill {buildId}",
                 path: _tempFolder,
                 timeout: TimeSpan.FromSeconds(10));
-            
+
             _logger.LogInformation("Removing container {Build}", buildId);
             _ = await _commandService.RunCommandAsync(
                 bin: "docker",
                 arg: $"rm -f {buildId}",
                 path: _tempFolder,
                 timeout: TimeSpan.FromSeconds(10));
-            
+
             _logger.LogInformation("Removing folder {Build}", buildId);
             _queue.QueueNew(() =>
             {
