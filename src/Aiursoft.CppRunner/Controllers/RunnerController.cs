@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Aiursoft.Canon;
 using Microsoft.AspNetCore.Mvc;
 using Aiursoft.CSTools.Services;
+using Aiursoft.WebTools.Attributes;
 
 namespace Aiursoft.CppRunner.Controllers;
 
@@ -28,6 +29,7 @@ public class RunnerController : ControllerBase
 
     [Route("run")]
     [HttpPost]
+    [LimitPerMin(15)]
     public async Task<IActionResult> Run([FromQuery] string lang)
     {
         var langImplement =
