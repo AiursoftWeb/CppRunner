@@ -104,7 +104,7 @@ function App() {
   return (
     <div className='flex flex-col h-screen'>
       <div className='w-screen h-[10vh] center text-lg'>
-        Anduin's code background
+        Aiursoft C++ Runner Online
       </div>
       <div className='flex flex-row gap-4 h-[85vh] w-full px-2'>
         <div className='flex flex-col flex-grow max-w-[50vw]'>
