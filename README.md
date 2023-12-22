@@ -4,6 +4,7 @@
 [![Pipeline stat](https://gitlab.aiursoft.cn/aiursoft/cpprunner/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.cn/aiursoft/cpprunner/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/pipelines)
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/aiursoft/cpprunner.svg)](https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/commits/master?ref_type=heads)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fcpprunner.aiursoft.cn%2F)](https://cpprunner.aiursoft.cn)
 
 CppRunner is a simple Web API that can run C++ code for you. It's based on .NET and Docker.
 
