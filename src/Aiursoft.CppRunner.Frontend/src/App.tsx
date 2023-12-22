@@ -7,6 +7,8 @@ import './styles/tailwind.css';
 
 function App() {
 
+  let runCodeController: MutableRefObject<AbortController | null> = useRef(null);
+
   const [data, setData] = useState({
     languages: [],
     code: '',
@@ -73,18 +75,30 @@ function App() {
       setData({ ...data, running: true } as ViewState);
       setResult({ output: '', error: '' } as OutputResult);
       const lang = langSelectRef.current!.value;
-      const result: OutputResult = await runCode(lang, data.code);
+
+      const [promise, controller] = runCode(lang, data.code);
+      runCodeController.current = controller;
+      const fetchResult = await promise;
+
+      if (runCodeController.current.signal.aborted) {
+        return;
+      }
+
       setResult({
-        output: result.output,
-        error: result.error
+        output: fetchResult.output,
+        error: fetchResult.error
       } as OutputResult)
     } catch (error) {
-      alert(`Oh, Exception occured: \n${error}`);
+      alert(`Oh, Exception occured: \n${error}\nPlease contact administrator`);
       console.error(error);
     }
     finally {
       setData({ ...data, running: false } as ViewState);
     }
+  }
+
+  const handleCancel = async () => {
+    runCodeController.current?.abort();
   }
 
   return (
@@ -105,7 +119,13 @@ function App() {
               }
             </select>
             <span className='flex-grow flex flex-row-reverse'>
-              <span><button className='p-2' disabled={data.running} onClick={async () => { await handleRun() }}>Run</button></span>
+              <span>
+                {
+                  data.running ?
+                    <button className='p-2' onClick={async () => { await handleCancel() }}>Cancel</button> :
+                    <button className='p-2' onClick={async () => { await handleRun() }}>Run</button>
+                }
+              </span>
             </span>
           </div>
           <div className='h-full overflow-scroll'>
