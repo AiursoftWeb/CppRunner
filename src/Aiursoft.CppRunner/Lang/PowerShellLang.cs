@@ -11,7 +11,7 @@ public class PowerShellLang : ILang
     public string DefaultCode { get; set; } =
         """
         function Get-Fibonacci {
-            $current = 0
+            $current = 1
             $next = 1
             while ($true) {
                 $current
