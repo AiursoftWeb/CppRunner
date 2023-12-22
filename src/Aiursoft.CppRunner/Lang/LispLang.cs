@@ -16,7 +16,7 @@ public class LispLang : ILang
               (fibonacci (- n 1) b (+ a b))))
 
         (dotimes (n 20)
-          (format t "~d " (fibonacci (+ n 2) 1 1)))
+          (format t "~d " (fibonacci (+ n) 1 1)))
         """;
 
     public string EntryFileName { get; set; } = "main.lisp";
