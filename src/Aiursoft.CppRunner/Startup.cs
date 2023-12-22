@@ -24,6 +24,7 @@ public class Startup : IWebStartup
         services.AddScoped<ILang, TypeScriptLang>();
         
         services.AddScoped<ILang, PythonLang>();
+        services.AddScoped<ILang, BashLang>();
         services.AddScoped<ILang, PowerShellLang>();
         
         services.AddScoped<ILang, SwiftLang>();
