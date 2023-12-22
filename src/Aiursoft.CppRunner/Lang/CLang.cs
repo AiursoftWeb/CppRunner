@@ -2,7 +2,7 @@
 
 public class CLang : ILang
 {
-    public string LangDisplayName { get; set; } = "C (GNU GCC, stdc17)";
+    public string LangDisplayName { get; set; } = "C (gcc 9.5.0)";
     
     public string LangExtension { get; set; } = "c";
     
@@ -40,10 +40,10 @@ public class CLang : ILang
         """;
     
     public string EntryFileName { get; set; } = "main.c";
+
+    public string DockerImage { get; set; } = "gcc:9.5.0";
     
-    public string DockerImage { get; set; } = "frolvlad/alpine-gcc";
-    
-    public string RunCommand { get; set; } = "gcc -Wall -Wextra -O2 -std=c17 /app/main.c -o /tmp/main && /tmp/main";
+    public string RunCommand { get; set; } = "gcc -Wall -Wextra -O2 /app/main.c -o /tmp/main && /tmp/main";
     
     public Dictionary<string, string> OtherFiles { get; set; } = new();
 }
