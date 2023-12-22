@@ -35,11 +35,6 @@ Your app is ready to be deployed!
 
 ## Language feature
 
-list of supported languages:
-
-- cpp
-- csharp
-
 if you want to add more language, please notice that the new language name must be same as the language name below:
 
 ```

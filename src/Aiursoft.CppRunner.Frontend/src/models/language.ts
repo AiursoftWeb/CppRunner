@@ -3,9 +3,7 @@
  * @returns support languages
  */
 export async function getSupportLanguages() {
-  const supportLanguages: Language[] = await fetch(
-    "/langs"
-  ).then((resp) => {
+  const supportLanguages: Language[] = await fetch("/langs").then((resp) => {
     return resp.json();
   });
 
@@ -13,28 +11,36 @@ export async function getSupportLanguages() {
 }
 
 export async function getDefaultCode(lang: string) {
-  const code = await fetch(
-    `/langs/${lang}/default`
-  ).then((resp) => {
+  const code = await fetch(`/langs/${lang}/default`).then((resp) => {
     return resp.text();
   });
 
   return code;
 }
 
-export async function runCode(lang: string, code: string) {
-  const result: OutputResult = await fetch(
-    `/runner/run?lang=${lang}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: code,
-    }
-  ).then((resp) => resp.json());
+export function runCode(
+  lang: string,
+  code: string
+): [Promise<OutputResult>, AbortController] {
+  const controller = new AbortController();
 
-  return result;
+  const promise = fetch(`/runner/run?lang=${lang}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: code,
+    signal: controller.signal,
+  })
+    .then((resp) => resp.json())
+    .catch((e) => {
+      if (e.name == "AbortError") {
+        return {} as OutputResult;
+      }
+      throw e;
+    });
+
+  return [promise, controller];
 }
 
 export class Language {
