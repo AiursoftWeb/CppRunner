@@ -2,7 +2,7 @@
 
 public class TypeScriptLang : ILang
 {
-    public string LangDisplayName { get; set; } = "TypeScript (sandrokeil/typescript)";
+    public string LangDisplayName { get; set; } = "TypeScript (4.9.3, node 16.8.1)";
 
     public string LangExtension { get; set; } = "ts";
 
@@ -27,7 +27,7 @@ public class TypeScriptLang : ILang
         """;
 
     public string EntryFileName { get; set; } = "main.ts";
-    public string DockerImage { get; set; } = "sandrokeil/typescript:latest";
+    public string DockerImage { get; set; } = "vminnovations/typescript-sdk:16-latest";
     public string RunCommand { get; set; } = "tsc /app/main.ts && node /app/main.js";
 
     public Dictionary<string, string> OtherFiles { get; set; } = new();
