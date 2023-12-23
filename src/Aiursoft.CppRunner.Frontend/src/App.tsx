@@ -54,7 +54,7 @@ function App() {
   const handleErrorClear = () => {
     setResult({
       ...result,
-      errer: '',
+      error: '',
     } as OutputResult)
   }
 
@@ -91,7 +91,7 @@ function App() {
         error: fetchResult.error
       } as OutputResult)
     } catch (error) {
-      alert(`Oh, Exception occured: \n${error}\nPlease contact administrator`);
+      alert(`Oh, Exception occured: \n${error}\n`);
       console.error(error);
     }
     finally {
@@ -104,16 +104,16 @@ function App() {
   }
 
   return (
-    <div className='flex flex-col h-screen'>
+    <div className='flex flex-col h-full sm:h-screen'>
       <div className='w-screen h-[10vh] center text-lg'>
         Aiursoft C++ Runner Online
       </div>
-      <div className='flex flex-row gap-4 h-[85vh] w-full px-2'>
+      <div className='flex flex-col sm:flex-row gap-4 sm:h-[85vh] w-full px-2'>
 
-        <div className='flex flex-col flex-grow max-w-[50vw]'>
+        <div className='flex flex-col flex-grow max-w-full sm:max-w-[50vw]'>
           <div className='flex items-center my-4 space-x-4'>
             <span>Input:</span>
-            <select className="bg-gray-900"
+            <select className="bg-gray-900 overflow-hidden"
               ref={langSelectRef} onChange={async (event) => { await handleSelectLang(event.target.value) }}>
               {
                 Array.from(data.languages).map((lang) => (
@@ -131,8 +131,8 @@ function App() {
               </span>
             </span>
           </div>
-          <div className='h-full overflow-scroll'>
-            <div className='max-w-[50vw] h-full'>
+          <div className='max-h-[50vh] sm:max-h-full sm:h-full overflow-scroll'>
+            <div className='max-w-full sm:max-w-[50vw] max-h-[50%] sm:max-h-full sm:h-full'>
               <CodeEditor
                 value={data.code}
                 language={data.lang}
@@ -152,7 +152,7 @@ function App() {
 
         </div>
 
-        <div className='flex-grow flex flex-col max-w-[50vw] space-y-4'>
+        <div className='flex-grow flex flex-col max-w-full sm:max-w-[50vw] space-y-4'>
           <div className='flex flex-col h-1/2 flex-grow'>
             <div className='flex items-center my-4 pr-4'>
               <span>Output:</span>
@@ -160,7 +160,7 @@ function App() {
                 <button type='button' className='p-2' onClick={() => { handleOutputClear() }}>Clear</button>
               </span>
             </div>
-            <div className='relative p-2 h-5/6 rounded border border-gray-600 break-words overflow-scroll'>
+            <div className='relative p-2 min-h-[50vh] sm:min-h-max sm:h-5/6 rounded border border-gray-600 break-words overflow-scroll'>
               {data.running && <div className='absolute bottom-1/2 left-1/2 z-50 center text-lg'>Running...</div>}
               {
                 result.output!.length < OUTPUT_RENDER_MAX_LENGTH ?
@@ -192,7 +192,7 @@ function App() {
                 <button type='button' className='p-2' onClick={() => { handleErrorClear() }}>Clear</button>
               </span>
             </div>
-            <div className='relative h-[80%] p-2 rounded border border-gray-600 break-words overflow-scroll'>
+            <div className='relative h-[30vh] sm:h-4/5 p-2 rounded border border-gray-600 break-words overflow-scroll'>
               {data.running && <div className='absolute bottom-1/2 left-1/2 z-50 center text-lg'>Running...</div>}
               {
                 result.error!.length < OUTPUT_RENDER_MAX_LENGTH ?

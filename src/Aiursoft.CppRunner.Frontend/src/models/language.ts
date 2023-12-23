@@ -10,11 +10,18 @@ export async function getSupportLanguages() {
   return supportLanguages;
 }
 
-export async function getDefaultCode(lang: string) {
+const defaultCodeCache = new Map<string, string>();
+
+export async function getDefaultCode(lang: string): Promise<string> {
+  if (defaultCodeCache.has(lang)) {
+    return defaultCodeCache.get(lang) as string;
+  }
+
   const code = await fetch(`/langs/${lang}/default`).then((resp) => {
     return resp.text();
   });
 
+  defaultCodeCache.set(lang, code);
   return code;
 }
 
@@ -32,7 +39,13 @@ export function runCode(
     body: code,
     signal: controller.signal,
   })
-    .then((resp) => resp.json())
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw mapError(resp.status, resp.statusText);
+      }
+    })
     .catch((e) => {
       if (e.name == "AbortError") {
         return {} as OutputResult;
@@ -43,17 +56,26 @@ export function runCode(
   return [promise, controller];
 }
 
-export class Language {
+function mapError(status: number, text: string): Error {
+  switch (status) {
+    case 429:
+      throw "Too Many Request! try again in 15 minutes later";
+    default:
+      throw `${status} ${text}`;
+  }
+}
+
+export type Language = {
   langDisplayName?: string;
   langName?: string;
   langExtension?: string;
-}
+};
 
-export class OutputResult {
-  resultCode?: string;
+export type OutputResult = {
+  resultCode?: number;
   output?: string;
   error?: string;
-}
+};
 
 /*
 "abap"

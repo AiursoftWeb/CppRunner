@@ -1,8 +1,14 @@
+import type { OutputResult } from "../models/language";
+
 const supportedLanguages = [
-  { langName: "c", langDisplayName: "C (gcc 9.5.0)", langExtension: "c" },
+  {
+    langName: "c",
+    langDisplayName: "C (gcc 9.5.0) (200 Success)",
+    langExtension: "c",
+  },
   {
     langName: "cpp",
-    langDisplayName: "C++ (GNU G++, stdc++20)",
+    langDisplayName: "C++ (GNU G++, stdc++20) (429 Too many requests)",
     langExtension: "cpp",
   },
   {
@@ -22,7 +28,7 @@ const supportedLanguages = [
   },
   {
     langName: "javascript",
-    langDisplayName: "Javascript (Node.js v21)",
+    langDisplayName: "Javascript (Node.js v21) (Output too longer)",
     langExtension: "js",
   },
 ];
@@ -174,7 +180,7 @@ fn main() {
   ],
 ]);
 
-const runCodeSuccess = new Map([
+const runCodeSuccess = new Map<string, OutputResult>([
   [
     "c",
     {
@@ -188,8 +194,7 @@ const runCodeSuccess = new Map([
     "cpp",
     {
       resultCode: 0,
-      output:
-        "1\n1\n2\n3\n5\n8\n13\n21\n34\n55\n89\n144\n233\n377\n610\n987\n1597\n2584\n4181\n6765\n",
+      output: "",
       error: "",
     },
   ],
