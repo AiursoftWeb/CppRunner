@@ -23,7 +23,7 @@ public class IntegrationTests
     [TestInitialize]
     public async Task CreateServer()
     {
-        _server = App<Startup>(Array.Empty<string>(), port: _port);
+        _server = App<TestStartup>(Array.Empty<string>(), port: _port);
         await _server.StartAsync();
     }
 
@@ -45,4 +45,12 @@ public class IntegrationTests
         response.EnsureSuccessStatusCode(); // Status Code 200-299
     }
 
+    [TestMethod]
+    [DataRow("cpp", "int main() { return 0; }")]
+    [DataRow("csharp", "public class Program { public static void Main() { } }")]
+    public async Task RunCode(string lang, string code)
+    {
+        var response = await _http.PostAsync(_endpointUrl + $"/runner/run?lang={lang}", new StringContent(code));
+        response.EnsureSuccessStatusCode(); // Status Code 200-299
+    }
 }

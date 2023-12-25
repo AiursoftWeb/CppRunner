@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Aiursoft.Canon;
 using Aiursoft.CSTools.Services;
 
@@ -5,7 +6,8 @@ namespace Aiursoft.CppRunner;
 
 public static class ProgramExtends
 {
-    public static async Task<IHost> PullContainersAsync(this IHost host)
+    [ExcludeFromCodeCoverage]
+    public static async Task PullContainersAsync(this IHost host)
     {
         using var scope = host.Services.CreateScope();
         var services = scope.ServiceProvider;
@@ -37,6 +39,5 @@ public static class ProgramExtends
         }
 
         await pool.RunAllTasksInPoolAsync();
-        return host;
     }
 }

@@ -1,6 +1,7 @@
 using System.Reflection;
 using Aiursoft.Canon;
 using Aiursoft.CppRunner.Lang;
+using Aiursoft.CppRunner.Services;
 using Aiursoft.CSTools.Services;
 using Aiursoft.WebTools.Models;
 
@@ -8,9 +9,10 @@ namespace Aiursoft.CppRunner;
 
 public class Startup : IWebStartup
 {
-    public void ConfigureServices(IConfiguration configuration, IWebHostEnvironment environment, IServiceCollection services)
+    public virtual void ConfigureServices(IConfiguration configuration, IWebHostEnvironment environment, IServiceCollection services)
     {
         services.AddScoped<CommandService>();
+        services.AddScoped<RunCodeService>();
 
         services.AddTaskCanon();
         services.AddScoped<ILang, CLang>();
@@ -41,6 +43,7 @@ public class Startup : IWebStartup
         
         services.AddScoped<ILang, HaskellLang>();
         services.AddScoped<ILang, LispLang>();
+
 
         services
             .AddControllersWithViews()

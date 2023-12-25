@@ -15,7 +15,7 @@ public class LangsController : ControllerBase
     [Route("")]
     public IActionResult GetSupportedLangs()
     {
-        return this.Ok(_langs.Select(l => new
+        return Ok(_langs.Select(l => new
         {
             l.LangName,
             l.LangDisplayName,
@@ -32,6 +32,6 @@ public class LangsController : ControllerBase
             return NotFound();
         }
         
-        return this.Ok(langDetails.DefaultCode);
+        return Ok(langDetails.DefaultCode);
     }
 }
