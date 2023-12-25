@@ -11,19 +11,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Aiursoft.Canon" Version="7.0.6" />
-    <PackageReference Include="Aiursoft.WebTools" Version="7.0.19" />
-  </ItemGroup>
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Home\Index.cshtml" />
-    <UpToDateCheckInput Remove="Views\_ViewImports.cshtml" />
+    <PackageReference Include="Aiursoft.WebTools" Version="7.0.20" />
   </ItemGroup>
 </Project>

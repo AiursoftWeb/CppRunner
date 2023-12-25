@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Aiursoft.Canon;
 using Microsoft.AspNetCore.Mvc;
 using Aiursoft.CSTools.Services;
@@ -55,7 +54,6 @@ public class RunnerController : ControllerBase
             await System.IO.File.WriteAllTextAsync(Path.Combine(folder, otherFile.Key), otherFile.Value);
         }
 
-        var processId = 0;
         try
         {
             var (resultCode, output, error) = await _commandService.RunCommandAsync(
@@ -64,7 +62,7 @@ public class RunnerController : ControllerBase
                 $"run --rm --name {buildId} --cpus=8 --memory=512m --network none -v {folder}:/app {langImplement.DockerImage} sh -c \"{langImplement.RunCommand}\"",
                 path: _tempFolder,
                 timeout: TimeSpan.FromSeconds(30),
-                i => processId = i);
+                killTimeoutProcess: true);
             _logger.LogInformation("{Build} Code: {Code}", buildId, resultCode);
 
             return Ok(new
@@ -77,14 +75,6 @@ public class RunnerController : ControllerBase
         catch (TimeoutException e)
         {
             _logger.LogError(e, "Timeout with build {Build}", buildId);
-            // Kill the process.
-            if (processId != 0)
-            {
-                _logger.LogInformation("Killing process {ProcessId}", processId);
-                var process = Process.GetProcessById(processId);
-                process.Kill();
-            }
-
             return BadRequest(new
             {
                 resultCode = 124,
