@@ -1,8 +1,8 @@
-﻿namespace Aiursoft.CppRunner.Lang;
+namespace Aiursoft.CppRunner.Lang;
 
 public class PowerShellLang : ILang
 {
-    public string LangDisplayName => "PowerShell Core";
+    public string LangDisplayName => "PowerShell Core (Ubuntu 22.04)";
 
     public string LangExtension => "ps1";
 
