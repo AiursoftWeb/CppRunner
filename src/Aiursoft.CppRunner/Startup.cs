@@ -30,10 +30,8 @@ public class Startup : IWebStartup
         services.AddScoped<ILang, PowerShellLang>();
         
         services.AddScoped<ILang, SwiftLang>();
-        //services.AddScoped<ILang, ObjCLang>();
         
         services.AddScoped<ILang, JavaLang>();
-        // services.AddScoped<ILang, KotlinLang>();
         services.AddScoped<ILang, RubyLang>();
         
         services.AddScoped<ILang, PhpLang>();
