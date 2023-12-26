@@ -2,31 +2,31 @@
 
 public class RubyLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Ruby (3.2.2)";
+    public string LangDisplayName => "Ruby (3.2.2)";
 
-    public string LangExtension { get; set; } = "rb";
+    public string LangExtension => "rb";
 
-    public string LangName { get; set; } = "ruby";
+    public string LangName => "ruby";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         def fibonacci(n)
-          return n if n <= 1 
+          return n if n <= 1
           fibonacci(n - 1) + fibonacci(n - 2)
         end
-        
+
         20.times do |n|
           result = fibonacci(n)
           puts result
         end
-        
+
         """;
 
-    public string EntryFileName { get; set; } = "main.rb";
+    public string EntryFileName => "main.rb";
 
-    public string DockerImage { get; set; } = "ruby:3.2.2";
+    public string DockerImage => "ruby:3.2.2";
 
-    public string RunCommand { get; set; } = "ruby /app/main.rb";
+    public string RunCommand => "ruby /app/main.rb";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

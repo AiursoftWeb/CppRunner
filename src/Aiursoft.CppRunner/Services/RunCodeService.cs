@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Aiursoft.Canon;
 using Aiursoft.CppRunner.Models;
 using Aiursoft.CSTools.Services;
@@ -22,8 +21,7 @@ public class RunCodeService
         _queue = queue;
     }
     
-    [ExcludeFromCodeCoverage(Justification = "This method is hard to test.")]
-    public virtual async Task<CodeResult> RunCode(string code, ILang lang)
+    public async Task<CodeResult> RunCode(string code, ILang lang)
     {
         var buildId = Guid.NewGuid().ToString("N");
         var folder = Path.Combine(_tempFolder, buildId);

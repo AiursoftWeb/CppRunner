@@ -2,13 +2,13 @@
 
 public class JavaLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Java (OpenJDK 23)";
+    public string LangDisplayName => "Java (OpenJDK 23)";
 
-    public string LangExtension { get; set; } = "java";
+    public string LangExtension => "java";
 
-    public string LangName { get; set; } = "java";
+    public string LangName => "java";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         import java.util.stream.Stream;
 
@@ -22,11 +22,11 @@ public class JavaLang : ILang
         }
         """;
 
-    public string EntryFileName { get; set; } = "Main.java";
+    public string EntryFileName => "Main.java";
 
-    public string DockerImage { get; set; } = "openjdk:23-jdk";
+    public string DockerImage => "openjdk:23-jdk";
 
-    public string RunCommand { get; set; } = "javac /app/Main.java && java -cp /app Main";
+    public string RunCommand => "javac /app/Main.java && java -cp /app Main";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

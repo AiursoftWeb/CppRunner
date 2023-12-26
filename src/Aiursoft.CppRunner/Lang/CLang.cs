@@ -2,13 +2,13 @@
 
 public class CLang : ILang
 {
-    public string LangDisplayName { get; set; } = "C (gcc 9.5.0)";
-    
-    public string LangExtension { get; set; } = "c";
-    
-    public string LangName { get; set; } = "c";
+    public string LangDisplayName => "C (gcc 9.5.0)";
 
-    public string DefaultCode { get; set; } =
+    public string LangExtension => "c";
+
+    public string LangName => "c";
+
+    public string DefaultCode =>
         """
         #include <stdio.h>
 
@@ -38,12 +38,12 @@ public class CLang : ILang
         }
 
         """;
-    
-    public string EntryFileName { get; set; } = "main.c";
 
-    public string DockerImage { get; set; } = "gcc:9.5.0";
-    
-    public string RunCommand { get; set; } = "gcc -Wall -Wextra -O2 /app/main.c -o /tmp/main && /tmp/main";
-    
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public string EntryFileName => "main.c";
+
+    public string DockerImage => "gcc:9.5.0";
+
+    public string RunCommand => "gcc -Wall -Wextra -O2 /app/main.c -o /tmp/main && /tmp/main";
+
+    public Dictionary<string, string> OtherFiles => new();
 }

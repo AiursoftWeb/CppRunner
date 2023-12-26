@@ -2,19 +2,19 @@
 
 public interface ILang
 {
-    string LangDisplayName { get; set; }
+    string LangDisplayName { get; }
 
-    string LangName { get; set; }
+    string LangName { get; }
     
-    string LangExtension { get; set; }
+    string LangExtension { get; }
 
-    string DefaultCode { get; set; }
+    string DefaultCode { get; }
 
-    string EntryFileName { get; set; }
+    string EntryFileName { get; }
 
-    string DockerImage { get; set; }
+    string DockerImage { get; }
 
-    string RunCommand { get; set; }
+    string RunCommand { get; }
     
-    Dictionary<string, string> OtherFiles { get; set; }
+    Dictionary<string, string> OtherFiles { get; }
 }

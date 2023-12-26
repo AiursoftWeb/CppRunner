@@ -2,13 +2,13 @@
 
 public class BashLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Bash (on Ubuntu 24.04)";
+    public string LangDisplayName => "Bash (on Ubuntu 24.04)";
+
+    public string LangExtension => "sh";
+
+    public string LangName =>"bash";
     
-    public string LangExtension { get; set; } = "sh";
-    
-    public string LangName { get; set; } = "bash";
-    
-    public string DefaultCode { get; set; } = 
+    public string DefaultCode =>
         """
         #!/bin/bash
         a=1
@@ -24,11 +24,11 @@ public class BashLang : ILang
         done
         """;
     
-    public string EntryFileName { get; set; } = "main.sh";
+    public string EntryFileName =>"main.sh";
     
-    public string DockerImage { get; set; } = "ubuntu:24.04";
+    public string DockerImage =>"ubuntu:24.04";
     
-    public string RunCommand { get; set; } = "bash /app/main.sh";
+    public string RunCommand =>"bash /app/main.sh";
     
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles =>new();
 }

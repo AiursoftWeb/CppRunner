@@ -55,7 +55,6 @@ public class Startup : IWebStartup
         app.UseDefaultFiles();
         app.UseStaticFiles();
         app.UseRouting();
-        app.UseMiddleware<AllowCrossOriginMiddleware>();
         app.MapDefaultControllerRoute();
     }
 }

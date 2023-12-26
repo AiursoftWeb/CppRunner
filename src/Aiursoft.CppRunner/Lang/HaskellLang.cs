@@ -2,26 +2,26 @@
 
 public class HaskellLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Haskell (GHC 9.8.1)";
+    public string LangDisplayName => "Haskell (GHC 9.8.1)";
 
-    public string LangExtension { get; set; } = "hs";
+    public string LangExtension => "hs";
 
-    public string LangName { get; set; } = "haskell";
+    public string LangName => "haskell";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         fibonacci :: [Integer]
         fibonacci = 1 : 1 : zipWith (+) fibonacci (tail fibonacci)
-        
+
         main :: IO ()
         main = print $ take 20 fibonacci
         """;
 
-    public string EntryFileName { get; set; } = "main.hs";
+    public string EntryFileName => "main.hs";
 
-    public string DockerImage { get; set; } = "haskell:9.8.1";
+    public string DockerImage => "haskell:9.8.1";
 
-    public string RunCommand { get; set; } = "runhaskell /app/main.hs";
+    public string RunCommand => "runhaskell /app/main.hs";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

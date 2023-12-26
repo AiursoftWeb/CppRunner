@@ -2,13 +2,13 @@
 
 public class PhpLang : ILang
 {
-    public string LangDisplayName { get; set; } = "PHP (8.3.0)";
+    public string LangDisplayName => "PHP (8.3.0)";
 
-    public string LangExtension { get; set; } = "php";
+    public string LangExtension => "php";
 
-    public string LangName { get; set; } = "php";
+    public string LangName => "php";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         <?php
         function fibonacci() {
@@ -29,11 +29,11 @@ public class PhpLang : ILang
         }
         """;
 
-    public string EntryFileName { get; set; } = "main.php";
+    public string EntryFileName => "main.php";
 
-    public string DockerImage { get; set; } = "php:8.3.0-zts";
+    public string DockerImage => "php:8.3.0-zts";
 
-    public string RunCommand { get; set; } = "php /app/main.php";
+    public string RunCommand => "php /app/main.php";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

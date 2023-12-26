@@ -2,13 +2,13 @@
 
 public class SwiftLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Swift (5.8.1)";
+    public string LangDisplayName => "Swift (5.8.1)";
 
-    public string LangExtension { get; set; } = "swift";
+    public string LangExtension => "swift";
 
-    public string LangName { get; set; } = "swift";
+    public string LangName => "swift";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         func fibonacci() -> () -> Int {
             var current = 1, next = 1
@@ -26,11 +26,11 @@ public class SwiftLang : ILang
         }
         """;
 
-    public string EntryFileName { get; set; } = "main.swift";
+    public string EntryFileName => "main.swift";
 
-    public string DockerImage { get; set; } = "swift:5.8.1";
+    public string DockerImage => "swift:5.8.1";
 
-    public string RunCommand { get; set; } = "swift /app/main.swift";
+    public string RunCommand => "swift /app/main.swift";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

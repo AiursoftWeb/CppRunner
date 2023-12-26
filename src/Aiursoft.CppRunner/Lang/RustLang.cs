@@ -2,13 +2,13 @@
 
 public class RustLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Rust (1.74.1)";
+    public string LangDisplayName => "Rust (1.74.1)";
 
-    public string LangExtension { get; set; } = "rs";
+    public string LangExtension => "rs";
 
-    public string LangName { get; set; } = "rust";
+    public string LangName => "rust";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         fn fibonacci() -> impl Iterator<Item = u64> {
             let mut current = 1;
@@ -28,11 +28,11 @@ public class RustLang : ILang
         }
         """;
 
-    public string EntryFileName { get; set; } = "main.rs";
+    public string EntryFileName => "main.rs";
 
-    public string DockerImage { get; set; } = "rust:1.74.1";
+    public string DockerImage => "rust:1.74.1";
 
-    public string RunCommand { get; set; } = "cd /app && rustc /app/main.rs && /app/main";
+    public string RunCommand => "cd /app && rustc /app/main.rs && /app/main";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

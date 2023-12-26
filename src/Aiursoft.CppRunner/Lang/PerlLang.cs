@@ -2,13 +2,13 @@
 
 public class PerlLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Perl (5.39.5)";
+    public string LangDisplayName => "Perl (5.39.5)";
 
-    public string LangExtension { get; set; } = "pl";
+    public string LangExtension => "pl";
 
-    public string LangName { get; set; } = "perl";
+    public string LangName => "perl";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         sub fibonacci {
             my ($current, $next) = (1, 1);
@@ -25,11 +25,11 @@ public class PerlLang : ILang
         }
         """;
 
-    public string EntryFileName { get; set; } = "main.pl";
+    public string EntryFileName => "main.pl";
 
-    public string DockerImage { get; set; } = "perl:5.39.5";
+    public string DockerImage => "perl:5.39.5";
 
-    public string RunCommand { get; set; } = "perl /app/main.pl";
+    public string RunCommand => "perl /app/main.pl";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

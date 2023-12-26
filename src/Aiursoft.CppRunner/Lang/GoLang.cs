@@ -2,13 +2,13 @@
 
 public class GoLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Go (Golang 1.21.5)";
+    public string LangDisplayName => "Go (Golang 1.21.5)";
 
-    public string LangExtension { get; set; } = "go";
+    public string LangExtension => "go";
 
-    public string LangName { get; set; } = "go";
+    public string LangName => "go";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         package main
 
@@ -31,11 +31,11 @@ public class GoLang : ILang
         }
         """;
 
-    public string EntryFileName { get; set; } = "main.go";
+    public string EntryFileName => "main.go";
 
-    public string DockerImage { get; set; } = "golang:1.21.5";
+    public string DockerImage => "golang:1.21.5";
 
-    public string RunCommand { get; set; } = "go run /app/main.go";
+    public string RunCommand => "go run /app/main.go";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

@@ -2,13 +2,13 @@
 
 public class ObjCLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Objective-C (Clang 13)";
+    public string LangDisplayName => "Objective-C (Clang 13)";
 
-    public string LangExtension { get; set; } = "m";
+    public string LangExtension => "m";
 
-    public string LangName { get; set; } = "objective-c";
+    public string LangName => "objective-c";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         #import <Foundation/Foundation.h>
 
@@ -23,11 +23,11 @@ public class ObjCLang : ILang
         }
         """;
 
-    public string EntryFileName { get; set; } = "main.m";
+    public string EntryFileName => "main.m";
 
-    public string DockerImage { get; set; } = "clang:13-alpine";
+    public string DockerImage => "clang:13-alpine";
 
-    public string RunCommand { get; set; } = "clang /app/main.m -o /tmp/main -framework Foundation && /tmp/main";
+    public string RunCommand => "clang /app/main.m -o /tmp/main -framework Foundation && /tmp/main";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

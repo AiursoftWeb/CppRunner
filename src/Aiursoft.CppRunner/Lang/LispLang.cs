@@ -2,13 +2,13 @@
 
 public class LispLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Lisp (rigetti/lisp)";
+    public string LangDisplayName => "Lisp (rigetti/lisp)";
 
-    public string LangExtension { get; set; } = "lisp";
+    public string LangExtension => "lisp";
 
-    public string LangName { get; set; } = "lisp";
+    public string LangName => "lisp";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         (defun fibonacci (n a b)
           (if (= n 0)
@@ -19,11 +19,11 @@ public class LispLang : ILang
           (format t "~d " (fibonacci (+ n) 1 1)))
         """;
 
-    public string EntryFileName { get; set; } = "main.lisp";
+    public string EntryFileName => "main.lisp";
 
-    public string DockerImage { get; set; } = "rigetti/lisp:latest";
+    public string DockerImage => "rigetti/lisp:latest";
 
-    public string RunCommand { get; set; } = "sbcl --script /app/main.lisp";
+    public string RunCommand => "sbcl --script /app/main.lisp";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }

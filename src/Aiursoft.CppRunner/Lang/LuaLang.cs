@@ -2,13 +2,13 @@
 
 public class LuaLang : ILang
 {
-    public string LangDisplayName { get; set; } = "Lua (5.4)";
+    public string LangDisplayName => "Lua (5.4)";
 
-    public string LangExtension { get; set; } = "lua";
+    public string LangExtension => "lua";
 
-    public string LangName { get; set; } = "lua";
+    public string LangName => "lua";
 
-    public string DefaultCode { get; set; } =
+    public string DefaultCode =>
         """
         function fibonacci()
             local current, next = 1, 1
@@ -25,11 +25,11 @@ public class LuaLang : ILang
         end
         """;
 
-    public string EntryFileName { get; set; } = "main.lua";
+    public string EntryFileName => "main.lua";
 
-    public string DockerImage { get; set; } = "imolein/lua:5.4";
+    public string DockerImage => "imolein/lua:5.4";
 
-    public string RunCommand { get; set; } = "lua /app/main.lua";
+    public string RunCommand => "lua /app/main.lua";
 
-    public Dictionary<string, string> OtherFiles { get; set; } = new();
+    public Dictionary<string, string> OtherFiles => new();
 }
