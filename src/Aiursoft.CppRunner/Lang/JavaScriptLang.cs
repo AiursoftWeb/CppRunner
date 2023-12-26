@@ -1,6 +1,6 @@
 namespace Aiursoft.CppRunner.Lang;
 
-public class NodeJsLang : ILang
+public class JavaScriptLang : ILang
 {
     public string LangDisplayName => "Javascript (Node.js v21)";
 

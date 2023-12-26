@@ -22,7 +22,7 @@ public class Startup : IWebStartup
         services.AddScoped<ILang, GoLang>();
         services.AddScoped<ILang, RustLang>();
         
-        services.AddScoped<ILang, NodeJsLang>();
+        services.AddScoped<ILang, JavaScriptLang>();
         services.AddScoped<ILang, TypeScriptLang>();
         
         services.AddScoped<ILang, PythonLang>();

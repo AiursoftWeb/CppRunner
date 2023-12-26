@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using Aiursoft.CSTools.Tools;
+using Aiursoft.WebTools.Attributes;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Aiursoft.WebTools.Extends;
@@ -16,6 +17,7 @@ public class IntegrationTests
 
     public IntegrationTests()
     {
+        LimitPerMin.GlobalEnabled = false;
         _port = Network.GetAvailablePort();
         _endpointUrl = $"http://localhost:{_port}";
         _http = new HttpClient();
@@ -38,19 +40,25 @@ public class IntegrationTests
 
     [TestMethod]
     [DataRow("/langs")]
+    [DataRow("/langs/bash/default")]
+    [DataRow("/langs/c/default")]
     [DataRow("/langs/cpp/default")]
     [DataRow("/langs/csharp/default")]
-    [DataRow("/langs/c/default")]
-    [DataRow("/langs/java/default")]
-    [DataRow("/langs/python/default")]
-    [DataRow("/langs/javascript/default")]
-    [DataRow("/langs/typescript/default")]
     [DataRow("/langs/go/default")]
-    [DataRow("/langs/rust/default")]
-    [DataRow("/langs/ruby/default")]
-    [DataRow("/langs/php/default")]
     [DataRow("/langs/haskell/default")]
+    [DataRow("/langs/java/default")]
     [DataRow("/langs/lisp/default")]
+    [DataRow("/langs/lua/default")]
+    [DataRow("/langs/javascript/default")]
+    [DataRow("/langs/perl/default")]
+    [DataRow("/langs/python/default")]
+    [DataRow("/langs/php/default")]
+    [DataRow("/langs/powershell/default")]
+    [DataRow("/langs/python/default")]
+    [DataRow("/langs/ruby/default")]
+    [DataRow("/langs/rust/default")]
+    [DataRow("/langs/swift/default")]
+    [DataRow("/langs/typescript/default")]
     public async Task GetLang(string url)
     {
         var response = await _http.GetAsync(_endpointUrl + url);
@@ -67,18 +75,25 @@ public class IntegrationTests
     }
 
     [TestMethod]
-    [DataRow("cpp", "int main() { return 0; }")]
-    [DataRow("csharp", "public class Program { public static void Main() { } }")]
+    [DataRow("bash", "")]
     [DataRow("c", "")]
-    [DataRow("java", "")]
-    [DataRow("python", "")]
-    [DataRow("javascript", "")]
-    [DataRow("typescript", "")]
+    [DataRow("cpp", "")]
+    [DataRow("csharp", "")]
     [DataRow("go", "")]
-    [DataRow("rust", "")]
-    [DataRow("ruby", "")]
-    [DataRow("php", "")]
     [DataRow("haskell", "")]
+    [DataRow("java", "")]
+    [DataRow("lisp", "")]
+    [DataRow("lua", "")]
+    [DataRow("javascript", "")]
+    [DataRow("perl", "")]
+    [DataRow("python", "")]
+    [DataRow("php", "")]
+    [DataRow("powershell", "")]
+    [DataRow("python", "")]
+    [DataRow("ruby", "")]
+    [DataRow("rust", "")]
+    [DataRow("swift", "")]
+    [DataRow("typescript", "")]
     public async Task RunCode(string lang, string code)
     {
         var response = await _http.PostAsync(_endpointUrl + $"/runner/run?lang={lang}", new StringContent(code));
