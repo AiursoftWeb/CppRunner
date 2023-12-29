@@ -59,7 +59,7 @@ export function runCode(
 function mapError(status: number, text: string): Error {
   switch (status) {
     case 429:
-      throw "Too Many Request! try again in 15 minutes later";
+      throw "Too Many Request! try again in 2 minutes later";
     default:
       throw `${status} ${text}`;
   }
