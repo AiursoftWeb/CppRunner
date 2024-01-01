@@ -33,8 +33,8 @@ install()
     fepath="/tmp/repo/$fted_path"
     if [ -d "$fepath" ]; then
         echo "Found frontend folder $fepath, will install node modules."
-        sudo npm install --prefix "$fepath" -force
-        sudo npm run build --prefix "$fepath"
+        npm install --prefix "$fepath" -force
+        npm run build --prefix "$fepath"
     fi
 
     # Copy built
@@ -52,7 +52,7 @@ install()
 
     # Clean up
     echo "Install $app_name finished! Please open http://$(hostname):$port to try!"
-    sudo rm /tmp/repo -rf
+    rm /tmp/repo -rf
 }
 
 # This will install this app under /opt/apps and register a new service with systemd.
