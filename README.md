@@ -10,7 +10,7 @@ CppRunner is a simple Web API that can run C++ code for you. It's based on .NET 
 
 ## Try
 
-Try a running CppRunner [here](https://cpprunner.aiursoft.com).
+Try a running CppRunner [here](https://cpprunner.aiursoft.cn).
 
 ## Run in Ubuntu
 
