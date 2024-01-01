@@ -8,6 +8,29 @@
 
 CppRunner is a simple Web API that can run C++ code for you. It's based on .NET and Docker.
 
+## Try
+
+Try a running CppRunner [here](https://cpprunner.aiursoft.com).
+
+## Run in Ubuntu
+
+The following script will install\update this app on your Ubuntu server. Supports Ubuntu 22.04.
+
+On your Ubuntu server, run the following command:
+
+```bash
+curl -sL https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/raw/master/install.sh | sudo bash
+```
+
+Of course it is suggested that append a custom port number to the command:
+
+```bash
+curl -sL https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/raw/master/install.sh | sudo bash -s 8080
+```
+
+It will install the app as a systemd service, and start it automatically. Binary files will be located at `/opt/apps`. Service files will be located at `/etc/systemd/system`.
+
+
 ## Run locally
 
 Requirements about how to run
@@ -15,9 +38,9 @@ Requirements about how to run
 1. Install [Docker](https://www.docker.com/)
 2. Configure `www-data` user in your host machine to allow access to Docker with: `sudo usermod -aG docker www-data`
 3. Add `www-data` home: `sudo mkdir /var/www && sudo chown www-data:www-data /var/www`
-3. Install [.NET 7 SDK](http://dot.net/)
-4. Execute `dotnet run` as www-data user in the project path.
-5. Use your browser to view [http://localhost:5000](http://localhost:5000)
+4. Install [.NET 7 SDK](http://dot.net/)
+5. Execute `dotnet run` as www-data user in the project path.
+6. Use your browser to view [http://localhost:5000](http://localhost:5000)
 
 ## Run in Microsoft Visual Studio
 
