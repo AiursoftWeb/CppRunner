@@ -3,6 +3,7 @@ aiur() { arg="$( cut -d ' ' -f 2- <<< "$@" )" && curl -sL https://gitlab.aiursof
 app_name="cpprunner"
 repo_path="https://gitlab.aiursoft.cn/aiursoft/cpprunner"
 proj_path="src/Aiursoft.CppRunner/Aiursoft.CppRunner.csproj"
+fted_path="src/Aiursoft.CppRunner.Frontend"
 
 get_dll_name()
 {
@@ -28,12 +29,18 @@ install()
     # Clone the repo
     aiur git/clone_to $repo_path /tmp/repo
 
-    # Install node modules
-    wwwrootPath=$(dirname "/tmp/repo/$proj_path")/wwwroot
-    if [ -d "$wwwrootPath" ]; then
-        echo "Found wwwroot folder $wwwrootPath, will install node modules."
-        sudo npm install --prefix "$wwwrootPath" -force
+    # front end
+    fepath=$(dirname "/tmp/repo/$fted_path")
+    if [ -d "$fepath" ]; then
+        echo "Found frontend folder $fepath, will install node modules."
+        sudo npm install --prefix "$fepath" -force
+        sudo npm run build --prefix "$fepath"
     fi
+
+    # Copy built
+    wwwrootPath=$(dirname "/tmp/repo/$proj_path")/wwwroot
+    mkdir -p $wwwrootPath
+    cp -rv $fepath/dist/* $wwwrootPath
 
     # Publish the app
     aiur dotnet/publish "/tmp/repo/$proj_path" "/opt/apps/$app_name"
