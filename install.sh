@@ -30,7 +30,7 @@ install()
     aiur git/clone_to $repo_path /tmp/repo
 
     # front end
-    fepath=$(dirname "/tmp/repo/$fted_path")
+    fepath="/tmp/repo/$fted_path"
     if [ -d "$fepath" ]; then
         echo "Found frontend folder $fepath, will install node modules."
         sudo npm install --prefix "$fepath" -force
