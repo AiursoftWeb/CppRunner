@@ -10,10 +10,10 @@ const OUTPUT_RENDER_MAX_LENGTH = 1024 * 2;
 function App() {
 
   let runCodeController: MutableRefObject<AbortController | null> = useRef(null);
+  let codeRef = useRef('');
 
   const [data, setData] = useState({
     languages: [],
-    code: '',
     lang: '',
     running: false
   } as ViewState);
@@ -33,7 +33,7 @@ function App() {
 
       if (langs.length !== 0) {
         const defaultCode = await getDefaultCode(langs[0].langName!);
-        newState.code = defaultCode;
+        codeRef.current = defaultCode;
         newState.lang = langs[0].langName!;
       }
       setData(newState);
@@ -60,16 +60,16 @@ function App() {
 
   const handleSelectLang = async (lang: string) => {
     const defaultCode = await getDefaultCode(lang);
+    codeRef.current = defaultCode;
     setData({
       ...data,
-      code: defaultCode,
       lang: lang
     } as ViewState);
     setResult({ output: '', error: '' } as OutputResult);
   }
 
   const handleEditorChange = async (code: string) => {
-    setData({ ...data, code } as ViewState);
+    codeRef.current = code;
   }
 
   const handleRun = async () => {
@@ -78,7 +78,7 @@ function App() {
       setResult({ output: '', error: '' } as OutputResult);
       const lang = langSelectRef.current!.value;
 
-      const [promise, controller] = runCode(lang, data.code);
+      const [promise, controller] = runCode(lang, codeRef.current);
       runCodeController.current = controller;
       const fetchResult = await promise;
 
@@ -95,6 +95,7 @@ function App() {
       console.error(error);
     }
     finally {
+      console.log(codeRef.current);
       setData({ ...data, running: false } as ViewState);
     }
   }
@@ -134,7 +135,7 @@ function App() {
           <div className='max-h-[50vh] sm:max-h-full sm:h-full overflow-scroll'>
             <div className='max-w-full sm:max-w-[50vw] max-h-[50%] sm:max-h-full sm:h-full'>
               <CodeEditor
-                value={data.code}
+                value={codeRef.current}
                 language={data.lang}
                 placeholder={`Enter ${data.lang} code:`}
                 onChange={(evn) => handleEditorChange(evn.target.value)}
