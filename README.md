@@ -30,25 +30,24 @@ curl -sL https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/raw/master/install.sh |
 
 It will install the app as a systemd service, and start it automatically. Binary files will be located at `/opt/apps`. Service files will be located at `/etc/systemd/system`.
 
-## Run locally
+## Run manually
 
 Requirements about how to run
 
 1. Install [Docker](https://www.docker.com/)
-2. Install [.NET 7 SDK](http://dot.net/)
-3. Install [Node.js](https://nodejs.org/)
-4. Configure `www-data` user in your host machine to allow access to Docker with: `sudo usermod -aG docker www-data`
-5. Add `www-data` home: `sudo mkdir /var/www && sudo chown www-data:www-data /var/www`
-6. Run `npm install`   in `src/Aiursoft.CppRunner.FrontEnd` folder.
-7. Run `npm run build` in `src/Aiursoft.CppRunner.FrontEnd` folder.
-8. Copy `src/Aiursoft.CppRunner.FrontEnd/dist` folder to `src/Aiursoft.CppRunner/wwwroot` folder.
-9. Execute `sudo -u www-data dotnet run` as www-data user in the project path.
-10. Use your browser to view [http://localhost:5000](http://localhost:5000)
+2. Install [.NET 7 SDK](http://dot.net/) and [Node.js](https://nodejs.org/).
+3. Configure `www-data` user in your host machine to allow access to Docker with: `sudo usermod -aG docker www-data`
+4. Add `www-data` home: `sudo mkdir /var/www && sudo chown www-data:www-data /var/www`
+5. Run `npm install`   in `src/Aiursoft.CppRunner.FrontEnd` folder.
+6. Run `npm run build` in `src/Aiursoft.CppRunner.FrontEnd` folder.
+7. Copy `src/Aiursoft.CppRunner.FrontEnd/dist` folder to `src/Aiursoft.CppRunner/wwwroot` folder.
+8. Execute `sudo -u www-data dotnet run` as www-data user in the project path.
+9. Use your browser to view [http://localhost:5000](http://localhost:5000).
 
 ## Run in Microsoft Visual Studio
 
 1. Open the `.sln` file in the project path.
-2. Press `F5`.
+2. Press `F5` to run the app.
 
 ## How to contribute
 
