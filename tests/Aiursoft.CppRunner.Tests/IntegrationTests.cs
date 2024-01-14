@@ -26,7 +26,7 @@ public class IntegrationTests
     [TestInitialize]
     public async Task CreateServer()
     {
-        _server = App<TestStartup>(Array.Empty<string>(), port: _port);
+        _server = App<Startup>(Array.Empty<string>(), port: _port);
         await _server.StartAsync();
     }
 
@@ -75,29 +75,38 @@ public class IntegrationTests
     }
 
     [TestMethod]
-    [DataRow("bash", "")]
-    [DataRow("c", "")]
-    [DataRow("cpp", "")]
-    [DataRow("csharp", "")]
-    [DataRow("go", "")]
-    [DataRow("haskell", "")]
-    [DataRow("java", "")]
-    [DataRow("lisp", "")]
-    [DataRow("lua", "")]
-    [DataRow("javascript", "")]
-    [DataRow("perl", "")]
-    [DataRow("python", "")]
-    [DataRow("php", "")]
-    [DataRow("powershell", "")]
-    [DataRow("python", "")]
-    [DataRow("ruby", "")]
-    [DataRow("rust", "")]
-    [DataRow("swift", "")]
-    [DataRow("typescript", "")]
-    public async Task RunCode(string lang, string code)
+    [DataRow("bash")]
+    [DataRow("c")]
+    [DataRow("cpp")]
+    [DataRow("csharp")]
+    [DataRow("go")]
+    [DataRow("haskell")]
+    [DataRow("java")]
+    [DataRow("lisp")]
+    [DataRow("lua")]
+    [DataRow("javascript")]
+    [DataRow("perl")]
+    [DataRow("python")]
+    [DataRow("php")]
+    [DataRow("powershell")]
+    [DataRow("python")]
+    [DataRow("ruby")]
+    [DataRow("rust")]
+    [DataRow("swift")]
+    [DataRow("typescript")]
+    public async Task RunCode(string lang)
     {
-        var response = await _http.PostAsync(_endpointUrl + $"/runner/run?lang={lang}", new StringContent(code));
+        var defaultCode = await _http.GetStringAsync(_endpointUrl + $"/langs/{lang}/default");
+        var response = await _http.PostAsync(_endpointUrl + $"/runner/run?lang={lang}", new StringContent(defaultCode));
         response.EnsureSuccessStatusCode(); // Status Code 200-299
+
+        var message = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(message.Contains("1"));
+        Assert.IsTrue(message.Contains("2"));
+        Assert.IsTrue(message.Contains("3"));
+        Assert.IsTrue(message.Contains("5"));
+        Assert.IsTrue(message.Contains("8"));
+        Assert.IsTrue(message.Contains("13"));
     }
     
     [TestMethod]
