@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Runtime.InteropServices;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.Extensions.Hosting;
@@ -96,6 +97,12 @@ public class IntegrationTests
     [DataRow("typescript")]
     public async Task RunCode(string lang)
     {
+        // Skip this test on Windows.
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            Assert.Inconclusive("This test is not supported on Windows.");
+        }
+        
         var defaultCode = await _http.GetStringAsync(_endpointUrl + $"/langs/{lang}/default");
         var response = await _http.PostAsync(_endpointUrl + $"/runner/run?lang={lang}", new StringContent(defaultCode));
         response.EnsureSuccessStatusCode(); // Status Code 200-299
@@ -107,6 +114,9 @@ public class IntegrationTests
         Assert.IsTrue(message.Contains("5"));
         Assert.IsTrue(message.Contains("8"));
         Assert.IsTrue(message.Contains("13"));
+        Assert.IsTrue(message.Contains("21"));
+        Assert.IsTrue(message.Contains("34"));
+        Assert.IsTrue(message.Contains("55"));
     }
     
     [TestMethod]
