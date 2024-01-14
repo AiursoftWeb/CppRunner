@@ -102,7 +102,9 @@ public class IntegrationTests
         {
             Assert.Inconclusive("This test is not supported on Windows.");
         }
-        
+
+        await (_server?.PullContainersAsync() ?? Task.CompletedTask);
+
         var defaultCode = await _http.GetStringAsync(_endpointUrl + $"/langs/{lang}/default");
         var response = await _http.PostAsync(_endpointUrl + $"/runner/run?lang={lang}", new StringContent(defaultCode));
         response.EnsureSuccessStatusCode(); // Status Code 200-299
