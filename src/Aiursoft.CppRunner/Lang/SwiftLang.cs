@@ -28,7 +28,7 @@ public class SwiftLang : ILang
 
     public string EntryFileName => "main.swift";
 
-    public string DockerImage => "swift:5.8.1";
+    public string DockerImage => "hub.aiursoft.cn/swift:5.8.1";
 
     public string RunCommand => "swift /app/main.swift";
 

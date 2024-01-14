@@ -27,7 +27,7 @@ public class TypeScriptLang : ILang
         """;
 
     public string EntryFileName => "main.ts";
-    public string DockerImage => "vminnovations/typescript-sdk:16-latest";
+    public string DockerImage => "hub.aiursoft.cn/vminnovations/typescript-sdk:16-latest";
     public string RunCommand => "tsc /app/main.ts && node /app/main.js";
 
     public Dictionary<string, string> OtherFiles => new();

@@ -27,7 +27,7 @@ public class PowerShellLang : ILang
 
     public string EntryFileName => "main.ps1";
 
-    public string DockerImage => "mcr.microsoft.com/powershell";
+    public string DockerImage => "hub.aiursoft.cn/mcr.microsoft.com/powershell:latest";
 
     public string RunCommand => "pwsh /app/main.ps1";
 

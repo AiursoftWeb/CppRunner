@@ -36,7 +36,7 @@ public class CppLang : ILang
         """;
 
     public string EntryFileName => "main.cpp";
-    public string DockerImage => "frolvlad/alpine-gxx";
+    public string DockerImage => "hub.aiursoft.cn/frolvlad/alpine-gxx:latest";
     public string RunCommand => "g++ -Wall -Wextra -O2 -std=c++20 /app/main.cpp -o /tmp/main && /tmp/main";
 
     public Dictionary<string, string> OtherFiles => new();

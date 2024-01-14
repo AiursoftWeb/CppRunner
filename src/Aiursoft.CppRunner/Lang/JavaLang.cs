@@ -24,7 +24,7 @@ public class JavaLang : ILang
 
     public string EntryFileName => "Main.java";
 
-    public string DockerImage => "openjdk:23-jdk";
+    public string DockerImage => "hub.aiursoft.cn/openjdk:23-jdk";
 
     public string RunCommand => "javac /app/Main.java && java -cp /app Main";
 

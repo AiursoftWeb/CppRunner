@@ -30,7 +30,7 @@ public class RustLang : ILang
 
     public string EntryFileName => "main.rs";
 
-    public string DockerImage => "rust:1.74.1";
+    public string DockerImage => "hub.aiursoft.cn/rust:1.74.1";
 
     public string RunCommand => "cd /app && rustc /app/main.rs && /app/main";
 

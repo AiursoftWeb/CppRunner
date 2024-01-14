@@ -39,7 +39,7 @@ public class CSharpLang : ILang
         """;
 
     public string EntryFileName => "Program.cs";
-    public string DockerImage => "mcr.microsoft.com/dotnet/sdk:7.0";
+    public string DockerImage => "hub.aiursoft.cn/mcr.microsoft.com/dotnet/sdk:7.0";
     public string RunCommand => "dotnet run --project /app/Project.csproj";
 
     public Dictionary<string, string> OtherFiles => new()

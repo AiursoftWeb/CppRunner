@@ -23,7 +23,7 @@ public class PythonLang : ILang
         """;
 
     public string EntryFileName => "main.py";
-    public string DockerImage => "python:3.11";
+    public string DockerImage => "hub.aiursoft.cn/python:3.11";
     public string RunCommand => "python3 /app/main.py";
 
     public Dictionary<string, string> OtherFiles => new();
