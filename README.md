@@ -35,7 +35,7 @@ It will install the app as a systemd service, and start it automatically. Binary
 Requirements about how to run
 
 1. Install [Docker](https://www.docker.com/)
-2. Install [.NET 7 SDK](http://dot.net/) and [Node.js](https://nodejs.org/).
+2. Install [.NET 8 SDK](http://dot.net/) and [Node.js](https://nodejs.org/).
 3. Configure `www-data` user in your host machine to allow access to Docker with: `sudo usermod -aG docker www-data`
 4. Add `www-data` home: `sudo mkdir /var/www && sudo chown www-data:www-data /var/www`
 5. Run `npm install`   in `src/Aiursoft.CppRunner.FrontEnd` folder.
