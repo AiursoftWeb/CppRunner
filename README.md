@@ -5,6 +5,7 @@
 [![Test Coverage](https://gitlab.aiursoft.cn/aiursoft/cpprunner/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/pipelines)
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/aiursoft/cpprunner.svg)](https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/commits/master?ref_type=heads)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fcpprunner.aiursoft.cn%2F)](https://cpprunner.aiursoft.cn)
+[![Docker](https://img.shields.io/badge/docker-latest-blue?logo=docker)](https://hub.aiursoft.cn/#!/taglist/aiursoft/cpprunner)
 
 CppRunner is a simple Web API that can run C++ code for you. It's based on .NET and Docker.
 
@@ -43,6 +44,33 @@ Requirements about how to run
 7. Copy `src/Aiursoft.CppRunner.FrontEnd/dist` folder to `src/Aiursoft.CppRunner/wwwroot` folder.
 8. Execute `sudo -u www-data dotnet run` as www-data user in the project path.
 9. Use your browser to view [http://localhost:5000](http://localhost:5000).
+
+## Run in Docker
+
+First, install Docker [here](https://docs.docker.com/get-docker/).
+
+Then run the following commands in a Linux shell:
+
+```bash
+image=hub.aiursoft.cn/aiursoft/cpprunner
+appName=cpprunner
+docker pull $image
+docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data -v /tmp/cpprunner/builds:/tmp/cpprunner/builds -v /var/run/docker.sock:/var/run/docker.sock $image
+```
+
+That will start a web server at `http://localhost:5000` and you can test the app.
+
+The docker image has the following context:
+
+| Properties  | Value                                  |
+|-------------|----------------------------------------|
+| Image       | hub.aiursoft.cn/aiursoft/moongladepure |
+| Ports       | 5000                                   |
+| Binary path | /app                                   |
+| Data path   | /data                                  |
+| Config path | /data/appsettings.json                 |
+| Passthrough | /var/run/docker.sock (For Docker)      |
+| Passthrough | /tmp/cpprunner/builds (For code)       |
 
 ## Run in Microsoft Visual Studio
 
