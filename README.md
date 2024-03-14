@@ -52,6 +52,7 @@ First, install Docker [here](https://docs.docker.com/get-docker/).
 Then run the following commands in a Linux shell:
 
 ```bash
+mkdir -p /tmp/cpprunner/builds
 image=hub.aiursoft.cn/aiursoft/cpprunner
 appName=cpprunner
 docker pull $image
