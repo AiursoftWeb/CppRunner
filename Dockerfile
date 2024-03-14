@@ -68,4 +68,4 @@ ENTRYPOINT ["/bin/bash", "-c", "\
 "]
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=180s --retries=3 CMD \
-wget --quiet --tries=1 --spider http://localhost:5000/ || exit 1
+wget --quiet --tries=1 --spider http://localhost:5000/health || exit 1
