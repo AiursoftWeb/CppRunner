@@ -6,7 +6,7 @@ namespace Aiursoft.CppRunner.Services;
 
 public class RunCodeService
 {
-    private readonly string _tempFolder = Path.GetTempPath();
+    private readonly string _tempFolder = Path.Combine(Path.GetTempPath(), "cpprunner", "builds");
     private readonly ILogger<RunCodeService> _logger;
     private readonly CommandService _commandService;
     private readonly CanonQueue _queue;
