@@ -101,6 +101,13 @@ public class IntegrationTests
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
             Assert.Inconclusive("This test is not supported on Windows.");
+            return;
+        }
+
+        if (EntryExtends.IsInDocker())
+        {
+            Assert.Inconclusive("This test is not supported in Docker.");
+            return;
         }
 
         await (_server?.PullContainersAsync() ?? Task.CompletedTask);
