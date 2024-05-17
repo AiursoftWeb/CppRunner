@@ -17,6 +17,7 @@ public class Startup : IWebStartup
         services.AddTaskCanon();
         services.AddScoped<ILang, CLang>();
         services.AddScoped<ILang, CppLang>();
+        services.AddScoped<ILang, CudaLang>();
         services.AddScoped<ILang, CSharpLang>();
         
         services.AddScoped<ILang, GoLang>();
