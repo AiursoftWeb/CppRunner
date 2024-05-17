@@ -2,7 +2,7 @@ namespace Aiursoft.CppRunner.Lang;
 
 public class CudaLang : ILang
 {
-    public string LangDisplayName => "CUDA 11.6";
+    public string LangDisplayName => "CUDA 11.6 (on Ubuntu 20.04)";
     public string LangName => "cuda";
     public string LangExtension => "cpp";
 
@@ -33,7 +33,7 @@ int main() {
         """;
     
     public string EntryFileName => "main.cu";
-    public string DockerImage => "nvidia/cuda:11.6.2-base-ubuntu20.04";
+    public string DockerImage => "hub.aiursoft.cn/aiursoft/internalimages/nvidia";
     public string RunCommand => "nvcc /app/main.cu -o /app/main && /app/main";
     public bool NeedGpu => true;
     public Dictionary<string, string> OtherFiles => new();
