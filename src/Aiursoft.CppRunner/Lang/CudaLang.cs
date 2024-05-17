@@ -8,28 +8,27 @@ public class CudaLang : ILang
 
     public string DefaultCode =>
         """
-#include <iostream>
-#include <cuda_runtime.h>
+        #include <iostream>
+        #include <cuda_runtime.h>
 
-__global__ void helloFromGPU() {
-    printf("Hello World from GPU!\n");
-}
+        __global__ void helloFromGPU() {
+            printf("Hello World from GPU!\n");
+        }
 
-int main() {
-    helloFromGPU<<<1, 1>>>();
-    cudaError_t err = cudaGetLastError(); // Check for any errors launching the kernel
-    if (err != cudaSuccess) {
-        std::cerr << "Error: " << cudaGetErrorString(err) << std::endl;
-        return -1;
-    }
-    err = cudaDeviceSynchronize(); // Wait for the kernel to finish
-    if (err != cudaSuccess) {
-        std::cerr << "Error: " << cudaGetErrorString(err) << std::endl;
-        return -1;
-    }
-    return 0;
-}
-
+        int main() {
+            helloFromGPU<<<1, 1>>>();
+            cudaError_t err = cudaGetLastError(); // Check for any errors launching the kernel
+            if (err != cudaSuccess) {
+                std::cerr << "Error: " << cudaGetErrorString(err) << std::endl;
+                return -1;
+            }
+            err = cudaDeviceSynchronize(); // Wait for the kernel to finish
+            if (err != cudaSuccess) {
+                std::cerr << "Error: " << cudaGetErrorString(err) << std::endl;
+                return -1;
+            }
+            return 0;
+        }
         """;
     
     public string EntryFileName => "main.cu";
