@@ -104,6 +104,7 @@ public class IntegrationTests
             return;
         }
 
+        // Skip this test in Docker.
         if (EntryExtends.IsInDocker())
         {
             Assert.Inconclusive("This test is not supported in Docker.");
