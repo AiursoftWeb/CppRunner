@@ -4,7 +4,7 @@ public class CudaLang : ILang
 {
     public string LangDisplayName => "CUDA 11.6";
     public string LangName => "cuda";
-    public string LangExtension => "cu";
+    public string LangExtension => "cpp";
 
     public string DefaultCode =>
         """
