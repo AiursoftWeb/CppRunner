@@ -40,4 +40,6 @@ public class CppLang : ILang
     public string RunCommand => "g++ -Wall -Wextra -O2 -std=c++20 /app/main.cpp -o /tmp/main && /tmp/main";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

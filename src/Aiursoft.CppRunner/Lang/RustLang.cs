@@ -35,4 +35,6 @@ public class RustLang : ILang
     public string RunCommand => "cd /app && rustc /app/main.rs && /app/main";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

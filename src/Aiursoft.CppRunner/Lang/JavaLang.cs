@@ -29,4 +29,6 @@ public class JavaLang : ILang
     public string RunCommand => "javac /app/Main.java && java -cp /app Main";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

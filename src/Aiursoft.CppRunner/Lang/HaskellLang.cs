@@ -24,4 +24,6 @@ public class HaskellLang : ILang
     public string RunCommand => "runhaskell /app/main.hs";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

@@ -31,4 +31,6 @@ public class TypeScriptLang : ILang
     public string RunCommand => "tsc /app/main.ts && node /app/main.js";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

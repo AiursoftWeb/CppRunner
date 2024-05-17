@@ -31,7 +31,7 @@ public class RunnerController : ControllerBase
         }
 
         var code = await new StreamReader(Request.Body).ReadToEndAsync();
-        var result = await _runCodeService.RunCode(code, langImplement);
+        var result = await _runCodeService.RunCode(code, langImplement, langImplement.NeedGpu);
         return Ok(result);
     }
 }

@@ -31,4 +31,5 @@ public class BashLang : ILang
     public string RunCommand =>"bash /app/main.sh";
     
     public Dictionary<string, string> OtherFiles =>new();
+    public bool NeedGpu => false;
 }

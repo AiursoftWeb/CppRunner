@@ -27,4 +27,6 @@ public class PythonLang : ILang
     public string RunCommand => "python3 /app/main.py";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

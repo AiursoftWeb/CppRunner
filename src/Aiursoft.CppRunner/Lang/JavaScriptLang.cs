@@ -32,4 +32,6 @@ public class JavaScriptLang : ILang
     public string RunCommand => "node /app/main.js";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

@@ -32,4 +32,6 @@ public class LuaLang : ILang
     public string RunCommand => "lua /app/main.lua";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

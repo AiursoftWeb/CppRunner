@@ -32,4 +32,6 @@ public class PerlLang : ILang
     public string RunCommand => "perl /app/main.pl";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

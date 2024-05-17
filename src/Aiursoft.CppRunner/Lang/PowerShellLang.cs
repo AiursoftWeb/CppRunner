@@ -32,4 +32,6 @@ public class PowerShellLang : ILang
     public string RunCommand => "pwsh /app/main.ps1";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

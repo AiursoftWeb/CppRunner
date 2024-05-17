@@ -16,5 +16,7 @@ public interface ILang
 
     string RunCommand { get; }
     
+    bool NeedGpu{ get; }
+    
     Dictionary<string, string> OtherFiles { get; }
 }

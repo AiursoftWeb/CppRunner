@@ -26,4 +26,6 @@ public class LispLang : ILang
     public string RunCommand => "sbcl --script /app/main.lisp";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

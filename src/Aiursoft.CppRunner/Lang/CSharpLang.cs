@@ -55,4 +55,6 @@ public class CSharpLang : ILang
 </Project>"
         }
     };
+    public bool NeedGpu => false;
+
 }

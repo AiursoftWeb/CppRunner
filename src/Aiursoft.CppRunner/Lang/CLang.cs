@@ -46,4 +46,6 @@ public class CLang : ILang
     public string RunCommand => "gcc -Wall -Wextra -O2 /app/main.c -o /tmp/main && /tmp/main";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

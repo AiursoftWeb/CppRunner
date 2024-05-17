@@ -38,4 +38,6 @@ public class GoLang : ILang
     public string RunCommand => "go run /app/main.go";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

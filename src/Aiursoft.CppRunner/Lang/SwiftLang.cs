@@ -33,4 +33,6 @@ public class SwiftLang : ILang
     public string RunCommand => "swift /app/main.swift";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

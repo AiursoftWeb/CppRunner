@@ -36,4 +36,6 @@ public class PhpLang : ILang
     public string RunCommand => "php /app/main.php";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }

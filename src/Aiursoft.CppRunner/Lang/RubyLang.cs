@@ -29,4 +29,6 @@ public class RubyLang : ILang
     public string RunCommand => "ruby /app/main.rb";
 
     public Dictionary<string, string> OtherFiles => new();
+    public bool NeedGpu => false;
+
 }
