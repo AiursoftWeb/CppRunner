@@ -26,7 +26,7 @@ public class LangsController : ControllerBase
     [Route("{lang}/default")]
     public IActionResult GetLangDefaultCode(string lang)
     {
-        var langDetails = _langs.FirstOrDefault(l => string.Equals(l.LangName, lang, StringComparison.CurrentCultureIgnoreCase));
+        var langDetails = _langs.SingleOrDefault(l => string.Equals(l.LangName, lang, StringComparison.CurrentCultureIgnoreCase));
         if (langDetails == null)
         {
             return NotFound();
