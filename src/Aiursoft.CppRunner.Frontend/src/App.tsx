@@ -34,7 +34,7 @@ function App() {
       if (langs.length !== 0) {
         const defaultCode = await getDefaultCode(langs[0].langName!);
         codeRef.current = defaultCode;
-        newState.lang = langs[0].langName!;
+        newState.lang = langs[0].langExtension!;
       }
       setData(newState);
     };
