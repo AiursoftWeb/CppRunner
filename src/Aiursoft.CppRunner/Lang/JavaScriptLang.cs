@@ -4,7 +4,7 @@ public class JavaScriptLang : ILang
 {
     public string LangDisplayName => "Javascript (Node.js v21)";
 
-    public string LangExtension => "js";
+    public string LangExtension => "javascript";
 
     public string LangName => "javascript";
 

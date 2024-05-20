@@ -4,7 +4,7 @@ public class RubyLang : ILang
 {
     public string LangDisplayName => "Ruby (3.2.2)";
 
-    public string LangExtension => "rb";
+    public string LangExtension => "ruby";
 
     public string LangName => "ruby";
 

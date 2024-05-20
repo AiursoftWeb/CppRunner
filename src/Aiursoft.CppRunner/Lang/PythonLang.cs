@@ -4,7 +4,7 @@ public class PythonLang : ILang
 {
     public string LangDisplayName => "Python (CPython 3.11)";
 
-    public string LangExtension => "py";
+    public string LangExtension => "python";
 
     public string LangName => "python";
 
@@ -35,7 +35,7 @@ public class PythonWithPytorch : ILang
 {
     public string LangDisplayName => "Python with PyTorch (Pytorch 2.3.0; cuda 11.8; cudnn 8)";
 
-    public string LangExtension => "py";
+    public string LangExtension => "python";
 
     public string LangName => "python-pytorch";
 

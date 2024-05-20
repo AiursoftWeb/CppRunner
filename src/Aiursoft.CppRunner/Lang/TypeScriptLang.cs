@@ -4,7 +4,7 @@ public class TypeScriptLang : ILang
 {
     public string LangDisplayName => "TypeScript (4.9.3, node 16.8.1)";
 
-    public string LangExtension => "ts";
+    public string LangExtension => "typescript";
 
     public string LangName => "typescript";
 

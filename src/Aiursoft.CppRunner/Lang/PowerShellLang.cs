@@ -4,7 +4,7 @@ public class PowerShellLang : ILang
 {
     public string LangDisplayName => "PowerShell Core (Ubuntu 22.04)";
 
-    public string LangExtension => "ps1";
+    public string LangExtension => "powershell";
 
     public string LangName => "powershell";
 

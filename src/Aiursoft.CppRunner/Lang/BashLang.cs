@@ -4,7 +4,7 @@ public class BashLang : ILang
 {
     public string LangDisplayName => "Bash (on Ubuntu 24.04)";
 
-    public string LangExtension => "sh";
+    public string LangExtension => "bash";
 
     public string LangName =>"bash";
     

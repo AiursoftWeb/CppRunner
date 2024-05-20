@@ -4,7 +4,7 @@ public class CSharpLang : ILang
 {
     public string LangDisplayName => "C# (.NET 7.0)";
 
-    public string LangExtension => "cs";
+    public string LangExtension => "csharp";
 
     public string LangName => "csharp";
 

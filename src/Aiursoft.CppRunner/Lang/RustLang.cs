@@ -4,7 +4,7 @@ public class RustLang : ILang
 {
     public string LangDisplayName => "Rust (1.74.1)";
 
-    public string LangExtension => "rs";
+    public string LangExtension => "rust";
 
     public string LangName => "rust";
 

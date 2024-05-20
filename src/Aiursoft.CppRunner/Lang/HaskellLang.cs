@@ -4,7 +4,7 @@ public class HaskellLang : ILang
 {
     public string LangDisplayName => "Haskell (GHC 9.8.1)";
 
-    public string LangExtension => "hs";
+    public string LangExtension => "haskell";
 
     public string LangName => "haskell";
 

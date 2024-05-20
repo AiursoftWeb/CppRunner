@@ -4,7 +4,7 @@ public class PerlLang : ILang
 {
     public string LangDisplayName => "Perl (5.39.5)";
 
-    public string LangExtension => "pl";
+    public string LangExtension => "perl";
 
     public string LangName => "perl";
 
