@@ -21,7 +21,7 @@ public class RunCodeService
         _queue = queue;
     }
     
-    public async Task<CodeResult> RunCode(string code, ILang lang, bool withGpu)
+    public async Task<CodeResult> RunCode(string code, ILang lang)
     {
         var buildId = Guid.NewGuid().ToString("N");
         var folder = Path.Combine(_tempFolder, buildId);
@@ -39,7 +39,7 @@ public class RunCodeService
 
         try
         {
-            var command = withGpu ? 
+            var command = lang.NeedGpu ? 
                 $"run --rm --name {buildId} --gpus all --cpus=8 --memory=512m --network none -v {folder}:/app {lang.DockerImage} sh -c \"{lang.RunCommand}\"" : 
                 $"run --rm --name {buildId}            --cpus=8 --memory=512m --network none -v {folder}:/app {lang.DockerImage} sh -c \"{lang.RunCommand}\"";
             var (resultCode, output, error) = await _commandService.RunCommandAsync(
