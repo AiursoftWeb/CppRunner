@@ -43,10 +43,8 @@ public class PythonWithPytorch : ILang
         """
         import torch
 
-        # 检查是否有可用的GPU
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        # 输出当前使用的设备
         if device.type == 'cuda':
             print("Using GPU")
             print("GPU Name:", torch.cuda.get_device_name(0))
@@ -54,9 +52,7 @@ public class PythonWithPytorch : ILang
         else:
             print("Using CPU")
 
-        # 定义计算斐波那契数列的函数
         def fibonacci(n, device):
-            # 创建在指定设备上的张量
             fib_sequence = torch.zeros(n, dtype=torch.int64, device=device)
             fib_sequence[0] = 1
             fib_sequence[1] = 1
@@ -66,7 +62,6 @@ public class PythonWithPytorch : ILang
             
             return fib_sequence
 
-        # 计算斐波那契数列前20项
         n = 20
         fib_sequence = fibonacci(n, device)
         print("Fibonacci sequence:", fib_sequence.cpu().numpy())
