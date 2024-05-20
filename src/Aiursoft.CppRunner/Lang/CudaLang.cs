@@ -12,25 +12,25 @@ public class CudaLang : ILang
         #include <cuda_runtime.h>
 
         __global__ void fibonacciKernel(long long *fib, int n) {
-            int idx = threadIdx.x;
-            if (idx == 0) {
-                fib[0] = 0;
-            } else if (idx == 1) {
-                fib[1] = 1;
-            } else if (idx < n) {
-                for (int i = 2; i <= idx; ++i) {
-                    fib[i] = fib[i - 1] + fib[i - 2];
-                }
+            int idx = blockIdx.x * blockDim.x + threadIdx.x;
+            if (idx >= n) return;
+
+            long long a = 0, b = 1;
+            for (int i = 2; i <= idx; ++i) {
+                long long next = a + b;
+                a = b;
+                b = next;
             }
+            fib[idx] = (idx == 0) ? 0 : (idx == 1) ? 1 : b;
         }
 
         void computeFibonacci(long long *h_fib, int n) {
             long long *d_fib;
             cudaMalloc((void**)&d_fib, n * sizeof(long long));
-            cudaMemcpy(d_fib, h_fib, n * sizeof(long long), cudaMemcpyHostToDevice);
 
-            // Launch kernel with one block of n threads
-            fibonacciKernel<<<1, n>>>(d_fib, n);
+            int threadsPerBlock = 256;
+            int blocksPerGrid = (n + threadsPerBlock - 1) / threadsPerBlock;
+            fibonacciKernel<<<blocksPerGrid, threadsPerBlock>>>(d_fib, n);
             cudaDeviceSynchronize();
 
             cudaMemcpy(h_fib, d_fib, n * sizeof(long long), cudaMemcpyDeviceToHost);
@@ -46,7 +46,7 @@ public class CudaLang : ILang
             }
             return 0;
         }
-        
+
         """;
     
     public string EntryFileName => "main.cu";
