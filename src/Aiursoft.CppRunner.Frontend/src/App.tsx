@@ -15,6 +15,7 @@ function App() {
   const [data, setData] = useState({
     languages: [],
     lang: '',
+    langExtension: '',
     running: false
   } as ViewState);
 
@@ -34,7 +35,8 @@ function App() {
       if (langs.length !== 0) {
         const defaultCode = await getDefaultCode(langs[0].langName!);
         codeRef.current = defaultCode;
-        newState.lang = langs[0].langExtension!;
+        newState.lang = langs[0].langName!;
+        newState.langExtension = langs[0].langExtension!;
       }
       setData(newState);
     };
@@ -43,6 +45,16 @@ function App() {
   }, []);
 
   const langSelectRef: MutableRefObject<HTMLSelectElement | null> = useRef(null);
+
+  const getSelectedLanguage = (): { lang:string, langExtension: string } => {
+    let selected = langSelectRef.current!.selectedOptions[0];
+    let langExtension = selected.getAttribute('data-lang-extension') ?? '';
+    let lang = selected?.getAttribute('data-lang') ?? '';
+    return {
+      lang,
+      langExtension
+    }
+  }
 
   const handleOutputClear = () => {
     setResult({
@@ -58,12 +70,14 @@ function App() {
     } as OutputResult)
   }
 
-  const handleSelectLang = async (lang: string) => {
+  const handleSelectLang = async (_: HTMLSelectElement) => {
+    let { lang, langExtension } = getSelectedLanguage();
     const defaultCode = await getDefaultCode(lang);
     codeRef.current = defaultCode;
     setData({
       ...data,
-      lang: lang
+      lang: lang,
+      langExtension: langExtension
     } as ViewState);
     setResult({ output: '', error: '' } as OutputResult);
   }
@@ -76,8 +90,8 @@ function App() {
     try {
       setData({ ...data, running: true } as ViewState);
       setResult({ output: '', error: '' } as OutputResult);
-      const lang = langSelectRef.current!.value;
 
+      let { lang } = getSelectedLanguage();
       const [promise, controller] = runCode(lang, codeRef.current);
       runCodeController.current = controller;
       const fetchResult = await promise;
@@ -95,7 +109,7 @@ function App() {
       console.error(error);
     }
     finally {
-      console.log(codeRef.current);
+      // console.log(codeRef.current);
       setData({ ...data, running: false } as ViewState);
     }
   }
@@ -115,10 +129,10 @@ function App() {
           <div className='flex items-center my-4 space-x-4'>
             <span>Input:</span>
             <select className="bg-gray-900 overflow-hidden"
-              ref={langSelectRef} onChange={async (event) => { await handleSelectLang(event.target.value) }}>
+              ref={langSelectRef} onChange={async (event) => { await handleSelectLang(event.target) }}>
               {
                 Array.from(data.languages).map((lang) => (
-                  <option key={lang.langName} value={lang.langName}>{lang.langDisplayName}</option>
+                  <option key={lang.langName} data-lang={lang.langName} data-lang-extension={lang.langExtension} value={lang.langName}>{lang.langDisplayName}</option>
                 ))
               }
             </select>
@@ -126,8 +140,8 @@ function App() {
               <span>
                 {
                   data.running ?
-                    <button className='p-2' onClick={async () => { await handleCancel() }}>Cancel</button> :
-                    <button className='p-2' onClick={async () => { await handleRun() }}>Run</button>
+                    <button className='p-2 border rounded' onClick={async () => { await handleCancel() }}>Cancel</button> :
+                    <button className='p-2 border rounded' onClick={async () => { await handleRun() }}>Run</button>
                 }
               </span>
             </span>
@@ -136,7 +150,7 @@ function App() {
             <div className='max-w-full sm:max-w-[50vw] max-h-[50%] sm:max-h-full sm:h-full'>
               <CodeEditor
                 value={codeRef.current}
-                language={data.lang}
+                language={data.langExtension}
                 placeholder={`Enter ${data.lang} code:`}
                 onChange={(evn) => handleEditorChange(evn.target.value)}
                 padding={15}
@@ -167,7 +181,7 @@ function App() {
                 result.output!.length < OUTPUT_RENDER_MAX_LENGTH ?
                   (<CodeEditor
                     value={result.output}
-                    language={data.lang}
+                    language={data.langExtension}
                     padding={15}
                     minHeight={100}
                     disabled={true}
@@ -199,7 +213,7 @@ function App() {
                 result.error!.length < OUTPUT_RENDER_MAX_LENGTH ?
                   (<CodeEditor
                     value={result.error}
-                    language={data.lang}
+                    language={data.langExtension}
                     padding={15}
                     minHeight={100}
                     disabled={true}
