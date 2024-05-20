@@ -69,7 +69,7 @@ public class PythonWithPytorch : ILang
 
     public string EntryFileName => "main.py";
 
-    public string DockerImage => "pytorch/pytorch:2.3.0-cuda11.8-cudnn8-devel";
+    public string DockerImage => "hub.aiursoft.cn/pytorch/pytorch:2.3.0-cuda11.8-cudnn8-devel";
 
     public string RunCommand => "python3 /app/main.py";
     public Dictionary<string, string> OtherFiles => new();
