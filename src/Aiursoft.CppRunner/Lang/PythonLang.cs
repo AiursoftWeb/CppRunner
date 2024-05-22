@@ -43,28 +43,25 @@ public class PythonWithPytorch : ILang
         """
         import torch
 
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        def matrix_power_iterative(A, n):
+            if n == 0:
+                # Identity matrix
+                return torch.eye(A.shape[0], dtype=A.dtype)
 
-        if device.type == 'cuda':
-            print("Using GPU")
-            print("GPU Name:", torch.cuda.get_device_name(0))
-            print("GPU Capability:", torch.cuda.get_device_capability(0))
-        else:
-            print("Using CPU")
+            result = torch.eye(A.shape[0], dtype=A.dtype)
+            while n > 0:
+                if n % 2 == 1:
+                    result = torch.matmul(result, A)
+                A = torch.matmul(A, A)
+                n //= 2
 
-        def fibonacci(n, device):
-            fib_sequence = torch.zeros(n, dtype=torch.int64, device=device)
-            fib_sequence[0] = 1
-            fib_sequence[1] = 1
-            
-            for i in range(2, n):
-                fib_sequence[i] = fib_sequence[i-1] + fib_sequence[i-2]
-            
-            return fib_sequence
+            return result
 
-        n = 20
-        fib_sequence = fibonacci(n, device)
-        print("Fibonacci sequence:", fib_sequence.cpu().numpy())
+        # Example usage
+        A = torch.tensor([[1, 1], [1, 0]], dtype=torch.float32)  # Fibonacci matrix
+        n = 10
+        result = matrix_power_iterative(A, n - 1)
+        print(result[0,0].item())
         """;
 
     public string EntryFileName => "main.py";
