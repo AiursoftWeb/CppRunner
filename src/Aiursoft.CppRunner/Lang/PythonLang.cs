@@ -44,10 +44,6 @@ public class PythonWithPytorch : ILang
         import torch
 
         def matrix_power_iterative(A, n):
-            """
-            Computes A^n using an iterative approach (divide-and-conquer).
-            Assumes A is a square matrix.
-            """
             if n == 0:
                 # Identity matrix
                 return torch.eye(A.shape[0], dtype=A.dtype)
