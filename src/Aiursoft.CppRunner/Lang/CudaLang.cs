@@ -11,10 +11,10 @@ public class CudaLang : ILang
         #include <iostream>
         #include <cuda_runtime.h>
 
-        #define MAT_SIZE 2
-        #define FIB_NUMS 20
+        // 定义矩阵的大小（N x N）
+        #define N 2
 
-        __global__ void matrixMultiply(int *a, int *b, int *c, int n) {
+        __global__ void matrixMulKernel(int* a, int* b, int* c, int n) {
             int row = blockIdx.y * blockDim.y + threadIdx.y;
             int col = blockIdx.x * blockDim.x + threadIdx.x;
             int sum = 0;
@@ -27,83 +27,67 @@ public class CudaLang : ILang
             }
         }
 
-        void matrixMultiplyHost(int *a, int *b, int *c, int n) {
+        void matrixMul(int* a, int* b, int* c, int n) {
             int size = n * n * sizeof(int);
+            int* d_a, * d_b, * d_c;
 
-            int *d_a, *d_b, *d_c;
-
-            // Allocate memory on the GPU
+            // 分配设备内存
             cudaMalloc((void**)&d_a, size);
             cudaMalloc((void**)&d_b, size);
             cudaMalloc((void**)&d_c, size);
 
-            // Copy matrices to the GPU
+            // 复制数据到设备
             cudaMemcpy(d_a, a, size, cudaMemcpyHostToDevice);
             cudaMemcpy(d_b, b, size, cudaMemcpyHostToDevice);
 
-            // Define block and grid dimensions
-            dim3 dimBlock(2, 2);
-            dim3 dimGrid((n + dimBlock.x - 1) / dimBlock.x, (n + dimBlock.y - 1) / dimBlock.y);
+            // 定义CUDA网格和块的大小
+            dim3 threadsPerBlock(16, 16);
+            dim3 blocksPerGrid((n + threadsPerBlock.x - 1) / threadsPerBlock.x, (n + threadsPerBlock.y - 1) / threadsPerBlock.y);
 
-            // Launch the kernel
-            matrixMultiply<<<dimGrid, dimBlock>>>(d_a, d_b, d_c, n);
+            // 调用CUDA内核
+            matrixMulKernel <<<blocksPerGrid, threadsPerBlock >>> (d_a, d_b, d_c, n);
 
-            // Copy the result back to the CPU
+            // 复制结果回主机
             cudaMemcpy(c, d_c, size, cudaMemcpyDeviceToHost);
 
-            // Free GPU memory
+            // 释放设备内存
             cudaFree(d_a);
             cudaFree(d_b);
             cudaFree(d_c);
         }
 
-        void matrixPower(int *result, int power) {
-            int base[MAT_SIZE * MAT_SIZE] = {1, 1, 1, 0};
-            int temp[MAT_SIZE * MAT_SIZE];
-
-            // Initialize result as identity matrix
-            result[0] = 1;
-            result[1] = 0;
-            result[2] = 0;
-            result[3] = 1;
-
-            while (power) {
-                if (power % 2 == 1) {
-                    matrixMultiplyHost(result, base, temp, MAT_SIZE);
-                    std::copy(temp, temp + MAT_SIZE * MAT_SIZE, result);
-                }
-                matrixMultiplyHost(base, base, temp, MAT_SIZE);
-                std::copy(temp, temp + MAT_SIZE * MAT_SIZE, base);
-                power /= 2;
-            }
-        }
-
-        void computeFibonacci(int *fibs, int count) {
-            int result[MAT_SIZE * MAT_SIZE];
-
-            fibs[0] = 0; // F(0)
-            fibs[1] = 1; // F(1)
-            for (int i = 2; i < count; ++i) {
-                matrixPower(result, i - 1);
-                fibs[i] = result[0] + result[1]; // F(n) is the sum of the first row of the result matrix
-            }
-        }
-
         int main() {
-            int fibs[FIB_NUMS];
+            int a[N * N], b[N * N], c[N * N];
 
-            computeFibonacci(fibs, FIB_NUMS);
+            // | 1 2 |
+            // | 3 4 |
+            a[0] = 1;
+            a[1] = 2;
+            a[2] = 3;
+            a[3] = 4;
 
-            std::cout << "First " << FIB_NUMS << " Fibonacci numbers:" << std::endl;
-            for (int i = 0; i < FIB_NUMS; ++i) {
-                std::cout << fibs[i] << " ";
+
+            // | 5 6 |
+            // | 7 8 |
+            b[0] = 5;
+            b[1] = 6;
+            b[2] = 7;
+            b[3] = 8;
+
+            // 调用矩阵乘法函数
+            matrixMul(a, b, c, N);
+
+            // 输出结果矩阵c
+            std::cout << "Result matrix:" << std::endl;
+            for (int i = 0; i < N; ++i) {
+                for (int j = 0; j < N; ++j) {
+                    std::cout << c[i * N + j] << " ";
+                }
+                std::cout << std::endl;
             }
-            std::cout << std::endl;
 
             return 0;
         }
-
-
         """;
     
     public string EntryFileName => "main.cu";
