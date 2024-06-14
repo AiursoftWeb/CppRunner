@@ -11,15 +11,17 @@ public class RubyLang : ILang
     public string DefaultCode =>
         """
         def fibonacci(n)
-          return n if n <= 1
-          fibonacci(n - 1) + fibonacci(n - 2)
+          fib = [0, 1]
+          (2..n).each do |i|
+            fib[i] = fib[i - 1] + fib[i - 2]
+          end
+          fib[n]
         end
 
         20.times do |n|
           result = fibonacci(n)
           puts result
         end
-
         """;
 
     public string EntryFileName => "main.rb";
