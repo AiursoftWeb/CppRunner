@@ -121,7 +121,7 @@ function App() {
   return (
     <div className='flex flex-col h-full sm:h-screen'>
       <div className='w-screen h-[10vh] center text-lg'>
-        Aiursoft C++ Runner Online
+        Code Runner Online
       </div>
       <div className='flex flex-col sm:flex-row gap-4 sm:h-[85vh] w-full px-2'>
 
@@ -236,7 +236,6 @@ function App() {
       </div>
 
       <footer className='center h-[5vh] space-x-4'>
-        <span>Page Created by Dvorak</span>
         <a className='text-blue-500' href='https://gitlab.aiursoft.cn/aiursoft/cpprunner' target='_blank'>Source Code</a>
       </footer>
     </div>
