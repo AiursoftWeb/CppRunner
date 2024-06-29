@@ -57,8 +57,9 @@ Then run the following commands in a Linux shell:
 mkdir -p /tmp/cpprunner/builds
 image=hub.aiursoft.cn/aiursoft/cpprunner
 appName=cpprunner
-docker pull $image
-docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data -v /tmp/cpprunner/builds:/tmp/cpprunner/builds -v /var/run/docker.sock:/var/run/docker.sock $image
+sudo docker pull $image
+# Must run with root or you may have trouble passthrough the /tmp folder.
+sudo docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data -v /tmp/cpprunner/builds:/tmp/cpprunner/builds -v /var/run/docker.sock:/var/run/docker.sock $image
 ```
 
 That will start a web server at `http://localhost:5000` and you can test the app.
