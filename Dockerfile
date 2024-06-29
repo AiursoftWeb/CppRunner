@@ -47,6 +47,7 @@ RUN rm get-docker.sh
 RUN sed -i 's/DataSource=app.db/DataSource=\/data\/app.db/g' appsettings.json
 RUN sed -i 's/\/tmp\/data/\/data/g' appsettings.json
 RUN mkdir -p /data
+RUN mkdir -p /tmp/cpprunner/builds
 
 VOLUME /data
 EXPOSE 5000
