@@ -52,7 +52,7 @@ RUN mkdir -p /tmp/cpprunner/builds
 
 VOLUME /data
 # The program will write temp code to /tmp/cpprunner/builds to host, and will call host docker to run the code.
-VOLUME /tmp/cpprunner/builds
+#VOLUME /tmp/cpprunner/builds
 EXPOSE 5000
 
 ENV SRC_SETTINGS=/app/appsettings.json
