@@ -3,7 +3,7 @@ using Aiursoft.WebTools;
 
 namespace Aiursoft.CppRunner;
 
-public class Program
+public abstract class Program
 {
     [ExcludeFromCodeCoverage]
     public static async Task Main(string[] args)
