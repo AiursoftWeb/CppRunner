@@ -47,12 +47,8 @@ RUN rm get-docker.sh
 RUN sed -i 's/DataSource=app.db/DataSource=\/data\/app.db/g' appsettings.json
 RUN sed -i 's/\/tmp\/data/\/data/g' appsettings.json
 RUN mkdir -p /data
-# The program will write temp code to /tmp/cpprunner/builds to host, and will call host docker to run the code.
-RUN mkdir -p /tmp/cpprunner/builds
 
 VOLUME /data
-# The program will write temp code to /tmp/cpprunner/builds to host, and will call host docker to run the code.
-#VOLUME /tmp/cpprunner/builds
 EXPOSE 5000
 
 ENV SRC_SETTINGS=/app/appsettings.json
