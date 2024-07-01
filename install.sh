@@ -43,7 +43,7 @@ install()
     cp -rv $fepath/dist/* $wwwrootPath
 
     # Publish the app
-    aiur dotnet/publish "/tmp/repo/$proj_path" "/opt/apps/$app_name"
+    aiur dotnet/publish "/tmp/repo/$proj_path" "/opt/apps/$app_name" true
     
     # Register the service
     usermod -aG docker www-data
