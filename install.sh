@@ -43,12 +43,12 @@ install()
     cp -rv $fepath/dist/* $wwwrootPath
 
     # Publish the app
-    aiur dotnet/publish "/tmp/repo/$proj_path" "/opt/apps/$app_name" true
+    aiur dotnet/publish "/tmp/repo/$proj_path" "/opt/apps/$app_name"
     
     # Register the service
     usermod -aG docker www-data
     dll_name=$(get_dll_name)
-    aiur services/register_aspnet_service $app_name $port "/opt/apps/$app_name" $dll_name
+    aiur services/register_aspnet_service $app_name $port "/opt/apps/$app_name" $dll_name true
 
     # Clean up
     echo "Install $app_name finished! Please open http://$(hostname):$port to try!"
