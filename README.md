@@ -73,7 +73,7 @@ The docker image has the following context:
 | Data path   | /data                                  |
 | Config path | /data/appsettings.json                 |
 | Passthrough | /var/run/docker.sock (For Docker)      |
-| Passthrough | /tmp/cpprunner/builds (For code)       |
+| Passthrough | /tmp (For saving code with Docker)     |
 
 ## Run in Microsoft Visual Studio
 
