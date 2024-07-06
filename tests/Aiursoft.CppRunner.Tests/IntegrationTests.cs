@@ -103,6 +103,13 @@ public class IntegrationTests
             Assert.Inconclusive("This test is not supported on Windows.");
             return;
         }
+        
+        // Skip this test in Docker.
+        if (EntryExtends.IsInDocker())
+        {
+            Assert.Inconclusive("This test is not supported in Docker.");
+            return;
+        }
 
         await (_server?.PullContainersAsync() ?? Task.CompletedTask);
 
