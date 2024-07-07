@@ -3,7 +3,7 @@ ARG PROJ_NAME="Aiursoft.CppRunner"
 ARG FRONT_END_PATH="./src/Aiursoft.CppRunner.Frontend/"
 # ============================
 # Prepare NPM Environment
-FROM hub.aiursoft.cn/node:21-alpine as npm-env
+FROM hub.aiursoft.cn/node:21-alpine AS npm-env
 ARG FRONT_END_PATH
 WORKDIR /src
 COPY . .
@@ -14,7 +14,7 @@ RUN npm run build --prefix "${FRONT_END_PATH}"
 
 # ============================
 # Prepare Building Environment
-FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/sdk:8.0 as build-env
+FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 ARG CSPROJ_PATH
 ARG FRONT_END_PATH
 ARG PROJ_NAME
@@ -22,13 +22,13 @@ WORKDIR /src
 COPY --from=npm-env /src .
 
 # Build
-RUN dotnet publish ${CSPROJ_PATH}${PROJ_NAME}.csproj  --configuration Release --no-self-contained --runtime linux-x64 --output /app
+RUN dotnet publish ${CSPROJ_PATH}${PROJ_NAME}.csproj  --configuration ReleASe --no-self-contained --runtime linux-x64 --output /app
 RUN mkdir -p /app/wwwroot
 RUN cp -r ${FRONT_END_PATH}/dist/* /app/wwwroot
 
 # ============================
 # Prepare Runtime Environment
-FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/aspnet:8.0
+FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/ASpnet:8.0
 ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
@@ -56,7 +56,7 @@ ENV VOL_SETTINGS=/data/appsettings.json
 ENV DLL_NAME=${PROJ_NAME}.dll
 
 #ENTRYPOINT dotnet $DLL_NAME --urls http://*:5000
-ENTRYPOINT ["/bin/bash", "-c", "\
+ENTRYPOINT ["/bin/bASh", "-c", "\
     if [ ! -f \"$VOL_SETTINGS\" ]; then \
         cp $SRC_SETTINGS $VOL_SETTINGS; \
     fi && \
