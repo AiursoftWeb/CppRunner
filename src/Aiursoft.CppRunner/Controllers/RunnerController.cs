@@ -20,13 +20,8 @@ public class RunnerController(
             onFound: async langImplement =>
             {
                 var code = await new StreamReader(Request.Body).ReadToEndAsync();
-                return await RenderRunLangResult(langImplement, code);
+                var result = await runCodeService.RunCode(code, langImplement);
+                return Ok(result);
             },
             onNotFound: () => Task.FromResult(NotFound() as IActionResult));
-    
-    private async Task<IActionResult> RenderRunLangResult(ILang langImplement, string code)
-    {
-        var result = await runCodeService.RunCode(code, langImplement);
-        return Ok(result);
-    }
 }
