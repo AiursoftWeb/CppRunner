@@ -22,13 +22,13 @@ WORKDIR /src
 COPY --from=npm-env /src .
 
 # Build
-RUN dotnet publish ${CSPROJ_PATH}${PROJ_NAME}.csproj  --configuration ReleASe --no-self-contained --runtime linux-x64 --output /app
+RUN dotnet publish ${CSPROJ_PATH}${PROJ_NAME}.csproj  --configuration Release --no-self-contained --runtime linux-x64 --output /app
 RUN mkdir -p /app/wwwroot
 RUN cp -r ${FRONT_END_PATH}/dist/* /app/wwwroot
 
 # ============================
 # Prepare Runtime Environment
-FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/ASpnet:8.0
+FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/aspnet:8.0
 ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
@@ -56,7 +56,7 @@ ENV VOL_SETTINGS=/data/appsettings.json
 ENV DLL_NAME=${PROJ_NAME}.dll
 
 #ENTRYPOINT dotnet $DLL_NAME --urls http://*:5000
-ENTRYPOINT ["/bin/bASh", "-c", "\
+ENTRYPOINT ["/bin/bash", "-c", "\
     if [ ! -f \"$VOL_SETTINGS\" ]; then \
         cp $SRC_SETTINGS $VOL_SETTINGS; \
     fi && \
