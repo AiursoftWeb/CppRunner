@@ -5,7 +5,7 @@ using Aiursoft.WebTools.Attributes;
 
 namespace Aiursoft.CppRunner.Controllers;
 
-[Route("runner")]
+[Route("{controller}")]
 public class RunnerController(
     RunCodeService runCodeService,
     IEnumerable<ILang> langs)

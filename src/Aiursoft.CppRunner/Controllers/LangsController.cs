@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Aiursoft.CppRunner.Controllers;
 
-[Route("langs")]
+[Route("{controller}")]
 public class LangsController(IEnumerable<ILang> langs) : ControllerBase
 {
     [Route("")]
