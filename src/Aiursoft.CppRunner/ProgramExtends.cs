@@ -30,7 +30,7 @@ public static class ProgramExtends
             pool.RegisterNewTaskToPool(() => retryEngine.RunWithRetry(async _ =>
             {
                 logger.LogInformation("Pulling docker image {Image}", lang.DockerImage);
-                var result = await commandService.RunCommandAsync("docker", $"pull {lang.DockerImage}", path: Path.GetTempPath(), timeout: TimeSpan.FromMinutes(5));
+                var result = await commandService.RunCommandAsync("docker", $"pull {lang.DockerImage}", path: Path.GetTempPath(), timeout: TimeSpan.FromMinutes(10));
                 if (result.code != 0)
                 {
                     throw new Exception($"Failed to pull docker image {lang.DockerImage}! Error: {result.error}");
