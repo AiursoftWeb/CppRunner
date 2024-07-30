@@ -17,32 +17,32 @@ public class Startup : IWebStartup
         services.AddTaskCanon();
         services.AddScoped<ILang, CLang>();
         services.AddScoped<ILang, CppLang>();
-        services.AddScoped<ILang, CudaLang>();
-        services.AddScoped<ILang, CSharpLang>();
+        // services.AddScoped<ILang, CudaLang>();
+        // services.AddScoped<ILang, CSharpLang>();
         
-        services.AddScoped<ILang, GoLang>();
-        services.AddScoped<ILang, RustLang>();
+        // services.AddScoped<ILang, GoLang>();
+        // services.AddScoped<ILang, RustLang>();
         
-        services.AddScoped<ILang, JavaScriptLang>();
-        services.AddScoped<ILang, TypeScriptLang>();
+        // services.AddScoped<ILang, JavaScriptLang>();
+        // services.AddScoped<ILang, TypeScriptLang>();
         
-        services.AddScoped<ILang, PythonLang>();
-        services.AddScoped<ILang, PythonWithPytorch>();
-        services.AddScoped<ILang, BashLang>();
-        services.AddScoped<ILang, PowerShellLang>();
+        // services.AddScoped<ILang, PythonLang>();
+        // services.AddScoped<ILang, PythonWithPytorch>();
+        // services.AddScoped<ILang, BashLang>();
+        // services.AddScoped<ILang, PowerShellLang>();
         
-        services.AddScoped<ILang, SwiftLang>();
+        // services.AddScoped<ILang, SwiftLang>();
         
-        services.AddScoped<ILang, JavaLang>();
-        services.AddScoped<ILang, RubyLang>();
+        // services.AddScoped<ILang, JavaLang>();
+        // services.AddScoped<ILang, RubyLang>();
         
-        services.AddScoped<ILang, PhpLang>();
+        // services.AddScoped<ILang, PhpLang>();
         
-        services.AddScoped<ILang, PerlLang>();
-        services.AddScoped<ILang, LuaLang>();
+        // services.AddScoped<ILang, PerlLang>();
+        // services.AddScoped<ILang, LuaLang>();
         
-        services.AddScoped<ILang, HaskellLang>();
-        services.AddScoped<ILang, LispLang>();
+        // services.AddScoped<ILang, HaskellLang>();
+        // services.AddScoped<ILang, LispLang>();
 
 
         services

@@ -3,7 +3,7 @@ ARG PROJ_NAME="Aiursoft.CppRunner"
 ARG FRONT_END_PATH="./src/Aiursoft.CppRunner.Frontend/"
 # ============================
 # Prepare NPM Environment
-FROM hub.aiursoft.cn/node:21-alpine AS npm-env
+FROM node:21-alpine AS npm-env
 ARG FRONT_END_PATH
 WORKDIR /src
 COPY . .
@@ -14,7 +14,7 @@ RUN npm run build --prefix "${FRONT_END_PATH}"
 
 # ============================
 # Prepare Building Environment
-FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 ARG CSPROJ_PATH
 ARG FRONT_END_PATH
 ARG PROJ_NAME
@@ -28,7 +28,7 @@ RUN cp -r ${FRONT_END_PATH}/dist/* /app/wwwroot
 
 # ============================
 # Prepare Runtime Environment
-FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
