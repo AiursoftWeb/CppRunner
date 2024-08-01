@@ -27,7 +27,7 @@ public class LuaLang : ILang
 
     public string EntryFileName => "main.lua";
 
-    public string DockerImage => "hub.aiursoft.cn/imolein/lua:5.4";
+    public string DockerImage => "imolein/lua:5.4";
 
     public string RunCommand => "lua /app/main.lua";
 

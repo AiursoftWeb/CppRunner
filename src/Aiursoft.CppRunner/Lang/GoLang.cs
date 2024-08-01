@@ -33,7 +33,7 @@ public class GoLang : ILang
 
     public string EntryFileName => "main.go";
 
-    public string DockerImage => "hub.aiursoft.cn/golang:1.21.5";
+    public string DockerImage => "golang:1.21.5";
 
     public string RunCommand => "go run /app/main.go";
 

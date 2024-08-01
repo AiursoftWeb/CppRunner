@@ -27,7 +27,7 @@ public class PerlLang : ILang
 
     public string EntryFileName => "main.pl";
 
-    public string DockerImage => "hub.aiursoft.cn/perl:5.39.5";
+    public string DockerImage => "perl:5.39.5";
 
     public string RunCommand => "perl /app/main.pl";
 

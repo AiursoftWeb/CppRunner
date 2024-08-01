@@ -19,7 +19,7 @@ public class HaskellLang : ILang
 
     public string EntryFileName => "main.hs";
 
-    public string DockerImage => "hub.aiursoft.cn/haskell:9.8.1";
+    public string DockerImage => "haskell:9.8.1";
 
     public string RunCommand => "runhaskell /app/main.hs";
 
