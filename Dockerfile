@@ -9,7 +9,7 @@ WORKDIR /src
 COPY . .
 
 # NPM Build at PGK_JSON_PATH
-RUN npm install --prefix "${FRONT_END_PATH}" --force
+RUN npm install --prefix "${FRONT_END_PATH}" --force --loglevel verbose
 RUN npm run build --prefix "${FRONT_END_PATH}"
 
 # ============================
