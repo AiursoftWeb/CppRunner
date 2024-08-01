@@ -33,7 +33,7 @@ install()
     fepath="/tmp/repo/$fted_path"
     if [ -d "$fepath" ]; then
         echo "Found frontend folder $fepath, will install node modules."
-        npm install --prefix "$fepath" -force
+        npm install --prefix "$fepath" -force --loglevel verbose
         npm run build --prefix "$fepath"
     fi
 
