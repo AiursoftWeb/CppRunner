@@ -30,8 +30,8 @@ public class RunCodeService(
         try
         {
             var command = lang.NeedGpu ? 
-                $"run --rm --name {buildId} --gpus all --cpus=8 --memory=512m --network none --read-only -v {folder}:/app {lang.DockerImage} sh -c \"{lang.RunCommand}\"" : 
-                $"run --rm --name {buildId}            --cpus=8 --memory=512m --network none --read-only -v {folder}:/app {lang.DockerImage} sh -c \"{lang.RunCommand}\"";
+                $"run --rm --name {buildId} --gpus all --cpus=8 --memory=512m --network none -v {folder}:/app {lang.DockerImage} sh -c \"{lang.RunCommand}\"" : 
+                $"run --rm --name {buildId}            --cpus=8 --memory=512m --network none -v {folder}:/app {lang.DockerImage} sh -c \"{lang.RunCommand}\"";
             var (resultCode, output, error) = await commandService.RunCommandAsync(
                 bin: "docker",
                 arg: command,
