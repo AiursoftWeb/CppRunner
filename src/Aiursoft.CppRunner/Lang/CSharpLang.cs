@@ -51,6 +51,7 @@ public class CSharpLang : ILang
 <OutputType>Exe</OutputType>
 <TargetFramework>net7.0</TargetFramework>
 <ImplicitUsings>enable</ImplicitUsings>
+<LangVersion>preview</LangVersion>
 </PropertyGroup>
 </Project>"
         }
