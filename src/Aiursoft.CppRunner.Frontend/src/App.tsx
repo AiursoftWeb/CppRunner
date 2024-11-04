@@ -175,7 +175,7 @@ function App() {
                 <button type='button' className='p-2' onClick={() => { handleOutputClear() }}>Clear</button>
               </span>
             </div>
-            <div className='relative p-2 min-h-[50vh] sm:min-h-max sm:h-5/6 rounded border border-gray-600 break-words overflow-scroll'>
+            <div className='relative p-2 min-h-1/2 sm:min-h-1/2  sm:h-5/6 rounded border border-gray-600 break-words overflow-scroll'>
               {data.running && <div className='absolute bottom-1/2 left-1/2 z-50 center text-lg'>Running...</div>}
               {
                 result.output!.length < OUTPUT_RENDER_MAX_LENGTH ?
