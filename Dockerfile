@@ -14,7 +14,7 @@ RUN npm run build --prefix "${FRONT_END_PATH}"
 
 # ============================
 # Prepare Building Environment
-FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/sdk:9.0 AS build-env
+FROM hub.aiursoft.cn/aiursoft/internalimages/dotnet AS build-env
 ARG CSPROJ_PATH
 ARG FRONT_END_PATH
 ARG PROJ_NAME
@@ -32,9 +32,6 @@ FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/aspnet:9.0
 ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
-
-# Install wget and curl
-RUN apt update; DEBIAN_FRONTEND=noninteractive apt install -y wget curl
 
 # Install Docker
 RUN curl -fsSL https://get.docker.com -o get-docker.sh
