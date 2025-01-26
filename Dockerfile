@@ -28,7 +28,7 @@ RUN cp -r ${FRONT_END_PATH}/dist/* /app/wwwroot
 
 # ============================
 # Prepare Runtime Environment
-FROM hub.aiursoft.cn/mcr.microsoft.com/dotnet/aspnet:9.0
+FROM hub.aiursoft.cn/aiursoft/internalimages/dotnet
 ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
