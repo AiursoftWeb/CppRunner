@@ -1,6 +1,7 @@
 ARG CSPROJ_PATH="./src/Aiursoft.CppRunner/"
 ARG PROJ_NAME="Aiursoft.CppRunner"
 ARG FRONT_END_PATH="./src/Aiursoft.CppRunner.Frontend/"
+
 # ============================
 # Prepare NPM Environment
 FROM hub.aiursoft.cn/node:21-alpine AS npm-env
