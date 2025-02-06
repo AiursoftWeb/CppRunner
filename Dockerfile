@@ -3,36 +3,41 @@ ARG PROJ_NAME="Aiursoft.CppRunner"
 ARG FRONT_END_PATH="./src/Aiursoft.CppRunner.Frontend/"
 
 # ============================
-# Prepare NPM Environment
+# Prepare node dist
+# ============================
 FROM hub.aiursoft.cn/node:21-alpine AS npm-env
 ARG FRONT_END_PATH
 WORKDIR /src
-COPY . .
 
-# NPM Build at PGK_JSON_PATH
-RUN npm install --prefix "${FRONT_END_PATH}" --force --loglevel verbose
-RUN npm run build --prefix "${FRONT_END_PATH}"
+COPY ${FRONT_END_PATH}/package*.json ./wwwroot/
+RUN npm install --prefix "wwwroot" --force --loglevel verbose
+
+COPY ${FRONT_END_PATH}/ ./wwwroot/
+RUN npm run build --prefix "wwwroot" --loglevel verbose
 
 # ============================
-# Prepare Building Environment
+# Prepare .NET binaries
+# ============================
 FROM hub.aiursoft.cn/aiursoft/internalimages/dotnet AS build-env
 ARG CSPROJ_PATH
-ARG FRONT_END_PATH
 ARG PROJ_NAME
 WORKDIR /src
-COPY --from=npm-env /src .
+
+COPY ${CSPROJ_PATH}${PROJ_NAME}.csproj ${CSPROJ_PATH}
+RUN dotnet restore ${CSPROJ_PATH}${PROJ_NAME}.csproj
+COPY . .
 
 # Build
 RUN dotnet publish ${CSPROJ_PATH}${PROJ_NAME}.csproj  --configuration Release --no-self-contained --runtime linux-x64 --output /app
-RUN mkdir -p /app/wwwroot
-RUN cp -r ${FRONT_END_PATH}/dist/* /app/wwwroot
 
 # ============================
-# Prepare Runtime Environment
+# Prepare runtime image
+# ============================
 FROM hub.aiursoft.cn/aiursoft/internalimages/dotnet
 ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
+COPY --from=npm-env /src/wwwroot/dist ./wwwroot/
 
 # Install Docker
 RUN curl -fsSL https://get.docker.com -o get-docker.sh
@@ -42,9 +47,9 @@ RUN usermod -aG docker root
 RUN rm get-docker.sh
 
 # Edit appsettings.json
-RUN sed -i 's/DataSource=app.db/DataSource=\/data\/app.db/g' appsettings.json
-RUN sed -i 's/\/tmp\/data/\/data/g' appsettings.json
-RUN mkdir -p /data
+RUN sed -i 's/DataSource=app.db/DataSource=\/data\/app.db/g' appsettings.json && \
+    sed -i 's/\/tmp\/data/\/data/g' appsettings.json && \
+    mkdir -p /data
 
 VOLUME /data
 EXPOSE 5000
