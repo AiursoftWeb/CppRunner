@@ -1,6 +1,6 @@
-ARG CSPROJ_PATH="./src/Aiursoft.CppRunner/"
+ARG CSPROJ_PATH="./src/Aiursoft.CppRunner"
 ARG PROJ_NAME="Aiursoft.CppRunner"
-ARG FRONT_END_PATH="./src/Aiursoft.CppRunner.Frontend/"
+ARG FRONT_END_PATH="./src/Aiursoft.CppRunner.Frontend"
 
 # ============================
 # Prepare node dist
@@ -9,11 +9,13 @@ FROM hub.aiursoft.cn/node:21-alpine AS npm-env
 ARG FRONT_END_PATH
 WORKDIR /src
 
-COPY ${FRONT_END_PATH}/package*.json ./wwwroot/
-RUN npm install --prefix "wwwroot" --force --loglevel verbose
+# Restore
+COPY ${FRONT_END_PATH}/package*.json .
+RUN npm install --loglevel verbose --force
 
-COPY ${FRONT_END_PATH}/ ./wwwroot/
-RUN npm run build --prefix "wwwroot" --loglevel verbose
+# Build
+COPY ${FRONT_END_PATH}/ .
+RUN npm run build --loglevel verbose
 
 # ============================
 # Prepare .NET binaries
@@ -23,12 +25,9 @@ ARG CSPROJ_PATH
 ARG PROJ_NAME
 WORKDIR /src
 
-COPY ${CSPROJ_PATH}${PROJ_NAME}.csproj ${CSPROJ_PATH}
-RUN dotnet restore ${CSPROJ_PATH}${PROJ_NAME}.csproj
-COPY . .
-
 # Build
-RUN dotnet publish ${CSPROJ_PATH}${PROJ_NAME}.csproj  --configuration Release --no-self-contained --runtime linux-x64 --output /app
+COPY . .
+RUN dotnet publish ${CSPROJ_PATH}/${PROJ_NAME}.csproj  --configuration Release --no-self-contained --runtime linux-x64 --output /app
 
 # ============================
 # Prepare runtime image
@@ -37,7 +36,7 @@ FROM hub.aiursoft.cn/aiursoft/internalimages/dotnet
 ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
-COPY --from=npm-env /src/wwwroot/dist ./wwwroot/
+COPY --from=npm-env /src/dist ./wwwroot/
 
 # Install Docker
 RUN curl -fsSL https://get.docker.com -o get-docker.sh
