@@ -5,7 +5,7 @@
 [![Test Coverage](https://gitlab.aiursoft.cn/aiursoft/cpprunner/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/pipelines)
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/aiursoft/cpprunner.svg)](https://gitlab.aiursoft.cn/aiursoft/cpprunner/-/commits/master?ref_type=heads)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fcpprunner.aiursoft.cn%2F)](https://cpprunner.aiursoft.cn)
-[![Docker](https://img.shields.io/badge/docker-latest-blue?logo=docker)](https://hub.aiursoft.cn/#!/taglist/aiursoft/cpprunner)
+[![Docker](https://img.shields.io/docker/pulls/aiursoft/cpprunner.svg)](https://hub.docker.com/r/aiursoft/cpprunner)
 
 CppRunner is a simple Web app that can run code for you. It's based on .NET and Docker. With CppRunner, you can start testing a piece of code in seconds without setting up your environment. Now supports 15 languages.
 
@@ -50,8 +50,7 @@ First, install Docker [here](https://docs.docker.com/get-docker/).
 Then run the following commands in a Linux shell:
 
 ```bash
-mkdir -p /tmp/cpprunner/builds
-image=hub.aiursoft.cn/aiursoft/cpprunner
+image=aiursoft/cpprunner
 appName=cpprunner
 sudo docker pull $image
 sudo docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data -v /tmp:/tmp -v /var/run/docker.sock:/var/run/docker.sock $image
@@ -63,7 +62,7 @@ The docker image has the following context:
 
 | Properties  | Value                                  |
 |-------------|----------------------------------------|
-| Image       | hub.aiursoft.cn/aiursoft/cpprunner     |
+| Image       | aiursoft/cpprunner     |
 | Ports       | 5000                                   |
 | Binary path | /app                                   |
 | Data path   | /data                                  |
