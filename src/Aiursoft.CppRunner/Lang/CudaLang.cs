@@ -10,82 +10,101 @@ public class CudaLang : ILang
         """
         #include <iostream>
         #include <cuda_runtime.h>
+        #include <stdio.h>
+        #include <chrono>
 
-        // 定义矩阵的大小（N x N）
-        #define N 2
-
-        __global__ void matrixMulKernel(int* a, int* b, int* c, int n) {
-            int row = blockIdx.y * blockDim.y + threadIdx.y;
-            int col = blockIdx.x * blockDim.x + threadIdx.x;
-            int sum = 0;
-
-            if (row < n && col < n) {
-                for (int k = 0; k < n; ++k) {
-                    sum += a[row * n + k] * b[k * n + col];
-                }
-                c[row * n + col] = sum;
+        // CUDA kernel for calculating Pi using the Leibniz formula
+        __global__ void calculate_pi_gpu(double* partial_sums, long long num_iterations) {
+            int tid = blockIdx.x * blockDim.x + threadIdx.x;
+            int stride = blockDim.x * gridDim.x;
+            
+            double sum = 0.0;
+            
+            for (long long k = tid; k < num_iterations; k += stride) {
+                double term = (k % 2 == 0) ? 1.0 : -1.0;
+                term /= (2.0 * k + 1.0);
+                sum += term;
             }
+            
+            partial_sums[tid] = sum;
         }
 
-        void matrixMul(int* a, int* b, int* c, int n) {
-            int size = n * n * sizeof(int);
-            int* d_a, * d_b, * d_c;
-
-            // 分配设备内存
-            cudaMalloc((void**)&d_a, size);
-            cudaMalloc((void**)&d_b, size);
-            cudaMalloc((void**)&d_c, size);
-
-            // 复制数据到设备
-            cudaMemcpy(d_a, a, size, cudaMemcpyHostToDevice);
-            cudaMemcpy(d_b, b, size, cudaMemcpyHostToDevice);
-
-            // 定义CUDA网格和块的大小
-            dim3 threadsPerBlock(16, 16);
-            dim3 blocksPerGrid((n + threadsPerBlock.x - 1) / threadsPerBlock.x, (n + threadsPerBlock.y - 1) / threadsPerBlock.y);
-
-            // 调用CUDA内核
-            matrixMulKernel <<<blocksPerGrid, threadsPerBlock >>> (d_a, d_b, d_c, n);
-
-            // 复制结果回主机
-            cudaMemcpy(c, d_c, size, cudaMemcpyDeviceToHost);
-
-            // 释放设备内存
-            cudaFree(d_a);
-            cudaFree(d_b);
-            cudaFree(d_c);
+        // CPU function for calculating Pi using the same Leibniz formula
+        double calculate_pi_cpu(long long num_iterations) {
+            double sum = 0.0;
+            
+            for (long long k = 0; k < num_iterations; k++) {
+                double term = (k % 2 == 0) ? 1.0 : -1.0;
+                term /= (2.0 * k + 1.0);
+                sum += term;
+            }
+            
+            return 4.0 * sum;
         }
 
         int main() {
-            int a[N * N], b[N * N], c[N * N];
-
-            // | 1 2 |
-            // | 3 4 |
-            a[0] = 1;
-            a[1] = 2;
-            a[2] = 3;
-            a[3] = 4;
-
-
-            // | 5 6 |
-            // | 7 8 |
-            b[0] = 5;
-            b[1] = 6;
-            b[2] = 7;
-            b[3] = 8;
-
-            // 调用矩阵乘法函数
-            matrixMul(a, b, c, N);
-
-            // 输出结果矩阵c
-            std::cout << "Result matrix:" << std::endl;
-            for (int i = 0; i < N; ++i) {
-                for (int j = 0; j < N; ++j) {
-                    std::cout << c[i * N + j] << " ";
-                }
-                std::cout << std::endl;
+            // Number of iterations determines precision
+            long long num_iterations = 4000000000; // 4 billion iterations for good precision
+            
+            // Variables for timing
+            std::chrono::high_resolution_clock::time_point start, end;
+            double cpu_time, gpu_time;
+            
+            // ----- CPU Implementation -----
+            printf("Starting CPU calculation with %lld iterations...\n", num_iterations);
+            start = std::chrono::high_resolution_clock::now();
+            
+            double pi_cpu = calculate_pi_cpu(num_iterations);
+            
+            end = std::chrono::high_resolution_clock::now();
+            cpu_time = std::chrono::duration<double>(end - start).count();
+            printf("CPU calculation complete in %.4f seconds\n", cpu_time);
+            
+            // ----- GPU Implementation -----
+            printf("Starting GPU calculation with %lld iterations...\n", num_iterations);
+            start = std::chrono::high_resolution_clock::now();
+            
+            // CUDA configuration
+            int threadsPerBlock = 256;
+            int blocks = 512; // Adjust based on your GPU
+            int total_threads = blocks * threadsPerBlock;
+            
+            // Allocate device memory
+            double* d_partial_sums;
+            cudaMalloc(&d_partial_sums, total_threads * sizeof(double));
+            
+            // Execute kernel
+            calculate_pi_gpu<<<blocks, threadsPerBlock>>>(d_partial_sums, num_iterations);
+            
+            // Allocate and copy partial sums from device to host
+            double* h_partial_sums = new double[total_threads];
+            cudaMemcpy(h_partial_sums, d_partial_sums, total_threads * sizeof(double), cudaMemcpyDeviceToHost);
+            
+            // Combine partial sums on the host
+            double pi_gpu = 0.0;
+            for (int i = 0; i < total_threads; i++) {
+                pi_gpu += h_partial_sums[i];
             }
-
+            pi_gpu *= 4.0; // The Leibniz formula gives pi/4
+            
+            end = std::chrono::high_resolution_clock::now();
+            gpu_time = std::chrono::duration<double>(end - start).count();
+            printf("GPU calculation complete in %.4f seconds\n", gpu_time);
+            
+            // Print results
+            printf("\nResults:\n");
+            printf("Pi (CPU):           %.16f\n", pi_cpu);
+            printf("Pi (GPU):           %.16f\n", pi_gpu);
+            printf("Math library value: %.16f\n", M_PI);
+            printf("\nPerformance:\n");
+            printf("CPU time: %.4f seconds\n", cpu_time);
+            printf("GPU time: %.4f seconds\n", gpu_time);
+            printf("Speedup: %.2fx\n", cpu_time / gpu_time);
+            
+            // Free memory
+            delete[] h_partial_sums;
+            cudaFree(d_partial_sums);
+            
             return 0;
         }
         """;
