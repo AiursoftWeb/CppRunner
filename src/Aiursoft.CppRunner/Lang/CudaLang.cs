@@ -3,7 +3,7 @@ namespace Aiursoft.CppRunner.Lang;
 public class CudaLang : ILang
 {
     //12.8.1-devel-ubuntu24.04
-    public string LangDisplayName => "CUDA 12.8.1 (on Ubuntu 24.04)";
+    public string LangDisplayName => "CUDA 12.6.2 (on Ubuntu 24.04)";
     public string LangName => "cuda";
     public string LangExtension => "cpp";
 
