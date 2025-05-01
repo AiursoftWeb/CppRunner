@@ -2,12 +2,12 @@
 
 public class BashLang : ILang
 {
-    public string LangDisplayName => "Bash (on Ubuntu 24.04)";
+    public string LangDisplayName => "Bash (on Ubuntu 25.04)";
 
     public string LangExtension => "bash";
 
     public string LangName =>"bash";
-    
+
     public string DefaultCode =>
         """
         #!/bin/bash
@@ -23,13 +23,13 @@ public class BashLang : ILang
             count=$((count + 1))
         done
         """;
-    
+
     public string EntryFileName =>"main.sh";
-    
-    public string DockerImage =>"hub.aiursoft.cn/ubuntu:24.04";
-    
+
+    public string DockerImage =>"hub.aiursoft.cn/ubuntu:25.04";
+
     public string RunCommand =>"bash /app/main.sh";
-    
+
     public Dictionary<string, string> OtherFiles =>new();
     public bool NeedGpu => false;
 }
