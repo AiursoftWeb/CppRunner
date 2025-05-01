@@ -33,7 +33,8 @@ public class PythonLang : ILang
 
 public class PythonWithPytorch : ILang
 {
-    public string LangDisplayName => "Python with PyTorch (Pytorch 2.3.0; cuda 11.8; cudnn 8)";
+    //2.7.0-cuda12.6-cudnn9-devel
+    public string LangDisplayName => "Python with PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)";
 
     public string LangExtension => "python";
 
@@ -72,7 +73,7 @@ public class PythonWithPytorch : ILang
 
     public string EntryFileName => "main.py";
 
-    public string DockerImage => "hub.aiursoft.cn/pytorch/pytorch:2.3.0-cuda11.8-cudnn8-devel";
+    public string DockerImage => "hub.aiursoft.cn/pytorch/pytorch:2.7.0-cuda12.6-cudnn9-devel";
 
     public string RunCommand => "python3 /app/main.py";
     public Dictionary<string, string> OtherFiles => new();
