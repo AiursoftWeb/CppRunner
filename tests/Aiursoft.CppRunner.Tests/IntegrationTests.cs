@@ -55,7 +55,6 @@ public class IntegrationTests
     [DataRow("/langs/python/default")]
     [DataRow("/langs/php/default")]
     [DataRow("/langs/powershell/default")]
-    [DataRow("/langs/python/default")]
     [DataRow("/langs/ruby/default")]
     [DataRow("/langs/rust/default")]
     [DataRow("/langs/swift/default")]
@@ -65,7 +64,7 @@ public class IntegrationTests
         var response = await _http.GetAsync(_endpointUrl + url);
         response.EnsureSuccessStatusCode(); // Status Code 200-299
     }
-    
+
     [TestMethod]
     [DataRow("/langs/cpp22")]
     [DataRow("/langs/csss/default")]
@@ -90,7 +89,6 @@ public class IntegrationTests
     [DataRow("python")]
     [DataRow("php")]
     [DataRow("powershell")]
-    [DataRow("python")]
     [DataRow("ruby")]
     [DataRow("rust")]
     [DataRow("swift")]
@@ -103,7 +101,7 @@ public class IntegrationTests
             Assert.Inconclusive("This test is not supported on Windows.");
             return;
         }
-        
+
         // Skip this test in Docker.
         if (EntryExtends.IsInDocker())
         {
@@ -128,7 +126,7 @@ public class IntegrationTests
         Assert.IsTrue(message.Contains("34"));
         Assert.IsTrue(message.Contains("55"));
     }
-    
+
     [TestMethod]
     public async Task RunCodeNotFound()
     {
