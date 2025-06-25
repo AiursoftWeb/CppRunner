@@ -135,6 +135,10 @@ public class Startup : IWebStartup
         app.UseRouting();
         app.MapDefaultControllerRoute();
 #pragma warning disable ASP0014
-        app.UseEndpoints(e => e.MapMcp("sse"));
+        app.UseCors("CorsPolicy");
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapMcp("/mcp");
+        });
     }
 }
