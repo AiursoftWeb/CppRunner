@@ -16,10 +16,10 @@ public static class ProgramExtends
         var langs = services.GetRequiredService<IEnumerable<ILang>>();
         var retryEngine = services.GetRequiredService<RetryEngine>();
         var pool = services.GetRequiredService<CanonPool>();
-        
+
         var downloadedImages = await commandService.RunCommandAsync("docker", "images", Path.GetTempPath());
-        logger.LogInformation("Downloaded images: {Images}", downloadedImages.output);
-        
+        logger.LogInformation("Downloaded images count: {ImagesCount}", downloadedImages.output.Split('\n').Length);
+
         foreach (var lang in langs)
         {
             if (downloadedImages.output.Contains(lang.DockerImage))

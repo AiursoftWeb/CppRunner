@@ -96,8 +96,7 @@ public class Startup : IWebStartup
                                            ?? throw new McpException("Missing tool name");
 
                             var langKey = toolName["run_".Length..];
-                            var langImpl = langs.FirstOrDefault(l =>
-                                               l.LangName.Equals(langKey, StringComparison.OrdinalIgnoreCase))
+                            var langImpl = langs.FirstOrDefault(l =>l.LangName.Equals(langKey, StringComparison.OrdinalIgnoreCase))
                                            ?? throw new McpException($"Unknown language '{langKey}'");
 
                             var code = request.Params.Arguments?["code"].ToString()
