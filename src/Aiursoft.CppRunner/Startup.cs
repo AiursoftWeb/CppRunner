@@ -73,7 +73,7 @@ public class Startup : IWebStartup
                             var tools = langs.Select(l => new Tool
                                 {
                                     Name = $"run_{l.LangName}",
-                                    Description = $"Compile and run {l.LangDisplayName} code and get output and error results. No external libraries are supported. No stdin support.",
+                                    Description = $"Compile and run {l.LangDisplayName} code and get output and error results. No external libraries are supported. No user input support.",
                                     InputSchema = JsonSerializer.Deserialize<JsonElement>(@"
                                     {
                                       ""type"":""object"",
