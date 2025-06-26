@@ -147,7 +147,7 @@ public class Startup : IWebStartup
                     }
                 };
             })
-            .WithHttpTransport();
+            .WithHttpTransport(options => options.Stateless = true);
     }
 
     public void Configure(WebApplication app)
