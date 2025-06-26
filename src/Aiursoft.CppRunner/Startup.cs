@@ -73,7 +73,7 @@ public class Startup : IWebStartup
                             var tools = langs.Select(l => new Tool
                                 {
                                     Name = $"run_{l.LangName}",
-                                    Description = $"Compile and run {l.LangDisplayName} code and get output and error results.",
+                                    Description = $"Compile and run {l.LangDisplayName} code and get output and error results. No external libraries are supported. No stdin support.",
                                     InputSchema = JsonSerializer.Deserialize<JsonElement>(@"
                                     {
                                       ""type"":""object"",
@@ -156,11 +156,6 @@ public class Startup : IWebStartup
         app.UseStaticFiles();
         app.UseRouting();
         app.MapDefaultControllerRoute();
-#pragma warning disable ASP0014
-        app.UseCors("CorsPolicy");
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapMcp("/mcp");
-        });
+        app.MapMcp("/mcp");
     }
 }
