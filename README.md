@@ -46,7 +46,7 @@ Requirements about how to run
 
 ## Run with AI agent
 
-CppRunner can be used as a MCP server for AI agents. It supports most of the MCP clients like `Cursor`, `mcpo` and `Claude`.
+CppRunner can be used as a MCP server for AI agents. It supports most of the MCP clients like `Cursor` and `mcpo`.
 
 To add this as a MCP server, you can adjust your `config.json` as:
 
