@@ -90,6 +90,7 @@ public class Startup : IWebStartup
                         CallToolHandler = async (request, _) =>
                         {
                             var runCodeService = request.Services!.GetRequiredService<RunCodeService>();
+                            var logger = request.Services!.GetRequiredService<ILogger<RunCodeService>>();
                             var langs = request.Services!.GetRequiredService<IEnumerable<ILang>>();
 
                             var toolName = request.Params?.Name
@@ -126,6 +127,7 @@ public class Startup : IWebStartup
                             }
                             catch (Exception e)
                             {
+                                logger.LogError(e, "Failed to run code!");
                                 return new CallToolResult
                                 {
                                     Content =
