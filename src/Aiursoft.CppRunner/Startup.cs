@@ -68,6 +68,8 @@ public class Startup : IWebStartup
                         ListToolsHandler = (request, _) =>
                         {
                             var langs = request.Services!.GetRequiredService<IEnumerable<ILang>>();
+                            var logger = request.Services!.GetRequiredService<ILogger<Startup>>();
+                            logger.LogInformation("List tools...");
                             var tools = langs.Select(l => new Tool
                                 {
                                     Name = $"run_{l.LangName}",
@@ -92,10 +94,10 @@ public class Startup : IWebStartup
                             var runCodeService = request.Services!.GetRequiredService<RunCodeService>();
                             var logger = request.Services!.GetRequiredService<ILogger<RunCodeService>>();
                             var langs = request.Services!.GetRequiredService<IEnumerable<ILang>>();
-
                             var toolName = request.Params?.Name
                                            ?? throw new McpException("Missing tool name");
 
+                            logger.LogInformation("Call tool {ToolName}...", toolName);
                             var langKey = toolName["run_".Length..];
                             var langImpl = langs.FirstOrDefault(l =>l.LangName.Equals(langKey, StringComparison.OrdinalIgnoreCase))
                                            ?? throw new McpException($"Unknown language '{langKey}'");
@@ -105,7 +107,9 @@ public class Startup : IWebStartup
 
                             try
                             {
+                                logger.LogInformation("Running code in {LangName}...", langImpl.LangDisplayName);
                                 var result = await runCodeService.RunCode(code, langImpl);
+                                logger.LogInformation("Code run completed with result code {ResultCode}.", result.ResultCode);
                                 return new CallToolResult
                                 {
                                     Content =
