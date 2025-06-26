@@ -67,6 +67,18 @@ To add this as a MCP server, you can adjust your `config.json` as:
 }
 ```
 
+For GitHub Copilot in Visual Studio Code, you can add the following to your `settings.json`:
+
+```json
+"mcp": {
+    "servers": {
+        "coderunner": {
+            "url": "https://cpprunner.aiursoft.cn/mcp" // Or you own instance URL.
+        }
+    }
+}
+```
+
 Then you can chat with your AI agent and ask it to use this tool for you.
 
 ## Run in Docker
