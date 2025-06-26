@@ -102,25 +102,41 @@ public class Startup : IWebStartup
                             var code = request.Params.Arguments?["code"].ToString()
                                        ?? throw new McpException("Missing argument 'code'");
 
-                            var result = await runCodeService.RunCode(code, langImpl);
-                            return new CallToolResult
+                            try
                             {
-                                Content =
-                                [
-                                    new TextContentBlock
-                                    {
-                                        Text = $"Result code: '{result.ResultCode}'"
-                                    },
-                                    new TextContentBlock
-                                    {
-                                        Text = $"Output: '{result.Output}'"
-                                    },
-                                    new TextContentBlock
-                                    {
-                                        Text = $"Error: '{result.Error}'"
-                                    }
-                                ]
-                            };
+                                var result = await runCodeService.RunCode(code, langImpl);
+                                return new CallToolResult
+                                {
+                                    Content =
+                                    [
+                                        new TextContentBlock
+                                        {
+                                            Text = $"Result code: '{result.ResultCode}'"
+                                        },
+                                        new TextContentBlock
+                                        {
+                                            Text = $"Output: '{result.Output}'"
+                                        },
+                                        new TextContentBlock
+                                        {
+                                            Text = $"Error: '{result.Error}'"
+                                        }
+                                    ]
+                                };
+                            }
+                            catch (Exception e)
+                            {
+                                return new CallToolResult
+                                {
+                                    Content =
+                                    [
+                                        new TextContentBlock
+                                        {
+                                            Text = $"Error: '{e.Message}'"
+                                        }
+                                    ]
+                                };
+                            }
                         }
                     }
                 };
