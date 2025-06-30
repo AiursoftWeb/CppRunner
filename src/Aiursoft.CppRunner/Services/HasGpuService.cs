@@ -8,6 +8,13 @@ public class HasGpuService(
     CacheService cacheService,
     ILogger<HasGpuService> logger)
 {
+    private static readonly Regex CliUuidRegex;
+
+    static HasGpuService()
+    {
+        CliUuidRegex = new Regex(@"GPU UUID:\s*(GPU-[0-9A-Fa-f\-]+)", RegexOptions.Compiled);
+    }
+
     public async Task<bool> HasNvidiaGpuForDockerWithCache()
     {
         return await cacheService.RunWithCache("HasNvidiaGpuForDocker",
@@ -21,11 +28,12 @@ public class HasGpuService(
         var nvidiaSmiReady = await NvidiaSmiReady();
         var hasNvidiaContainerToolkit = await HasNvidiaContainerToolkit();
         var isGpuUuidConsistent = await IsGpuUuidConsistent();
+        var isDockerRuntimeNvidia = await IsDockerRuntimeNvidia();
         var finalResult =
-            lsPciHasNvidia &&
-            nvidiaSmiReady &&
-            hasNvidiaContainerToolkit &&
-            isGpuUuidConsistent;
+            (lsPciHasNvidia &&
+             nvidiaSmiReady &&
+             hasNvidiaContainerToolkit &&
+             isGpuUuidConsistent) || isDockerRuntimeNvidia;
         logger.LogInformation(
             "HasNvidiaGpuForDocker: {Result}, because: lspci has NVIDIA: {LsPciHasNvidia}, nvidia-smi is ready: {NvidiaSmiReady}, has nvidia-container-toolkit: {HasNvidiaContainerToolkit}, GPU UUIDs are consistent: {IsGpuUuidConsistent}",
             finalResult, lsPciHasNvidia, nvidiaSmiReady, hasNvidiaContainerToolkit, isGpuUuidConsistent);
@@ -45,6 +53,10 @@ public class HasGpuService(
         if (!isGpuUuidConsistent)
         {
             logger.LogWarning("GPU UUIDs are not consistent between nvidia-smi and nvidia-container-cli. This may cause issues with GPU access.");
+        }
+        if (!isDockerRuntimeNvidia)
+        {
+            logger.LogWarning("Docker runtime is not set to NVIDIA. This may cause issues with GPU access in Docker containers.");
         }
         return finalResult;
     }
@@ -135,9 +147,6 @@ public class HasGpuService(
         }
     }
 
-    private static readonly Regex CliUuidRegex =
-        new Regex(@"GPU UUID:\s*(GPU-[0-9A-Fa-f\-]+)", RegexOptions.Compiled);
-
     private async Task<string> GetGpuUuidFromNvidiaSmi()
     {
         var psi = new ProcessStartInfo
@@ -199,6 +208,36 @@ public class HasGpuService(
         catch (Exception ex)
         {
             logger.LogError(ex, "Failed to check GPU UUID consistency.");
+            return false;
+        }
+    }
+
+    private async Task<bool> IsDockerRuntimeNvidia()
+    {
+        try
+        {
+            var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "docker",
+                    Arguments = "info --format '{{.DefaultRuntime}}'",
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                }
+            };
+
+            process.Start();
+            var output = await process.StandardOutput.ReadToEndAsync();
+            var error = await process.StandardError.ReadToEndAsync();
+            await process.WaitForExitAsync();
+
+            return string.IsNullOrEmpty(error) && output.Contains("nvidia") && process.ExitCode == 0;
+        }
+        catch
+        {
             return false;
         }
     }
