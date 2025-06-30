@@ -10,9 +10,13 @@ public class LangsController(
     IEnumerable<ILang> langs) : ControllerBase
 {
     [Route("")]
-    public IActionResult GetSupportedLangs()
+    public async Task<IActionResult> GetSupportedLangs()
     {
-        return Ok(langs.Select(l => new
+        var hasGpu = await hasGpuService.HasNvidiaGpuForDockerWithCache();
+        var availableLangs = hasGpu
+            ? langs
+            : langs.Where(l => !l.NeedGpu);
+        return Ok(availableLangs.Select(l => new
         {
             l.LangName,
             l.LangDisplayName,

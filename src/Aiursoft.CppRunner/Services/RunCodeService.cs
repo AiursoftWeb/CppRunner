@@ -5,6 +5,7 @@ using Aiursoft.CSTools.Services;
 namespace Aiursoft.CppRunner.Services;
 
 public class RunCodeService(
+    HasGpuService hasGpuService,
     ILogger<RunCodeService> logger,
     CommandService commandService,
     CanonQueue queue)
@@ -13,6 +14,19 @@ public class RunCodeService(
 
     public async Task<CodeResult> RunCode(string code, ILang lang)
     {
+        var hasGpu = await hasGpuService.HasNvidiaGpuForDockerWithCache();
+        var needGpu = lang.NeedGpu;
+        if (needGpu && !hasGpu)
+        {
+            logger.LogWarning("Requested to run code with GPU, but no GPU is available.");
+            return new CodeResult
+            {
+                ResultCode = 1,
+                Output = "No GPU available!",
+                Error = "No GPU available!"
+            };
+        }
+
         var buildId = Guid.NewGuid().ToString("N");
         var folder = Path.Combine(_tempFolder, buildId);
         Directory.CreateDirectory(folder);
