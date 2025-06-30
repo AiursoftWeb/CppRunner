@@ -17,6 +17,7 @@ public class Startup : IWebStartup
     {
         services.AddScoped<CommandService>();
         services.AddScoped<RunCodeService>();
+        services.AddScoped<HasGpuService>();
 
         services.AddTaskCanon();
         services.AddScoped<ILang, CLang>();

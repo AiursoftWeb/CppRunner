@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Aiursoft.Canon;
+using Aiursoft.CppRunner.Services;
 using Aiursoft.CSTools.Services;
 
 namespace Aiursoft.CppRunner;
@@ -14,13 +15,21 @@ public static class ProgramExtends
         var commandService = services.GetRequiredService<CommandService>();
         var logger = services.GetRequiredService<ILogger<Startup>>();
         var langs = services.GetRequiredService<IEnumerable<ILang>>();
+        var hasGpuService = services.GetRequiredService<HasGpuService>();
         var retryEngine = services.GetRequiredService<RetryEngine>();
         var pool = services.GetRequiredService<CanonPool>();
 
         var downloadedImages = await commandService.RunCommandAsync("docker", "images", Path.GetTempPath());
         logger.LogInformation("Downloaded images count: {ImagesCount}", downloadedImages.output.Split('\n').Length);
 
-        foreach (var lang in langs)
+        var hasGpu = await hasGpuService.HasNvidiaGpuForDockerWithCache();
+        logger.LogInformation("Has GPU: {HasGpu}", hasGpu);
+
+        var availableLangs = hasGpu
+            ? langs
+            : langs.Where(l => !l.NeedGpu);
+
+        foreach (var lang in availableLangs)
         {
             if (downloadedImages.output.Contains(lang.DockerImage))
             {

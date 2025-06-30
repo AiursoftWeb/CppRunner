@@ -1,10 +1,14 @@
-﻿using Aiursoft.CSTools.Tools;
+﻿using Aiursoft.Canon;
+using Aiursoft.CppRunner.Services;
+using Aiursoft.CSTools.Tools;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aiursoft.CppRunner.Controllers;
 
 [Route("{controller}")]
-public class LangsController(IEnumerable<ILang> langs) : ControllerBase
+public class LangsController(
+    HasGpuService hasGpuService,
+    IEnumerable<ILang> langs) : ControllerBase
 {
     [Route("")]
     public IActionResult GetSupportedLangs()
@@ -18,9 +22,16 @@ public class LangsController(IEnumerable<ILang> langs) : ControllerBase
     }
 
     [Route("{lang}/default")]
-    public IActionResult GetLangDefaultCode(string lang)
+    public async Task<IActionResult> GetLangDefaultCode(string lang)
     {
-        return langs.TryFindFirst<ILang, IActionResult>(l => string.Equals(l.LangName, lang, StringComparison.CurrentCultureIgnoreCase),
+        var hasGpu = await hasGpuService.HasNvidiaGpuForDockerWithCache();
+        var availableLangs = langs;
+        if (!hasGpu)
+        {
+            availableLangs = langs.Where(l => !l.NeedGpu);
+        }
+
+        return availableLangs.TryFindFirst<ILang, IActionResult>(l => string.Equals(l.LangName, lang, StringComparison.CurrentCultureIgnoreCase),
             onFound: langDetails => Ok(langDetails.DefaultCode),
             onNotFound: NotFound);
     }
