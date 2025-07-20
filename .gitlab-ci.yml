@@ -15,6 +15,7 @@ before_script:
 
 variables:
   GIT_CLONE_PATH: '$CI_BUILDS_DIR/$CI_PROJECT_NAME/$CI_PIPELINE_ID'
+  DOCKER_HOST: tcp://dind:2375
 
 restore:
   stage: build
