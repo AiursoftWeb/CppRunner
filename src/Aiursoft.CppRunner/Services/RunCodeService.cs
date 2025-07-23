@@ -5,12 +5,15 @@ using Aiursoft.CSTools.Services;
 namespace Aiursoft.CppRunner.Services;
 
 public class RunCodeService(
+    IConfiguration configuration,
     HasGpuService hasGpuService,
     ILogger<RunCodeService> logger,
     CommandService commandService,
     CanonQueue queue)
 {
     private readonly string _tempFolder = Path.Combine(Path.GetTempPath(), "cpprunner", "builds");
+
+    private readonly string? _prefix = configuration["DockerImageSettings:Prefix"];
 
     public async Task<CodeResult> RunCode(string code, ILang lang)
     {
@@ -45,8 +48,8 @@ public class RunCodeService(
         {
             var securityOptions = "--cap-drop=ALL --cap-add=CHOWN --cap-add=SETUID --cap-add=SETGID";
             var command = lang.NeedGpu ?
-                $"run --rm --name {buildId} {securityOptions} --gpus all --cpus=8 --memory=512m --network none -v {folder}:/app {lang.DockerImage} sh -c \"{lang.RunCommand}\"" :
-                $"run --rm --name {buildId} {securityOptions}            --cpus=8 --memory=512m --network none -v {folder}:/app {lang.DockerImage} sh -c \"{lang.RunCommand}\"";
+                $"run --rm --name {buildId} {securityOptions} --gpus all --cpus=8 --memory=512m --network none -v {folder}:/app {lang.GetDockerImagePullEndpoint(_prefix)} sh -c \"{lang.RunCommand}\"" :
+                $"run --rm --name {buildId} {securityOptions}            --cpus=8 --memory=512m --network none -v {folder}:/app {lang.GetDockerImagePullEndpoint(_prefix)} sh -c \"{lang.RunCommand}\"";
             var (resultCode, output, error) = await commandService.RunCommandAsync(
                 bin: "docker",
                 arg: command,

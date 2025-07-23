@@ -21,7 +21,7 @@ public class LispLang : ILang
 
     public string EntryFileName => "main.lisp";
 
-    public string DockerImage => "hub.aiursoft.cn/rigetti/lisp:latest";
+    public string DockerImage => "rigetti/lisp:latest";
 
     public string RunCommand => "sbcl --script /app/main.lisp";
 

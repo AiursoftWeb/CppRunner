@@ -19,14 +19,14 @@ public class CSharpLang : ILang
             private static IEnumerable<int> Fibonacci()
             {
                 int current = 1, next = 1;
-        
+
                 while (true)
                 {
                     yield return current;
                     next = current + (current = next);
                 }
             }
-        
+
             public static void Main()
             {
                 foreach (var i in Fibonacci().Take(20))
@@ -39,7 +39,7 @@ public class CSharpLang : ILang
         """;
 
     public string EntryFileName => "Program.cs";
-    public string DockerImage => "hub.aiursoft.cn/mcr.microsoft.com/dotnet/sdk:7.0";
+    public string DockerImage => "mcr.microsoft.com/dotnet/sdk:7.0";
     public string RunCommand => "dotnet run --project /app/Project.csproj";
 
     public Dictionary<string, string> OtherFiles => new()

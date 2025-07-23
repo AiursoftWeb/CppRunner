@@ -26,7 +26,7 @@ public class BashLang : ILang
 
     public string EntryFileName =>"main.sh";
 
-    public string DockerImage =>"hub.aiursoft.cn/ubuntu:25.04";
+    public string DockerImage =>"ubuntu:25.04";
 
     public string RunCommand =>"bash /app/main.sh";
 

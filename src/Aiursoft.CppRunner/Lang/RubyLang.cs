@@ -26,7 +26,7 @@ public class RubyLang : ILang
 
     public string EntryFileName => "main.rb";
 
-    public string DockerImage => "hub.aiursoft.cn/ruby:3.2.2";
+    public string DockerImage => "ruby:3.2.2";
 
     public string RunCommand => "ruby /app/main.rb";
 

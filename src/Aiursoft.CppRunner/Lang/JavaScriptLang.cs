@@ -28,7 +28,7 @@ public class JavaScriptLang : ILang
         """;
 
     public string EntryFileName => "main.js";
-    public string DockerImage => "hub.aiursoft.cn/node:21-alpine";
+    public string DockerImage => "node:21-alpine";
     public string RunCommand => "node /app/main.js";
 
     public Dictionary<string, string> OtherFiles => new();

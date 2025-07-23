@@ -28,11 +28,9 @@ public class LangsController(
     public async Task<IActionResult> GetLangDefaultCode(string lang)
     {
         var hasGpu = await hasGpuService.HasNvidiaGpuForDockerWithCache();
-        var availableLangs = langs;
-        if (!hasGpu)
-        {
-            availableLangs = langs.Where(l => !l.NeedGpu);
-        }
+        var availableLangs = hasGpu
+            ? langs
+            : langs.Where(l => !l.NeedGpu);
 
         return availableLangs.TryFindFirst<ILang, IActionResult>(l => string.Equals(l.LangName, lang, StringComparison.CurrentCultureIgnoreCase),
             onFound: langDetails => Ok(langDetails.DefaultCode),
