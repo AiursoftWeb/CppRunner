@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Aiursoft.WebTools.Extends;
 
+[assembly: DoNotParallelize]
+
 namespace Aiursoft.CppRunner.Tests;
 
 [TestClass]
