@@ -3,7 +3,6 @@ using System.Runtime.InteropServices;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.Extensions.Hosting;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Aiursoft.WebTools.Extends;
 
 [assembly: DoNotParallelize]
