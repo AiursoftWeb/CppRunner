@@ -3,8 +3,9 @@ using System.Runtime.InteropServices;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.Extensions.Hosting;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Aiursoft.WebTools.Extends;
+
+[assembly: DoNotParallelize]
 
 namespace Aiursoft.CppRunner.Tests;
 
@@ -116,15 +117,15 @@ public class IntegrationTests
         response.EnsureSuccessStatusCode(); // Status Code 200-299
 
         var message = await response.Content.ReadAsStringAsync();
-        Assert.IsTrue(message.Contains("1"));
-        Assert.IsTrue(message.Contains("2"));
-        Assert.IsTrue(message.Contains("3"));
-        Assert.IsTrue(message.Contains("5"));
-        Assert.IsTrue(message.Contains("8"));
-        Assert.IsTrue(message.Contains("13"));
-        Assert.IsTrue(message.Contains("21"));
-        Assert.IsTrue(message.Contains("34"));
-        Assert.IsTrue(message.Contains("55"));
+        Assert.Contains("1", message);
+        Assert.Contains("2", message);
+        Assert.Contains("3", message);
+        Assert.Contains("5", message);
+        Assert.Contains("8", message);
+        Assert.Contains("13", message);
+        Assert.Contains("21", message);
+        Assert.Contains("34", message);
+        Assert.Contains("55", message);
     }
 
     [TestMethod]
