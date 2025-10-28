@@ -111,7 +111,7 @@ public class CudaLang : ILang
         """;
 
     public string EntryFileName => "main.cu";
-    public string DockerImage => "hub.aiursoft.cn/aiursoft/internalimages/nvidia";
+    public string DockerImage => "hub.aiursoft.com/aiursoft/internalimages/nvidia";
     public string RunCommand => "nvcc /app/main.cu -o /app/main && /app/main";
     public bool NeedGpu => true;
     public Dictionary<string, string> OtherFiles => new();
