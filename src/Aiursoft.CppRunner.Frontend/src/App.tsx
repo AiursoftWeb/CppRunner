@@ -236,7 +236,7 @@ function App() {
       </div>
 
       <footer className='center h-[5vh] space-x-4'>
-        <a className='text-blue-500' href='https://gitlab.aiursoft.cn/aiursoft/cpprunner' target='_blank'>Source Code</a>
+        <a className='text-blue-500' href='https://gitlab.aiursoft.com/aiursoft/cpprunner' target='_blank'>Source Code</a>
       </footer>
     </div>
 
