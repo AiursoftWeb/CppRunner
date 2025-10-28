@@ -4,7 +4,7 @@
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/cpprunner/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/cpprunner/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/cpprunner/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/cpprunner/-/pipelines)
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/aiursoft/cpprunner.svg)](https://gitlab.aiursoft.com/aiursoft/cpprunner/-/commits/master?ref_type=heads)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fcpprunner.aiursoft.cn%2F)](https://cpprunner.aiursoft.cn)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fcpprunner.aiursoft.com%2F)](https://cpprunner.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/cpprunner.svg)](https://hub.docker.com/r/aiursoft/cpprunner)
 
 CppRunner is a simple Web app that can run code for you. It's based on .NET and Docker. With CppRunner, you can start testing a piece of code in seconds without setting up your environment. Now supports 15 languages.
@@ -15,7 +15,7 @@ CppRunner is also a `MCP Server` which provides streamable HTTP APIs for AI agen
 
 ## Try
 
-Try a running CppRunner [here](https://cpprunner.aiursoft.cn).
+Try a running CppRunner [here](https://cpprunner.aiursoft.com).
 
 ## Run in Ubuntu
 
@@ -55,7 +55,7 @@ To add this as a MCP server, you can adjust your `config.json` as:
     "mcpServers": {
         "code-runner": {
             "type": "streamable_http",
-            "url": "https://cpprunner.aiursoft.cn/mcp", // Or you own instance URL.
+            "url": "https://cpprunner.aiursoft.com/mcp", // Or you own instance URL.
             "headers": {
                 "Content-Type": "application/json"
             }
@@ -73,7 +73,7 @@ For GitHub Copilot in Visual Studio Code, you can add the following to your `set
 "mcp": {
     "servers": {
         "coderunner": {
-            "url": "https://cpprunner.aiursoft.cn/mcp" // Or you own instance URL.
+            "url": "https://cpprunner.aiursoft.com/mcp" // Or you own instance URL.
         }
     }
 }
