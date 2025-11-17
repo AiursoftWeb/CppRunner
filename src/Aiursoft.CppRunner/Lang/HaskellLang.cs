@@ -1,4 +1,4 @@
-﻿namespace Aiursoft.CppRunner.Lang;
+namespace Aiursoft.CppRunner.Lang;
 
 public class HaskellLang : ILang
 {
@@ -11,7 +11,7 @@ public class HaskellLang : ILang
     public string DefaultCode =>
         """
         fibonacci :: [Integer]
-        fibonacci = 1 : 1 : zipWith (+) fibonacci (tail fibonacci)
+        fibonacci = 1 : 1 : zipWith (+) fibonacci (drop 1 fibonacci)
 
         main :: IO ()
         main = print $ take 20 fibonacci
