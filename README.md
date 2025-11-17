@@ -79,6 +79,39 @@ For GitHub Copilot in Visual Studio Code, you can add the following to your `set
 }
 ```
 
+For Gemini CLI, config file is `.gemini/appsettings.json`. Edit it as:
+
+```json
+{
+  "ide": {
+    "enabled": true,
+    "hasSeenNudge": true
+  },
+  "mcpServers": {
+    // Your other MCP servers.
+    "context7": {
+      "httpUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
+    },
+    // Code Runner
+    "code-runner": {
+      "httpUrl": "https://cpprunner.aiursoft.com/mcp",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json, text/event-stream"
+      }
+    }
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  }
+}
+```
+
 Then you can chat with your AI agent and ask it to use this tool for you.
 
 ## Run in Docker
