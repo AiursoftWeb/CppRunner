@@ -3,7 +3,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/cpprunner/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/cpprunner/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/cpprunner/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/cpprunner/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/cpprunner/-/pipelines)
-[![ManHours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/cpprunner.svg)](https://gitlab.aiursoft.com/aiursoft/cpprunner/-/commits/master?ref_type=heads)
+[![Man hours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/cpprunner.svg)](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/cpprunner.html)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fcpprunner.aiursoft.com%2F)](https://cpprunner.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/cpprunner.svg)](https://hub.docker.com/r/aiursoft/cpprunner)
 
