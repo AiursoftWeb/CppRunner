@@ -13,26 +13,29 @@ public class CppLang : ILang
         #include <iostream>
         #include <functional>
 
-        std::function<int()> fibonacci()
-        {
-            int current = 1, next = 1;
-            return [=]() mutable {
-                int result = current;
-                current = next;
-                next = current + result;
-                return result;
+        template <typename Sig>
+        std::function<Sig> Fix(std::function<std::function<Sig>(std::function<Sig>)> f) {
+            auto g = [f](auto x) -> std::function<Sig> {
+                return [f, x](auto... args) {
+                    return f(x(x))(args...);
+                };
             };
+            return g(g);
         }
 
-        int main()
-        {
-            auto fib = fibonacci();
-            for (int i = 0; i < 20; i++) {
-                std::cout << fib() << std::endl;
-            }
+        int main() {
+            auto fibLogic = [](auto self) {
+                return [self](int n) -> int {
+                    return (n <= 1) ? n : self(n - 1) + self(n - 2);
+                };
+            };
+
+            auto fib = Fix<int(int)>(fibLogic);
+
+            std::cout << "fib(10) = " << fib(10) << std::endl;
+
             return 0;
         }
-
         """;
 
     public string EntryFileName => "main.cpp";
