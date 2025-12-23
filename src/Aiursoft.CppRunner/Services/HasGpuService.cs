@@ -1,10 +1,11 @@
-using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Aiursoft.Canon;
+using Aiursoft.CSTools.Services;
 
 namespace Aiursoft.CppRunner.Services;
 
 public class HasGpuService(
+    CommandService commandService,
     CacheService cacheService,
     ILogger<HasGpuService> logger)
 {
@@ -24,40 +25,47 @@ public class HasGpuService(
 
     private async Task<bool> HasNvidiaGpuForDocker()
     {
-        var lsPciHasNvidia = await LsPciHasNvidia();
-        var nvidiaSmiReady = await NvidiaSmiReady();
-        var hasNvidiaContainerToolkit = await HasNvidiaContainerToolkit();
-        var isGpuUuidConsistent = await IsGpuUuidConsistent();
-        var isDockerRuntimeNvidia = await IsDockerRuntimeNvidia();
+        // 优化：使用 Task.WhenAll 并行执行所有检查，而不是串行等待
+        // 这样总耗时 = 最慢的那个命令耗时，而不是所有命令耗时之和
+        var t1 = LsPciHasNvidia();
+        var t2 = NvidiaSmiReady();
+        var t3 = HasNvidiaContainerToolkit();
+        var t4 = IsGpuUuidConsistent();
+        var t5 = IsDockerRuntimeNvidia();
+
+        await Task.WhenAll(t1, t2, t3, t4, t5);
+
+        var lsPciHasNvidia = t1.Result;
+        var nvidiaSmiReady = t2.Result;
+        var hasNvidiaContainerToolkit = t3.Result;
+        var isGpuUuidConsistent = t4.Result;
+        var isDockerRuntimeNvidia = t5.Result;
+
         var finalResult =
             (lsPciHasNvidia &&
              nvidiaSmiReady &&
              hasNvidiaContainerToolkit &&
              isGpuUuidConsistent) || isDockerRuntimeNvidia;
+
         logger.LogInformation(
             "HasNvidiaGpuForDocker: {Result}, because: lspci has NVIDIA: {LsPciHasNvidia}, nvidia-smi is ready: {NvidiaSmiReady}, has nvidia-container-toolkit: {HasNvidiaContainerToolkit}, GPU UUIDs are consistent: {IsGpuUuidConsistent}",
             finalResult, lsPciHasNvidia, nvidiaSmiReady, hasNvidiaContainerToolkit, isGpuUuidConsistent);
 
         if (!lsPciHasNvidia)
-        {
             logger.LogWarning("lspci has no NVIDIA. Can you make sure you have an NVIDIA GPU installed?");
-        }
+
         if (!nvidiaSmiReady)
-        {
             logger.LogWarning("nvidia-smi is not ready. Can you make sure NVIDIA drivers are installed and working?");
-        }
+
         if (!hasNvidiaContainerToolkit)
-        {
             logger.LogWarning("nvidia-container-toolkit is not installed. Can you make sure it is installed and configured?");
-        }
+
         if (!isGpuUuidConsistent)
-        {
             logger.LogWarning("GPU UUIDs are not consistent between nvidia-smi and nvidia-container-cli. This may cause issues with GPU access.");
-        }
+
         if (!isDockerRuntimeNvidia)
-        {
             logger.LogWarning("Docker runtime is not set to NVIDIA. This may cause issues with GPU access in Docker containers.");
-        }
+
         return finalResult;
     }
 
@@ -65,24 +73,8 @@ public class HasGpuService(
     {
         try
         {
-            var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = "lspci",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                }
-            };
-
-            process.Start();
-            var output = await process.StandardOutput.ReadToEndAsync();
-            var error = await process.StandardError.ReadToEndAsync();
-            await process.WaitForExitAsync();
-
-            return string.IsNullOrEmpty(error) && output.Contains("NVIDIA");
+            var (code, output, error) = await Run("lspci");
+            return code == 0 && string.IsNullOrEmpty(error) && output.Contains("NVIDIA");
         }
         catch
         {
@@ -94,24 +86,8 @@ public class HasGpuService(
     {
         try
         {
-            var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = "nvidia-smi",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                }
-            };
-
-            process.Start();
-            var output = await process.StandardOutput.ReadToEndAsync();
-            var error = await process.StandardError.ReadToEndAsync();
-            await process.WaitForExitAsync();
-
-            return string.IsNullOrEmpty(error) && !string.IsNullOrEmpty(output) && output.Contains("NVIDIA-SMI") && process.ExitCode == 0;
+            var (code, output, error) = await Run("nvidia-smi");
+            return code == 0 && string.IsNullOrEmpty(error) && output.Contains("NVIDIA-SMI");
         }
         catch
         {
@@ -123,23 +99,8 @@ public class HasGpuService(
     {
         try
         {
-            var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = "nvidia-container-cli",
-                    Arguments = "info",
-                    RedirectStandardOutput = false,
-                    RedirectStandardError = false,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                }
-            };
-
-            process.Start();
-            await process.WaitForExitAsync();
-
-            return process.ExitCode == 0;
+            var (code, _, _) = await Run("nvidia-container-cli", "info");
+            return code == 0;
         }
         catch
         {
@@ -149,21 +110,11 @@ public class HasGpuService(
 
     private async Task<string> GetGpuUuidFromNvidiaSmi()
     {
-        var psi = new ProcessStartInfo
-        {
-            FileName = "nvidia-smi",
-            Arguments = "--query-gpu=uuid --format=csv,noheader",
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
+        var (code, output, _) = await Run("nvidia-smi", "--query-gpu=uuid --format=csv,noheader");
 
-        using var proc = Process.Start(psi)
-                         ?? throw new InvalidOperationException("Cannot start nvidia-smi");
-        var output = await proc.StandardOutput.ReadToEndAsync();
-        await proc.WaitForExitAsync();
+        if (code != 0)
+            throw new InvalidOperationException($"nvidia-smi exited with code {code}");
 
-        // 取第一行，去除空白
         return output
                    .Split('\n', StringSplitOptions.RemoveEmptyEntries)
                    .Select(line => line.Trim())
@@ -173,19 +124,10 @@ public class HasGpuService(
 
     private async Task<string> GetGpuUuidFromNvidiaContainerCli()
     {
-        var psi = new ProcessStartInfo
-        {
-            FileName = "nvidia-container-cli",
-            Arguments = "info",
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
+        var (code, output, _) = await Run("nvidia-container-cli", "info");
 
-        using var proc = Process.Start(psi)
-                         ?? throw new InvalidOperationException("Cannot start nvidia-container-cli");
-        var output = await proc.StandardOutput.ReadToEndAsync();
-        await proc.WaitForExitAsync();
+        if (code != 0)
+            throw new InvalidOperationException($"nvidia-container-cli exited with code {code}");
 
         foreach (var line in output.Split('\n'))
         {
@@ -201,9 +143,11 @@ public class HasGpuService(
     {
         try
         {
-            var uuidFromSmi = await GetGpuUuidFromNvidiaSmi();
-            var uuidFromCli = await GetGpuUuidFromNvidiaContainerCli();
-            return string.Equals(uuidFromSmi, uuidFromCli, StringComparison.OrdinalIgnoreCase);
+            var t1 = GetGpuUuidFromNvidiaSmi();
+            var t2 = GetGpuUuidFromNvidiaContainerCli();
+            await Task.WhenAll(t1, t2);
+
+            return string.Equals(t1.Result, t2.Result, StringComparison.OrdinalIgnoreCase);
         }
         catch (Exception ex)
         {
@@ -216,29 +160,17 @@ public class HasGpuService(
     {
         try
         {
-            var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = "docker",
-                    Arguments = "info --format '{{.DefaultRuntime}}'",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                }
-            };
-
-            process.Start();
-            var output = await process.StandardOutput.ReadToEndAsync();
-            var error = await process.StandardError.ReadToEndAsync();
-            await process.WaitForExitAsync();
-
-            return string.IsNullOrEmpty(error) && output.Contains("nvidia") && process.ExitCode == 0;
+            var (code, output, error) = await Run("docker", "info --format '{{.DefaultRuntime}}'");
+            return code == 0 && string.IsNullOrEmpty(error) && output.Contains("nvidia");
         }
         catch
         {
             return false;
         }
+    }
+
+    private Task<(int code, string output, string error)> Run(string bin, string arg = "")
+    {
+        return commandService.RunCommandAsync(bin, arg, Directory.GetCurrentDirectory());
     }
 }
