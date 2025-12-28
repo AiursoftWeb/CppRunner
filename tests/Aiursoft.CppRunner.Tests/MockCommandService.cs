@@ -4,7 +4,8 @@ namespace Aiursoft.CppRunner.Tests;
 
 public class MockCommandService : CommandService
 {
-    public override Task<(int code, string output, string error)> RunCommandAsync(string bin, string arg, string path, TimeSpan? timeout = null, bool killTimeoutProcess = true)
+    public override Task<(int code, string output, string error)> RunCommandAsync(string bin, string arg, string path, TimeSpan? timeout = null, bool killTimeoutProcess = true,
+        IDictionary<string, string?>? environmentVariables = null)
     {
         return Task.FromResult((0, "Hello world!", string.Empty));
     }
