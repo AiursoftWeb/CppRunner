@@ -2,7 +2,7 @@
 
 public class BashLang : ILang
 {
-    public string LangDisplayName => "Bash (on Ubuntu 25.04)";
+    public string LangDisplayName => "Bash (on Ubuntu 25.10)";
 
     public string LangExtension => "bash";
 
@@ -26,7 +26,7 @@ public class BashLang : ILang
 
     public string EntryFileName =>"main.sh";
 
-    public string DockerImage =>"ubuntu:25.04";
+    public string DockerImage =>"ubuntu:25.10";
 
     public string RunCommand =>"bash /app/main.sh";
 
