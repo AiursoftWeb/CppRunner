@@ -1,4 +1,4 @@
-﻿namespace Aiursoft.CppRunner.Lang;
+namespace Aiursoft.CppRunner.Lang;
 
 public class JavaLang : ILang
 {
@@ -24,7 +24,7 @@ public class JavaLang : ILang
 
     public string EntryFileName => "Main.java";
 
-    public string DockerImage => "openjdk:23-jdk";
+    public string DockerImage => "eclipse-temurin:24-jdk";
 
     public string RunCommand => "javac /app/Main.java && java -cp /app Main";
 
