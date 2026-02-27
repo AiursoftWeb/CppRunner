@@ -66,89 +66,91 @@ public class Startup : IWebStartup
                 {
                     Tools = new ToolsCapability
                     {
-                        ListToolsHandler = (request, _) =>
-                        {
-                            var langs = request.Services!.GetRequiredService<IEnumerable<ILang>>();
-                            var logger = request.Services!.GetRequiredService<ILogger<Startup>>();
-                            logger.LogInformation("List tools...");
-                            var tools = langs.Select(l => new Tool
-                                {
-                                    Name = $"run_{l.LangName}",
-                                    Description = $"Compile and run {l.LangDisplayName} code and get output and error results. No external libraries are supported. No user input support.",
-                                    InputSchema = JsonSerializer.Deserialize<JsonElement>(@"
-                                    {
-                                      ""type"":""object"",
-                                      ""properties"": {
-                                        ""code"": {
-                                          ""type"": ""string"",
-                                          ""description"": ""The source code to execute""
-                                        }
-                                     },
-                                     ""required"": [""code""]
-                               }")
-                                })
-                                .ToList();
-                            return ValueTask.FromResult(new ListToolsResult { Tools = tools });
-                        },
-                        CallToolHandler = async (request, _) =>
-                        {
-                            var runCodeService = request.Services!.GetRequiredService<RunCodeService>();
-                            var logger = request.Services!.GetRequiredService<ILogger<RunCodeService>>();
-                            var langs = request.Services!.GetRequiredService<IEnumerable<ILang>>();
-                            var toolName = request.Params?.Name
-                                           ?? throw new McpException("Missing tool name");
-
-                            logger.LogInformation("Call tool {ToolName}...", toolName);
-                            var langKey = toolName["run_".Length..];
-                            var langImpl = langs.FirstOrDefault(l =>l.LangName.Equals(langKey, StringComparison.OrdinalIgnoreCase))
-                                           ?? throw new McpException($"Unknown language '{langKey}'");
-
-                            var code = request.Params.Arguments?["code"].ToString()
-                                       ?? throw new McpException("Missing argument 'code'");
-
-                            try
-                            {
-                                logger.LogInformation("Running code in {LangName}...", langImpl.LangDisplayName);
-                                var result = await runCodeService.RunCode(code, langImpl);
-                                logger.LogInformation("Code run completed with result code {ResultCode}.", result.ResultCode);
-                                return new CallToolResult
-                                {
-                                    Content =
-                                    [
-                                        new TextContentBlock
-                                        {
-                                            Text = $"Result code: '{result.ResultCode}'"
-                                        },
-                                        new TextContentBlock
-                                        {
-                                            Text = $"Output: '{result.Output}'"
-                                        },
-                                        new TextContentBlock
-                                        {
-                                            Text = $"Error: '{result.Error}'"
-                                        }
-                                    ]
-                                };
-                            }
-                            catch (Exception e)
-                            {
-                                logger.LogError(e, "Failed to run code!");
-                                return new CallToolResult
-                                {
-                                    Content =
-                                    [
-                                        new TextContentBlock
-                                        {
-                                            Text = $"Error: '{e.Message}'"
-                                        }
-                                    ]
-                                };
-                            }
-                        }
+                        ListChanged = true
                     }
                 };
             })
-            .WithHttpTransport(options => options.Stateless = true);
+            .WithHttpTransport(options => options.Stateless = true)
+            .WithListToolsHandler((request, _) =>
+            {
+                var langs = request.Services!.GetRequiredService<IEnumerable<ILang>>();
+                var logger = request.Services!.GetRequiredService<ILogger<Startup>>();
+                logger.LogInformation("List tools...");
+                var tools = langs.Select(l => new Tool
+                    {
+                        Name = $"run_{l.LangName}",
+                        Description = $"Compile and run {l.LangDisplayName} code and get output and error results. No external libraries are supported. No user input support.",
+                        InputSchema = JsonSerializer.Deserialize<JsonElement>(@"
+                        {
+                          ""type"":""object"",
+                          ""properties"": {
+                            ""code"": {
+                              ""type"": ""string"",
+                              ""description"": ""The source code to execute""
+                            }
+                         },
+                         ""required"": [""code""]
+                   }")
+                    })
+                    .ToList();
+                return ValueTask.FromResult(new ListToolsResult { Tools = tools });
+            })
+            .WithCallToolHandler(async (request, _) =>
+            {
+                var runCodeService = request.Services!.GetRequiredService<RunCodeService>();
+                var logger = request.Services!.GetRequiredService<ILogger<RunCodeService>>();
+                var langs = request.Services!.GetRequiredService<IEnumerable<ILang>>();
+                var toolName = request.Params?.Name
+                               ?? throw new McpException("Missing tool name");
+
+                logger.LogInformation("Call tool {ToolName}...", toolName);
+                var langKey = toolName["run_".Length..];
+                var langImpl = langs.FirstOrDefault(l =>
+                                   l.LangName.Equals(langKey, StringComparison.OrdinalIgnoreCase))
+                               ?? throw new McpException($"Unknown language '{langKey}'");
+
+                var code = request.Params.Arguments?["code"].ToString()
+                           ?? throw new McpException("Missing argument 'code'");
+
+                try
+                {
+                    logger.LogInformation("Running code in {LangName}...", langImpl.LangDisplayName);
+                    var result = await runCodeService.RunCode(code, langImpl);
+                    logger.LogInformation("Code run completed with result code {ResultCode}.", result.ResultCode);
+                    return new CallToolResult
+                    {
+                        Content =
+                        [
+                            new TextContentBlock
+                            {
+                                Text = $"Result code: '{result.ResultCode}'"
+                            },
+                            new TextContentBlock
+                            {
+                                Text = $"Output: '{result.Output}'"
+                            },
+                            new TextContentBlock
+                            {
+                                Text = $"Error: '{result.Error}'"
+                            }
+                        ]
+                    };
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to run code!");
+                    return new CallToolResult
+                    {
+                        Content =
+                        [
+                            new TextContentBlock
+                            {
+                                Text = $"Error: '{e.Message}'"
+                            }
+                        ]
+                    };
+                }
+            });
     }
 
     public void Configure(WebApplication app)
