@@ -4,27 +4,14 @@
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/cppRunner/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/cppRunner/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
 [![Man hours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/cppRunner.svg)](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/cppRunner.html)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2FcppRunner.aiursoft.com)](https://cppRunner.aiursoft.com)
-[![Docker](https://img.shields.io/docker/pulls/aiursoft/cppRunner.svg)](https://hub.docker.com/r/aiursoft/cppRunner)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2FcppRunner.aiursoft.com)](https://cpprunner.aiursoft.com)
+[![Docker](https://img.shields.io/docker/pulls/aiursoft/cpprunner.svg)](https://hub.docker.com/r/aiursoft/cpprunner)
 
-CppRunner is a sample project.
+CppRunner is a code runner on the web. It is designed to run C++ code snippets and provide a simple interface for users to test their code online.
 
 ![screenshot](./screenshot.png)
 
 Default user name is `admin@default.com` and default password is `admin123`.
-
-## Projects using Aiursoft CppRunner
-
-* [Stathub](https://gitlab.aiursoft.com/aiursoft/stathub)
-* [MarkToHtml](https://gitlab.aiursoft.com/aiursoft/marktohtml)
-* [MusicTools](https://gitlab.aiursoft.com/aiursoft/musictools)
-* [AnduinOS Home](https://gitlab.aiursoft.com/anduin/AnduinOS-Home)
-* [Manhours](https://gitlab.aiursoft.com/aiursoft/manhours)
-* [Tracer](https://gitlab.aiursoft.com/aiursoft/tracer)
-* [Warp](https://gitlab.aiursoft.com/aiursoft/warp)
-* [AiurDrive](https://gitlab.aiursoft.com/aiursoft/aiurdrive)
-* [EmployeeCenter](https://gitlab.aiursoft.com/aiursoft/employeecenter)
-* [GitMirrorServer](https://gitlab.aiursoft.com/aiursoft/gitmirrorserver)
 
 ## Try
 
@@ -69,8 +56,8 @@ First, install Docker [here](https://docs.docker.com/get-docker/).
 Then run the following commands in a Linux shell:
 
 ```bash
-image=aiursoft/cppRunner
-appName=cppRunner
+image=aiursoft/cpprunner
+appName=cpprunner
 sudo docker pull $image
 sudo docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data $image
 ```
@@ -81,7 +68,7 @@ The docker image has the following context:
 
 | Properties  | Value                           |
 |-------------|---------------------------------|
-| Image       | aiursoft/cppRunner               |
+| Image       | aiursoft/cpprunner              |
 | Ports       | 5000                            |
 | Binary path | /app                            |
 | Data path   | /data                           |
