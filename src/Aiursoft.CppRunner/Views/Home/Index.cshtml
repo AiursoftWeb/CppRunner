@@ -309,7 +309,6 @@
             const result  = await response.json();
             const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
 
-            const lang = langSelector.value;
             const monacoId = monacoLangMap[lang] ?? 'plaintext';
 
             if (outputEditor) {
