@@ -2,7 +2,7 @@ namespace Aiursoft.CppRunner.Lang;
 
 public class JavaScriptLang : ILang
 {
-    public string LangDisplayName => "Javascript (Node.js v21)";
+    public string LangDisplayName => "Javascript (Node.js v24)";
 
     public string LangExtension => "javascript";
 
@@ -27,7 +27,7 @@ public class JavaScriptLang : ILang
         """;
 
     public string EntryFileName => "main.js";
-    public string DockerImage => "node:21";
+    public string DockerImage => "node:24-alpine";
     public string RunCommand => "node /app/main.js";
 
     public Dictionary<string, string> OtherFiles => new();
