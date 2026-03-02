@@ -30,7 +30,7 @@ public class PhpLang : ILang
         """;
 
     public string EntryFileName => "main.php";
-    public string DockerImage => "php:8.3.0";
+    public string DockerImage => "php:8.3.0-zts";
     public string RunCommand => "php /app/main.php";
 
     public Dictionary<string, string> OtherFiles => new();
