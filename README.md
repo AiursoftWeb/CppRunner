@@ -1,4 +1,4 @@
-# CppRunner - A sample project
+# CppRunner
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/cppRunner/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
