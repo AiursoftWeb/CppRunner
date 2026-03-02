@@ -42,6 +42,9 @@ ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
 
+# Install docker
+RUN apt-get update && apt-get install -y docker.io && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Edit appsettings.json
 RUN sed -i 's/DataSource=app.db/DataSource=\/data\/app.db/g' appsettings.json
 RUN sed -i 's/\/tmp\/data/\/data/g' appsettings.json
