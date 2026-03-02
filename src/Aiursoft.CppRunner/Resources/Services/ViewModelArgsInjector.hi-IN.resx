@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>लॉगिन करने के लिए क्लिक करें</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>कोड रनर</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>भूमिका बनाएं</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>भूमिकाएँ</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>रनर</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>सेटिंग्स</value>

@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>انقر لتسجيل الدخول</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>منفذ الكود</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>إنشاء دور</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>الأدوار</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>المنفذ</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>الإعدادات</value>
