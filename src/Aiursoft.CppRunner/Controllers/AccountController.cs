@@ -77,7 +77,7 @@ public class AccountController(
             if (result.Succeeded)
             {
                 logger.LogInformation(1, "User logged in");
-                return RedirectToLocal(returnUrl ?? "/Dashboard/Index");
+                return RedirectToLocal(returnUrl ?? "/Home/Index");
             }
 
             if (result.IsLockedOut)
@@ -143,7 +143,7 @@ public class AccountController(
 
                 await signInManager.SignInAsync(user, isPersistent: false);
                 logger.LogInformation(3, "User created a new account with password");
-                return RedirectToLocal(returnUrl ?? "/Dashboard/Index");
+                return RedirectToLocal(returnUrl ?? "/Home/Index");
             }
 
             AddErrors(result);
@@ -189,7 +189,7 @@ public class AccountController(
         if (result.Succeeded)
         {
             logger.LogInformation("User logged in with {Name} provider.", info.LoginProvider);
-            return RedirectToLocal(returnUrl ?? "/Dashboard/Index");
+            return RedirectToLocal(returnUrl ?? "/Home/Index");
         }
 
         if (result.IsLockedOut)
