@@ -1,8 +1,6 @@
 @model Aiursoft.CppRunner.Models.HomeViewModels.IndexViewModel
-@{
-    var firstLang = Model.Langs.FirstOrDefault();
-}
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <style>
         .runner-page {
@@ -79,23 +77,11 @@
             gap: 0.5rem;
         }
 
-        .pane-content {
+        #output-panel-container,
+        #error-panel-container {
             flex: 1;
-            overflow-y: auto;
-            overflow-x: auto;
-            padding: 0.75rem 1rem;
-            margin: 0;
-            font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas, monospace;
-            font-size: 0.8rem;
-            line-height: 1.6;
-            white-space: pre-wrap;
-            word-break: break-word;
-            background: transparent;
-            border: none;
+            min-height: 0;
         }
-
-        #output-panel { color: var(--bs-body-color); }
-        #error-panel  { color: #dc3545; }
 
         .result-badge {
             font-size: 0.7rem;
@@ -147,7 +133,7 @@
                     <i data-lucide="terminal" style="width:13px;height:13px;"></i>
                     @Localizer["Output"]
                 </div>
-                <pre class="pane-content" id="output-panel">@Localizer["Click Run (or Ctrl+Enter) to execute the code."]</pre>
+                <div id="output-panel-container"></div>
             </div>
 
             <div class="runner-error-pane">
@@ -155,13 +141,14 @@
                     <i data-lucide="triangle-alert" style="width:13px;height:13px;"></i>
                     @Localizer["Errors / Stderr"]
                 </div>
-                <pre class="pane-content" id="error-panel"></pre>
+                <div id="error-panel-container"></div>
             </div>
 
         </div>
     </div>
 </div>
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/loader.js"></script>
 <script>
@@ -199,8 +186,6 @@
 
     // ── DOM refs ─────────────────────────────────────────────────────────────
     const langSelector = document.getElementById('lang-selector');
-    const outputPanel  = document.getElementById('output-panel');
-    const errorPanel   = document.getElementById('error-panel');
     const statusEl     = document.getElementById('run-status');
     const badgeEl      = document.getElementById('exit-code-badge');
     const btnRun       = document.getElementById('btn-run');
@@ -208,7 +193,7 @@
     // ── Monaco initialisation ─────────────────────────────────────────────────
     require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' } });
 
-    let editor;
+    let editor, outputEditor, errorEditor;
 
     require(['vs/editor/editor.main'], function () {
         const firstLang = langSelector.value;
@@ -233,6 +218,50 @@
             () => runCode()
         );
 
+        // Output editor (read-only, same language as source)
+        outputEditor = monaco.editor.create(document.getElementById('output-panel-container'), {
+            value:           '@Localizer["Click Run (or Ctrl+Enter) to execute the code."]',
+            language:        monacoLangMap[firstLang] ?? 'plaintext',
+            theme:           'vs-dark',
+            fontSize:        13,
+            readOnly:        true,
+            lineNumbers:     'off',
+            minimap:         { enabled: false },
+            scrollBeyondLastLine: false,
+            automaticLayout: true,
+            wordWrap:        'off',
+            domReadOnly:     true,
+            renderLineHighlight: 'none',
+            scrollbar:       { vertical: 'auto', horizontal: 'auto' },
+        });
+
+        // Error editor (read-only, plaintext — compiler messages)
+        errorEditor = monaco.editor.create(document.getElementById('error-panel-container'), {
+            value:           '',
+            language:        'plaintext',
+            theme:           'vs-dark',
+            fontSize:        13,
+            readOnly:        true,
+            lineNumbers:     'off',
+            minimap:         { enabled: false },
+            scrollBeyondLastLine: false,
+            automaticLayout: true,
+            wordWrap:        'off',
+            domReadOnly:     true,
+            renderLineHighlight: 'none',
+            scrollbar:       { vertical: 'auto', horizontal: 'auto' },
+        });
+
+        // Tint error editor tokens red via built-in override
+        monaco.editor.defineTheme('error-dark', {
+            base: 'vs-dark',
+            inherit: true,
+            rules: [{ token: '', foreground: 'f87171' }],
+            colors: {},
+        });
+        monaco.editor.setTheme('vs-dark'); // keep main theme
+        errorEditor.updateOptions({ theme: 'error-dark' });
+
         // Language selector change
         langSelector.addEventListener('change', function () {
             const langName  = this.value;
@@ -241,8 +270,9 @@
             monaco.editor.setModelLanguage(editor.getModel(), monacoId);
             editor.setValue(langDefaults[langName] ?? '');
 
-            outputPanel.textContent = '';
-            errorPanel.textContent  = '';
+            monaco.editor.setModelLanguage(outputEditor.getModel(), monacoId);
+            outputEditor.setValue('');
+            errorEditor.setValue('');
             badgeEl.className = 'result-badge d-none';
             statusEl.textContent = '';
         });
@@ -258,8 +288,8 @@
         btnRun.disabled = true;
         btnRun.innerHTML = '<span class="spinner-border" role="status"></span>&nbsp;@Localizer["Running..."]';
         statusEl.textContent = '';
-        outputPanel.textContent = '';
-        errorPanel.textContent  = '';
+        if (outputEditor) outputEditor.setValue('');
+        if (errorEditor)  errorEditor.setValue('');
         badgeEl.className = 'result-badge d-none';
 
         const startTime = Date.now();
@@ -272,15 +302,23 @@
             });
 
             if (!response.ok) {
-                errorPanel.textContent = 'HTTP ' + response.status + ': ' + response.statusText;
+                if (errorEditor) errorEditor.setValue('HTTP ' + response.status + ': ' + response.statusText);
                 return;
             }
 
             const result  = await response.json();
             const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
 
-            outputPanel.textContent = result.Output || '(no output)';
-            errorPanel.textContent  = result.Error  || '';
+            const lang = langSelector.value;
+            const monacoId = monacoLangMap[lang] ?? 'plaintext';
+
+            if (outputEditor) {
+                monaco.editor.setModelLanguage(outputEditor.getModel(), monacoId);
+                outputEditor.setValue(result.Output || '(no output)');
+            }
+            if (errorEditor) {
+                errorEditor.setValue(result.Error || '');
+            }
 
             const exitOk = result.ResultCode === 0;
             badgeEl.textContent = 'Exit: ' + result.ResultCode;
@@ -288,7 +326,7 @@
             statusEl.textContent = 'Completed in ' + elapsed + 's';
 
         } catch (err) {
-            errorPanel.textContent = String(err);
+            if (errorEditor) errorEditor.setValue(String(err));
         } finally {
             btnRun.disabled = false;
             btnRun.innerHTML = '<i data-lucide="play" class="me-1" style="width:14px;height:14px;"></i> @Localizer["Run"]';

@@ -50,7 +50,7 @@ public abstract class TestBase
         var response = await Http.GetAsync(url);
         if (!response.IsSuccessStatusCode)
         {
-            response = await Http.GetAsync("/");
+            response = await Http.GetAsync("/Account/Login");
         }
         response.EnsureSuccessStatusCode();
         var html = await response.Content.ReadAsStringAsync();
