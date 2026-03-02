@@ -2,7 +2,7 @@ namespace Aiursoft.CppRunner.Lang;
 
 public class CLang : ILang
 {
-    public string LangDisplayName => "C (gcc 9.5.0)";
+    public string LangDisplayName => "C (gcc 15.2.0)";
 
     public string LangExtension => "c";
 
