@@ -41,7 +41,7 @@ public class CLang : ILang
 
     public string EntryFileName => "main.c";
 
-    public string DockerImage => "gcc:latest";
+    public string DockerImage => "gcc:15.2.0";
 
     public string RunCommand => "gcc -Wall -Wextra -O2 /app/main.c -o /tmp/main && /tmp/main";
 

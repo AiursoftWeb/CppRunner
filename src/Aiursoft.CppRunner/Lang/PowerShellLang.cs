@@ -25,7 +25,7 @@ public class PowerShellLang : ILang
         """;
 
     public string EntryFileName => "main.ps1";
-    public string DockerImage => "mcr.microsoft.com/powershell:ubuntu-22.04";
+    public string DockerImage => "mcr.microsoft.com/powershell:7.5-ubuntu-24.04";
     public string RunCommand => "pwsh /app/main.ps1";
 
     public Dictionary<string, string> OtherFiles => new();
