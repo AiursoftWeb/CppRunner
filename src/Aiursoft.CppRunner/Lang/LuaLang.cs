@@ -26,7 +26,7 @@ public class LuaLang : ILang
         """;
 
     public string EntryFileName => "main.lua";
-    public string DockerImage => "nickblah/lua:5.4-luarocks-alpine";
+    public string DockerImage => "imolein/lua:5.4";
     public string RunCommand => "lua /app/main.lua";
 
     public Dictionary<string, string> OtherFiles => new();
