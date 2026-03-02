@@ -94,6 +94,43 @@
             height: 1rem;
             border-width: 0.15em;
         }
+
+        /* ── Mobile: stack vertically ─────────────────────────────────── */
+        @@media (max-width: 768px) {
+            .runner-page {
+                height: auto;
+                overflow: visible;
+            }
+
+            .runner-body {
+                flex-direction: column;
+                overflow: visible;
+                height: auto;
+            }
+
+            .runner-editor-pane {
+                flex: none;
+                height: 45vh;
+                border-right: none;
+                border-bottom: 2px solid var(--bs-border-color);
+            }
+
+            .runner-right-pane {
+                flex: none;
+                height: auto;
+                overflow: visible;
+            }
+
+            .runner-output-pane {
+                flex: none;
+                height: 30vh;
+            }
+
+            .runner-error-pane {
+                flex: none;
+                height: 18vh;
+            }
+        }
     </style>
 }
 
