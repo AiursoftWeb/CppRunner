@@ -112,7 +112,7 @@ public class CudaLang : ILang
 
     public string EntryFileName => "main.cu";
     public string DockerImage => "hub.aiursoft.com/aiursoft/internalimages/nvidia";
-    public string RunCommand => "nvcc /app/main.cu -o /app/main && /app/main";
+    public string RunCommand => "nvcc -O3 -arch=native -Xcompiler -fopenmp main.cu -o pi_optimized && ./pi_optimized";
     public bool NeedGpu => true;
     public Dictionary<string, string> OtherFiles => new();
 }

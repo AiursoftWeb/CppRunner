@@ -2,7 +2,7 @@
 
 public class RustLang : ILang
 {
-    public string LangDisplayName => "Rust (1.74.1)";
+    public string LangDisplayName => "Rust (1.81)";
 
     public string LangExtension => "rust";
 
@@ -30,7 +30,7 @@ public class RustLang : ILang
 
     public string EntryFileName => "main.rs";
 
-    public string DockerImage => "rust:1.74.1";
+    public string DockerImage => "rust:1.81-slim";
 
     public string RunCommand => "cd /app && rustc /app/main.rs && /app/main";
 
