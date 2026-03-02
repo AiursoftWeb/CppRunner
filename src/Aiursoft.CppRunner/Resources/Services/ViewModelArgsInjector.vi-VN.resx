@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Nhấp để đăng nhập</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>Chạy Mã</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Tạo Vai Trò</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Vai trò</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>Bộ Chạy</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Cài đặt</value>

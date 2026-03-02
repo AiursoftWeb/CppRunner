@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>로그인하려면 클릭</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>코드 실행기</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>역할 생성</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>역할</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>런너</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>설정</value>

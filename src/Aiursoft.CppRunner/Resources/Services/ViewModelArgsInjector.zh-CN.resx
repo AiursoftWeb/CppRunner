@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>点击登录</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>代码运行器</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>创建角色</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>角色</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>运行器</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>设置</value>

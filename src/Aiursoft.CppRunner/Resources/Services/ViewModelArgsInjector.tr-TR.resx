@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Giriş yapmak için tıklayın</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>Kod Çalıştırıcı</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Rol Oluştur</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roller</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>Çalıştırıcı</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Ayarlar</value>

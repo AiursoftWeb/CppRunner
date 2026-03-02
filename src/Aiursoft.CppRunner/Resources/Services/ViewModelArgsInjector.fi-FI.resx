@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klikkaa kirjautuaksesi</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>Koodin suoritin</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Luo rooli</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roolit</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>Suoritin</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Asetukset</value>

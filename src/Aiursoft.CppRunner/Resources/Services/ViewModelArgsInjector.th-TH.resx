@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>คลิกเพื่อเข้าสู่ระบบ</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>รันโค้ด</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>สร้างบทบาท</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>บทบาท</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>ตัวรัน</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>การตั้งค่า</value>

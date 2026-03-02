@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Haga clic para iniciar sesión</value>
   </data>
+  <data name="Code Runner" xml:space="preserve">
+    <value>Ejecutor de Código</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Crear Rol</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roles</value>
+  </data>
+  <data name="Runner" xml:space="preserve">
+    <value>Ejecutor</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Configuración</value>
