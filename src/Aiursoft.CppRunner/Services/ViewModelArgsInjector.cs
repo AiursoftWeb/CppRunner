@@ -82,6 +82,8 @@ public class ViewModelArgsInjector(
     
         _ = localizer["Code Runner"];
         _ = localizer["Runner"];
+    
+        _ = localizer["Self Host"];
     }
 
     public void InjectSimple(
