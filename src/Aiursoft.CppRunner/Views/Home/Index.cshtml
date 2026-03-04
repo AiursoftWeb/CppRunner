@@ -357,9 +357,17 @@
             }
 
             const exitOk = result.ResultCode === 0;
-            badgeEl.textContent = 'Exit: ' + result.ResultCode;
-            badgeEl.className   = 'result-badge badge ' + (exitOk ? 'bg-success' : 'bg-danger');
-            statusEl.textContent = 'Completed in ' + elapsed + 's';
+            const isTimeout = result.ResultCode === 124;
+
+            if (isTimeout) {
+                badgeEl.textContent = '@Localizer["Timeout"]';
+                badgeEl.className   = 'result-badge badge bg-warning text-dark';
+                statusEl.textContent = '@Localizer["Timed out after"] ' + elapsed + 's';
+            } else {
+                badgeEl.textContent = 'Exit: ' + result.ResultCode;
+                badgeEl.className   = 'result-badge badge ' + (exitOk ? 'bg-success' : 'bg-danger');
+                statusEl.textContent = '@Localizer["Completed in"] ' + elapsed + 's';
+            }
 
         } catch (err) {
             if (errorEditor) errorEditor.setValue(String(err));
