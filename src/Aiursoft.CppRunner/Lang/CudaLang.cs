@@ -10,106 +10,170 @@ public class CudaLang : ILang
     public string DefaultCode =>
         """
         #include <iostream>
-        #include <cuda_runtime.h>
-        #include <stdio.h>
+        #include <vector>
         #include <chrono>
-        #include <omp.h> // 引入 OpenMP 用于 CPU 多线程
+        #include <omp.h>
+        #include <cuda_runtime.h>
 
-        // 优化的 CUDA Kernel: 共享内存规约 + 原子加法，消除取模和分支
-        __global__ void calculate_pi_gpu(double* d_pi, long long num_iterations) {
-            // 动态分配共享内存
-            extern __shared__ double sdata[];
+        // Macro for standard CUDA API error checking.
+        #define CUDA_CHECK(call) \
+            do { \
+                cudaError_t err = call; \
+                if (err != cudaSuccess) { \
+                    std::cerr << "CUDA Error: " << cudaGetErrorString(err) << " at line " << __LINE__ << std::endl; \
+                    exit(EXIT_FAILURE); \
+                } \
+            } while(0)
+
+        // ASCII palette mapping illumination intensity from low (dark) to high (bright).
+        __device__ __host__ const char palette[] = " .,-~:;=!*#$@";
+
+        // Integer square root implementation using Newton's method.
+        // This ensures deterministic behavior across different hardware architectures 
+        // by entirely eliminating floating-point rounding errors.
+        __host__ __device__ int integer_sqrt(long long n) {
+            long long x = n;
+            long long y = (x + 1) / 2;
+            while (y < x) {
+                x = y;
+                y = (x + n / x) / 2;
+            }
+            return (int)x;
+        }
+
+        // CUDA Kernel: Performs integer-based raycasting on a 2D grid.
+        __global__ void render_sphere_gpu(char* d_out, int width, int height) {
+            // Map thread execution to physical pixel coordinates.
+            int x = blockIdx.x * blockDim.x + threadIdx.x;
+            int y = blockIdx.y * blockDim.y + threadIdx.y;
             
-            int tid = threadIdx.x;
-            int global_id = blockIdx.x * blockDim.x + threadIdx.x;
-            int stride = blockDim.x * gridDim.x;
+            // Boundary check to prevent memory access violations.
+            if (x >= width || y >= height) return;
 
-            // 1. 网格步长循环计算局部和 (使用位运算 & 替代取模 %)
-            double sum = 0.0;
-            for (long long k = global_id; k < num_iterations; k += stride) {
-                double sign = (k & 1) ? -1.0 : 1.0; 
-                sum += sign / (2.0 * k + 1.0);
+            // Translate coordinates to place the origin (0,0) at the center of the canvas.
+            long long vx = x - width / 2;
+            long long vy = y - height / 2;
+            long long R = 4000; // Sphere radius
+
+            // Calculate depth using the sphere equation: Z^2 = R^2 - X^2 - Y^2
+            long long z_sq = R * R - vx * vx - vy * vy;
+            char pixel = ' '; // Default background pixel
+
+            if (z_sq >= 0) { 
+                // A non-negative Z^2 indicates an intersection with the sphere geometry.
+                long long vz = integer_sqrt(z_sq);
+                
+                // Define a directional light vector (Lx, Ly, Lz).
+                long long lx = -50, ly = -50, lz = 50;
+                
+                // Compute the dot product between the surface normal vector and the light vector.
+                // This yields the diffuse illumination intensity.
+                long long dot = vx * lx + vy * ly + vz * lz;
+                if (dot < 0) dot = 0; // Clamp negative illumination (back-facing polygons) to 0.
+                
+                // Normalize the dot product to map it to the 13-character palette.
+                // The theoretical maximum dot product is approximately 346410.
+                int idx = (dot * 12) / 346410;
+                if (idx > 12) idx = 12;
+                
+                pixel = palette[idx];
             }
-            // 将线程的局部累加结果放入共享内存
-            sdata[tid] = sum;
-            __syncthreads(); // 确保 Block 内所有线程都已写入共享内存
+            
+            // Write the computed pixel to global device memory.
+            d_out[y * width + x] = pixel;
+        }
 
-            // 2. 共享内存并行规约 (Block 内部求和，大幅减少写入全局内存的次数)
-            for (int s = blockDim.x / 2; s > 0; s >>= 1) {
-                if (tid < s) {
-                    sdata[tid] += sdata[tid + s];
+        // CPU Implementation: Functionally identical to the GPU kernel, utilizing OpenMP for parallelization.
+        void render_sphere_cpu(char* h_out, int width, int height) {
+            #pragma omp parallel for collapse(2)
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    long long vx = x - width / 2;
+                    long long vy = y - height / 2;
+                    long long R = 4000;
+                    long long z_sq = R * R - vx * vx - vy * vy;
+                    char pixel = ' ';
+                    if (z_sq >= 0) {
+                        long long vz = integer_sqrt(z_sq);
+                        long long lx = -50, ly = -50, lz = 50;
+                        long long dot = vx * lx + vy * ly + vz * lz;
+                        if (dot < 0) dot = 0;
+                        int idx = (dot * 12) / 346410;
+                        if (idx > 12) idx = 12;
+                        pixel = palette[idx];
+                    }
+                    h_out[y * width + x] = pixel;
                 }
-                __syncthreads();
-            }
-
-            // 3. 仅由每个 Block 的 0 号线程，将该 Block 的总和通过原子操作累加到全局内存
-            if (tid == 0) {
-                atomicAdd(d_pi, sdata[0]);
             }
         }
 
-        // 优化的 CPU 函数: 启用多核多线程
-        double calculate_pi_cpu(long long num_iterations) {
-            double sum = 0.0;
+        // Helper function to render a downsampled version of the high-resolution buffer to the standard output.
+        void print_ascii_canvas(const std::vector<char>& canvas, int width, const std::string& title) {
+            std::cout << "\n========================================" << std::endl;
+            std::cout << title << std::endl;
+            std::cout << "========================================\n" << std::endl;
             
-            // OpenMP 编译制导指令：自动将循环分配给所有 CPU 核心，并安全地规约汇总 sum
-            #pragma omp parallel for reduction(+:sum)
-            for (long long k = 0; k < num_iterations; k++) {
-                double sign = (k & 1) ? -1.0 : 1.0;
-                sum += sign / (2.0 * k + 1.0);
+            // Downsampling logic: The step size in the Y-axis is twice that of the X-axis 
+            // to compensate for the typical 2:1 aspect ratio of terminal fonts, preserving the spherical shape.
+            for (int y = 1000; y < 9000; y += 200) {
+                for (int x = 1000; x < 9000; x += 100) {
+                    std::cout << canvas[y * width + x];
+                }
+                std::cout << '\n';
             }
-            return 4.0 * sum;
         }
 
         int main() {
-            long long num_iterations = 4000000000;
-            std::chrono::high_resolution_clock::time_point start, end;
-            double cpu_time, gpu_time;
+            // Define a 10000 x 10000 high-resolution canvas (100 million pixels) to ensure
+            // a computationally intensive workload suitable for benchmarking.
+            int width = 10000;
+            int height = 10000;
+            size_t size = width * height * sizeof(char);
 
-            // ----- 公平的 CPU 多核实现 -----
-            printf("Starting Multi-core CPU calculation with %lld iterations...\n", num_iterations);
-            start = std::chrono::high_resolution_clock::now();
-            double pi_cpu = calculate_pi_cpu(num_iterations);
-            end = std::chrono::high_resolution_clock::now();
-            cpu_time = std::chrono::duration<double>(end - start).count();
-            printf("CPU calculation complete in %.4f seconds\n", cpu_time);
+            std::vector<char> h_out_cpu(width * height);
+            std::vector<char> h_out_gpu(width * height);
+            char* d_out;
 
-            // ----- 专业的 GPU 实现 -----
-            printf("Starting Optimized GPU calculation with %lld iterations...\n", num_iterations);
-            start = std::chrono::high_resolution_clock::now();
+            // CUDA Context initialization (warm-up) and memory allocation.
+            CUDA_CHECK(cudaFree(0)); 
+            CUDA_CHECK(cudaMalloc(&d_out, size));
 
-            int threadsPerBlock = 256;
-            int blocks = 512;
+            // Define the execution configuration parameters (Grid and Block dimensions).
+            dim3 threads(16, 16);
+            dim3 blocks((width + threads.x - 1) / threads.x, (height + threads.y - 1) / threads.y);
 
-            // 只需要在显存中分配一个 double 大小的空间
-            double* d_pi;
-            cudaMalloc(&d_pi, sizeof(double));
-            cudaMemset(d_pi, 0, sizeof(double)); // 初始化为 0
+            std::cout << "Rendering 100 Million Pixels 3D Sphere in Memory..." << std::endl;
 
-            // 启动 Kernel，注意第三个参数：动态分配给每个 Block 的共享内存大小
-            calculate_pi_gpu<<<blocks, threadsPerBlock, threadsPerBlock * sizeof(double)>>>(d_pi, num_iterations);
+            // --- GPU Execution and Profiling ---
+            auto start_gpu = std::chrono::high_resolution_clock::now();
+            render_sphere_gpu<<<blocks, threads>>>(d_out, width, height);
+            CUDA_CHECK(cudaDeviceSynchronize());
+            CUDA_CHECK(cudaMemcpy(h_out_gpu.data(), d_out, size, cudaMemcpyDeviceToHost));
+            auto end_gpu = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> gpu_time = end_gpu - start_gpu;
 
-            // 从显存取回最终的唯一结果
-            double h_pi = 0.0;
-            cudaMemcpy(&h_pi, d_pi, sizeof(double), cudaMemcpyDeviceToHost);
-            double pi_gpu = h_pi * 4.0;
+            // --- CPU Execution and Profiling ---
+            auto start_cpu = std::chrono::high_resolution_clock::now();
+            render_sphere_cpu(h_out_cpu.data(), width, height);
+            auto end_cpu = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> cpu_time = end_cpu - start_cpu;
 
-            end = std::chrono::high_resolution_clock::now();
-            gpu_time = std::chrono::duration<double>(end - start).count();
-            printf("GPU calculation complete in %.4f seconds\n", gpu_time);
+            // --- Output Results ---
+            print_ascii_canvas(h_out_cpu, width, "     CPU RENDER (OPENMP MULTI-CORE)     ");
+            print_ascii_canvas(h_out_gpu, width, "        GPU RENDER (CUDA KERNEL)        ");
 
-            // Print results
-            printf("\nResults:\n");
-            printf("Pi (CPU):           %.16f\n", pi_cpu);
-            printf("Pi (GPU):           %.16f\n", pi_gpu);
-            printf("Math library value: %.16f\n", M_PI);
+            // --- Performance Metrics ---
+            std::cout << "\n========================================" << std::endl;
+            std::cout << "          PERFORMANCE METRICS           " << std::endl;
+            std::cout << "========================================" << std::endl;
+            std::cout << "CPU Time : " << cpu_time.count() << " seconds" << std::endl;
+            std::cout << "GPU Time : " << gpu_time.count() << " seconds" << std::endl;
+            std::cout << "----------------------------------------" << std::endl;
+            std::cout << "Speedup  : GPU is " << (cpu_time.count() / gpu_time.count()) << "x FASTER" << std::endl;
+            std::cout << "========================================" << std::endl;
 
-            printf("\nPerformance:\n");
-            printf("CPU Multi-core time: %.4f seconds\n", cpu_time);
-            printf("GPU Optimized time:  %.4f seconds\n", gpu_time);
-            printf("True Speedup:        %.2fx\n", cpu_time / gpu_time);
-
-            cudaFree(d_pi);
+            // Resource deallocation.
+            CUDA_CHECK(cudaFree(d_out));
             return 0;
         }
         """;
