@@ -37,4 +37,18 @@ public class HomeController(
 
         return this.StackView(vm);
     }
+
+    [RenderInNavBar(
+        NavGroupName = "Features",
+        NavGroupOrder = 0,
+        CascadedLinksGroupName = "Runner",
+        CascadedLinksIcon = "terminal",
+        CascadedLinksOrder = 0,
+        LinkText = "Self Host",
+        LinkOrder = 1)]
+    public IActionResult SelfHost()
+    {
+        var vm = new SelfHostViewModel();
+        return this.StackView(vm);
+    }
 }
