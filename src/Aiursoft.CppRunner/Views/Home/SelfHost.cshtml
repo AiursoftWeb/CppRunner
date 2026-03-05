@@ -77,7 +77,7 @@
                             image=aiursoft/cpprunner<br>
                             appName=cpprunner<br>
                             docker pull $image<br>
-                            docker run -d --name $appName -v /var/run/docker.sock:/var/run/docker.sock --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data $image
+                            docker run -d --name $appName -v /var/run/docker.sock:/var/run/docker.sock --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data -v /tmp:/tmp $image
                         </code>
                     </div>
 
