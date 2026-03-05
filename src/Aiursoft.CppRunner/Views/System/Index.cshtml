@@ -28,7 +28,7 @@
                     </tr>
                     <tr>
                         <td>@Localizer["System"]</td>
-                        <td>@Aiursoft.CSTools.Services.OperatingSystemExtensions.TryGetFullOsVersion() @(Environment.Is64BitOperatingSystem ? "(64-bit)" : "(32-bit)")</td>
+                        <td>@Aiursoft.CSTools.Services.OperatingSystemExtensions.TryGetFullOsVersion() @(Environment.Is64BitOperatingSystem ? Localizer["(64-bit)"] : Localizer["(32-bit)"])</td>
                     </tr>
                     <tr>
                         <td>@Localizer["Machine Name"]</td>
@@ -49,7 +49,7 @@
                     <tr>
                         <td>@Localizer["Worker Process"]</td>
                         <td>
-                            [@process.Id] @process.ProcessName @(Environment.Is64BitProcess ? "(64-bit)" : "(32-bit)")</td>
+                            [@process.Id] @process.ProcessName @(Environment.Is64BitProcess ? Localizer["(64-bit)"] : Localizer["(32-bit)"])</td>
                     </tr>
                     <tr>
                         <td>@Localizer["Start Time"]</td>
@@ -69,7 +69,7 @@
                     </tr>
                     <tr>
                         <td>@Localizer["Docker Container"]</td>
-                        <td>@(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true")</td>
+                        <td>@(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true" ? Localizer["Yes"] : Localizer["No"])</td>
                     </tr>
                 </table>
             </div>
@@ -202,20 +202,25 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 
 @section scripts {
+    <input type="hidden" id="localized-restarting" value="@Localizer["Restarting..."]" />
+    <input type="hidden" id="localized-reloading" value="@Localizer["Reloading page..."]" />
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const restartButton = document.querySelector('#restartConfirmModal .btn-restart');
             if (!restartButton) return;
 
+            const localizedRestarting = document.getElementById('localized-restarting').value;
+            const localizedReloading = document.getElementById('localized-reloading').value;
+
             function startTimer(duration, displayElement) {
                 let timer = duration;
-                displayElement.textContent = `@Localizer["Restarting..."] (${timer}s)`;
+                displayElement.textContent = localizedRestarting + ` (${timer}s)`;
                 const interval = setInterval(function () {
                     timer--;
-                    displayElement.textContent = `@Localizer["Restarting..."] (${timer}s)`;
+                    displayElement.textContent = localizedRestarting + ` (${timer}s)`;
                     if (timer <= 0) {
                         clearInterval(interval);
-                        displayElement.textContent = `@Localizer["Reloading page..."]`;
+                        displayElement.textContent = localizedReloading;
                     }
                 }, 1000);
             }

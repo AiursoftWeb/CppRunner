@@ -35,7 +35,7 @@
                         <code class="small text-muted">@item.Key</code>
                         @if (item.IsOverriddenByConfig)
                         {
-                            <span class="badge bg-warning text-dark ms-1" title="@Localizer["This setting is overridden by configuration."]"><i class="align-middle" data-lucide="shield-alert"></i> CFG</span>
+                            <span class="badge bg-warning text-dark ms-1" title="@Localizer["This setting is overridden by configuration."]"><i class="align-middle" data-lucide="shield-alert"></i> @Localizer["CFG"]</span>
                         }
                     </td>
                     <td>@SettingsLocalizer[item.Description]</td>
