@@ -1,0 +1,82 @@
+@model Aiursoft.CppRunner.Models.CodesViewModels.PublicViewModel
+@{
+    ViewData["Title"] = Localizer["Public Codes"];
+}
+
+<div class="container-fluid">
+    <div class="d-flex align-items-center mb-4">
+        <h1 class="h3 mb-0">
+            <i data-lucide="globe" class="me-2 text-primary"></i>@Localizer["Public Code Library"]
+        </h1>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @if (!Model.PublicCodes.Any())
+        {
+            <div class="col-12 text-center py-5 text-muted">
+                <i data-lucide="ghost" class="d-block mx-auto mb-2 opacity-25" style="width:40px;height:40px;"></i>
+                @Localizer["No public codes found yet."]
+            </div>
+        }
+        else
+        {
+            @foreach (var code in Model.PublicCodes)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 hover-lift transition-all">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">
+                                    <a asp-action="Read" asp-route-id="@code.Id" class="text-decoration-none text-dark fw-bold">
+                                        @code.Title
+                                    </a>
+                                </h5>
+                                <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">
+                                    @code.Language
+                                </span>
+                            </div>
+                            
+                            <div class="d-flex align-items-center mb-3 text-muted small">
+                                <i data-lucide="user" class="me-1" style="width:12px;height:12px;"></i>
+                                <span class="me-3">@code.User.DisplayName</span>
+                                <i data-lucide="clock" class="me-1" style="width:12px;height:12px;"></i>
+                                <span>@code.CreationTime.ToLocalTime().ToString("yyyy-MM-dd")</span>
+                            </div>
+
+                            <p class="card-text text-muted small text-truncate-2">
+                                @(code.Code.Length > 100 ? code.Code.Substring(0, 100) + "..." : code.Code)
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                            <a asp-action="Read" asp-route-id="@code.Id" class="btn btn-sm btn-primary w-100">
+                                <i data-lucide="external-link" class="me-1" style="width:14px;height:14px;"></i>@Localizer["View in Runner"]
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<style>
+    .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    .transition-all {
+        transition: all 0.3s ease;
+    }
+    .text-truncate-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
+
+@section scripts {
+<script>
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+</script>
+}

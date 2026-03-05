@@ -148,6 +148,10 @@
             <i data-lucide="play" class="me-1" style="width:14px;height:14px;"></i> @Localizer["Run"]
         </button>
 
+        <button id="btn-save" class="btn btn-outline-secondary btn-sm" onclick="handleSave()">
+            <i data-lucide="save" class="me-1" style="width:14px;height:14px;"></i> @Localizer["Save"]
+        </button>
+
         <span id="exit-code-badge" class="result-badge d-none"></span>
         <span id="run-status" class="text-muted small"></span>
         <span class="ms-auto text-muted small d-none d-md-inline">Ctrl+Enter to run</span>
@@ -184,6 +188,33 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="saveCodeModal" tabindex="-1" aria-labelledby="saveCodeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saveCodeModalLabel">@Localizer["Save Code"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="code-title" class="form-label">@Localizer["Title"]</label>
+                    <input type="text" class="form-control" id="code-title" placeholder="@Localizer["Give your code a title"]">
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="is-public-switch">
+                    <label class="form-check-label" for="is-public-switch">@Localizer["Make it public (all people can see it)"]</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                <button type="button" class="btn btn-primary" id="btn-confirm-save" onclick="confirmSave()">@Localizer["Save"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.AntiForgeryToken()
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
@@ -233,10 +264,18 @@
     let editor, outputEditor, errorEditor;
 
     require(['vs/editor/editor.main'], function () {
+        const preLoadedCode = @Json.Serialize(Model.PreLoadedCode);
+        const preLoadedLang = @Json.Serialize(Model.PreLoadedLang);
+        const preLoadedTitle = @Json.Serialize(Model.PreLoadedTitle);
+
+        if (preLoadedLang) {
+            langSelector.value = preLoadedLang;
+        }
+
         const firstLang = langSelector.value;
 
         editor = monaco.editor.create(document.getElementById('monaco-editor-container'), {
-            value:           langDefaults[firstLang] ?? '',
+            value:           preLoadedCode ?? langDefaults[firstLang] ?? '',
             language:        monacoLangMap[firstLang] ?? 'plaintext',
             theme:           'vs-dark',
             fontSize:        14,
@@ -313,7 +352,92 @@
             badgeEl.className = 'result-badge d-none';
             statusEl.textContent = '';
         });
+
+        // Check if we have code in localStorage (from a guest redirect)
+        const savedData = localStorage.getItem('cpprunner_pending_save');
+        if (savedData && @Json.Serialize(User.Identity?.IsAuthenticated ?? false)) {
+            const data = JSON.parse(savedData);
+            editor.setValue(data.code);
+            langSelector.value = data.lang;
+            monaco.editor.setModelLanguage(editor.getModel(), monacoLangMap[data.lang] ?? 'plaintext');
+            
+            // Show the modal
+            const modal = new bootstrap.Modal(document.getElementById('saveCodeModal'));
+            modal.show();
+            localStorage.removeItem('cpprunner_pending_save');
+        }
     });
+
+    // ── Save code ─────────────────────────────────────────────────────────────
+    const saveCodeModalEl = document.getElementById('saveCodeModal');
+    const codeTitleInput  = document.getElementById('code-title');
+    const isPublicSwitch  = document.getElementById('is-public-switch');
+    const btnConfirmSave  = document.getElementById('btn-confirm-save');
+
+    function handleSave() {
+        const isAuthenticated = @Json.Serialize(User.Identity?.IsAuthenticated ?? false);
+        if (!isAuthenticated) {
+            // Save to localStorage and redirect
+            const data = {
+                code: editor.getValue(),
+                lang: langSelector.value
+            };
+            localStorage.setItem('cpprunner_pending_save', JSON.stringify(data));
+            window.location.href = '/Account/Login?returnUrl=' + encodeURIComponent(window.location.pathname + window.location.search);
+            return;
+        }
+
+        const modal = new bootstrap.Modal(saveCodeModalEl);
+        if (@Json.Serialize(!string.IsNullOrEmpty(Model.PreLoadedTitle))) {
+            codeTitleInput.value = @Json.Serialize(Model.PreLoadedTitle);
+        }
+        modal.show();
+    }
+
+    async function confirmSave() {
+        const title = codeTitleInput.value.trim();
+        if (!title) {
+            alert('@Localizer["Please enter a title."]');
+            return;
+        }
+
+        const code = editor.getValue();
+        const lang = langSelector.value;
+        const isPublic = isPublicSwitch.checked;
+        const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+        btnConfirmSave.disabled = true;
+        btnConfirmSave.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> @Localizer["Saving..."]';
+
+        try {
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('code', code);
+            formData.append('language', lang);
+            formData.append('isPublic', isPublic);
+            formData.append('__RequestVerificationToken', token);
+
+            const response = await fetch('/Codes/Save', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const modal = bootstrap.Modal.getInstance(saveCodeModalEl);
+                modal.hide();
+                alert('@Localizer["Code saved successfully!"]');
+                window.location.href = '/Codes/Index';
+            } else {
+                const error = await response.text();
+                alert('@Localizer["Failed to save code:"] ' + error);
+            }
+        } catch (err) {
+            alert('@Localizer["An error occurred:"] ' + err);
+        } finally {
+            btnConfirmSave.disabled = false;
+            btnConfirmSave.textContent = '@Localizer["Save"]';
+        }
+    }
 
     // ── Run code ──────────────────────────────────────────────────────────────
     async function runCode() {
