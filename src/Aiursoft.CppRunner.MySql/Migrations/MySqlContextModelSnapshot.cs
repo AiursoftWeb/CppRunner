@@ -50,6 +50,9 @@ namespace Aiursoft.CppRunner.MySql.Migrations
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("Error")
+                        .HasColumnType("longtext");
+
                     b.Property<bool>("IsPublic")
                         .HasColumnType("tinyint(1)");
 
@@ -57,6 +60,12 @@ namespace Aiursoft.CppRunner.MySql.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Result")
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("ResultCode")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()

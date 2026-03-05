@@ -72,7 +72,16 @@ public class CodesController(
     [Route("Save")]
     [Authorize]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Save(string title, string code, string language, bool isPublic)
+    public async Task<IActionResult> Save(
+        string title, 
+        string code, 
+        string language, 
+        bool isPublic, 
+        int? id = null, 
+        bool saveResult = false, 
+        string? result = null, 
+        string? error = null,
+        int? resultCode = null)
     {
         var user = await userManager.GetUserAsync(User);
         if (user == null) return Unauthorized();
@@ -83,18 +92,48 @@ public class CodesController(
             return BadRequest(ModelState);
         }
 
-        var savedCode = new SavedCode
+        SavedCode? savedCode = null;
+        if (id.HasValue)
         {
-            UserId = user.Id,
-            User = user,
-            Title = title,
-            Code = code,
-            Language = language,
-            IsPublic = isPublic,
-            CreationTime = DateTime.UtcNow
-        };
+            savedCode = await dbContext.SavedCodes
+                .FirstOrDefaultAsync(c => c.Id == id.Value && c.UserId == user.Id);
+        }
 
-        dbContext.SavedCodes.Add(savedCode);
+        if (savedCode == null)
+        {
+            savedCode = new SavedCode
+            {
+                UserId = user.Id,
+                User = user,
+                Title = title,
+                Code = code,
+                Language = language,
+                IsPublic = isPublic,
+                CreationTime = DateTime.UtcNow
+            };
+            dbContext.SavedCodes.Add(savedCode);
+        }
+        else
+        {
+            savedCode.Title = title;
+            savedCode.Code = code;
+            savedCode.Language = language;
+            savedCode.IsPublic = isPublic;
+        }
+
+        if (saveResult)
+        {
+            savedCode.Result = result;
+            savedCode.Error = error;
+            savedCode.ResultCode = resultCode;
+        }
+        else
+        {
+            savedCode.Result = null;
+            savedCode.Error = null;
+            savedCode.ResultCode = null;
+        }
+
         await dbContext.SaveChangesAsync();
 
         return Ok(new { id = savedCode.Id });

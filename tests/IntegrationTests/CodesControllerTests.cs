@@ -154,4 +154,78 @@ public class CodesControllerTests : TestBase
             Assert.IsFalse(savedCodeExists);
         }
     }
+
+    [TestMethod]
+    public async Task TestOverwriteAndSaveResults()
+    {
+        await RegisterAndLoginAsync();
+
+        // 1. Initial save
+        var saveResponse = await PostForm("/Codes/Save", new Dictionary<string, string>
+        {
+            { "title", "Initial Title" },
+            { "code", "initial code" },
+            { "language", "cpp" },
+            { "isPublic", "true" }
+        });
+        Assert.AreEqual(HttpStatusCode.OK, saveResponse.StatusCode);
+
+        int id;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            id = (await db.SavedCodes.FirstAsync(c => c.Title == "Initial Title")).Id;
+        }
+
+        // 2. Overwrite with results
+        var overwriteResponse = await PostForm("/Codes/Save", new Dictionary<string, string>
+        {
+            { "id", id.ToString() },
+            { "title", "Updated Title" },
+            { "code", "updated code" },
+            { "language", "cpp" },
+            { "isPublic", "true" },
+            { "saveResult", "true" },
+            { "result", "fake output" },
+            { "error", "fake error" },
+            { "resultCode", "0" }
+        });
+        Assert.AreEqual(HttpStatusCode.OK, overwriteResponse.StatusCode);
+
+        // Verify in DB
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var savedCode = await db.SavedCodes.FirstOrDefaultAsync(c => c.Id == id);
+            Assert.IsNotNull(savedCode);
+            Assert.AreEqual("Updated Title", savedCode.Title);
+            Assert.AreEqual("updated code", savedCode.Code);
+            Assert.AreEqual("fake output", savedCode.Result);
+            Assert.AreEqual("fake error", savedCode.Error);
+            Assert.AreEqual(0, savedCode.ResultCode);
+        }
+
+        // 3. Save As (new record)
+        var saveAsResponse = await PostForm("/Codes/Save", new Dictionary<string, string>
+        {
+            { "title", "New Title" },
+            { "code", "new code" },
+            { "language", "cpp" },
+            { "isPublic", "true" }
+        });
+        Assert.AreEqual(HttpStatusCode.OK, saveAsResponse.StatusCode);
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var initialCount = await db.SavedCodes.CountAsync(c => c.Id == id);
+            var newCount = await db.SavedCodes.CountAsync(c => c.Title == "New Title");
+            Assert.AreEqual(1, initialCount);
+            Assert.AreEqual(1, newCount);
+            
+            var newCode = await db.SavedCodes.FirstAsync(c => c.Title == "New Title");
+            Assert.AreNotEqual(id, newCode.Id);
+            Assert.IsNull(newCode.Result); // Default is false for saveResult
+        }
+    }
 }
