@@ -1,9 +1,6 @@
 using System.Net;
 using Aiursoft.CppRunner.Entities;
-using Aiursoft.CppRunner.Models.CodesViewModels;
-using Aiursoft.CppRunner.Models.HomeViewModels;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 
 namespace Aiursoft.CppRunner.Tests.IntegrationTests;
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Aiursoft.CppRunner.Models.CodesViewModels;
+using Aiursoft.UiStack.Navigation;
 
 namespace Aiursoft.CppRunner.Controllers;
 
@@ -18,7 +19,7 @@ public class CodesController(
     [HttpGet]
     [Route("Index")]
     [Authorize]
-    [Aiursoft.UiStack.Navigation.RenderInNavBar(
+    [RenderInNavBar(
         NavGroupName = "Features",
         NavGroupOrder = 0,
         CascadedLinksGroupName = "Code Library",
@@ -45,7 +46,7 @@ public class CodesController(
 
     [HttpGet]
     [Route("Public")]
-    [Aiursoft.UiStack.Navigation.RenderInNavBar(
+    [RenderInNavBar(
         NavGroupName = "Features",
         NavGroupOrder = 0,
         CascadedLinksGroupName = "Code Library",
