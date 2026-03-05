@@ -172,8 +172,12 @@
             <i data-lucide="play" class="me-1" style="width:14px;height:14px;"></i> @Localizer["Run"]
         </button>
 
-        <button id="btn-save" class="btn btn-outline-secondary btn-sm" onclick="handleSave()">
+        <button id="btn-save" class="btn btn-outline-secondary btn-sm d-none" onclick="handleSave(false)">
             <i data-lucide="save" class="me-1" style="width:14px;height:14px;"></i> @Localizer["Save"]
+        </button>
+
+        <button id="btn-save-as" class="btn btn-outline-secondary btn-sm d-none" onclick="handleSave(true)">
+            <i data-lucide="copy" class="me-1" style="width:14px;height:14px;"></i> @Localizer["Save As"]
         </button>
 
         <span id="exit-code-badge" class="result-badge d-none"></span>
@@ -234,9 +238,13 @@
                     <label for="code-title" class="form-label">@Localizer["Title"]</label>
                     <input type="text" class="form-control" id="code-title" placeholder="@Localizer["Give your code a title"]">
                 </div>
-                <div class="form-check form-switch">
+                <div class="form-check form-switch mb-2">
                     <input class="form-check-input" type="checkbox" id="is-public-switch">
                     <label class="form-check-label" for="is-public-switch">@Localizer["Make it public (all people can see it)"]</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="save-result-switch">
+                    <label class="form-check-label" for="save-result-switch">@Localizer["Save execution results and error messages"]</label>
                 </div>
             </div>
             <div class="modal-footer">
@@ -290,6 +298,7 @@
     const statusEl     = document.getElementById('run-status');
     const badgeEl      = document.getElementById('exit-code-badge');
     const btnRun       = document.getElementById('btn-run');
+    let lastResultCode = null;
 
     const localizedRunning      = document.getElementById('localized-running').value;
     const localizedRun          = document.getElementById('localized-run').value;
@@ -306,18 +315,31 @@
     let editor, outputEditor, errorEditor;
 
     require(['vs/editor/editor.main'], function () {
+        const preLoadedId = @Json.Serialize(Model.PreLoadedId);
         const preLoadedCode = @Json.Serialize(Model.PreLoadedCode);
         const preLoadedLang = @Json.Serialize(Model.PreLoadedLang);
         const preLoadedTitle = @Json.Serialize(Model.PreLoadedTitle);
+        const preLoadedResult = @Json.Serialize(Model.PreLoadedResult);
+        const preLoadedError = @Json.Serialize(Model.PreLoadedError);
+        const preLoadedResultCode = @Json.Serialize(Model.PreLoadedResultCode);
+
+        let initialCode = preLoadedCode;
+        let initialLang = preLoadedLang;
 
         if (preLoadedLang) {
             langSelector.value = preLoadedLang;
         }
 
         const firstLang = langSelector.value;
+        if (!initialCode) {
+            initialCode = langDefaults[firstLang] ?? '';
+        }
+        if (!initialLang) {
+            initialLang = firstLang;
+        }
 
         editor = monaco.editor.create(document.getElementById('monaco-editor-container'), {
-            value:           preLoadedCode ?? langDefaults[firstLang] ?? '',
+            value:           initialCode,
             language:        monacoLangMap[firstLang] ?? 'plaintext',
             theme:           'vs-dark',
             fontSize:        14,
@@ -330,6 +352,35 @@
             wordWrap:        'off',
         });
 
+        const btnSave = document.getElementById('btn-save');
+        const btnSaveAs = document.getElementById('btn-save-as');
+
+        function updateSaveButtons() {
+            const currentCode = editor.getValue();
+            const currentLang = langSelector.value;
+            const isDirty = currentCode !== initialCode || currentLang !== initialLang;
+
+            if (isDirty) {
+                btnSave.classList.remove('d-none');
+                if (preLoadedId) {
+                    btnSaveAs.classList.remove('d-none');
+                } else {
+                    btnSaveAs.classList.add('d-none');
+                }
+            } else {
+                btnSave.classList.add('d-none');
+                btnSaveAs.classList.add('d-none');
+            }
+        }
+
+        editor.onDidChangeModelContent(() => {
+            updateSaveButtons();
+        });
+
+        langSelector.addEventListener('change', () => {
+            updateSaveButtons();
+        });
+
         // Ctrl+Enter → run
         editor.addCommand(
             monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
@@ -338,7 +389,7 @@
 
         // Output editor (read-only, same language as source)
         outputEditor = monaco.editor.create(document.getElementById('output-panel-container'), {
-            value:           localizedClickRun,
+            value:           preLoadedResult || localizedClickRun,
             language:        monacoLangMap[firstLang] ?? 'plaintext',
             theme:           'vs-dark',
             fontSize:        13,
@@ -355,7 +406,7 @@
 
         // Error editor (read-only, plaintext — compiler messages)
         errorEditor = monaco.editor.create(document.getElementById('error-panel-container'), {
-            value:           '',
+            value:           preLoadedError || '',
             language:        'plaintext',
             theme:           'vs-dark',
             fontSize:        13,
@@ -369,6 +420,20 @@
             renderLineHighlight: 'none',
             scrollbar:       { vertical: 'auto', horizontal: 'auto' },
         });
+
+        if (preLoadedResultCode !== null) {
+            lastResultCode = preLoadedResultCode;
+            const exitOk = preLoadedResultCode === 0;
+            const isTimeout = preLoadedResultCode === 124;
+
+            if (isTimeout) {
+                badgeEl.textContent = localizedTimeout;
+                badgeEl.className   = 'result-badge badge bg-warning text-dark';
+            } else {
+                badgeEl.textContent = localizedExit + ' ' + preLoadedResultCode;
+                badgeEl.className   = 'result-badge badge ' + (exitOk ? 'bg-success' : 'bg-danger');
+            }
+        }
 
         // Tint error editor tokens red via built-in override
         monaco.editor.defineTheme('error-dark', {
@@ -414,9 +479,11 @@
     const saveCodeModalEl = document.getElementById('saveCodeModal');
     const codeTitleInput  = document.getElementById('code-title');
     const isPublicSwitch  = document.getElementById('is-public-switch');
+    const saveResultSwitch = document.getElementById('save-result-switch');
     const btnConfirmSave  = document.getElementById('btn-confirm-save');
+    let currentIdToSave = null;
 
-    function handleSave() {
+    function handleSave(isSaveAs) {
         const isAuthenticated = @Json.Serialize(User.Identity?.IsAuthenticated ?? false);
         if (!isAuthenticated) {
             // Save to localStorage and redirect
@@ -429,10 +496,18 @@
             return;
         }
 
-        const modal = new bootstrap.Modal(saveCodeModalEl);
-        if (@Json.Serialize(!string.IsNullOrEmpty(Model.PreLoadedTitle))) {
-            codeTitleInput.value = @Json.Serialize(Model.PreLoadedTitle);
+        const preLoadedId = @Json.Serialize(Model.PreLoadedId);
+        const preLoadedTitle = @Json.Serialize(Model.PreLoadedTitle);
+
+        if (isSaveAs) {
+            currentIdToSave = null;
+            codeTitleInput.value = preLoadedTitle ? (preLoadedTitle + ' - Copy') : '';
+        } else {
+            currentIdToSave = preLoadedId;
+            codeTitleInput.value = preLoadedTitle ?? '';
         }
+
+        const modal = new bootstrap.Modal(saveCodeModalEl);
         modal.show();
     }
 
@@ -446,6 +521,9 @@
         const code = editor.getValue();
         const lang = langSelector.value;
         const isPublic = isPublicSwitch.checked;
+        const saveResult = saveResultSwitch.checked;
+        const result = saveResult ? outputEditor.getValue() : null;
+        const error = saveResult ? errorEditor.getValue() : null;
         const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
 
         btnConfirmSave.disabled = true;
@@ -457,6 +535,17 @@
             formData.append('code', code);
             formData.append('language', lang);
             formData.append('isPublic', isPublic);
+            formData.append('saveResult', saveResult);
+            if (saveResult) {
+                formData.append('result', result);
+                formData.append('error', error);
+                if (lastResultCode !== null) {
+                    formData.append('resultCode', lastResultCode);
+                }
+            }
+            if (currentIdToSave) {
+                formData.append('id', currentIdToSave);
+            }
             formData.append('__RequestVerificationToken', token);
 
             const response = await fetch('/Codes/Save', {
@@ -470,8 +559,8 @@
                 alert('@Localizer["Code saved successfully!"]');
                 window.location.href = '/Codes/Index';
             } else {
-                const error = await response.text();
-                alert('@Localizer["Failed to save code:"] ' + error);
+                const errorText = await response.text();
+                alert('@Localizer["Failed to save code:"] ' + errorText);
             }
         } catch (err) {
             alert('@Localizer["An error occurred:"] ' + err);
@@ -482,6 +571,8 @@
     }
 
     // ── Run code ──────────────────────────────────────────────────────────────
+    let lastResultCode = null;
+
     async function runCode() {
         if (!editor) return;
 
@@ -494,6 +585,7 @@
         if (outputEditor) outputEditor.setValue('');
         if (errorEditor)  errorEditor.setValue('');
         badgeEl.className = 'result-badge d-none';
+        lastResultCode = null;
 
         const startTime = Date.now();
 
@@ -511,6 +603,7 @@
 
             const result  = await response.json();
             const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+            lastResultCode = result.ResultCode;
 
             const monacoId = monacoLangMap[lang] ?? 'plaintext';
 

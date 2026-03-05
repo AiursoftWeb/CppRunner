@@ -27,6 +27,12 @@ public class SavedCode
     [MaxLength(50)]
     public required string Language { get; set; }
 
+    public string? Result { get; set; }
+
+    public string? Error { get; set; }
+
+    public int? ResultCode { get; set; }
+
     public bool IsPublic { get; set; }
 
     public DateTime CreationTime { get; set; } = DateTime.UtcNow;

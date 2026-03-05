@@ -561,5 +561,77 @@
   <data name="Zero Configuration" xml:space="preserve">
     <value>Zero Configuration</value>
   </data>
+  <data name="Save As" xml:space="preserve">
+    <value>Save As</value>
+  </data>
+  <data name="Save execution results and error messages" xml:space="preserve">
+    <value>Save execution results and error messages</value>
+  </data>
+  <data name="Code saved successfully!" xml:space="preserve">
+    <value>Code saved successfully!</value>
+  </data>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>Failed to save code:</value>
+  </data>
+  <data name="Please enter a title." xml:space="preserve">
+    <value>Please enter a title.</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Saving...</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Ctrl+Enter to run" xml:space="preserve">
+    <value>Ctrl+Enter to run</value>
+  </data>
+  <data name="Running..." xml:space="preserve">
+    <value>Running...</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Timeout</value>
+  </data>
+  <data name="Timed out after" xml:space="preserve">
+    <value>Timed out after</value>
+  </data>
+  <data name="Completed in" xml:space="preserve">
+    <value>Completed in</value>
+  </data>
+  <data name="Click Run (or Ctrl+Enter) to execute the code." xml:space="preserve">
+    <value>Click Run (or Ctrl+Enter) to execute the code.</value>
+  </data>
+  <data name="(no output)" xml:space="preserve">
+    <value>(no output)</value>
+  </data>
+  <data name="Exit:" xml:space="preserve">
+    <value>Exit:</value>
+  </data>
+  <data name="Source Code" xml:space="preserve">
+    <value>Source Code</value>
+  </data>
+  <data name="Output" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="Errors / Stderr" xml:space="preserve">
+    <value>Errors / Stderr</value>
+  </data>
+  <data name="Save Code" xml:space="preserve">
+    <value>Save Code</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Give your code a title" xml:space="preserve">
+    <value>Give your code a title</value>
+  </data>
+  <data name="Make it public (all people can see it)" xml:space="preserve">
+    <value>Make it public (all people can see it)</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 
 </root>

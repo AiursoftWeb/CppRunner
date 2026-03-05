@@ -60,9 +60,13 @@ public class HomeController(
 
                 if (canRead)
                 {
+                    vm.PreLoadedId = savedCode.Id;
                     vm.PreLoadedCode = savedCode.Code;
                     vm.PreLoadedLang = savedCode.Language;
                     vm.PreLoadedTitle = savedCode.Title;
+                    vm.PreLoadedResult = savedCode.Result;
+                    vm.PreLoadedError = savedCode.Error;
+                    vm.PreLoadedResultCode = savedCode.ResultCode;
                 }
             }
         }
