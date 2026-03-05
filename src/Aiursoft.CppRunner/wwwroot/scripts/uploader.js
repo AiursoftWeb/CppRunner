@@ -7,6 +7,7 @@ class Uploader {
                     sizeInMb,
                     validExtensions,
                     uploadUrl,
+                    quitConfirmation,
                     onFile = () => {
                     },
                     onUploaded = () => {
@@ -21,6 +22,7 @@ class Uploader {
         this.sizeInMb = sizeInMb;
         this.validExtensions = validExtensions;
         this.uploadUrl = uploadUrl;
+        this.quitConfirmation = quitConfirmation;
         this.onFile = onFile;
         this.onUploaded = onUploaded;
         this.onReset = onReset;
@@ -54,7 +56,7 @@ class Uploader {
         }
 
         window.onbeforeunload = () => {
-            return "Your file is still uploading. Are you sure to quit?";
+            return that.quitConfirmation || "Your file is still uploading. Are you sure to quit?";
         };
 
         that.progress.removeClass('d-none');

@@ -45,6 +45,20 @@
 <div id="@progressId" class="progress mb-3 mt-3 d-none">
     <div id="@progressbarId" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"></div>
 </div>
+
+<input type="hidden" id="localized-default-@Model.UniqueId" value="@Localizer["Drag and drop a file here or click"]" />
+<input type="hidden" id="localized-replace-@Model.UniqueId" value="@Localizer["Drag and drop or click to replace"]" />
+<input type="hidden" id="localized-remove-@Model.UniqueId" value="@Localizer["Remove"]" />
+<input type="hidden" id="localized-error-@Model.UniqueId" value="@Localizer["Ooops, something wrong happended."]" />
+<input type="hidden" id="localized-error-fileSize-@Model.UniqueId" value="@Localizer["The file size is too big ({{ value }} max)."]" />
+<input type="hidden" id="localized-error-minWidth-@Model.UniqueId" value="@Localizer["The image width is too small ({{ value }}px min)."]" />
+<input type="hidden" id="localized-error-maxWidth-@Model.UniqueId" value="@Localizer["The image width is too big ({{ value }}px max)."]" />
+<input type="hidden" id="localized-error-minHeight-@Model.UniqueId" value="@Localizer["The image height is too small ({{ value }}px min)."]" />
+<input type="hidden" id="localized-error-maxHeight-@Model.UniqueId" value="@Localizer["The image height is too big ({{ value }} px max)."]" />
+<input type="hidden" id="localized-error-imageFormat-@Model.UniqueId" value="@Localizer["The image format is not allowed ({{ value }} only)."]" />
+<input type="hidden" id="localized-error-fileExtension-@Model.UniqueId" value="@Localizer["The file is not allowed ({{ value }} only)."]" />
+<input type="hidden" id="localized-quit-confirmation-@Model.UniqueId" value="@Localizer["Your file is still uploading. Are you sure to quit?"]" />
+
 @hiddenInputTag
 
 <script type="module">
@@ -65,22 +79,24 @@
 
             sizeInMb: @Model.MaxSizeInMb,
             validExtensions: ('@Model.AllowedExtensions' || '').split(' ').filter(Boolean),
-            uploadUrl: '@Model.UploadEndpoint'
+            uploadUrl: '@Model.UploadEndpoint',
+            quitConfirmation: document.getElementById('localized-quit-confirmation-@Model.UniqueId').value
         }).init({
             messages: {
-                'default': @Json.Serialize(Localizer["Drag and drop a file here or click"].Value),
-                'replace': @Json.Serialize(Localizer["Drag and drop or click to replace"].Value),
-                'remove':  @Json.Serialize(Localizer["Remove"].Value),
-                'error':   @Json.Serialize(Localizer["Ooops, something wrong happended."].Value)
+
+                'default': document.getElementById('localized-default-@Model.UniqueId').value,
+                'replace': document.getElementById('localized-replace-@Model.UniqueId').value,
+                'remove':  document.getElementById('localized-remove-@Model.UniqueId').value,
+                'error':   document.getElementById('localized-error-@Model.UniqueId').value
             },
             error: {
-                'fileSize': @Json.Serialize(Localizer["The file size is too big ({{ value }} max)."].Value),
-                'minWidth': @Json.Serialize(Localizer["The image width is too small ({{ value }}px min)."].Value),
-                'maxWidth': @Json.Serialize(Localizer["The image width is too big ({{ value }}px max)."].Value),
-                'minHeight': @Json.Serialize(Localizer["The image height is too small ({{ value }}px min)."].Value),
-                'maxHeight': @Json.Serialize(Localizer["The image height is too big ({{ value }}px max)."].Value),
-                'imageFormat': @Json.Serialize(Localizer["The image format is not allowed ({{ value }} only)."].Value),
-                'fileExtension': @Json.Serialize(Localizer["The file is not allowed ({{ value }} only)."].Value),
+                'fileSize': document.getElementById('localized-error-fileSize-@Model.UniqueId').value,
+                'minWidth': document.getElementById('localized-error-minWidth-@Model.UniqueId').value,
+                'maxWidth': document.getElementById('localized-error-maxWidth-@Model.UniqueId').value,
+                'minHeight': document.getElementById('localized-error-minHeight-@Model.UniqueId').value,
+                'maxHeight': document.getElementById('localized-error-maxHeight-@Model.UniqueId').value,
+                'imageFormat': document.getElementById('localized-error-imageFormat-@Model.UniqueId').value,
+                'fileExtension': document.getElementById('localized-error-fileExtension-@Model.UniqueId').value,
             }
         });
     })

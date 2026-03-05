@@ -1,5 +1,29 @@
 @model Aiursoft.CppRunner.Models.HomeViewModels.IndexViewModel
 
+@*
+    The following lines are for the localization scanner:
+    @Localizer["Lua (5.4)"]
+    @Localizer["TypeScript (4.9.3, node 16.8.1)"]
+    @Localizer["C (gcc 15.2.0)"]
+    @Localizer["Perl (5.39.5)"]
+    @Localizer["Go (Golang 1.21.5)"]
+    @Localizer["C++ (GNU G++, stdc++20)"]
+    @Localizer["Rust (1.81)"]
+    @Localizer["Lisp (rigetti/lisp)"]
+    @Localizer["Python (CPython 3.11)"]
+    @Localizer["CUDA 12.6.2 (on Ubuntu 24.04)"]
+    @Localizer["PowerShell Core (Ubuntu 24.04)"]
+    @Localizer["Javascript (Node.js v24)"]
+    @Localizer["Bash (on Ubuntu 25.10)"]
+    @Localizer["Haskell (GHC 9.8.1)"]
+    @Localizer["Ruby (3.2.2)"]
+    @Localizer["Java (OpenJDK 23)"]
+    @Localizer["PHP (8.3.0)"]
+    @Localizer["Python with PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)"]
+    @Localizer["C# (.NET 7.0)"]
+    @Localizer["Swift (5.8.1)"]
+*@
+
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <style>
@@ -140,7 +164,7 @@
         <select id="lang-selector" class="form-select form-select-sm" style="max-width:260px;">
             @foreach (var lang in Model.Langs)
             {
-                <option value="@lang.LangName">@lang.LangDisplayName</option>
+                <option value="@lang.LangName">@Localizer[lang.LangDisplayName]</option>
             }
         </select>
 
@@ -150,8 +174,17 @@
 
         <span id="exit-code-badge" class="result-badge d-none"></span>
         <span id="run-status" class="text-muted small"></span>
-        <span class="ms-auto text-muted small d-none d-md-inline">Ctrl+Enter to run</span>
+        <span class="ms-auto text-muted small d-none d-md-inline">@Localizer["Ctrl+Enter to run"]</span>
     </div>
+
+    <input type="hidden" id="localized-running" value="@Localizer["Running..."]" />
+    <input type="hidden" id="localized-run" value="@Localizer["Run"]" />
+    <input type="hidden" id="localized-timeout" value="@Localizer["Timeout"]" />
+    <input type="hidden" id="localized-timed-out-after" value="@Localizer["Timed out after"]" />
+    <input type="hidden" id="localized-completed-in" value="@Localizer["Completed in"]" />
+    <input type="hidden" id="localized-click-run" value="@Localizer["Click Run (or Ctrl+Enter) to execute the code."]" />
+    <input type="hidden" id="localized-no-output" value="@Localizer["(no output)"]" />
+    <input type="hidden" id="localized-exit" value="@Localizer["Exit:"]" />
 
     <div class="runner-body">
 
@@ -227,6 +260,15 @@
     const badgeEl      = document.getElementById('exit-code-badge');
     const btnRun       = document.getElementById('btn-run');
 
+    const localizedRunning      = document.getElementById('localized-running').value;
+    const localizedRun          = document.getElementById('localized-run').value;
+    const localizedTimeout      = document.getElementById('localized-timeout').value;
+    const localizedTimedOutAfter = document.getElementById('localized-timed-out-after').value;
+    const localizedCompletedIn  = document.getElementById('localized-completed-in').value;
+    const localizedClickRun     = document.getElementById('localized-click-run').value;
+    const localizedNoOutput     = document.getElementById('localized-no-output').value;
+    const localizedExit         = document.getElementById('localized-exit').value;
+
     // ── Monaco initialisation ─────────────────────────────────────────────────
     require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' } });
 
@@ -257,7 +299,7 @@
 
         // Output editor (read-only, same language as source)
         outputEditor = monaco.editor.create(document.getElementById('output-panel-container'), {
-            value:           '@Localizer["Click Run (or Ctrl+Enter) to execute the code."]',
+            value:           localizedClickRun,
             language:        monacoLangMap[firstLang] ?? 'plaintext',
             theme:           'vs-dark',
             fontSize:        13,
@@ -323,7 +365,7 @@
         const code = editor.getValue();
 
         btnRun.disabled = true;
-        btnRun.innerHTML = '<span class="spinner-border" role="status"></span>&nbsp;@Localizer["Running..."]';
+        btnRun.innerHTML = '<span class="spinner-border" role="status"></span>&nbsp;' + localizedRunning;
         statusEl.textContent = '';
         if (outputEditor) outputEditor.setValue('');
         if (errorEditor)  errorEditor.setValue('');
@@ -350,7 +392,7 @@
 
             if (outputEditor) {
                 monaco.editor.setModelLanguage(outputEditor.getModel(), monacoId);
-                outputEditor.setValue(result.Output || '(no output)');
+                outputEditor.setValue(result.Output || localizedNoOutput);
             }
             if (errorEditor) {
                 errorEditor.setValue(result.Error || '');
@@ -360,20 +402,20 @@
             const isTimeout = result.ResultCode === 124;
 
             if (isTimeout) {
-                badgeEl.textContent = '@Localizer["Timeout"]';
+                badgeEl.textContent = localizedTimeout;
                 badgeEl.className   = 'result-badge badge bg-warning text-dark';
-                statusEl.textContent = '@Localizer["Timed out after"] ' + elapsed + 's';
+                statusEl.textContent = localizedTimedOutAfter + ' ' + elapsed + 's';
             } else {
-                badgeEl.textContent = 'Exit: ' + result.ResultCode;
+                badgeEl.textContent = localizedExit + ' ' + result.ResultCode;
                 badgeEl.className   = 'result-badge badge ' + (exitOk ? 'bg-success' : 'bg-danger');
-                statusEl.textContent = '@Localizer["Completed in"] ' + elapsed + 's';
+                statusEl.textContent = localizedCompletedIn + ' ' + elapsed + 's';
             }
 
         } catch (err) {
             if (errorEditor) errorEditor.setValue(String(err));
         } finally {
             btnRun.disabled = false;
-            btnRun.innerHTML = '<i data-lucide="play" class="me-1" style="width:14px;height:14px;"></i> @Localizer["Run"]';
+            btnRun.innerHTML = '<i data-lucide="play" class="me-1" style="width:14px;height:14px;"></i> ' + localizedRun;
             if (typeof lucide !== 'undefined') lucide.createIcons();
         }
     }
