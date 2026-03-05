@@ -18,4 +18,8 @@ public class IndexViewModel : UiStackLayoutViewModel
     }
 
     public List<LangInfo> Langs { get; set; } = [];
+
+    public string? PreLoadedCode { get; set; }
+    public string? PreLoadedLang { get; set; }
+    public string? PreLoadedTitle { get; set; }
 }

@@ -1,0 +1,102 @@
+@model Aiursoft.CppRunner.Models.CodesViewModels.IndexViewModel
+@{
+    ViewData["Title"] = Localizer["My Codes"];
+}
+
+<div class="container-fluid">
+    <div class="d-flex align-items-center mb-4">
+        <h1 class="h3 mb-0">
+            <i data-lucide="library" class="me-2"></i>@Localizer["My Saved Codes"]
+        </h1>
+    </div>
+
+    <div class="card shadow-sm border-0 overflow-hidden">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light text-secondary small text-uppercase fw-bold">
+                    <tr>
+                        <th class="ps-4">@Localizer["Title"]</th>
+                        <th>@Localizer["Language"]</th>
+                        <th>@Localizer["Visibility"]</th>
+                        <th>@Localizer["Created"]</th>
+                        <th class="text-end pe-4">@Localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.MyCodes.Any())
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center py-5 text-muted">
+                                <i data-lucide="inbox" class="d-block mx-auto mb-2 opacity-25" style="width:40px;height:40px;"></i>
+                                @Localizer["You haven't saved any codes yet."]
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var savedCode in Model.MyCodes)
+                        {
+                            <tr>
+                                <td class="ps-4">
+                                    <a asp-action="Read" asp-route-id="@savedCode.Id" class="fw-bold text-decoration-none">
+                                        @savedCode.Title
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle">
+                                        @savedCode.Language
+                                    </span>
+                                </td>
+                                <td>
+                                    @if (savedCode.IsPublic)
+                                    {
+                                        <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle">
+                                            <i data-lucide="globe" class="me-1" style="width:12px;height:12px;"></i>@Localizer["Public"]
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-dark-subtle text-dark-emphasis border border-dark-subtle">
+                                            <i data-lucide="lock" class="me-1" style="width:12px;height:12px;"></i>@Localizer["Private"]
+                                        </span>
+                                    }
+                                </td>
+                                <td class="text-muted small">
+                                    @savedCode.CreationTime.ToLocalTime().ToString("yyyy-MM-dd HH:mm")
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="btn-group">
+                                        <form asp-action="TogglePublic" asp-route-id="@savedCode.Id" method="post" class="d-inline">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-sm btn-outline-secondary" title="@(savedCode.IsPublic ? Localizer["Make Private"] : Localizer["Make Public"])">
+                                                <i data-lucide="@(savedCode.IsPublic ? "eye-off" : "eye")" style="width:14px;height:14px;"></i>
+                                            </button>
+                                        </form>
+                                        <a asp-action="Read" asp-route-id="@savedCode.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Open in Runner"]">
+                                            <i data-lucide="external-link" style="width:14px;height:14px;"></i>
+                                        </a>
+                                        <button type="button" class="btn btn-sm btn-outline-danger" 
+                                                onclick="if(confirm('@Localizer["Are you sure you want to delete this code?"]')) document.getElementById('delete-form-@savedCode.Id').submit();"
+                                                title="@Localizer["Delete"]">
+                                            <i data-lucide="trash-2" style="width:14px;height:14px;"></i>
+                                        </button>
+                                        <form id="delete-form-@savedCode.Id" asp-action="Delete" asp-route-id="@savedCode.Id" method="post" class="d-none">
+                                            @Html.AntiForgeryToken()
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+<script>
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+</script>
+}
