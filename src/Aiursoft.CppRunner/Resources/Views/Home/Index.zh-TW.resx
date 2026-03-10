@@ -21,6 +21,9 @@
       <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>「Fire-and-forget」支援長時間執行的作業（例如電子郵件或 AI），並提供圖形使用者介面以進行佇列管理、平行處理和取消。</value>
   </data>
+  <data name="(no output)" xml:space="preserve">
+    <value>（無輸出）</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>內建的角色型存取控制（RBAC）系統，用於細粒度的權限管理。</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>所有依賴項都會自動註冊，並始終可透過建構函式注入使用。</value>
+  </data>
+  <data name="An error occurred:" xml:space="preserve">
+    <value>發生錯誤：</value>
   </data>
   <data name="Anduin" xml:space="preserve">
     <value>Anduin</value>
@@ -99,6 +105,9 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>背景工作處理</value>
   </data>
+  <data name="Bash (on Ubuntu 25.10)" xml:space="preserve">
+    <value>Bash（Ubuntu 25.10 環境）</value>
+  </data>
   <data name="Beginner Friendly" xml:space="preserve">
     <value>新手友善</value>
   </data>
@@ -129,6 +138,24 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>內建使用者管理</value>
   </data>
+  <data name="C (gcc 15.2.0)" xml:space="preserve">
+    <value>C (gcc 15.2.0)</value>
+  </data>
+  <data name="C# (.NET 7.0)" xml:space="preserve">
+    <value>C# (.NET 7.0)</value>
+  </data>
+  <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
+    <value>C++ (GNU G++, stdc++20)</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Click Run (or Ctrl+Enter) to execute the code." xml:space="preserve">
+    <value>點擊「執行」（或按 Ctrl+Enter）以執行程式碼。</value>
+  </data>
+  <data name="Code saved successfully!" xml:space="preserve">
+    <value>程式碼已成功儲存！</value>
+  </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>內建 Docker 支援，可簡化並一致地進行部署。</value>
   </data>
@@ -137,6 +164,9 @@
   </data>
   <data name="Comes with strict unit tests, making test-driven development easy." xml:space="preserve">
     <value>內建嚴格的單元測試，讓測試驅動開發變得輕鬆簡單。</value>
+  </data>
+  <data name="Completed in" xml:space="preserve">
+    <value>完成於</value>
   </data>
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>完整說明文件</value>
@@ -158,6 +188,12 @@
   </data>
   <data name="Cross Platform" xml:space="preserve">
     <value>跨平台</value>
+  </data>
+  <data name="Ctrl+Enter to run" xml:space="preserve">
+    <value>按 Ctrl+Enter 執行</value>
+  </data>
+  <data name="CUDA 12.6.2 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 12.6.2 (於 Ubuntu 24.04)</value>
   </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>儀表板網站</value>
@@ -228,6 +264,15 @@
   <data name="Enterprise Security" xml:space="preserve">
     <value>企業安全</value>
   </data>
+  <data name="Errors / Stderr" xml:space="preserve">
+    <value>錯誤 / 標準錯誤輸出</value>
+  </data>
+  <data name="Exit:" xml:space="preserve">
+    <value>退出：</value>
+  </data>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>儲存程式碼失敗：</value>
+  </data>
   <data name="FAQ" xml:space="preserve">
     <value>常見問題</value>
   </data>
@@ -282,8 +327,14 @@
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
   </data>
+  <data name="Give your code a title" xml:space="preserve">
+    <value>為您的程式碼輸入標題</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>全球規模</value>
+  </data>
+  <data name="Go (Golang 1.21.5)" xml:space="preserve">
+    <value>Go (Golang 1.21.5)</value>
   </data>
   <data name="Go global without extra effort." xml:space="preserve">
     <value>全球拓展，無需額外努力。</value>
@@ -296,6 +347,9 @@
   </data>
   <data name="Hands-on tutorials suitable for computer science interns." xml:space="preserve">
     <value>實作導向的教學文件，適合資工系實習生。</value>
+  </data>
+  <data name="Haskell (GHC 9.8.1)" xml:space="preserve">
+    <value>Haskell (GHC 9.8.1)</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>哈囉世界！</value>
@@ -345,6 +399,12 @@
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>使用 Aiursoft Template 是否免費？</value>
   </data>
+  <data name="Java (OpenJDK 23)" xml:space="preserve">
+    <value>Java (OpenJDK 23)</value>
+  </data>
+  <data name="Javascript (Node.js v24)" xml:space="preserve">
+    <value>JavaScript (Node.js v24)</value>
+  </data>
   <data name="Join Discussions" xml:space="preserve">
     <value>參與討論</value>
   </data>
@@ -357,8 +417,17 @@
   <data name="Lint Check" xml:space="preserve">
     <value>Lint Check</value>
   </data>
+  <data name="Lisp (rigetti/lisp)" xml:space="preserve">
+    <value>Lisp (rigetti/lisp)</value>
+  </data>
+  <data name="Lua (5.4)" xml:space="preserve">
+    <value>Lua (5.4)</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>維持高品質程式碼</value>
+  </data>
+  <data name="Make it public (all people can see it)" xml:space="preserve">
+    <value>公開（所有人皆可查看）</value>
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown 轉 HTML</value>
@@ -399,8 +468,29 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 整合</value>
   </data>
+  <data name="Output" xml:space="preserve">
+    <value>輸出</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
+  </data>
+  <data name="PHP (8.3.0)" xml:space="preserve">
+    <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Please enter a title." xml:space="preserve">
+    <value>請輸入標題。</value>
+  </data>
+  <data name="PowerShell Core (Ubuntu 24.04)" xml:space="preserve">
+    <value>PowerShell Core (Ubuntu 24.04)</value>
+  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>為 GitLab 特別預設的 CI/CD 管線</value>
+  </data>
+  <data name="Python (CPython 3.11)" xml:space="preserve">
+    <value>Python (CPython 3.11)</value>
+  </data>
+  <data name="Python with PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)" xml:space="preserve">
+    <value>Python 搭配 PyTorch（Pytorch 2.7.0；cuda 12.6；cudnn 9）</value>
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>品質門檻</value>
@@ -420,8 +510,35 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>強大的整合測試</value>
   </data>
+  <data name="Ruby (3.2.2)" xml:space="preserve">
+    <value>Ruby (3.2.2)</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>執行</value>
+  </data>
+  <data name="Running..." xml:space="preserve">
+    <value>執行中...</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>無需任何網路連接即可執行。</value>
+  </data>
+  <data name="Rust (1.81)" xml:space="preserve">
+    <value>Rust (1.81)</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>儲存</value>
+  </data>
+  <data name="Save As" xml:space="preserve">
+    <value>另存為</value>
+  </data>
+  <data name="Save Code" xml:space="preserve">
+    <value>儲存程式碼</value>
+  </data>
+  <data name="Save execution results and error messages" xml:space="preserve">
+    <value>儲存執行結果與錯誤訊息</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>儲存中...</value>
   </data>
   <data name="Scheduled Task Management" xml:space="preserve">
     <value>排程工作管理</value>
@@ -446,6 +563,9 @@
   </data>
   <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>智慧深色模式，可自動適應使用者的系統設定。</value>
+  </data>
+  <data name="Source Code" xml:space="preserve">
+    <value>原始程式碼</value>
   </data>
   <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
     <value>標準實作。無需重新編譯即可切換提供者。</value>
@@ -486,6 +606,9 @@
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>支援 JetBrains Rider，輕鬆修正程式碼風格。</value>
   </data>
+  <data name="Swift (5.8.1)" xml:space="preserve">
+    <value>Swift (5.8.1)</value>
+  </data>
   <data name="Task Runner" xml:space="preserve">
     <value>工作執行器</value>
   </data>
@@ -510,8 +633,20 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>這是一個模板專案，我們從這裡開啟航程...</value>
   </data>
+  <data name="Timed out after" xml:space="preserve">
+    <value>逾時於</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>逾時</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>標題</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>由包括 AnduinOS、StatHub 和 Warp 在內的生產級應用程式所信賴。我們不僅分享這段程式碼；我們整個事業都建立在這之上。</value>
+  </data>
+  <data name="TypeScript (4.9.3, node 16.8.1)" xml:space="preserve">
+    <value>TypeScript (4.9.3, node 16.8.1)</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>統一環境</value>

@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>انقر لتسجيل الدخول</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>مكتبة الأكواد</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>منفذ الكود</value>
   </data>
@@ -111,6 +114,9 @@
   <data name="Manage" xml:space="preserve">
     <value>إدارة</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>أكودي الخاصة بي</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>غير موجود</value>
   </data>
@@ -129,6 +135,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>إعدادات الملف الشخصي</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>الأكواد العامة</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>تسجيل</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>المنفذ</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>استضافة ذاتية</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>الإعدادات</value>

@@ -18,11 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Avatar file" xml:space="preserve">
+      <data name="All roles" xml:space="preserve">
+    <value>Wszystkie role</value>
+  </data>
+  <data name="Avatar file" xml:space="preserve">
     <value>Plik awatara</value>
   </data>
   <data name="Email Address" xml:space="preserve">
     <value>Adres e-mail</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Identyfikator</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
@@ -35,6 +41,12 @@
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>Pole {0} jest wymagane.</value>
+  </data>
+  <data name="The {0} must be at least {1} characters long." xml:space="preserve">
+    <value>{0} musi mieć co najmniej {1} znaków.</value>
+  </data>
+  <data name="The {0} must be at max {1} characters long." xml:space="preserve">
+    <value>{0} może mieć maksymalnie {1} znaków.</value>
   </data>
   <data name="The avatar file is invalid. Please upload it again." xml:space="preserve">
     <value>Plik awatara jest nieprawidłowy. Prześlij go ponownie.</value>

@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Click to log in</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>Code Library</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>Code Runner</value>
   </data>
@@ -114,6 +117,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Manage</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>My Codes</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Not Found</value>
   </data>
@@ -132,6 +138,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Profile Settings</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>Public Codes</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -143,6 +152,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>Runner</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Self-Hosted</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>

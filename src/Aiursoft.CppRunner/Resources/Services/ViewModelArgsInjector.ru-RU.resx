@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Нажмите для входа</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>Библиотека кода</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>Запуск кода</value>
   </data>
@@ -111,6 +114,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Управление</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>Мои коды</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Не найдено</value>
   </data>
@@ -129,6 +135,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Настройки профиля</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>Публичные коды</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>Запуск</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Самостоятельный хостинг</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Настройки</value>

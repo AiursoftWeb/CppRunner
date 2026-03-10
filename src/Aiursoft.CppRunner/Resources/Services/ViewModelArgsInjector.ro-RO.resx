@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Apasă pentru a te autentifica</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>Bibliotecă de cod</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>Executor de Cod</value>
   </data>
@@ -111,6 +114,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Gestionează</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>Codurile mele</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Nu a fost găsit</value>
   </data>
@@ -129,6 +135,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Setări Profil</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>Coduri Publice</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Înregistrare</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>Executor</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Găzduire proprie</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Setări</value>

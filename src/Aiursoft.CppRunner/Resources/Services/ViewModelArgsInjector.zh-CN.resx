@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>点击登录</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>代码库</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>代码运行器</value>
   </data>
@@ -114,6 +117,9 @@
   <data name="Manage" xml:space="preserve">
     <value>管理</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>我的代码</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>未找到</value>
   </data>
@@ -132,6 +138,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>资料设置</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>公共代码</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>注册</value>
   </data>
@@ -143,6 +152,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>运行器</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>自托管</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>设置</value>

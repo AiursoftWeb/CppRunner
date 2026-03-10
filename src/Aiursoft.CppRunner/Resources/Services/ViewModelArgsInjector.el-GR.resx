@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Κάντε κλικ για σύνδεση</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>Βιβλιοθήκη Κώδικα</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>Code Runner</value>
   </data>
@@ -111,6 +114,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Διαχείριση</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>Οι Κώδικές μου</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Δεν βρέθηκε</value>
   </data>
@@ -129,6 +135,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Ρυθμίσεις Προφίλ</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>Δημόσιοι Κώδικες</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Εγγραφή</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>Εκτελεστής</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Αυτοσχεδιασμένη Ξενονδότηση</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Ρυθμίσεις</value>

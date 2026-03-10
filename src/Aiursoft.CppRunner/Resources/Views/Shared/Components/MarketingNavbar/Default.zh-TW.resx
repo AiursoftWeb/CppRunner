@@ -30,6 +30,9 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
+  <data name="logo" xml:space="preserve">
+    <value>標誌</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>原始碼</value>
   </data>

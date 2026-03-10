@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Are you sure you want to delete this code?" xml:space="preserve">
+    <value>你確定要刪除此程式碼嗎？</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>建立</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>語言</value>
+  </data>
+  <data name="My Saved Codes" xml:space="preserve">
+    <value>我儲存的程式碼</value>
+  </data>
+  <data name="Open in Runner" xml:space="preserve">
+    <value>在 Runner 中開啟</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>私人</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>公開</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>標題</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>可見性</value>
+  </data>
+  <data name="You haven&apos;t saved any codes yet." xml:space="preserve">
+    <value>您尚未儲存任何程式碼。</value>
+  </data>
+
+</root>

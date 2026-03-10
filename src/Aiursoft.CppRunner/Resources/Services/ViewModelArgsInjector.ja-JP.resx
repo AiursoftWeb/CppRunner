@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>ログインするにはクリック</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>コードライブラリ</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>コードランナー</value>
   </data>
@@ -114,6 +117,9 @@
   <data name="Manage" xml:space="preserve">
     <value>管理</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>マイコード</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Not Found</value>
   </data>
@@ -132,6 +138,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>プロフィール設定</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>公開コード</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>登録</value>
   </data>
@@ -143,6 +152,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>ランナー</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>セルフホスト</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>設定</value>
