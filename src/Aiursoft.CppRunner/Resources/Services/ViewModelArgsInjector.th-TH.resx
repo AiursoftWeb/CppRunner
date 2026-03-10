@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>คลิกเพื่อเข้าสู่ระบบ</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>คลังโค้ด</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>รันโค้ด</value>
   </data>
@@ -114,6 +117,9 @@
   <data name="Manage" xml:space="preserve">
     <value>จัดการ</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>โค้ดของฉัน</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>ไม่พบ</value>
   </data>
@@ -132,6 +138,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>การตั้งค่าโปรไฟล์</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>โค้ดสาธารณะ</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>สมัครสมาชิก</value>
   </data>
@@ -143,6 +152,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>ตัวรัน</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>โฮสต์ด้วยตนเอง</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>การตั้งค่า</value>

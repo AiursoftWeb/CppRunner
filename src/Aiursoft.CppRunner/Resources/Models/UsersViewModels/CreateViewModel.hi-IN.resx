@@ -33,8 +33,14 @@
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} आवश्यक है।</value>
   </data>
+  <data name="The {0} must be at least {1} characters long." xml:space="preserve">
+    <value>{0} की लंबाई कम से कम {1} वर्णों की होनी चाहिए।</value>
+  </data>
   <data name="The {0} must be at least {2} and at max {1} characters long." xml:space="preserve">
     <value>{0} कम से कम {2} और अधिकतम {1} अक्षरों का होना चाहिए।</value>
+  </data>
+  <data name="The {0} must be at max {1} characters long." xml:space="preserve">
+    <value>{0} की अधिकतम लंबाई {1} वर्णों की होनी चाहिए।</value>
   </data>
   <data name="User name" xml:space="preserve">
     <value>उपयोगकर्ता नाम</value>

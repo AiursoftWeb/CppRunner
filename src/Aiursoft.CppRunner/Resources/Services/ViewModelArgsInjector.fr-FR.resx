@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Cliquez pour vous connecter</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>Bibliothèque de code</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>Exécuteur de code</value>
   </data>
@@ -114,6 +117,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Gérer</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>Mes codes</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Non trouvé</value>
   </data>
@@ -132,6 +138,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Paramètres du profil</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>Codes publics</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>S&apos;inscrire</value>
   </data>
@@ -143,6 +152,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>Exécuteur</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Auto-hébergement</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Paramètres</value>

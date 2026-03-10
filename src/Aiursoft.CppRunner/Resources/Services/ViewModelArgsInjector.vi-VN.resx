@@ -54,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Nhấp để đăng nhập</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>Thư viện mã</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>Chạy Mã</value>
   </data>
@@ -114,6 +117,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Quản lý</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>Mã Của Tôi</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Không tìm thấy</value>
   </data>
@@ -132,6 +138,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Cài đặt Hồ sơ</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>Mã Công Khai</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Đăng ký</value>
   </data>
@@ -143,6 +152,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>Bộ Chạy</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Tự lưu trữ</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Cài đặt</value>

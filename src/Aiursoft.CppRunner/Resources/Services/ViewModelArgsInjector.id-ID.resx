@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klik untuk masuk</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>Perpustakaan Kode</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>Pengeksekusi Kode</value>
   </data>
@@ -111,6 +114,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Kelola</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>Kode Saya</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Tidak Ditemukan</value>
   </data>
@@ -129,6 +135,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Pengaturan Profil</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>Kode Publik</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Daftar</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>Pembalap</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Hosting Mandiri</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Pengaturan</value>

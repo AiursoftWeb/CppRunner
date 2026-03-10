@@ -51,6 +51,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klik for at logge ind</value>
   </data>
+  <data name="Code Library" xml:space="preserve">
+    <value>Kodebibliotek</value>
+  </data>
   <data name="Code Runner" xml:space="preserve">
     <value>Kodekører</value>
   </data>
@@ -111,6 +114,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Administrer</value>
   </data>
+  <data name="My Codes" xml:space="preserve">
+    <value>Mine koder</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Ikke fundet</value>
   </data>
@@ -129,6 +135,9 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Profilindstillinger</value>
   </data>
+  <data name="Public Codes" xml:space="preserve">
+    <value>Offentlige koder</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Registrer</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Runner" xml:space="preserve">
     <value>Runner</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Egen hosting</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Indstillinger</value>

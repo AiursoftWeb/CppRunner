@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>拒绝访问</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>发生错误</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>返回首页</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>请求无效</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>错误。</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>如果您认为您应该有访问权限，请联系您的系统管理员。或者尝试退出登录后再重新登录。</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>服务器内部错误</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>未找到</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>请检查网址后重试。如果您认为这是服务器错误，请联系支持。</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>重试</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>未授权</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>很抱歉，处理您的请求时出现了问题。</value>
