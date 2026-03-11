@@ -21,6 +21,9 @@
       <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>오래 실행되는 작업(예: 이메일 또는 AI)에 대한 &quot;Fire-and-forget&quot; 지원, 대기열 관리, 병렬 처리 및 취소 기능이 있는 GUI를 특징으로 합니다.</value>
   </data>
+  <data name="(no output)" xml:space="preserve">
+    <value>(출력 없음)</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>세분화된 권한 관리를 위한 내장형 역할 기반 접근 제어(RBAC) 시스템.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>모든 종속성은 자동으로 등록되며 생성자 주입을 통해 항상 사용할 수 있습니다.</value>
+  </data>
+  <data name="An error occurred:" xml:space="preserve">
+    <value>오류가 발생했습니다:</value>
   </data>
   <data name="Anduin" xml:space="preserve">
     <value>안두인</value>
@@ -99,6 +105,9 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>백그라운드 작업 처리</value>
   </data>
+  <data name="Bash (on Ubuntu 25.10)" xml:space="preserve">
+    <value>Bash (Ubuntu 25.10 환경)</value>
+  </data>
   <data name="Beginner Friendly" xml:space="preserve">
     <value>초보자 친화적</value>
   </data>
@@ -129,6 +138,24 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>내장된 사용자 관리</value>
   </data>
+  <data name="C (gcc 15.2.0)" xml:space="preserve">
+    <value>C (gcc 15.2.0)</value>
+  </data>
+  <data name="C# (.NET 7.0)" xml:space="preserve">
+    <value>C# (.NET 7.0)</value>
+  </data>
+  <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
+    <value>C++ (GNU G++, stdc++20)</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Click Run (or Ctrl+Enter) to execute the code." xml:space="preserve">
+    <value>코드를 실행하려면 실행을 클릭하거나 (또는 Ctrl+Enter 를 누르세요).</value>
+  </data>
+  <data name="Code saved successfully!" xml:space="preserve">
+    <value>코드가 성공적으로 저장되었습니다!</value>
+  </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Docker 지원을 제공하여 간편하고 일관된 배포가 가능합니다.</value>
   </data>
@@ -137,6 +164,9 @@
   </data>
   <data name="Comes with strict unit tests, making test-driven development easy." xml:space="preserve">
     <value>엄격한 단위 테스트가 포함되어 있어 테스트 주도 개발이 쉬워집니다.</value>
+  </data>
+  <data name="Completed in" xml:space="preserve">
+    <value>완료됨 (내부)</value>
   </data>
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>포괄적인 문서</value>
@@ -158,6 +188,12 @@
   </data>
   <data name="Cross Platform" xml:space="preserve">
     <value>크로스 플랫폼</value>
+  </data>
+  <data name="Ctrl+Enter to run" xml:space="preserve">
+    <value>Ctrl+Enter 로 실행</value>
+  </data>
+  <data name="CUDA 12.6.2 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 12.6.2 (Ubuntu 24.04 기준)</value>
   </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>대시보드 웹사이트</value>
@@ -228,6 +264,15 @@
   <data name="Enterprise Security" xml:space="preserve">
     <value>기업 보안</value>
   </data>
+  <data name="Errors / Stderr" xml:space="preserve">
+    <value>오류 / 표준 오류 출력</value>
+  </data>
+  <data name="Exit:" xml:space="preserve">
+    <value>종료:</value>
+  </data>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>코드 저장에 실패했습니다:</value>
+  </data>
   <data name="FAQ" xml:space="preserve">
     <value>자주 묻는 질문</value>
   </data>
@@ -282,8 +327,14 @@
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
   </data>
+  <data name="Give your code a title" xml:space="preserve">
+    <value>코드에 제목을 입력하세요</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>글로벌 스케일</value>
+  </data>
+  <data name="Go (Golang 1.21.5)" xml:space="preserve">
+    <value>Go (Golang 1.21.5)</value>
   </data>
   <data name="Go global without extra effort." xml:space="preserve">
     <value>글로벌로 확장하되 추가적인 노력을 하지 않아도 됩니다.</value>
@@ -296,6 +347,9 @@
   </data>
   <data name="Hands-on tutorials suitable for computer science interns." xml:space="preserve">
     <value>컴퓨터 과학 인턴을 위한 실습 중심의 튜토리얼</value>
+  </data>
+  <data name="Haskell (GHC 9.8.1)" xml:space="preserve">
+    <value>Haskell (GHC 9.8.1)</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>안녕하세요 세계!</value>
@@ -345,6 +399,12 @@
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Aiursoft Template를 무료로 사용할 수 있나요?</value>
   </data>
+  <data name="Java (OpenJDK 23)" xml:space="preserve">
+    <value>Java (OpenJDK 23)</value>
+  </data>
+  <data name="Javascript (Node.js v24)" xml:space="preserve">
+    <value>JavaScript (Node.js v24)</value>
+  </data>
   <data name="Join Discussions" xml:space="preserve">
     <value>토론 참여하기</value>
   </data>
@@ -357,8 +417,17 @@
   <data name="Lint Check" xml:space="preserve">
     <value>라인트 체크</value>
   </data>
+  <data name="Lisp (rigetti/lisp)" xml:space="preserve">
+    <value>Lisp (rigetti/lisp)</value>
+  </data>
+  <data name="Lua (5.4)" xml:space="preserve">
+    <value>Lua (5.4)</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>높은 코드 품질 유지</value>
+  </data>
+  <data name="Make it public (all people can see it)" xml:space="preserve">
+    <value>공개하기 (모든 사람이 볼 수 있음)</value>
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>마크다운을 HTML로 변환</value>
@@ -399,8 +468,29 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 연동</value>
   </data>
+  <data name="Output" xml:space="preserve">
+    <value>출력</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
+  </data>
+  <data name="PHP (8.3.0)" xml:space="preserve">
+    <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Please enter a title." xml:space="preserve">
+    <value>제목을 입력하세요.</value>
+  </data>
+  <data name="PowerShell Core (Ubuntu 24.04)" xml:space="preserve">
+    <value>PowerShell Core (Ubuntu 24.04)</value>
+  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>GitLab 전용으로 사전 구성된 CI/CD 파이프라인</value>
+  </data>
+  <data name="Python (CPython 3.11)" xml:space="preserve">
+    <value>Python (CPython 3.11)</value>
+  </data>
+  <data name="Python with PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)" xml:space="preserve">
+    <value>PyTorch 와 함께 사용하는 Python(Pytorch 2.7.0; cuda 12.6; cudnn 9)</value>
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>품질 게이트</value>
@@ -420,8 +510,35 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>강력한 통합 테스트</value>
   </data>
+  <data name="Ruby (3.2.2)" xml:space="preserve">
+    <value>Ruby (3.2.2)</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>실행</value>
+  </data>
+  <data name="Running..." xml:space="preserve">
+    <value>실행 중...</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>인터넷 연결 없이도 실행됩니다.</value>
+  </data>
+  <data name="Rust (1.81)" xml:space="preserve">
+    <value>Rust (1.81)</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>저장</value>
+  </data>
+  <data name="Save As" xml:space="preserve">
+    <value>다른 이름으로 저장</value>
+  </data>
+  <data name="Save Code" xml:space="preserve">
+    <value>코드 저장</value>
+  </data>
+  <data name="Save execution results and error messages" xml:space="preserve">
+    <value>실행 결과 및 오류 메시지 저장</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>저장 중...</value>
   </data>
   <data name="Scheduled Task Management" xml:space="preserve">
     <value>스케줄된 작업 관리</value>
@@ -446,6 +563,9 @@
   </data>
   <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>사용자의 시스템 설정에 자동으로 적응하는 스마트 다크 모드.</value>
+  </data>
+  <data name="Source Code" xml:space="preserve">
+    <value>소스 코드</value>
   </data>
   <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
     <value>표준 구현. 컴파일 없이 제공자 전환 가능.</value>
@@ -486,6 +606,9 @@
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>JetBrains Rider 지원으로 코드 스타일 수정이 간편합니다.</value>
   </data>
+  <data name="Swift (5.8.1)" xml:space="preserve">
+    <value>Swift (5.8.1)</value>
+  </data>
   <data name="Task Runner" xml:space="preserve">
     <value>작업 실행기</value>
   </data>
@@ -510,8 +633,20 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>이것은 템플릿 프로젝트로, 여기서 우리의 항해를 시작합니다...</value>
   </data>
+  <data name="Timed out after" xml:space="preserve">
+    <value>다음 시간 후에 시간 초과됨:</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>시간 초과</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>제목</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>AnduinOS, StatHub, Warp를 포함한 프로덕션 수준의 애플리케이션들에 의해 신뢰받고 있습니다. 우리는 단지 이 코드를 공유하는 것이 아니라, 우리의 전체 비즈니스를 이 코드 위에 운영하고 있습니다.</value>
+  </data>
+  <data name="TypeScript (4.9.3, node 16.8.1)" xml:space="preserve">
+    <value>TypeScript (4.9.3, node 16.8.1)</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>통합 환경</value>

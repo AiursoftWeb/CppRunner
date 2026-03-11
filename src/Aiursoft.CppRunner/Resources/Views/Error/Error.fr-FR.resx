@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Accès refusé</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>Une erreur s&apos;est produite</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>Retour à l&apos;accueil</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Mauvaise demande</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>Erreur.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>Si vous pensez que vous devriez avoir accès, veuillez contacter votre administrateur système. Sinon, essayez de vous déconnecter puis de vous reconnecter.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Erreur interne du serveur</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Non trouvé</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>Veuillez vérifier l&apos;URL et réessayer. Si vous pensez qu&apos;il s&apos;agit d&apos;une erreur du serveur, veuillez contacter le support.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>Réessayer</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Non autorisé</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>Nous sommes désolés, une erreur s&apos;est produite lors du traitement de votre requête.</value>
