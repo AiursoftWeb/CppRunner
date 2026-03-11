@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Acceso denegado</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>Se ha producido un error</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>Volver al Inicio</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Solicitud incorrecta</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>Error.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>Si cree que debería tener acceso, póngase en contacto con su administrador del sistema. O intente cerrar sesión y volver a iniciar sesión.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Error interno del servidor</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>No encontrado</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>Por favor, compruebe la URL e inténtelo de nuevo. Si cree que se trata de un error del servidor, póngase en contacto con el soporte.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>Volver a intentarlo</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>No autorizado</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>Lo sentimos, ha ocurrido un error al procesar su solicitud.</value>

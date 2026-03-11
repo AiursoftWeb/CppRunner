@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>アクセス拒否</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>エラーが発生しました</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>ホームに戻る</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>不正なリクエスト</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>エラー。</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>アクセス権があると思われる場合は、システム管理者に連絡してください。または、ログアウトして再度ログインしてみてください。</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>内部サーバーエラー</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>見つかりません</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>URLを確認してから再試行してください。もしサーバーのエラーであるとお考えの場合は、サポートまでお問い合わせください。</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>再試行する</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>未認証</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>申し訳ございません。リクエストの処理中に問題が発生しました。</value>
