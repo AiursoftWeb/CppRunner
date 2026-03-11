@@ -39,6 +39,9 @@
   <data name="The image format is not allowed ({{ value }} only)." xml:space="preserve">
     <value>Format obrazu jest niedozwolony (tylko {{ value }}).</value>
   </data>
+  <data name="The image height is too big ({{ value }} px max)." xml:space="preserve">
+    <value>Wysokość obrazu jest zbyt duża (maks. {{ value }} px).</value>
+  </data>
   <data name="The image height is too big ({{ value }}px max)." xml:space="preserve">
     <value>Wysokość obrazu jest zbyt duża (maksymalnie {{ value }}px).</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="The image width is too small ({{ value }}px min)." xml:space="preserve">
     <value>Szerokość obrazu jest zbyt mała (min. {{ value }} px).</value>
+  </data>
+  <data name="Your file is still uploading. Are you sure to quit?" xml:space="preserve">
+    <value>Twój plik jest wciąż przesyłany. Czy na pewno chcesz wyjść?</value>
   </data>
 
 </root>

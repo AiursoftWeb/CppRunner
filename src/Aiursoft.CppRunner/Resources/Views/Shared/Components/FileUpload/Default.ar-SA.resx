@@ -39,6 +39,9 @@
   <data name="The image format is not allowed ({{ value }} only)." xml:space="preserve">
     <value>صيغة الصورة غير مسموح بها ({{ value }} فقط).</value>
   </data>
+  <data name="The image height is too big ({{ value }} px max)." xml:space="preserve">
+    <value>ارتفاع الصورة كبير جدًا (الحد الأقصى {{ value }} بكسل).</value>
+  </data>
   <data name="The image height is too big ({{ value }}px max)." xml:space="preserve">
     <value>ارتفاع الصورة كبير جداً (الحد الأقصى {{ value }} بكسل).</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="The image width is too small ({{ value }}px min)." xml:space="preserve">
     <value>عرض الصورة صغير جداً (الحد الأدنى {{ value }} بكسل).</value>
+  </data>
+  <data name="Your file is still uploading. Are you sure to quit?" xml:space="preserve">
+    <value>ملفك ما زال قيد الرفع. هل أنت متأكد من الخروج؟</value>
   </data>
 
 </root>

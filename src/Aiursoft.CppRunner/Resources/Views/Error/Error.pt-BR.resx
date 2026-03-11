@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Acesso Negado</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>Ocorreu um Erro</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>Voltar para a Página Inicial</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Solicitação Inválida</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Erro</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>Erro.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>Se você acredita que deveria ter acesso, entre em contato com o administrador do sistema. Ou tente sair e fazer login novamente.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Erro Interno do Servidor</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Não Encontrado</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>Por favor, verifique a URL e tente novamente. Se você acredita que este é um erro do servidor, entre em contato com o suporte.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>Tentar novamente</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Não autorizado</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>Sentimos muito, algo deu errado ao processar sua solicitação.</value>
