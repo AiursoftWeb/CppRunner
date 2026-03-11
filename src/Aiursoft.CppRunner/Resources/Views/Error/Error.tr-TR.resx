@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Erişim Reddedildi</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>Bir Hata Oluştu</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>Ana Sayfaya Dön</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Hatalı İstek</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hata</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>Hata.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>Eğer erişim hakkınız olması gerektiğini düşünüyorsanız, lütfen sistem yöneticinizle iletişime geçin. Veya çıkış yapıp tekrar giriş yapmayı deneyin.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>İç Sunucu Hatası</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Bulunamadı</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>Lütfen URL&apos;yi kontrol edip tekrar deneyin. Eğer bu bir sunucu hatası olduğuna inanıyorsanız, lütfen destek ekibiyle iletişime geçin.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>Tekrar deneyin</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Yetkisiz</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>Üzgünüz, isteğiniz işlenirken bir sorun oluştu.</value>

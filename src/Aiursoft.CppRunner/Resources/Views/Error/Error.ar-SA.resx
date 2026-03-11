@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>تم رفض الوصول</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>حدث خطأ</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>العودة إلى الصفحة الرئيسية</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>طلب غير صحيح</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>خطأ.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>إذا كنت تعتقد أن لديك الصلاحية للوصول، يُرجى الاتصال بمدير النظام الخاص بك. أو حاول تسجيل الخروج ثم تسجيل الدخول مرة أخرى.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>خطأ داخلي في الخادم</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>غير موجود</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>يرجى التحقق من عنوان URL والمحاولة مرة أخرى. إذا كنت تعتقد أن هذه مشكلة في الخادم، فيرجى الاتصال بدعم العملاء.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>جرّب مرة أخرى</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>غير مصرح به</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>نعتذر، حدث خطأ ما أثناء معالجة طلبك.</value>

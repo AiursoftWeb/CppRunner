@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Eylemler</value>
   </data>
+  <data name="CFG" xml:space="preserve">
+    <value>YAPILANDIRMA</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Açıklama</value>
   </data>
