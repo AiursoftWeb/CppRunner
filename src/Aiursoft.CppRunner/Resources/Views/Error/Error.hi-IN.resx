@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>प्रवेश अस्वीकृत</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>एक त्रुटि हुई</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>होम पर वापस जाएं</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>गलत अनुरोध</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>त्रुटि</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>त्रुटि।</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>यदि आपको लगता है कि आपको पहुंच के अधिकार होने चाहिए, तो कृपया अपने सिस्टम प्रबंधक से संपर्क करें। या फिर लॉग आउट करें और फिर से लॉग इन करने का प्रयास करें।</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>आंतरिक सर्वर त्रुटि</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>नहीं मिला</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>कृपया URL की जाँच करें और फिर से प्रयास करें। यदि आपको लगता है कि यह सर्वर त्रुटि है, तो कृपया सपोर्ट से संपर्क करें।</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>फिर से प्रयास करें</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>अधिकारहीन</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>हमें खेद है, आपके अनुरोध को संसाधित करते समय कुछ गलत हो गया।</value>

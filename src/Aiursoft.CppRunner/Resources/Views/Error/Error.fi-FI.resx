@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Pääsy evätty</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>Tapahtui virhe</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>Takaisin etusivulle</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Virheellinen pyyntö</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Virhe</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>Virhe.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>Jos uskot, että sinun tulisi päästä käyttämään palvelua, ota yhteyttä järjestelmänvalvojaasi. Tai yritä kirjautua ulos ja kirjautua uudelleen sisään.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Sisäinen palvelinvirhe</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Ei löytynyt</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>Tarkista URL-osoite ja yritä uudelleen. Jos katsoo, että tämä on palvelinvirhe, ota yhteyttä tukipalveluun.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>Yritä uudelleen</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Käyttöoikeus puuttuu</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>Olemme pahoillamme, jotain meni vikaan pyyntöäsi käsiteltäessä.</value>

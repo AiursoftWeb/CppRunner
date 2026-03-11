@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Ενέργειες</value>
   </data>
+  <data name="CFG" xml:space="preserve">
+    <value>ΡΥΘΜΙΣΕΙΣ</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Περιγραφή</value>
   </data>

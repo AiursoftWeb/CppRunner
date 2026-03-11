@@ -30,6 +30,9 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
+  <data name="logo" xml:space="preserve">
+    <value>логотип</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>Вихідний код</value>
   </data>

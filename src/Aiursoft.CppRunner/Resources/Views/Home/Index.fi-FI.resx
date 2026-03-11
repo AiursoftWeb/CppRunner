@@ -21,6 +21,9 @@
       <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Tuki pitkäkestoisille tehtäville (esimerkiksi sähköposteille tai AI:lle), jossa on käyttöliittymä jonon hallintaan, rinnakkaisprosessointiin ja peruutukseen.</value>
   </data>
+  <data name="(no output)" xml:space="preserve">
+    <value>(ei tulostetta)</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Sisäänrakennettu roolipohjainen käyttöoikeusjärjestelmä (RBAC) hienojakoista käyttöoikeudenhallintaa varten.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Kaikki riippuvuudet rekisteröidään automaattisesti ja ne ovat aina saatavilla konstruktorin kautta tapahtuvan injektoinnin välityksellä.</value>
+  </data>
+  <data name="An error occurred:" xml:space="preserve">
+    <value>Tapahtui virhe:</value>
   </data>
   <data name="Anduin" xml:space="preserve">
     <value>Anduin</value>
@@ -99,6 +105,9 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>Taustakäyttöön prosessointi</value>
   </data>
+  <data name="Bash (on Ubuntu 25.10)" xml:space="preserve">
+    <value>Bash (Ubuntu 25.10:ssa)</value>
+  </data>
   <data name="Beginner Friendly" xml:space="preserve">
     <value>Aloittelijalle ystävällinen</value>
   </data>
@@ -129,6 +138,24 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>Sisäänrakennettu käyttäjienhallinta</value>
   </data>
+  <data name="C (gcc 15.2.0)" xml:space="preserve">
+    <value>C (gcc 15.2.0)</value>
+  </data>
+  <data name="C# (.NET 7.0)" xml:space="preserve">
+    <value>C# (.NET 7.0)</value>
+  </data>
+  <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
+    <value>C++ (GNU G++, stdc++20)</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Peruuta</value>
+  </data>
+  <data name="Click Run (or Ctrl+Enter) to execute the code." xml:space="preserve">
+    <value>Napsauta Suorita (tai Ctrl+Enter) suorittaaksesi koodin.</value>
+  </data>
+  <data name="Code saved successfully!" xml:space="preserve">
+    <value>Koodi tallennettu onnistuneesti!</value>
+  </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Sisältää Docker-tukea yksinkertaistettuja ja yhdenmukaisia käyttöönottoja varten.</value>
   </data>
@@ -137,6 +164,9 @@
   </data>
   <data name="Comes with strict unit tests, making test-driven development easy." xml:space="preserve">
     <value>Sisältää tiukat yksikkötestit, mikä tekee testiin perustuvan kehityksen helpoksi.</value>
+  </data>
+  <data name="Completed in" xml:space="preserve">
+    <value>Suoritettu ajassa</value>
   </data>
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>Kattava dokumentaatio</value>
@@ -158,6 +188,12 @@
   </data>
   <data name="Cross Platform" xml:space="preserve">
     <value>Useita alustoja</value>
+  </data>
+  <data name="Ctrl+Enter to run" xml:space="preserve">
+    <value>Ctrl+Enter suorittaa</value>
+  </data>
+  <data name="CUDA 12.6.2 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 12.6.2 (Ubuntu 24.04:ssä)</value>
   </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Kojelauta-sivusto</value>
@@ -228,6 +264,15 @@
   <data name="Enterprise Security" xml:space="preserve">
     <value>Yritysturvallisuus</value>
   </data>
+  <data name="Errors / Stderr" xml:space="preserve">
+    <value>Virheet / Stderr</value>
+  </data>
+  <data name="Exit:" xml:space="preserve">
+    <value>Poistuminen:</value>
+  </data>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>Koodin tallennus epäonnistui:</value>
+  </data>
   <data name="FAQ" xml:space="preserve">
     <value>UKK</value>
   </data>
@@ -282,8 +327,14 @@
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
   </data>
+  <data name="Give your code a title" xml:space="preserve">
+    <value>Anna koodillesi otsikko</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>Kansainvälinen skaala</value>
+  </data>
+  <data name="Go (Golang 1.21.5)" xml:space="preserve">
+    <value>Go (Golang 1.21.5)</value>
   </data>
   <data name="Go global without extra effort." xml:space="preserve">
     <value>Mene globaaliin ilman lisäpainauteen.</value>
@@ -296,6 +347,9 @@
   </data>
   <data name="Hands-on tutorials suitable for computer science interns." xml:space="preserve">
     <value>Käytännön opetusohjelmat tietotekniikan opiskelijavalmistukselle.</value>
+  </data>
+  <data name="Haskell (GHC 9.8.1)" xml:space="preserve">
+    <value>Haskell (GHC 9.8.1)</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>Hei maailma!</value>
@@ -345,6 +399,12 @@
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Onko Aiursoft Templaten käyttö ilmaista?</value>
   </data>
+  <data name="Java (OpenJDK 23)" xml:space="preserve">
+    <value>Java (OpenJDK 23)</value>
+  </data>
+  <data name="Javascript (Node.js v24)" xml:space="preserve">
+    <value>Javascript (Node.js v24)</value>
+  </data>
   <data name="Join Discussions" xml:space="preserve">
     <value>Liity keskusteluun</value>
   </data>
@@ -357,8 +417,17 @@
   <data name="Lint Check" xml:space="preserve">
     <value>Lint-tarkistus</value>
   </data>
+  <data name="Lisp (rigetti/lisp)" xml:space="preserve">
+    <value>Lisp (rigetti/lisp)</value>
+  </data>
+  <data name="Lua (5.4)" xml:space="preserve">
+    <value>Lua (5.4)</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Ylläpidä korkeaa koodin laatua</value>
+  </data>
+  <data name="Make it public (all people can see it)" xml:space="preserve">
+    <value>Tee julki (kaikki voivat nähdä sen)</value>
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdownista HTML:ksi</value>
@@ -399,8 +468,29 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect -integraatio</value>
   </data>
+  <data name="Output" xml:space="preserve">
+    <value>Tulos</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
+  </data>
+  <data name="PHP (8.3.0)" xml:space="preserve">
+    <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Please enter a title." xml:space="preserve">
+    <value>Syötä otsikko.</value>
+  </data>
+  <data name="PowerShell Core (Ubuntu 24.04)" xml:space="preserve">
+    <value>PowerShell Core (Ubuntu 24.04)</value>
+  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>Ennalta määritellyt CI/CD -putkistot erityisesti GitLab:lle.</value>
+  </data>
+  <data name="Python (CPython 3.11)" xml:space="preserve">
+    <value>Python (CPython 3.11)</value>
+  </data>
+  <data name="Python with PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)" xml:space="preserve">
+    <value>Python ja PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)</value>
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Laatuportti</value>
@@ -420,8 +510,35 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Vahva integrointitestaus</value>
   </data>
+  <data name="Ruby (3.2.2)" xml:space="preserve">
+    <value>Ruby (3.2.2)</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Suorita</value>
+  </data>
+  <data name="Running..." xml:space="preserve">
+    <value>Suoritetaan...</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>Toimii ilman että internet-yhteyttä vaaditaan.</value>
+  </data>
+  <data name="Rust (1.81)" xml:space="preserve">
+    <value>Rust (1.81)</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Tallenna</value>
+  </data>
+  <data name="Save As" xml:space="preserve">
+    <value>Tallenna nimellä</value>
+  </data>
+  <data name="Save Code" xml:space="preserve">
+    <value>Tallenna koodi</value>
+  </data>
+  <data name="Save execution results and error messages" xml:space="preserve">
+    <value>Tallenna suoritus tulokset ja virheilmoitukset</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Tallennetaan...</value>
   </data>
   <data name="Scheduled Task Management" xml:space="preserve">
     <value>Ajoitettujen tehtävien hallinta</value>
@@ -446,6 +563,9 @@
   </data>
   <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>Älykäs tumma tila, joka mukautuu automaattisesti käyttäjän järjestelmäasetuksiin.</value>
+  </data>
+  <data name="Source Code" xml:space="preserve">
+    <value>Lähdekoodi</value>
   </data>
   <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
     <value>Standardityympäristö. Vaihda tarjoajia ilman käännöstä.</value>
@@ -486,6 +606,9 @@
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>Tukee JetBrains Rideria helppoa koodin tyylin korjauksia varten.</value>
   </data>
+  <data name="Swift (5.8.1)" xml:space="preserve">
+    <value>Swift (5.8.1)</value>
+  </data>
   <data name="Task Runner" xml:space="preserve">
     <value>Tehtävän suorittaja</value>
   </data>
@@ -510,8 +633,20 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Tämä on malliprojekti, josta aloitamme matkan...</value>
   </data>
+  <data name="Timed out after" xml:space="preserve">
+    <value>Aikakatkaisu tapahtui ajan kuluttua</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Aikakatkaisu</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Otsikko</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>Luotettu tuotantotasoisissa sovelluksissa, kuten AnduinOS, StatHub ja Warp. Emme vain jakaneet tätä koodia; käytämme sitä koko liiketoimintamme käynnistämiseen.</value>
+  </data>
+  <data name="TypeScript (4.9.3, node 16.8.1)" xml:space="preserve">
+    <value>TypeScript (4.9.3, node 16.8.1)</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Yhdenmukainen ympäristö</value>

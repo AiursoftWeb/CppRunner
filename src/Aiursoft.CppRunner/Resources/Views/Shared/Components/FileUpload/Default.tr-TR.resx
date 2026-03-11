@@ -39,6 +39,9 @@
   <data name="The image format is not allowed ({{ value }} only)." xml:space="preserve">
     <value>Görüntü formatına izin verilmiyor (sadece {{ value }}).</value>
   </data>
+  <data name="The image height is too big ({{ value }} px max)." xml:space="preserve">
+    <value>Göyük yüksekliği çok büyük (maksimum {{ value }} px).</value>
+  </data>
   <data name="The image height is too big ({{ value }}px max)." xml:space="preserve">
     <value>Görüntü yüksekliği çok büyük (maksimum {{ value }}px).</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="The image width is too small ({{ value }}px min)." xml:space="preserve">
     <value>Görsel genişliği çok küçük (en az {{ value }}px).</value>
+  </data>
+  <data name="Your file is still uploading. Are you sure to quit?" xml:space="preserve">
+    <value>Dosyanız hala yükleniyor. Çıkmak istediğinizden emin misiniz?</value>
   </data>
 
 </root>

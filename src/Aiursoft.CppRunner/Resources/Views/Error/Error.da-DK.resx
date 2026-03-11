@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Adgang nægtet</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>Der opstod en fejl</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>Tilbage til start</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Ugyldig anmodning</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fejl</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>Fejl.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>Hvis du mener, du bør have adgang, kontakt venligst din systemadministrator. Eller prøv at logge ud og logge ind igen.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Intern serverfejl</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Ikke fundet</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>Tjek venligst URL&apos;en og prøv igen. Hvis du mener, at dette er en serverfejl, kontakt venligst support.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>Prøv igen</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Uautoriseret</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>Vi beklager, der opstod en fejl under behandlingen af din anmodning.</value>
