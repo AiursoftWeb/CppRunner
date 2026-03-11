@@ -45,6 +45,9 @@
   <data name="Licence" xml:space="preserve">
     <value>Άδεια</value>
   </data>
+  <data name="logo" xml:space="preserve">
+    <value>λογότυπο</value>
+  </data>
   <data name="Project" xml:space="preserve">
     <value>Έργο</value>
   </data>

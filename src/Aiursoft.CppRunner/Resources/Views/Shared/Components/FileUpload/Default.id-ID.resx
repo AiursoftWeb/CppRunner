@@ -39,6 +39,9 @@
   <data name="The image format is not allowed ({{ value }} only)." xml:space="preserve">
     <value>Format gambar tidak diizinkan (hanya {{ value }}).</value>
   </data>
+  <data name="The image height is too big ({{ value }} px max)." xml:space="preserve">
+    <value>Tinggi gambar terlalu besar (maks. {{ value }} px).</value>
+  </data>
   <data name="The image height is too big ({{ value }}px max)." xml:space="preserve">
     <value>Tinggi gambar terlalu besar (maksimal {{ value }}px).</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="The image width is too small ({{ value }}px min)." xml:space="preserve">
     <value>Lebar gambar terlalu kecil (minimal {{ value }}px).</value>
+  </data>
+  <data name="Your file is still uploading. Are you sure to quit?" xml:space="preserve">
+    <value>File Anda masih diunggah. Apakah Anda yakin ingin keluar?</value>
   </data>
 
 </root>

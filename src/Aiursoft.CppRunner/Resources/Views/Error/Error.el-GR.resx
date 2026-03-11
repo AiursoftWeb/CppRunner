@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Δεν επιτρέπεται η πρόσβαση</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>Παρουσιάστηκε Σφάλμα</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>Πίσω στην Αρχική</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Λάθος Αίτημα</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Σφάλμα</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>Σφάλμα.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>Αν νομίζετε ότι θα πρέπει να έχετε πρόσβαση, παρακαλούμε επικοινωνήστε με τον διαχειριστή του συστήματός σας. Ή προσπαθήστε να αποσυνδεθείτε και να συνδεθείτε ξανά.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Εσωτερικό Σφάλμα Διακομιστή</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Δεν βρέθηκε</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>Παρακαλούμε ελέγξτε τη διεύθυνση URL και προσπαθήστε ξανά. Αν νομίζετε ότι πρόκειται για σφάλμα διακομιστή, παρακαλούμε επικοινωνήστε με την υποστήριξη.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>Προσπάθησε ξανά</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Μη εξουσιοδοτημένος</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>Συγγνώμη, κάτι πήγε στραβά κατά την επεξεργασία του αιτήματός σας.</value>

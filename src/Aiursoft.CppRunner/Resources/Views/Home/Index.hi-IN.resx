@@ -21,6 +21,9 @@
       <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>लंबे समय तक चलने वाले कार्यों (जैसे ईमेल या AI) के लिए &quot;Fire-and-forget&quot; समर्थन, जिसमें कतार प्रबंधन, समानांतर प्रसंस्करण और रद्द करने के लिए GUI शामिल है।</value>
   </data>
+  <data name="(no output)" xml:space="preserve">
+    <value>(कोई आउटपुट नहीं)</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>अनुमति प्रबंधन के लिए एक अंतर्निहित रोल-आधारित एक्सेस कंट्रोल (RBAC) प्रणाली।</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>सभी निर्भरताएँ स्वचालित रूप से पंजीकृत होती हैं और कंस्ट्रक्टर इंजेक्शन के माध्यम से हमेशा उपलब्ध रहती हैं।</value>
+  </data>
+  <data name="An error occurred:" xml:space="preserve">
+    <value>एक त्रुटि हुई:</value>
   </data>
   <data name="Anduin" xml:space="preserve">
     <value>Anduin</value>
@@ -99,6 +105,9 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>बैकग्राउंड जॉब प्रोसेसिंग</value>
   </data>
+  <data name="Bash (on Ubuntu 25.10)" xml:space="preserve">
+    <value>Bash (Ubuntu 25.10 पर)</value>
+  </data>
   <data name="Beginner Friendly" xml:space="preserve">
     <value>शुरुआती उपयोगकर्ता के लिए उपयुक्त</value>
   </data>
@@ -129,6 +138,24 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>अंतर्निहित उपयोगकर्ता प्रबंधन</value>
   </data>
+  <data name="C (gcc 15.2.0)" xml:space="preserve">
+    <value>सी (जीसीसी 15.2.0)</value>
+  </data>
+  <data name="C# (.NET 7.0)" xml:space="preserve">
+    <value>C# (.NET 7.0)</value>
+  </data>
+  <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
+    <value>C++ (GNU G++, stdc++20)</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Click Run (or Ctrl+Enter) to execute the code." xml:space="preserve">
+    <value>कोड को चलाने के लिए रन (या Ctrl+Enter) पर क्लिक करें।</value>
+  </data>
+  <data name="Code saved successfully!" xml:space="preserve">
+    <value>कोड सफलतापूर्वक सहेजा गया!</value>
+  </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Docker समर्थन के साथ आता है सरल और सुसंगत डेप्लॉयमेंट के लिए।</value>
   </data>
@@ -137,6 +164,9 @@
   </data>
   <data name="Comes with strict unit tests, making test-driven development easy." xml:space="preserve">
     <value>सख्त यूनिट परीक्षणों के साथ आता है, जिससे टेस्ट-ड्रिवन डेवलपमेंट आसान हो जाता है।</value>
+  </data>
+  <data name="Completed in" xml:space="preserve">
+    <value>में पूरा हुआ</value>
   </data>
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>व्यापक प्रलेखन</value>
@@ -158,6 +188,12 @@
   </data>
   <data name="Cross Platform" xml:space="preserve">
     <value>क्रॉस प्लेटफॉर्म</value>
+  </data>
+  <data name="Ctrl+Enter to run" xml:space="preserve">
+    <value>चलाने के लिए Ctrl+Enter</value>
+  </data>
+  <data name="CUDA 12.6.2 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 12.6.2 (Ubuntu 24.04 पर)</value>
   </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>डैशबोर्ड वेबसाइट</value>
@@ -228,6 +264,15 @@
   <data name="Enterprise Security" xml:space="preserve">
     <value>एंटरप्राइज सिक्योरिटी</value>
   </data>
+  <data name="Errors / Stderr" xml:space="preserve">
+    <value>त्रुटियां / Stderr</value>
+  </data>
+  <data name="Exit:" xml:space="preserve">
+    <value>निकास:</value>
+  </data>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>कोड सहेजने में विफल:</value>
+  </data>
   <data name="FAQ" xml:space="preserve">
     <value>अक्सर पूछे जाने वाले प्रश्न</value>
   </data>
@@ -282,8 +327,14 @@
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
   </data>
+  <data name="Give your code a title" xml:space="preserve">
+    <value>अपने कोड को एक शीर्षक दें</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>वैश्विक स्केल</value>
+  </data>
+  <data name="Go (Golang 1.21.5)" xml:space="preserve">
+    <value>Go (Golang 1.21.5)</value>
   </data>
   <data name="Go global without extra effort." xml:space="preserve">
     <value>विश्व भर में बिना किसी अतिरिक्त प्रयास के जाएं।</value>
@@ -296,6 +347,9 @@
   </data>
   <data name="Hands-on tutorials suitable for computer science interns." xml:space="preserve">
     <value>कंप्यूटर विज्ञान के अंतर्निहित के लिए उपयुक्त हैंड्स-ऑन ट्यूटोरियल।</value>
+  </data>
+  <data name="Haskell (GHC 9.8.1)" xml:space="preserve">
+    <value>हैस्कल (GHC 9.8.1)</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>नमस्ते दुनिया!</value>
@@ -345,6 +399,12 @@
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>क्या Aiursoft Template का उपयोग करना मुफ़्त है?</value>
   </data>
+  <data name="Java (OpenJDK 23)" xml:space="preserve">
+    <value>जावा (OpenJDK 23)</value>
+  </data>
+  <data name="Javascript (Node.js v24)" xml:space="preserve">
+    <value>जावास्क्रिप्ट (Node.js v24)</value>
+  </data>
   <data name="Join Discussions" xml:space="preserve">
     <value>चर्चाओं में शामिल हों</value>
   </data>
@@ -357,8 +417,17 @@
   <data name="Lint Check" xml:space="preserve">
     <value>लिंट चेक</value>
   </data>
+  <data name="Lisp (rigetti/lisp)" xml:space="preserve">
+    <value>लिसप (rigetti/lisp)</value>
+  </data>
+  <data name="Lua (5.4)" xml:space="preserve">
+    <value>Lua (5.4)</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>उच्च कोड गुणवत्ता बनाए रखें</value>
+  </data>
+  <data name="Make it public (all people can see it)" xml:space="preserve">
+    <value>इसे सार्वजनिक करें (सभी लोग इसे देख सकते हैं)</value>
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>मार्कडाउन से एचटीएमएल</value>
@@ -399,8 +468,29 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>ओपनआईडी कनेक्ट एकीकरण</value>
   </data>
+  <data name="Output" xml:space="preserve">
+    <value>आउटपुट</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
+  </data>
+  <data name="PHP (8.3.0)" xml:space="preserve">
+    <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Please enter a title." xml:space="preserve">
+    <value>कृपया एक शीर्षक दर्ज करें।</value>
+  </data>
+  <data name="PowerShell Core (Ubuntu 24.04)" xml:space="preserve">
+    <value>PowerShell Core (Ubuntu 24.04)</value>
+  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>गिटलैब के लिए विशेष रूप से पूर्व-संरचित CI/CD पाइपलाइन</value>
+  </data>
+  <data name="Python (CPython 3.11)" xml:space="preserve">
+    <value>पायथन (CPython 3.11)</value>
+  </data>
+  <data name="Python with PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)" xml:space="preserve">
+    <value>पाइथॉन के साथ PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)</value>
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>गुणवत्ता गेट</value>
@@ -420,8 +510,35 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>रॉबस्ट इंटीग्रेशन टेस्टिंग</value>
   </data>
+  <data name="Ruby (3.2.2)" xml:space="preserve">
+    <value>रूबी (3.2.2)</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>चलाएं</value>
+  </data>
+  <data name="Running..." xml:space="preserve">
+    <value>चल रहा है...</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>कोई इंटरनेट कनेक्शन की आवश्यकता के बिना चलता है।</value>
+  </data>
+  <data name="Rust (1.81)" xml:space="preserve">
+    <value>रस्ट (1.81)</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>सहेजें</value>
+  </data>
+  <data name="Save As" xml:space="preserve">
+    <value>इस नाम से सहेजें</value>
+  </data>
+  <data name="Save Code" xml:space="preserve">
+    <value>कोड सहेजें</value>
+  </data>
+  <data name="Save execution results and error messages" xml:space="preserve">
+    <value>कार्य निष्पादन परिणाम और त्रुटि संदेशों को सहेजें</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>सहेजा जा रहा है...</value>
   </data>
   <data name="Scheduled Task Management" xml:space="preserve">
     <value>योजना बनाई गई कार्य प्रबंधन</value>
@@ -446,6 +563,9 @@
   </data>
   <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>स्मार्ट डार्क मोड जो स्वचालित रूप से उपयोगकर्ता की सिस्टम सेटिंग्स के अनुकूल हो जाता है।</value>
+  </data>
+  <data name="Source Code" xml:space="preserve">
+    <value>स्रोत कोड</value>
   </data>
   <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
     <value>मानक कार्यान्वयन। संकलन के बिना प्रदाताओं को स्विच करें।</value>
@@ -486,6 +606,9 @@
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>जेटब्रेन्स राइडर का समर्थन करता है आसान कोड स्टाइल फिक्स के लिए।</value>
   </data>
+  <data name="Swift (5.8.1)" xml:space="preserve">
+    <value>स्विफ्ट (5.8.1)</value>
+  </data>
   <data name="Task Runner" xml:space="preserve">
     <value>टास्क रनर</value>
   </data>
@@ -510,8 +633,20 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>यह एक टेम्पलेट प्रोजेक्ट है, जहाँ से हम वॉयजर की शुरुआत करते हैं...</value>
   </data>
+  <data name="Timed out after" xml:space="preserve">
+    <value>के बाद समय समाप्त हो गया</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>समय समाप्त</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>शीर्षक</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>उत्पादन-ग्रेड एप्लिकेशन जैसे AnduinOS, StatHub, और Warp द्वारा विश्वास किया गया। हम सिर्फ इस कोड को साझा नहीं करते; हम अपने पूरे व्यवसाय को इस पर चलाते हैं।</value>
+  </data>
+  <data name="TypeScript (4.9.3, node 16.8.1)" xml:space="preserve">
+    <value>TypeScript (4.9.3, node 16.8.1)</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>एकीकृत वातावरण</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An Error Occurred" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Доступ заборонено</value>
+  </data>
+  <data name="An Error Occurred" xml:space="preserve">
     <value>Сталася помилка</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
@@ -27,11 +30,23 @@
   <data name="Back to Home" xml:space="preserve">
     <value>На головну</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Невірний запит</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
   <data name="Error." xml:space="preserve">
     <value>Помилка.</value>
   </data>
   <data name="If you believe you should have access, please contact your system administrator. Or try signing out and signing in again." xml:space="preserve">
     <value>Якщо ви вважаєте, що маєте доступ, зверніться до адміністратора системи. Або спробуйте вийти з системи та увійти знову.</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Внутрішня помилка сервера</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Не знайдено</value>
   </data>
   <data name="Please check the URL and try again. If you believe this is a server error, please contact support." xml:space="preserve">
     <value>Будь ласка, перевірте URL-адресу та спробуйте ще раз. Якщо ви вважаєте, що це помилка сервера, будь ласка, зверніться до підтримки.</value>
@@ -56,6 +71,9 @@
   </data>
   <data name="Try again" xml:space="preserve">
     <value>Спробувати ще раз</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Неавторизований</value>
   </data>
   <data name="We&apos;re sorry, something went wrong while processing your request." xml:space="preserve">
     <value>Нам дуже шкода, сталася помилка під час обробки вашого запиту.</value>

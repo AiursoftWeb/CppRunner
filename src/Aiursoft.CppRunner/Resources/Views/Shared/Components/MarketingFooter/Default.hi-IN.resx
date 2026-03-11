@@ -45,6 +45,9 @@
   <data name="Licence" xml:space="preserve">
     <value>लाइसेंस</value>
   </data>
+  <data name="logo" xml:space="preserve">
+    <value>लोगो</value>
+  </data>
   <data name="Project" xml:space="preserve">
     <value>प्रोजेक्ट</value>
   </data>
