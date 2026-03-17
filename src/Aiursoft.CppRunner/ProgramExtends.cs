@@ -115,6 +115,11 @@ public static class ProgramExtends
 
     public static string GetDockerImagePullEndpoint(this ILang lang, string? prefixFromConfig)
     {
+        if (lang.DockerImage.Contains('/'))
+        {
+            return lang.DockerImage;
+        }
+
         var trimmedPrefix = string.Empty;
         if (!string.IsNullOrWhiteSpace(prefixFromConfig))
         {
