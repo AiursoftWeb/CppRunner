@@ -136,7 +136,7 @@ public class Startup : IWebStartup
                 var runCodeService = request.Services!.GetRequiredService<Services.RunCodeService>();
                 var logger = request.Services!.GetRequiredService<ILogger<Services.RunCodeService>>();
                 var langs = request.Services!.GetRequiredService<IEnumerable<ILang>>();
-                var toolName = request.Params?.Name
+                var toolName = request.Params.Name
                                ?? throw new McpException("Missing tool name");
 
                 logger.LogInformation("Call tool {ToolName}...", toolName);
