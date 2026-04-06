@@ -7,6 +7,23 @@ namespace Aiursoft.CppRunner.Tests.IntegrationTests;
 [TestClass]
 public class CodesControllerTests : TestBase
 {
+    private HttpClient _guestHttp = null!;
+
+    [TestInitialize]
+    public override async Task CreateServer()
+    {
+        await base.CreateServer();
+        var handler = new HttpClientHandler { AllowAutoRedirect = false };
+        _guestHttp = new HttpClient(handler) { BaseAddress = Http.BaseAddress };
+    }
+
+    [TestCleanup]
+    public override async Task CleanServer()
+    {
+        _guestHttp.Dispose();
+        await base.CleanServer();
+    }
+
     [TestMethod]
     public async Task TestSaveAndReadCode()
     {
@@ -85,9 +102,7 @@ public class CodesControllerTests : TestBase
         });
 
         // Guest can see public code in Public library
-        var handler = new HttpClientHandler { AllowAutoRedirect = false };
-        var guestHttp = new HttpClient(handler) { BaseAddress = Http.BaseAddress };
-        var publicResponse = await guestHttp.GetAsync("/Codes/Public");
+        var publicResponse = await _guestHttp.GetAsync("/Codes/Public");
         Assert.AreEqual(HttpStatusCode.OK, publicResponse.StatusCode);
         var publicContent = await publicResponse.Content.ReadAsStringAsync();
         Assert.IsTrue(publicContent.Contains("Public Code"));
@@ -103,11 +118,11 @@ public class CodesControllerTests : TestBase
         }
 
         // Guest can read public code
-        var readResponse = await guestHttp.GetAsync($"/Codes/Read/{publicId}");
+        var readResponse = await _guestHttp.GetAsync($"/Codes/Read/{publicId}");
         Assert.AreEqual(HttpStatusCode.Found, readResponse.StatusCode);
 
         // Guest cannot read private code
-        var readPrivateResponse = await guestHttp.GetAsync($"/Codes/Read/{privateId}");
+        var readPrivateResponse = await _guestHttp.GetAsync($"/Codes/Read/{privateId}");
         Assert.AreEqual(HttpStatusCode.Unauthorized, readPrivateResponse.StatusCode);
     }
 
