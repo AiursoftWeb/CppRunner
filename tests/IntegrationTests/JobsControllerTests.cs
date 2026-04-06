@@ -12,13 +12,19 @@ public class JobsControllerTests : TestBase
         var indexResponse = await Http.GetAsync("/Jobs/Index");
         indexResponse.EnsureSuccessStatusCode();
 
-        // 2. Create Job A
-        var createAResponse = await PostForm("/Jobs/CreateTestJobA", new Dictionary<string, string>());
-        AssertRedirect(createAResponse, "/Jobs");
+        // 2. Trigger DummyJob
+        var triggerAResponse = await PostForm("/Jobs/Trigger", new Dictionary<string, string>
+        {
+            { "jobTypeName", "DummyJob" }
+        });
+        AssertRedirect(triggerAResponse, "/Jobs");
 
-        // 3. Create Job B
-        var createBResponse = await PostForm("/Jobs/CreateTestJobB", new Dictionary<string, string>());
-        AssertRedirect(createBResponse, "/Jobs");
+        // 3. Trigger OrphanAvatarCleanupJob
+        var triggerBResponse = await PostForm("/Jobs/Trigger", new Dictionary<string, string>
+        {
+            { "jobTypeName", "OrphanAvatarCleanupJob" }
+        });
+        AssertRedirect(triggerBResponse, "/Jobs");
 
         // 4. Index again (check if jobs are listed)
         var indexResponse2 = await Http.GetAsync("/Jobs/Index");
