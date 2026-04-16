@@ -75,6 +75,9 @@
   <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
     <value>首先，安装 Docker。然后在 Linux 终端中运行以下命令：</value>
   </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
   <data name="GitLab" xml:space="preserve">
     <value>GitLab</value>
   </data>
