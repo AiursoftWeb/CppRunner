@@ -1,9 +1,9 @@
 # CppRunner
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/blob/master/LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aiursoftweb/cppRunner/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/cppRunner/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/cppRunner/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
-[![Man hours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/cppRunner.svg)](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/cppRunner.html)
+[![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/cppRunner.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/cppRunner.html)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2FcppRunner.aiursoft.com)](https://cpprunner.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/cpprunner.svg)](https://hub.docker.com/r/aiursoft/cpprunner)
 
@@ -24,13 +24,13 @@ The following script will install\update this app on your Ubuntu server. Support
 On your Ubuntu server, run the following command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.com/aiursoft/cppRunner/-/raw/master/install.sh | sudo bash
+curl -sL https://github.com/aiursoftweb/cppRunner/raw/master/install.sh | sudo bash
 ```
 
 Of course it is suggested that append a custom port number to the command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.com/aiursoft/cppRunner/-/raw/master/install.sh | sudo bash -s 8080
+curl -sL https://github.com/aiursoftweb/cppRunner/raw/master/install.sh | sudo bash -s 8080
 ```
 
 It will install the app as a systemd service, and start it automatically. Binary files will be located at `/opt/apps`. Service files will be located at `/etc/systemd/system`.
