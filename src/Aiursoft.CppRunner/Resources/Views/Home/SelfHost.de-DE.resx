@@ -75,6 +75,9 @@
   <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
     <value>Installieren Sie zuerst Docker. Führen Sie dann die folgenden Befehle in einer Linux-Shell aus:</value>
   </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
   <data name="GitLab" xml:space="preserve">
     <value>GitLab</value>
   </data>

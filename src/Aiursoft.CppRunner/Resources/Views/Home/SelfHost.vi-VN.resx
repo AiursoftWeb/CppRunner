@@ -75,6 +75,9 @@
   <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
     <value>Trước tiên, hãy cài đặt Docker. Sau đó chạy các lệnh sau trong shell Linux:</value>
   </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
   <data name="GitLab" xml:space="preserve">
     <value>GitLab</value>
   </data>
