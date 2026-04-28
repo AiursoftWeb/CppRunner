@@ -11,7 +11,7 @@ CppRunner is a code runner on the web. It is designed to run C++ code snippets a
 
 ![screenshot](./screenshot.png)
 
-Default user name is `admin@default.com` and default password is `admin123`.
+Default user name is `admin@default.com` and default password is `Admin@123456!`.
 
 ## Try
 
