@@ -192,8 +192,8 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>Ctrl+Enter per eseguire</value>
   </data>
-  <data name="CUDA 12.6.2 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 12.6.2 (su Ubuntu 24.04)</value>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (su Ubuntu 24.04)</value>
   </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Sito Web del Cruscotto</value>

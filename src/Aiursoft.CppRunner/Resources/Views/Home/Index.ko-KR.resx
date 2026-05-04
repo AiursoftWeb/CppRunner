@@ -192,8 +192,8 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>Ctrl+Enter 로 실행</value>
   </data>
-  <data name="CUDA 12.6.2 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 12.6.2 (Ubuntu 24.04 기준)</value>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (Ubuntu 24.04 기준)</value>
   </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>대시보드 웹사이트</value>

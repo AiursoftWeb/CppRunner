@@ -192,8 +192,8 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>Ctrl+Enter для запуску</value>
   </data>
-  <data name="CUDA 12.6.2 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 12.6.2 (на Ubuntu 24.04)</value>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (на Ubuntu 24.04)</value>
   </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Веб-сайт панелі керування</value>

@@ -192,8 +192,8 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>Ctrl+Enter för att köra</value>
   </data>
-  <data name="CUDA 12.6.2 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 12.6.2 (på Ubuntu 24.04)</value>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (på Ubuntu 24.04)</value>
   </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Instrumentpanelswebbplats</value>
