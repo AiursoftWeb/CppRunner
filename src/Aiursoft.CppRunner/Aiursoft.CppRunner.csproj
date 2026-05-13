@@ -10,22 +10,24 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Aiursoft.Canon.ScheduledTasks" Version="10.0.7" />
-    <PackageReference Include="Aiursoft.ClickhouseLoggerProvider" Version="10.0.18" />
-    <PackageReference Include="Aiursoft.DbTools.Switchable" Version="10.0.18" />
-    <PackageReference Include="Aiursoft.Scanner" Version="10.0.7" />
+    <PackageReference Include="Aiursoft.Canon.ScheduledTasks" Version="10.0.8" />
+    <PackageReference Include="Aiursoft.ClickhouseLoggerProvider" Version="10.0.20" />
+    <PackageReference Include="Aiursoft.DbTools.Switchable" Version="10.0.19" />
+    <PackageReference Include="Aiursoft.Scanner" Version="10.0.8" />
     <PackageReference Include="Aiursoft.UiStack" Version="10.0.9" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.7">
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="ModelContextProtocol.AspNetCore" Version="1.3.0" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
+    <PackageReference Include="SkiaSharp" Version="3.119.2" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.119.2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aiursoft.CppRunner.Entities\Aiursoft.CppRunner.Entities.csproj" />
     <ProjectReference Include="..\Aiursoft.CppRunner.InMemory\Aiursoft.CppRunner.InMemory.csproj" />
     <ProjectReference Include="..\Aiursoft.CppRunner.MySql\Aiursoft.CppRunner.MySql.csproj" />
     <ProjectReference Include="..\Aiursoft.CppRunner.Sqlite\Aiursoft.CppRunner.Sqlite.csproj" />

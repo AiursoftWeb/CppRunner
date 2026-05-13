@@ -140,7 +140,6 @@ public class UsersController(
             Email = user.Email!,
             UserName = user.UserName!,
             DisplayName = user.DisplayName,
-            Password = "you-cant-read-it",
             AvatarUrl = user.AvatarRelativePath,
             AllRoles = allRoles.Select(role => new UserRoleViewModel
             {
@@ -172,7 +171,7 @@ public class UsersController(
         userInDb.AvatarRelativePath = model.AvatarUrl;
         await userManager.UpdateAsync(userInDb);
 
-        if (!string.IsNullOrWhiteSpace(model.Password) && model.Password != "you-cant-read-it")
+        if (!string.IsNullOrWhiteSpace(model.Password))
         {
             var token = await userManager.GeneratePasswordResetTokenAsync(userInDb);
             await userManager.ResetPasswordAsync(userInDb, token, model.Password);
