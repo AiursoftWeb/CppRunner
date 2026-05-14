@@ -1,4 +1,5 @@
 using Aiursoft.CppRunner.Services.FileStorage;
+using SkiaSharp;
 
 namespace Aiursoft.CppRunner.Tests.IntegrationTests;
 
@@ -109,7 +110,7 @@ public class AvatarTests : TestBase
 
         // Verify dimensions
         await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
-        using var image = await SixLabors.ImageSharp.Image.LoadAsync(stream);
+        using var image = SKBitmap.Decode(stream);
         Assert.AreEqual(128, image.Width);
         Assert.AreEqual(256, image.Height);
     }
@@ -147,7 +148,7 @@ public class AvatarTests : TestBase
 
         // Verify dimensions
         await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
-        using var image = await SixLabors.ImageSharp.Image.LoadAsync(stream);
+        using var image = SKBitmap.Decode(stream);
         Assert.AreEqual(128, image.Width);
         Assert.AreEqual(128, image.Height);
     }
@@ -179,7 +180,7 @@ public class AvatarTests : TestBase
         compressedResponse.EnsureSuccessStatusCode();
 
         await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
-        using var image = await SixLabors.ImageSharp.Image.LoadAsync(stream);
+        using var image = SKBitmap.Decode(stream);
         Assert.AreEqual(128, image.Width);
     }
 
