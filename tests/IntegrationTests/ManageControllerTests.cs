@@ -2,6 +2,9 @@ using System.Net;
 using Aiursoft.CppRunner.Services;
 using Aiursoft.CppRunner.Services.FileStorage;
 
+using Aiursoft.CppRunner.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 namespace Aiursoft.CppRunner.Tests.IntegrationTests;
 
 [TestClass]
@@ -112,5 +115,37 @@ public class ManageControllerTests : TestBase
     private class UploadResult
     {
         public string Path { get; init; } = string.Empty;
+    }
+
+    [TestMethod]
+    public async Task TestDeleteAccount_Authenticated_DeletesUserAndSignsOut()
+    {
+        // Arrange: register and login as a new user
+        var (email, _) = await RegisterAndLoginAsync();
+
+        // Act: confirmation page loads
+        var deletePage = await Http.GetAsync("/Manage/DeleteAccount");
+        deletePage.EnsureSuccessStatusCode();
+
+        // Act: confirm deletion
+        var deleteResponse = await PostForm("/Manage/DeleteAccountPost", new(), tokenUrl: "/Manage/DeleteAccount");
+        AssertRedirect(deleteResponse, "/");
+
+        // Assert: signed out — accessing a protected page should redirect to login
+        var managePage = await Http.GetAsync("/Manage/Index");
+        Assert.AreEqual(HttpStatusCode.Found, managePage.StatusCode);
+
+        // Assert: user no longer exists in the database
+        using var scope = Server!.Services.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        Assert.IsNull(await userManager.FindByEmailAsync(email));
+    }
+
+    [TestMethod]
+    public async Task TestDeleteAccount_Unauthenticated_RedirectsToLogin()
+    {
+        // No login — direct access should redirect
+        var deletePage = await Http.GetAsync("/Manage/DeleteAccount");
+        Assert.AreEqual(HttpStatusCode.Found, deletePage.StatusCode);
     }
 }
