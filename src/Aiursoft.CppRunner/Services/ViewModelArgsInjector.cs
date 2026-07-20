@@ -88,6 +88,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Code Library"];
         _ = localizer["My Codes"];
         _ = localizer["Public Codes"];
+    
+        _ = localizer["Delete Account"];
     }
 
     public void InjectSimple(
