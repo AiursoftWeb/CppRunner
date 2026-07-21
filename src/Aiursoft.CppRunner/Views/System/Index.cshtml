@@ -70,7 +70,7 @@
                     </tr>
                     <tr>
                         <td>@Localizer["Docker Container"]</td>
-                        <td>@(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true" ? Localizer["Yes"] : Localizer["No"])</td>
+                        <td>@(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true")</td>
                     </tr>
                     <tr>
                         <td>@Localizer["CPU Architecture"]</td>
