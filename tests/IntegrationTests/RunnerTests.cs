@@ -100,17 +100,10 @@ public class RunnerControllerTests : TestBase
 
         response.EnsureSuccessStatusCode();
 
-        var message = await response.Content.ReadAsStringAsync();
-        // All default codes produce Fibonacci numbers; verify a few are present
-        Assert.IsTrue(message.Contains("1"),  $"[{lang}] Missing '1' in output: {message}");
-        Assert.IsTrue(message.Contains("2"),  $"[{lang}] Missing '2' in output: {message}");
-        Assert.IsTrue(message.Contains("3"),  $"[{lang}] Missing '3' in output: {message}");
-        Assert.IsTrue(message.Contains("5"),  $"[{lang}] Missing '5' in output: {message}");
-        Assert.IsTrue(message.Contains("8"),  $"[{lang}] Missing '8' in output: {message}");
-        Assert.IsTrue(message.Contains("13"), $"[{lang}] Missing '13' in output: {message}");
-        Assert.IsTrue(message.Contains("21"), $"[{lang}] Missing '21' in output: {message}");
-        Assert.IsTrue(message.Contains("34"), $"[{lang}] Missing '34' in output: {message}");
-        Assert.IsTrue(message.Contains("55"), $"[{lang}] Missing '55' in output: {message}");
+        var result = await response.Content.ReadFromJsonAsync<Models.CodeResult>();
+        Assert.IsNotNull(result);
+        Assert.AreEqual(0, result.ResultCode);
+        StringAssert.Contains(result.Output, "55");
     }
 
     [TestMethod]
