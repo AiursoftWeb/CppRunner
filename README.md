@@ -75,6 +75,25 @@ The docker image has the following context:
 | Config path | /data/appsettings.json          |
 | Passthrough path | /tmp          |
 
+### Authenticated Docker registry
+
+CppRunner pulls language runtime images during application startup. Configure a private registry in
+`DockerImageSettings` when those images require authentication:
+
+```json
+"DockerImageSettings": {
+  "Prefix": "hub.aiursoft.com/",
+  "RequireAuthentication": true,
+  "Username": "your-user-name",
+  "Password": ""
+}
+```
+
+Provide the password through the `DockerImageSettings__Password` environment variable in production.
+When authentication is enabled, CppRunner runs `docker login` with `--password-stdin` before inspecting
+or pulling any images. The registry host is taken from `Prefix`; a prefix such as
+`hub.aiursoft.com/public_mirror/` logs in to `hub.aiursoft.com`.
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.

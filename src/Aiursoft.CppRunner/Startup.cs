@@ -33,6 +33,7 @@ public class Startup : IWebStartup
     {
         // AppSettings.
         services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
+        services.Configure<DockerImageSettings>(configuration.GetSection(DockerImageSettings.SectionName));
 
         // Relational database
         var (connectionString, dbType, allowCache) = configuration.GetDbSettings();
@@ -69,6 +70,7 @@ public class Startup : IWebStartup
 
         // Code Runner services
         services.AddScoped<CommandService>();
+        services.AddScoped<Services.DockerRegistryLoginService>();
         services.AddScoped<Services.RunCodeService>();
         services.AddScoped<Services.HasGpuService>();
 

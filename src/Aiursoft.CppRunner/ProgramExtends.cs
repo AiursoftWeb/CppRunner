@@ -8,6 +8,8 @@ using System.Security.Claims;
 using Aiursoft.CppRunner.Services;
 using Aiursoft.CppRunner.Services.FileStorage;
 using System.Diagnostics.CodeAnalysis;
+using Aiursoft.CppRunner.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace Aiursoft.CppRunner;
 
@@ -140,13 +142,15 @@ public static class ProgramExtends
         using var scope = host.Services.CreateScope();
         var services = scope.ServiceProvider;
         var commandService = services.GetRequiredService<CommandService>();
-        var configuration = services.GetRequiredService<IConfiguration>();
         var logger = services.GetRequiredService<ILogger<Program>>();
         var langs = services.GetRequiredService<IEnumerable<ILang>>();
         var hasGpuService = services.GetRequiredService<HasGpuService>();
         var retryEngine = services.GetRequiredService<RetryEngine>();
         var pool = services.GetRequiredService<CanonPool>();
-        var prefix = configuration["DockerImageSettings:Prefix"];
+        var dockerSettings = services.GetRequiredService<IOptions<DockerImageSettings>>().Value;
+        var dockerRegistryLoginService = services.GetRequiredService<DockerRegistryLoginService>();
+        await dockerRegistryLoginService.LoginIfRequiredAsync(dockerSettings);
+        var prefix = dockerSettings.Prefix;
 
         var downloadedImages = await commandService.RunCommandAsync("docker", "images", Path.GetTempPath());
         logger.LogInformation("Downloaded images count: {ImagesCount}", downloadedImages.output.Split('\n').Length);
