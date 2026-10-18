@@ -51,7 +51,7 @@ Then run the following commands in a Linux shell:
 image=aiursoft/cpprunner
 appName=cpprunner
 sudo docker pull $image
-sudo docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data -v /tmp:/tmp $image
+sudo docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data -v /tmp/cpprunner:/tmp/cpprunner -v /var/run/docker.sock:/var/run/docker.sock $image
 ```
 
 That will start a web server at `http://localhost:5000` and you can test the app.
