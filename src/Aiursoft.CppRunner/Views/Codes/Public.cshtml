@@ -1,3 +1,4 @@
+@using Aiursoft.WebTools
 @model Aiursoft.CppRunner.Models.CodesViewModels.PublicViewModel
 @{
 }
@@ -39,7 +40,7 @@
                                 <i data-lucide="user" class="me-1" style="width:12px;height:12px;"></i>
                                 <span class="me-3">@savedCode.User.DisplayName</span>
                                 <i data-lucide="clock" class="me-1" style="width:12px;height:12px;"></i>
-                                <span>@savedCode.CreationTime.ToLocalTime().ToString("yyyy-MM-dd")</span>
+                                <span><span data-utc-time="@savedCode.CreationTime.ToHtmlDateTime()"></span></span>
                             </div>
 
                             <p class="card-text text-muted small text-truncate-2">

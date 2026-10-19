@@ -1,3 +1,4 @@
+@using Aiursoft.WebTools
 @model Aiursoft.CppRunner.Models.CodesViewModels.IndexViewModel
 @{
 }
@@ -61,7 +62,7 @@
                                     }
                                 </td>
                                 <td class="text-muted small">
-                                    @savedCode.CreationTime.ToLocalTime().ToString("yyyy-MM-dd HH:mm")
+                                    <span data-utc-time="@savedCode.CreationTime.ToHtmlDateTime()"></span>
                                 </td>
                                 <td class="text-end pe-4">
                                     <div class="btn-group">
