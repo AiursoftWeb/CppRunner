@@ -33,6 +33,9 @@
   <data name="logo" xml:space="preserve">
     <value>الشعار</value>
   </data>
+  <data name="Run code" xml:space="preserve">
+    <value>شغّل التعليمات البرمجية</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>الكود المصدري</value>
   </data>
