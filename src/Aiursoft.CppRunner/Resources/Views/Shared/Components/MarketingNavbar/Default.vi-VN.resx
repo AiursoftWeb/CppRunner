@@ -33,6 +33,9 @@
   <data name="logo" xml:space="preserve">
     <value>biểu trưng</value>
   </data>
+  <data name="Run code" xml:space="preserve">
+    <value>Chạy mã</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>Mã Nguồn</value>
   </data>

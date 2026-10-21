@@ -33,6 +33,9 @@
   <data name="logo" xml:space="preserve">
     <value>로고</value>
   </data>
+  <data name="Run code" xml:space="preserve">
+    <value>코드 실행</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>소스 코드</value>
   </data>
