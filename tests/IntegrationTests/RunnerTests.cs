@@ -1,3 +1,4 @@
+using Aiursoft.Canon;
 using System.Net;
 using System.Runtime.InteropServices;
 using Aiursoft.CSTools.Tools;
@@ -104,6 +105,27 @@ public class RunnerControllerTests : TestBase
         Assert.IsNotNull(result);
         Assert.AreEqual(0, result.ResultCode);
         StringAssert.Contains(result.Output, "55");
+    }
+
+    [TestMethod]
+    public async Task MissingRuntimeReturnsClearTemporaryFailureWithoutExecutingCode()
+    {
+        var images = new RuntimeImageWarmupTests.ImageClient();
+        var services = Server!.Services;
+        var runner = new Services.RunCodeService(
+            services.GetRequiredService<IConfiguration>(),
+            services.GetRequiredService<Services.HasGpuService>(),
+            services.GetRequiredService<ILogger<Services.RunCodeService>>(),
+            services.GetRequiredService<Aiursoft.CSTools.Services.CommandService>(),
+            services.GetRequiredService<CanonQueue>(), images,
+            services.GetRequiredService<IHostApplicationLifetime>(),
+            services.GetRequiredService<Microsoft.Extensions.Localization.IStringLocalizer<Services.RunCodeService>>());
+        var result = await runner.RunCode("This code must not execute.", new Lang.CLang());
+        Assert.AreEqual(75, result.ResultCode);
+        StringAssert.Contains(result.Error, "not ready");
+        Assert.AreEqual(result.Error, result.Output);
+        Assert.AreEqual(1, images.Inspections);
+        Assert.IsEmpty(images.Pulled);
     }
 
     [TestMethod]

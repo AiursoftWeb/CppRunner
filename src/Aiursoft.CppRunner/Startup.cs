@@ -69,6 +69,8 @@ public class Startup : IWebStartup
         services.RegisterScheduledTask(registration: orphanAvatarCleanupJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(5));
 
         // Code Runner services
+        services.AddSingleton<Services.IDockerImageClient, Services.DockerImageClient>();
+        services.RegisterBackgroundJob<Services.BackgroundJobs.RuntimeImageWarmupJob>();
         services.AddScoped<CommandService>();
         services.AddScoped<Services.DockerRegistryLoginService>();
         services.AddScoped<Services.RunCodeService>();

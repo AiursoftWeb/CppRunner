@@ -7,7 +7,8 @@ public class DockerRegistryLoginService(ILogger<DockerRegistryLoginService> logg
 {
     public async Task LoginIfRequiredAsync(
         DockerImageSettings settings,
-        string dockerExecutable = "docker")
+        string dockerExecutable = "docker",
+        CancellationToken cancellationToken = default)
     {
         if (!settings.RequireAuthentication)
         {
@@ -45,7 +46,14 @@ public class DockerRegistryLoginService(ILogger<DockerRegistryLoginService> logg
 
         try
         {
-            await process.WaitForExitAsync().WaitAsync(TimeSpan.FromSeconds(30));
+            await process.WaitForExitAsync().WaitAsync(TimeSpan.FromSeconds(30), cancellationToken);
+        }
+        catch (OperationCanceledException)
+        {
+            if (!process.HasExited) process.Kill(entireProcessTree: true);
+            await process.WaitForExitAsync();
+            await Task.WhenAll(outputTask, errorTask);
+            throw;
         }
         catch (TimeoutException)
         {
