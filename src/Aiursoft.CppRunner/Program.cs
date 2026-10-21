@@ -1,4 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
+using Aiursoft.Canon.TaskQueue;
+using Aiursoft.CppRunner.Services.BackgroundJobs;
 using Aiursoft.ClickhouseLoggerProvider;
 using Aiursoft.DbTools;
 using Aiursoft.CppRunner.Entities;
@@ -16,7 +18,8 @@ public abstract class Program
         await app.UpdateDbAsync<TemplateDbContext>();
         await app.SeedAsync();
         await app.CopyAvatarFileAsync();
-        await app.PullContainersAsync();
+        app.Services.GetRequiredService<ServiceTaskQueue>()
+            .QueueWithDependency<RuntimeImageWarmupJob>(job => job.ExecuteAsync());
         await app.RunAsync();
     }
 }

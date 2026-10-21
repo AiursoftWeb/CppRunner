@@ -1,6 +1,7 @@
 using Aiursoft.Canon;
 using Aiursoft.CSTools.Services;
 using Aiursoft.CppRunner.Models;
+using Microsoft.Extensions.Localization;
 
 namespace Aiursoft.CppRunner.Services;
 
@@ -9,7 +10,10 @@ public class RunCodeService(
     HasGpuService hasGpuService,
     ILogger<RunCodeService> logger,
     CommandService commandService,
-    CanonQueue queue)
+    CanonQueue queue,
+    IDockerImageClient images,
+    IHostApplicationLifetime lifetime,
+    IStringLocalizer<RunCodeService> localizer)
 {
     private readonly string _tempFolder = Path.Combine(Path.GetTempPath(), "cpprunner", "builds");
 
@@ -17,7 +21,7 @@ public class RunCodeService(
 
     public async Task<CodeResult> RunCode(string code, ILang lang)
     {
-        var hasGpu = await hasGpuService.HasNvidiaGpuForDockerWithCache();
+        var hasGpu = lang.NeedGpu && await hasGpuService.HasNvidiaGpuForDockerWithCache();
         var needGpu = lang.NeedGpu;
         if (needGpu && !hasGpu)
         {
@@ -28,6 +32,12 @@ public class RunCodeService(
                 Output = "No GPU available!",
                 Error = "No GPU available!"
             };
+        }
+
+        if (!await images.IsAvailableAsync(lang.GetDockerImagePullEndpoint(_prefix), lifetime.ApplicationStopping))
+        {
+            var message = localizer["The runtime image for {0} is not ready. Please retry after image warmup completes.", lang.LangDisplayName].Value;
+            return new CodeResult { ResultCode = 75, Output = message, Error = message };
         }
 
         var buildId = Guid.NewGuid().ToString("N");
@@ -48,8 +58,8 @@ public class RunCodeService(
         {
             var securityOptions = "--cap-drop=ALL --cap-add=CHOWN --cap-add=SETUID --cap-add=SETGID";
             var command = lang.NeedGpu ?
-                $"run --rm --name {buildId} {securityOptions} --gpus all --cpus=8 --memory=512m --network none -v {folder}:/app {lang.GetDockerImagePullEndpoint(_prefix)} sh -c \"{lang.RunCommand}\"" :
-                $"run --rm --name {buildId} {securityOptions}            --cpus=8 --memory=512m --network none -v {folder}:/app {lang.GetDockerImagePullEndpoint(_prefix)} sh -c \"{lang.RunCommand}\"";
+                $"run --pull=never --rm --name {buildId} {securityOptions} --gpus all --cpus=8 --memory=512m --network none -v {folder}:/app {lang.GetDockerImagePullEndpoint(_prefix)} sh -c \"{lang.RunCommand}\"" :
+                $"run --pull=never --rm --name {buildId} {securityOptions}            --cpus=8 --memory=512m --network none -v {folder}:/app {lang.GetDockerImagePullEndpoint(_prefix)} sh -c \"{lang.RunCommand}\"";
             var (resultCode, output, error) = await commandService.RunCommandAsync(
                 bin: "docker",
                 arg: command,

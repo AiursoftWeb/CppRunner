@@ -1,15 +1,11 @@
-using Aiursoft.Canon;
 using Aiursoft.CppRunner.Authorization;
 using Aiursoft.CppRunner.Entities;
-using Aiursoft.CSTools.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Aiursoft.CppRunner.Services;
 using Aiursoft.CppRunner.Services.FileStorage;
 using System.Diagnostics.CodeAnalysis;
-using Aiursoft.CppRunner.Configuration;
-using Microsoft.Extensions.Options;
 
 namespace Aiursoft.CppRunner;
 
@@ -136,50 +132,9 @@ public static class ProgramExtends
         return trimmedPrefix + lang.DockerImage;
     }
 
-    [ExcludeFromCodeCoverage]
     public static async Task PullContainersAsync(this IHost host)
     {
         using var scope = host.Services.CreateScope();
-        var services = scope.ServiceProvider;
-        var commandService = services.GetRequiredService<CommandService>();
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        var langs = services.GetRequiredService<IEnumerable<ILang>>();
-        var hasGpuService = services.GetRequiredService<HasGpuService>();
-        var retryEngine = services.GetRequiredService<RetryEngine>();
-        var pool = services.GetRequiredService<CanonPool>();
-        var dockerSettings = services.GetRequiredService<IOptions<DockerImageSettings>>().Value;
-        var dockerRegistryLoginService = services.GetRequiredService<DockerRegistryLoginService>();
-        await dockerRegistryLoginService.LoginIfRequiredAsync(dockerSettings);
-        var prefix = dockerSettings.Prefix;
-
-        var downloadedImages = await commandService.RunCommandAsync("docker", "images", Path.GetTempPath());
-        logger.LogInformation("Downloaded images count: {ImagesCount}", downloadedImages.output.Split('\n').Length);
-
-        var hasGpu = await hasGpuService.HasNvidiaGpuForDockerWithCache();
-        logger.LogInformation("Has GPU: {HasGpu}", hasGpu);
-
-        var availableLangs = hasGpu
-            ? langs
-            : langs.Where(l => !l.NeedGpu);
-
-        foreach (var lang in availableLangs)
-        {
-            if (downloadedImages.output.Contains(lang.GetDockerImagePullEndpoint(prefix)))
-            {
-                logger.LogInformation("Docker image {Image} already downloaded.", lang.GetDockerImagePullEndpoint(prefix));
-                continue;
-            }
-            pool.RegisterNewTaskToPool(() => retryEngine.RunWithRetry(async _ =>
-            {
-                logger.LogInformation("Pulling docker image {Image}", lang.GetDockerImagePullEndpoint(prefix));
-                var result = await commandService.RunCommandAsync("docker", $"pull {lang.GetDockerImagePullEndpoint(prefix)}", path: Path.GetTempPath(), timeout: TimeSpan.FromMinutes(10));
-                if (result.code != 0)
-                {
-                    throw new Exception($"Failed to pull docker image {lang.GetDockerImagePullEndpoint(prefix)}! Error: {result.error}");
-                }
-            }, 5));
-        }
-
-        await pool.RunAllTasksInPoolAsync();
+        await scope.ServiceProvider.GetRequiredService<Services.BackgroundJobs.RuntimeImageWarmupJob>().ExecuteAsync();
     }
 }
