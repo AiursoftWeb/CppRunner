@@ -1,8 +1,8 @@
 # CppRunner
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aiursoftweb/cppRunner/blob/master/LICENSE)
-[![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/cppRunner/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
-[![Test Coverage](https://gitlab.aiursoft.com/aiursoft/cppRunner/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
+[![Pipeline stat](https://badge-proxy.aiursoft.com/aiursoft/cppRunner/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
+[![Test Coverage](https://badge-proxy.aiursoft.com/aiursoft/cppRunner/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/cppRunner/-/pipelines)
 [![S360 compliance](https://s360.aiursoft.com/badge.svg?project=aiursoft%2Fcpprunner)](https://s360.aiursoft.com/SupplyChain?tab=projects&project=aiursoft%2Fcpprunner&scope=baseline&ecosystem=all)
 [![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/cppRunner.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/cppRunner.html)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2FcppRunner.aiursoft.com)](https://cpprunner.aiursoft.com)
