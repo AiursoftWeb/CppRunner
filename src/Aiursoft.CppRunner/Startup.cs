@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Threading.RateLimiting;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools.Switchable;
 using Aiursoft.Scanner;
@@ -58,6 +59,20 @@ public class Startup : IWebStartup
         // Services
         services.AddMemoryCache();
         services.AddHttpClient();
+        services.AddHttpContextAccessor();
+        services.AddRateLimiter(options =>
+        {
+            options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+            options.AddPolicy("Mcp", context => RateLimitPartition.GetFixedWindowLimiter(
+                context.Connection.RemoteIpAddress?.ToString() ?? string.Empty,
+                _ => new FixedWindowRateLimiterOptions
+                {
+                    PermitLimit = 15,
+                    Window = TimeSpan.FromMinutes(1),
+                    AutoReplenishment = true,
+                    QueueLimit = 0
+                }));
+        });
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddSingleton<NavigationState<Startup>>();
 
@@ -73,6 +88,7 @@ public class Startup : IWebStartup
         services.RegisterBackgroundJob<Services.BackgroundJobs.RuntimeImageWarmupJob>();
         services.AddScoped<CommandService>();
         services.AddScoped<Services.DockerRegistryLoginService>();
+        services.AddSingleton<Services.ExecutionQueue>();
         services.AddScoped<Services.RunCodeService>();
         services.AddScoped<Services.HasGpuService>();
 
@@ -140,7 +156,7 @@ public class Startup : IWebStartup
                     .ToList();
                 return ValueTask.FromResult(new ListToolsResult { Tools = tools });
             })
-            .WithCallToolHandler(async (request, _) =>
+            .WithCallToolHandler(async (request, cancellationToken) =>
             {
                 var runCodeService = request.Services!.GetRequiredService<Services.RunCodeService>();
                 var logger = request.Services!.GetRequiredService<ILogger<Services.RunCodeService>>();
@@ -160,10 +176,11 @@ public class Startup : IWebStartup
                 try
                 {
                     logger.LogInformation("Running code in {LangName}...", langImpl.LangDisplayName);
-                    var result = await runCodeService.RunCode(code, langImpl);
+                    var result = await runCodeService.RunCode(code, langImpl, cancellationToken);
                     logger.LogInformation("Code run completed with result code {ResultCode}.", result.ResultCode);
                     return new CallToolResult
                     {
+                        IsError = result.ResultCode != 0,
                         Content =
                         [
                             new TextContentBlock
@@ -219,7 +236,8 @@ public class Startup : IWebStartup
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
+        app.UseRateLimiter();
         app.MapDefaultControllerRoute();
-        app.MapMcp("/mcp");
+        app.MapMcp("/mcp").RequireRateLimiting("Mcp");
     }
 }

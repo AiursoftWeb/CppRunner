@@ -119,7 +119,9 @@ public class RunnerControllerTests : TestBase
             services.GetRequiredService<Aiursoft.CSTools.Services.CommandService>(),
             services.GetRequiredService<CanonQueue>(), images,
             services.GetRequiredService<IHostApplicationLifetime>(),
-            services.GetRequiredService<Microsoft.Extensions.Localization.IStringLocalizer<Services.RunCodeService>>());
+            services.GetRequiredService<Microsoft.Extensions.Localization.IStringLocalizer<Services.RunCodeService>>(),
+            services.GetRequiredService<Services.ExecutionQueue>(),
+            services.GetRequiredService<IHttpContextAccessor>());
         var result = await runner.RunCode("This code must not execute.", new Lang.CLang());
         Assert.AreEqual(75, result.ResultCode);
         StringAssert.Contains(result.Error, "not ready");
