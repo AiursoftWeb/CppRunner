@@ -596,7 +596,8 @@
             });
 
             if (!response.ok) {
-                if (errorEditor) errorEditor.setValue('HTTP ' + response.status + ': ' + response.statusText);
+                const failure = await response.json().catch(() => null);
+                if (errorEditor) errorEditor.setValue(failure?.Error || 'HTTP ' + response.status + ': ' + response.statusText);
                 return;
             }
 

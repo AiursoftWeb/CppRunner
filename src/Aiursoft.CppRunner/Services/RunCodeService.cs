@@ -13,14 +13,34 @@ public class RunCodeService(
     CanonQueue queue,
     IDockerImageClient images,
     IHostApplicationLifetime lifetime,
-    IStringLocalizer<RunCodeService> localizer)
+    IStringLocalizer<RunCodeService> localizer,
+    ExecutionQueue executionQueue,
+    IHttpContextAccessor httpContextAccessor)
 {
     private readonly string _tempFolder = Path.Combine(Path.GetTempPath(), "cpprunner", "builds");
 
     private readonly string? _prefix = configuration["DockerImageSettings:Prefix"];
 
-    public async Task<CodeResult> RunCode(string code, ILang lang)
+    public async Task<CodeResult> RunCode(string code, ILang lang, CancellationToken cancellationToken = default)
     {
+        if (lang.NeedGpu && httpContextAccessor.HttpContext?.User.Identity?.IsAuthenticated != true)
+        {
+            return new CodeResult
+            {
+                ResultCode = StatusCodes.Status401Unauthorized,
+                Error = localizer["Sign in to run code that requires a GPU."].Value
+            };
+        }
+
+        using var linkedCancellation = CancellationTokenSource.CreateLinkedTokenSource(
+            cancellationToken, httpContextAccessor.HttpContext?.RequestAborted ?? CancellationToken.None,
+            lifetime.ApplicationStopping);
+        using var lease = await executionQueue.AcquireAsync(linkedCancellation.Token);
+        linkedCancellation.Token.ThrowIfCancellationRequested();
+        if (!lease.IsAcquired)
+        {
+            throw new InvalidOperationException("The execution queue is unavailable.");
+        }
         var hasGpu = lang.NeedGpu && await hasGpuService.HasNvidiaGpuForDockerWithCache();
         var needGpu = lang.NeedGpu;
         if (needGpu && !hasGpu)
@@ -34,7 +54,7 @@ public class RunCodeService(
             };
         }
 
-        if (!await images.IsAvailableAsync(lang.GetDockerImagePullEndpoint(_prefix), lifetime.ApplicationStopping))
+        if (!await images.IsAvailableAsync(lang.GetDockerImagePullEndpoint(_prefix), linkedCancellation.Token))
         {
             var message = localizer["The runtime image for {0} is not ready. Please retry after image warmup completes.", lang.LangDisplayName].Value;
             return new CodeResult { ResultCode = 75, Output = message, Error = message };
