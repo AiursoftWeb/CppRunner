@@ -320,7 +320,7 @@
     const localizedExit         = document.getElementById('localized-exit').value;
 
     // ── Monaco initialisation ─────────────────────────────────────────────────
-    require.config({ paths: { vs: '@Url.Content("~/node_modules/monaco-editor/min/vs")' } });
+    require.config({ paths: { vs: new URL('@Url.Content("~/node_modules/monaco-editor/min/vs")', document.baseURI).href } });
 
     let editor, outputEditor, errorEditor;
 
