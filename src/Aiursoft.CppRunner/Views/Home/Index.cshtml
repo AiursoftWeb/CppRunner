@@ -234,9 +234,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div id="save-code-error" class="alert alert-danger d-none" role="alert">
+                    <div class="alert-message"></div>
+                </div>
                 <div class="mb-3">
                     <label for="code-title" class="form-label">@Localizer["Title"]</label>
-                    <input type="text" class="form-control" id="code-title" placeholder="@Localizer["Give your code a title"]">
+                    <input type="text" class="form-control" id="code-title" aria-describedby="code-title-error" placeholder="@Localizer["Give your code a title"]">
+                    <div id="code-title-error" class="invalid-feedback">@Localizer["Please enter a title."]</div>
                 </div>
                 <div class="form-check form-switch mb-2">
                     <input class="form-check-input" type="checkbox" id="is-public-switch">
@@ -249,7 +253,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
-                <button type="button" class="btn btn-primary" id="btn-confirm-save" onclick="confirmSave()">@Localizer["Save"]</button>
+                <button type="button" class="btn btn-primary" id="btn-confirm-save">@Localizer["Save"]</button>
             </div>
         </div>
     </div>
@@ -259,6 +263,12 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
+    <div id="save-code-text" hidden>
+        <span data-key="save">@Localizer["Save"]</span>
+        <span data-key="saving">@Localizer["Saving..."]</span>
+        <span data-key="failed">@Localizer["Could not save. Please try again."]</span>
+    </div>
+    <script src="~/scripts/code-save.js" asp-append-version="true" defer></script>
 <script src="~/node_modules/monaco-editor/min/vs/loader.js"></script>
 <script>
     // ── Language data from server ─────────────────────────────────────────────
@@ -509,65 +519,6 @@
 
         const modal = new bootstrap.Modal(saveCodeModalEl);
         modal.show();
-    }
-
-    async function confirmSave() {
-        const title = codeTitleInput.value.trim();
-        if (!title) {
-            alert('@Localizer["Please enter a title."]');
-            return;
-        }
-
-        const code = editor.getValue();
-        const lang = langSelector.value;
-        const isPublic = isPublicSwitch.checked;
-        const saveResult = saveResultSwitch.checked;
-        const result = saveResult ? outputEditor.getValue() : null;
-        const error = saveResult ? errorEditor.getValue() : null;
-        const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
-
-        btnConfirmSave.disabled = true;
-        btnConfirmSave.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> @Localizer["Saving..."]';
-
-        try {
-            const formData = new FormData();
-            formData.append('title', title);
-            formData.append('code', code);
-            formData.append('language', lang);
-            formData.append('isPublic', isPublic);
-            formData.append('saveResult', saveResult);
-            if (saveResult) {
-                formData.append('result', result);
-                formData.append('error', error);
-                if (lastResultCode !== null) {
-                    formData.append('resultCode', lastResultCode);
-                }
-            }
-            if (currentIdToSave) {
-                formData.append('id', currentIdToSave);
-            }
-            formData.append('__RequestVerificationToken', token);
-
-            const response = await fetch('/Codes/Save', {
-                method: 'POST',
-                body: formData
-            });
-
-            if (response.ok) {
-                const modal = bootstrap.Modal.getInstance(saveCodeModalEl);
-                modal.hide();
-                alert('@Localizer["Code saved successfully!"]');
-                window.location.href = '/Codes/Index';
-            } else {
-                const errorText = await response.text();
-                alert('@Localizer["Failed to save code:"] ' + errorText);
-            }
-        } catch (err) {
-            alert('@Localizer["An error occurred:"] ' + err);
-        } finally {
-            btnConfirmSave.disabled = false;
-            btnConfirmSave.textContent = '@Localizer["Save"]';
-        }
     }
 
     // ── Run code ──────────────────────────────────────────────────────────────
