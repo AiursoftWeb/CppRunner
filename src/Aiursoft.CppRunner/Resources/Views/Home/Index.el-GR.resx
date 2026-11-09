@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>Συντονίστε Άνετα</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>Αποτυχία αποθήκευσης. Παρακαλώ προσπαθήστε ξανά.</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>Αναφορά κάλυψης</value>
   </data>

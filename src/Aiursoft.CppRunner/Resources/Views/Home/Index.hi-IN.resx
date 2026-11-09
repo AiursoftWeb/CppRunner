@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>आराम से नियंत्रित करें</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>सहेज नहीं पाए। कृपया पुनः प्रयास करें।</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>कवरेज रिपोर्ट</value>
   </data>

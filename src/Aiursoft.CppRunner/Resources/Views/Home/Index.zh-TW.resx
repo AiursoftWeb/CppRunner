@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>協調得宜</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>無法儲存。請再試一次。</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>覆蓋率報表</value>
   </data>

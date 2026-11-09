@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>无缝协同 / 统一管理</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>保存失败。请重试。</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>覆盖率报告</value>
   </data>

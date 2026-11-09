@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>Координуйте зручно</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>Не вдалося зберегти. Спробуйте ще раз.</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>Звіт про покриття</value>
   </data>

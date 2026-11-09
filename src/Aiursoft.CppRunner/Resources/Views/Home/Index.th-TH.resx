@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>ประสานงานได้อย่างสะดวกสบาย</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>บันทึกไม่สำเร็จ กรุณาลองใหม่</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>รายงานการครอบคลุม</value>
   </data>
