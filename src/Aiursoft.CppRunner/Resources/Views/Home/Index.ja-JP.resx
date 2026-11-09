@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>快適に連携する</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>保存できませんでした。もう一度お試しください。</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>カバレッジレポート</value>
   </data>

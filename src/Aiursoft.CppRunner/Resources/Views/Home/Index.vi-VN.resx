@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>Hợp tác một cách thoải mái</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>Không thể lưu. Vui lòng thử lại.</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>Báo cáo độ bao phủ</value>
   </data>

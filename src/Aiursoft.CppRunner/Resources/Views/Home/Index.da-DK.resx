@@ -183,6 +183,9 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>Sammenlign bekvemt</value>
   </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>Kunne ikke gemme. Prøv venligst igen.</value>
+  </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>Dækningsoversigt</value>
   </data>
