@@ -39,14 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Modern, zengin özelliklere sahip ve bir sonraki web uygulamanız için oldukça genişletilebilir bir temel.</value>
   </data>
-  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
-    <value>Aiursoft Template ile daha fazlasını başarın</value>
-  </data>
   <data name="AI Readable" xml:space="preserve">
     <value>AI Okunabilir</value>
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Yapay Zeka Destekli Çeviriler</value>
+  </data>
+  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft Template ile daha fazlasını başarın</value>
   </data>
   <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
@@ -147,6 +147,9 @@
   <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
     <value>C++ (GNU G++, stdc++20)</value>
   </data>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (Ubuntu 24.04 üzerinde)</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
@@ -195,9 +198,6 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>Çalıştırmak için Ctrl+Enter</value>
   </data>
-  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 13.2.1 (Ubuntu 24.04 üzerinde)</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Kontrol Paneli Web Sitesi</value>
   </data>
@@ -222,14 +222,14 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Geliştirme &amp; Üretim</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>DevOps Uyumlu</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>UTC&apos;de özel olarak geliştirin, sistem tarihleri otomatik olarak kullanıcıya özel saat diliminde dönüştürür ve görüntüler.</value>
   </data>
   <data name="Developer Experience" xml:space="preserve">
     <value>Geliştirici Deneyimi</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>DevOps Uyumlu</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Tartışmalar sayfası</value>
@@ -273,14 +273,11 @@
   <data name="Exit:" xml:space="preserve">
     <value>Çıkış:</value>
   </data>
-  <data name="Failed to save code:" xml:space="preserve">
-    <value>Kod kaydedilemedi:</value>
-  </data>
   <data name="FAQ" xml:space="preserve">
     <value>SSS</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>daha hızlı</value>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>Kod kaydedilemedi:</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Özellikler</value>
@@ -294,20 +291,17 @@
   <data name="Flexible API" xml:space="preserve">
     <value>Esnek API</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>her türlü soru veya sorun bildirimi için.</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Founder &amp; Architect at Aiursoft</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>Ücretsiz</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>Ticari Kullanım İçin Ücretsiz</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>Serbest Yazılım</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>Ticari Kullanım İçin Ücretsiz</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Sıkça Sorulan Sorular</value>
@@ -381,11 +375,11 @@
   <data name="Included" xml:space="preserve">
     <value>Dahil</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Kapsamlı belgeler ve hızlı bir şekilde başlamanızı sağlayacak pratik örnekler içerir.</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Kılavuzlar Dahil</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Kapsamlı belgeler ve hızlı bir şekilde başlamanızı sağlayacak pratik örnekler içerir.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Entegre Dosya Yönetimi</value>
@@ -395,9 +389,6 @@
   </data>
   <data name="Interoperability" xml:space="preserve">
     <value>Uyumluluk</value>
-  </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>Ücretsiz Yazılımdır</value>
   </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Aiursoft Template&apos;ı kullanmak ücretsiz mi?</value>
@@ -426,6 +417,12 @@
   <data name="Lua (5.4)" xml:space="preserve">
     <value>Lua (5.4)</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MIT Lisansı</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT Lisansı</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Yüksek Kod Kalitesini Koruyun</value>
   </data>
@@ -434,12 +431,6 @@
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown&apos;dan HTML&apos;e</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>MIT Lisansı</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT Lisansı</value>
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Modeller, veri eklemelerine dayalı olarak hem istemci hem de sunucu tarafında doğrulanır.</value>
@@ -474,11 +465,11 @@
   <data name="Output" xml:space="preserve">
     <value>Çıktı</value>
   </data>
-  <data name="Perl (5.39.5)" xml:space="preserve">
-    <value>Perl (5.39.5)</value>
-  </data>
   <data name="PHP (8.3.0)" xml:space="preserve">
     <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
   </data>
   <data name="Please enter a title." xml:space="preserve">
     <value>Lütfen bir başlık girin.</value>
@@ -570,17 +561,17 @@
   <data name="Source Code" xml:space="preserve">
     <value>Kaynak Kod</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>Standart uygulama. Derleme yapmadan sağlayıcıları değiştirin.</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Standart OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Yeni bir proje başlat</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>Standart uygulama. Derleme yapmadan sağlayıcıları değiştirin.</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Değer Göndermeye Başla.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Yeni bir proje başlat</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>Tek bir &apos;docker run&apos; komutuyla başlayın.</value>
@@ -591,23 +582,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>Katı Lint Kuralları</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>Katı Birim Testi</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>Varsayılan olarak katı kod kontrol kuralları ve sıfır uyarı.</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>Varsayılan projede 0 uyarı ile sıkı kod denetimi kuralları.</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>Katı Birim Testi</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>Kesin ve Tutulu Linting</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>Ortam değişkenleri ve veritabanı tabanlı ayarlar destekler, sorunsuz geçişler için ortam değişkenlerine otomatik öncelik verilir.</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>JetBrains Rider destekler, kolay kod stili düzeltmeleri için.</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>Ortam değişkenleri ve veritabanı tabanlı ayarlar destekler, sorunsuz geçişler için ortam değişkenlerine otomatik öncelik verilir.</value>
   </data>
   <data name="Swift (5.8.1)" xml:space="preserve">
     <value>Swift (5.8.1)</value>
@@ -618,14 +609,14 @@
   <data name="Technical Lead" xml:space="preserve">
     <value>Teknik Lider</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>Felsefe</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>Kesin, savaştan sıyrılmış .NET enterprise temeli. Kimlik doğrulamadan yapay zekâya kadar, zor kısımları çözdük, sizin için yapmanıza gerek kalmadı.</value>
   </data>
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>Gezinme çubuğu, kullanıcı rollerine ve izinlerine göre otomatik olarak ayarlanır.</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>Felsefe</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>Şablon, kolay dağıtım için oluşturulmuştur. Tam Docker desteği içerir, böylece uygulamanızı konteynerleştirip her yerde çalıştırabilirsiniz. Ayrıca doğrudan IIS, Azure App Service veya ASP.NET Core destekleyen herhangi bir sunucuya dağıtabilirsiniz.</value>
@@ -698,6 +689,15 @@
   </data>
   <data name="Zero Configuration" xml:space="preserve">
     <value>Sıfır Yapılandırma</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>daha hızlı</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>her türlü soru veya sorun bildirimi için.</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>Ücretsiz Yazılımdır</value>
   </data>
 
 </root>

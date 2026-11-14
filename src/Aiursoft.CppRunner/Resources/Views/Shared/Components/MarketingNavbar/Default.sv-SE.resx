@@ -30,9 +30,6 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
-  <data name="logo" xml:space="preserve">
-    <value>logotyp</value>
-  </data>
   <data name="Run code" xml:space="preserve">
     <value>Kör kod</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>Testa instrumentpanelen</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>logotyp</value>
   </data>
 
 </root>

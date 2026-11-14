@@ -30,9 +30,6 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
-  <data name="logo" xml:space="preserve">
-    <value>الشعار</value>
-  </data>
   <data name="Run code" xml:space="preserve">
     <value>شغّل التعليمات البرمجية</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>جرب لوحة التحكم</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>الشعار</value>
   </data>
 
 </root>

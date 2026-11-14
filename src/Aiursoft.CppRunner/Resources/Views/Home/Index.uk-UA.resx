@@ -39,14 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Сучасна, багатофункціональна та високо розширювана основа для вашої наступної веб-програми.</value>
   </data>
-  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
-    <value>Досягайте більшого з Aiursoft Template</value>
-  </data>
   <data name="AI Readable" xml:space="preserve">
     <value>AI читабельний</value>
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Переклади на основі ШІ</value>
+  </data>
+  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
+    <value>Досягайте більшого з Aiursoft Template</value>
   </data>
   <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
@@ -147,6 +147,9 @@
   <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
     <value>C++ (GNU G++, stdc++20)</value>
   </data>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (на Ubuntu 24.04)</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Скасувати</value>
   </data>
@@ -195,9 +198,6 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>Ctrl+Enter для запуску</value>
   </data>
-  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 13.2.1 (на Ubuntu 24.04)</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Веб-сайт панелі керування</value>
   </data>
@@ -222,14 +222,14 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Dev &amp; Prod</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>DevOps-орієнтований</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>Розробляйте виключно в UTC, тоді як система автоматично перетворює та відображає дати у локальному часовому поясі користувача.</value>
   </data>
   <data name="Developer Experience" xml:space="preserve">
     <value>Досвід розробника</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>DevOps-орієнтований</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Сторінка обговорень</value>
@@ -273,14 +273,11 @@
   <data name="Exit:" xml:space="preserve">
     <value>Вихід:</value>
   </data>
-  <data name="Failed to save code:" xml:space="preserve">
-    <value>Не вдалося зберегти код:</value>
-  </data>
   <data name="FAQ" xml:space="preserve">
     <value>Часті питання</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>швидше</value>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>Не вдалося зберегти код:</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Особливості</value>
@@ -294,20 +291,17 @@
   <data name="Flexible API" xml:space="preserve">
     <value>Гнучкий API</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>для будь-яких запитів або повідомлення про проблеми.</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Засновник та архітектор компанії Aiursoft</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>Безкоштовно</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>Безкоштовно для комерційного використання</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>Вільне програмне забезпечення</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>Безкоштовно для комерційного використання</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Часті запитання</value>
@@ -381,11 +375,11 @@
   <data name="Included" xml:space="preserve">
     <value>Включено</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Містить детальну документацію та практичні приклади, щоб ви могли швидко розпочати роботу.</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Містить навчальні матеріали</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Містить детальну документацію та практичні приклади, щоб ви могли швидко розпочати роботу.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Інтегроване управління файлами</value>
@@ -395,9 +389,6 @@
   </data>
   <data name="Interoperability" xml:space="preserve">
     <value>Взаємодія</value>
-  </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>є вільним програмним забезпеченням</value>
   </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Чи безкоштовно використовувати Aiursoft Template?</value>
@@ -426,6 +417,12 @@
   <data name="Lua (5.4)" xml:space="preserve">
     <value>Lua (5.4)</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>Ліцензія MIT</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Підтримуйте високу якість коду</value>
   </data>
@@ -434,12 +431,6 @@
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown у HTML</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>Ліцензія MIT</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT License</value>
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Моделі валідуються на клієнтській та серверній сторонах на основі анотацій даних.</value>
@@ -474,11 +465,11 @@
   <data name="Output" xml:space="preserve">
     <value>Вивід</value>
   </data>
-  <data name="Perl (5.39.5)" xml:space="preserve">
-    <value>Perl (5.39.5)</value>
-  </data>
   <data name="PHP (8.3.0)" xml:space="preserve">
     <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
   </data>
   <data name="Please enter a title." xml:space="preserve">
     <value>Будь ласка, введіть назву.</value>
@@ -570,17 +561,17 @@
   <data name="Source Code" xml:space="preserve">
     <value>Вихідний код</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>Стандартна реалізація. Перемикання постачальників без компіляції.</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Стандартний OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Розпочати новий проєкт</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>Стандартна реалізація. Перемикання постачальників без компіляції.</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Почніть доставляти цінність.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Розпочати новий проєкт</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>Почніть із одного командного рядка &apos;docker run&apos;.</value>
@@ -591,23 +582,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>Строгі правила лінтингу</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>Строге юніт-тестування</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>Строгі правила лінтингу та нульові попередження за замовчуванням.</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>Строгі правила лінтингу з 0 попереджень у проекті за замовчуванням.</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>Строге юніт-тестування</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>Сильна й узгоджена перевірка коду</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>Підтримує як змінні середовища, так і налаштування, зберігаються у базі даних, з автоматичним пріоритетом для змінних середовища для безперервного перекриття.</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>Підтримує JetBrains Rider для легких виправлень стилю коду.</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>Підтримує як змінні середовища, так і налаштування, зберігаються у базі даних, з автоматичним пріоритетом для змінних середовища для безперервного перекриття.</value>
   </data>
   <data name="Swift (5.8.1)" xml:space="preserve">
     <value>Swift (5.8.1)</value>
@@ -618,14 +609,14 @@
   <data name="Technical Lead" xml:space="preserve">
     <value>Технічний лідер</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>Філософія</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>Визначна, випробувана на практиці основа .NET для бізнес-рішень. Від Auth до AI — ми вирішили складні завдання, щоб ви не мали цього робити.</value>
   </data>
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>Панель навігації автоматично адаптується відповідно до ролей та дозволів користувача.</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>Філософія</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>Цей шаблон створено для простоти розгортання. Він включає повну підтримку Docker, тому ви можете контейнеризувати ваш додаток і запускати його де завгодно. Ви також можете розгорнути його безпосередньо в IIS, Azure App Service або на будь-якому сервері, що підтримує ASP.NET Core.</value>
@@ -698,6 +689,15 @@
   </data>
   <data name="Zero Configuration" xml:space="preserve">
     <value>Нульова конфігурація</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>швидше</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>для будь-яких запитів або повідомлення про проблеми.</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>є вільним програмним забезпеченням</value>
   </data>
 
 </root>

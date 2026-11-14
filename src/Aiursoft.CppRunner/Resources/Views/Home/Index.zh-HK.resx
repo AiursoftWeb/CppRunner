@@ -39,14 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>一個現代化、功能豐富且高度可擴展嘅基礎，為您嘅下一個網頁應用程式提供強大支援。</value>
   </data>
-  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
-    <value>使用 Aiursoft 模板成就更多</value>
-  </data>
   <data name="AI Readable" xml:space="preserve">
     <value>AI可讀</value>
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>人工智能驅動翻譯</value>
+  </data>
+  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
+    <value>使用 Aiursoft 模板成就更多</value>
   </data>
   <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
@@ -147,6 +147,9 @@
   <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
     <value>C++ (GNU G++, stdc++20)</value>
   </data>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1（於 Ubuntu 24.04）</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -195,9 +198,6 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>按 Ctrl+Enter 執行</value>
   </data>
-  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 13.2.1（於 Ubuntu 24.04）</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>儀表板網站</value>
   </data>
@@ -222,14 +222,14 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>開發 &amp; 生產</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>DevOps 原生</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>以 UTC 為主開發，系統會自動將日期轉換並顯示為用戶的本地時間區。</value>
   </data>
   <data name="Developer Experience" xml:space="preserve">
     <value>開發者體驗</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>DevOps 原生</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>討論頁面</value>
@@ -273,14 +273,11 @@
   <data name="Exit:" xml:space="preserve">
     <value>退出：</value>
   </data>
-  <data name="Failed to save code:" xml:space="preserve">
-    <value>儲存程式碼失敗：</value>
-  </data>
   <data name="FAQ" xml:space="preserve">
     <value>常見問題</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>更快</value>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>儲存程式碼失敗：</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>功能</value>
@@ -294,20 +291,17 @@
   <data name="Flexible API" xml:space="preserve">
     <value>彈性 API</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>如有任何查詢或報告問題。</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>創辦人兼建築師，Aiursoft</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>免費</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>免費用於商業用途</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>自由軟件</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>免費用於商業用途</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>常見問題</value>
@@ -381,11 +375,11 @@
   <data name="Included" xml:space="preserve">
     <value>包含在內</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>包含豐富嘅文檔同實用例子，讓你快速上手。</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>包含教學指南</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>包含豐富嘅文檔同實用例子，讓你快速上手。</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>整合式檔案管理</value>
@@ -395,9 +389,6 @@
   </data>
   <data name="Interoperability" xml:space="preserve">
     <value>互操作性</value>
-  </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>是自由軟件</value>
   </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>使用 Aiursoft Template 係咪免費㗎？</value>
@@ -426,6 +417,12 @@
   <data name="Lua (5.4)" xml:space="preserve">
     <value>Lua (5.4)</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MIT 許可證</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT 許可證</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>維持高程式碼質素</value>
   </data>
@@ -434,12 +431,6 @@
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown 轉 HTML</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>MIT 許可證</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT 許可證</value>
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>模型會根據資料註解在客戶端和伺服器端進行驗證。</value>
@@ -474,11 +465,11 @@
   <data name="Output" xml:space="preserve">
     <value>輸出</value>
   </data>
-  <data name="Perl (5.39.5)" xml:space="preserve">
-    <value>Perl (5.39.5)</value>
-  </data>
   <data name="PHP (8.3.0)" xml:space="preserve">
     <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
   </data>
   <data name="Please enter a title." xml:space="preserve">
     <value>請輸入標題。</value>
@@ -570,17 +561,17 @@
   <data name="Source Code" xml:space="preserve">
     <value>原始程式碼</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>標準實作。無需重新編譯即可切換提供者。</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>標準 OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>開始新項目</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>標準實作。無需重新編譯即可切換提供者。</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>開始交付價值</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>開始新項目</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>由一條 &apos;docker run&apos; 命令開始。</value>
@@ -591,23 +582,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>嚴格的程式碼檢查規則</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>嚴格單元測試</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>嚴格的程式碼檢查規則及預設零警告</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>嚴格的程式碼檢查規則，預設專案中無警告。</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>嚴格單元測試</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>強一致性代碼檢查</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>支援環境變數和資料庫支援的設定，並自動優先使用環境變數以實現無縫覆蓋。</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>支援 JetBrains Rider，輕鬆修復程式碼風格問題。</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>支援環境變數和資料庫支援的設定，並自動優先使用環境變數以實現無縫覆蓋。</value>
   </data>
   <data name="Swift (5.8.1)" xml:space="preserve">
     <value>Swift (5.8.1)</value>
@@ -618,14 +609,14 @@
   <data name="Technical Lead" xml:space="preserve">
     <value>技術主管</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>理念</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>最穩健、經過實戰考驗的 .NET 企業級基礎架構。從身份認證到人工智能，我們已解決所有難題，讓你無需再煩惱。</value>
   </data>
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>導覽列會根據用戶角色同權限自動調整。</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>理念</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>此模板專為簡易部署而設計。它包含完整的 Docker 支援，因此您可以將應用程式容器化並在任何地方運行。您亦可直接將其部署到 IIS、Azure App Service 或任何支援 ASP.NET Core 的伺服器上。</value>
@@ -698,6 +689,15 @@
   </data>
   <data name="Zero Configuration" xml:space="preserve">
     <value>零設定</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>更快</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>如有任何查詢或報告問題。</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>是自由軟件</value>
   </data>
 
 </root>

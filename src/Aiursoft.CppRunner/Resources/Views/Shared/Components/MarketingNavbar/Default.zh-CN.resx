@@ -30,9 +30,6 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
-  <data name="logo" xml:space="preserve">
-    <value>徽标</value>
-  </data>
   <data name="Run code" xml:space="preserve">
     <value>运行代码</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>前往仪表板</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>徽标</value>
   </data>
 
 </root>

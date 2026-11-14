@@ -45,9 +45,6 @@
   <data name="Licence" xml:space="preserve">
     <value>Ліцензія</value>
   </data>
-  <data name="logo" xml:space="preserve">
-    <value>логотип</value>
-  </data>
   <data name="Project" xml:space="preserve">
     <value>Проєкт</value>
   </data>
@@ -62,6 +59,9 @@
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>Вихідний код</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>логотип</value>
   </data>
 
 </root>

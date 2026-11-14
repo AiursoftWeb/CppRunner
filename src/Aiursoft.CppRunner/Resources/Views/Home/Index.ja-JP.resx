@@ -39,14 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>モダンで機能豊富、かつ高度に拡張可能な基盤を、あなたの次のWebアプリケーションに提供します。</value>
   </data>
-  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
-    <value>Aiursoft Templateでさらに多くのことを実現</value>
-  </data>
   <data name="AI Readable" xml:space="preserve">
     <value>AIで読み取り可能な</value>
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AIによる翻訳</value>
+  </data>
+  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft Templateでさらに多くのことを実現</value>
   </data>
   <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
@@ -147,6 +147,9 @@
   <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
     <value>C++ (GNU G++, stdc++20)</value>
   </data>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (Ubuntu 24.04 上)</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
   </data>
@@ -195,9 +198,6 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>Ctrl+Enter で実行</value>
   </data>
-  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 13.2.1 (Ubuntu 24.04 上)</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>ダッシュボードウェブサイト</value>
   </data>
@@ -222,14 +222,14 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>開発 &amp; 本番</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>DevOpsネイティブ</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>開発はUTCで行うだけで、システムが自動的に日付をユーザーのローカルタイムゾーンに変換して表示します。</value>
   </data>
   <data name="Developer Experience" xml:space="preserve">
     <value>開発者体験</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>DevOpsネイティブ</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>ディスカッションページ</value>
@@ -273,14 +273,11 @@
   <data name="Exit:" xml:space="preserve">
     <value>終了コード:</value>
   </data>
-  <data name="Failed to save code:" xml:space="preserve">
-    <value>コードの保存に失敗しました：</value>
-  </data>
   <data name="FAQ" xml:space="preserve">
     <value>よくある質問</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>より迅速に</value>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>コードの保存に失敗しました：</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>機能</value>
@@ -294,20 +291,17 @@
   <data name="Flexible API" xml:space="preserve">
     <value>柔軟なAPI</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>お問い合わせや問題の報告はこちらへ。</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Founder &amp; Architect at Aiursoft</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>無料</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>商用利用に無料</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>フリーソフトウェア</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>商用利用に無料</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>よくある質問</value>
@@ -381,11 +375,11 @@
   <data name="Included" xml:space="preserve">
     <value>含まれる</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>豊富なドキュメントと実用的な例を含んでいるため、すぐに使い始めることができます。</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>チュートリアルを含む</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>豊富なドキュメントと実用的な例を含んでいるため、すぐに使い始めることができます。</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>統合ファイル管理</value>
@@ -395,9 +389,6 @@
   </data>
   <data name="Interoperability" xml:space="preserve">
     <value>相互運用性</value>
-  </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>はフリー・ソフトウェアです</value>
   </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Aiursoft Templateは無料で使用できますか？</value>
@@ -426,6 +417,12 @@
   <data name="Lua (5.4)" xml:space="preserve">
     <value>Lua (5.4)</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MITライセンス</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MITライセンス</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>高品質なコードを維持する</value>
   </data>
@@ -434,12 +431,6 @@
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>MarkdownからHTMLへ</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>MITライセンス</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MITライセンス</value>
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>モデルはデータ注釈に基づいて、クライアントおよびサーバーの両方で検証されます。</value>
@@ -474,11 +465,11 @@
   <data name="Output" xml:space="preserve">
     <value>出力</value>
   </data>
-  <data name="Perl (5.39.5)" xml:space="preserve">
-    <value>Perl (5.39.5)</value>
-  </data>
   <data name="PHP (8.3.0)" xml:space="preserve">
     <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
   </data>
   <data name="Please enter a title." xml:space="preserve">
     <value>タイトルを入力してください。</value>
@@ -570,17 +561,17 @@
   <data name="Source Code" xml:space="preserve">
     <value>ソースコード</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>標準実装。コンパイルなしでプロバイダを切り替えられます。</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Standard OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>新規プロジェクトを開始</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>標準実装。コンパイルなしでプロバイダを切り替えられます。</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>価値を迅速に提供し始めましょう。</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>新規プロジェクトを開始</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>1つの &apos;docker run&apos; コマンドで開始します。</value>
@@ -591,23 +582,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>厳格なLintルール</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>厳格なユニットテスト</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>厳格なLintルールとデフォルトで警告ゼロ</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>デフォルトプロジェクトでは厳格なLintルールと0件の警告です。</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>厳格なユニットテスト</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>強力で一貫したLintチェック</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>環境変数とデータベースベースの設定の両方をサポートしており、環境変数に自動的に優先順位が与えられ、スムーズな上書きが可能になります。</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>JetBrains Rider のサポートにより、コードスタイルの修正が簡単に行えます。</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>環境変数とデータベースベースの設定の両方をサポートしており、環境変数に自動的に優先順位が与えられ、スムーズな上書きが可能になります。</value>
   </data>
   <data name="Swift (5.8.1)" xml:space="preserve">
     <value>Swift (5.8.1)</value>
@@ -618,14 +609,14 @@
   <data name="Technical Lead" xml:space="preserve">
     <value>テクニカルリード</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>哲学</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>決定的な、実戦で検証された .NET エンタープライズ基盤。認証から AI まで、難しい部分はすべて解決済みなので、あなたはそれらを心配する必要がありません。</value>
   </data>
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>ナビゲーションバーは、ユーザーの役割と権限に基づいて自動的に調整されます。</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>哲学</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>このテンプレートは簡単なデプロイを実現するために構築されています。完全なDockerサポートを含んでいるため、アプリをコンテナ化してどこでも実行できます。また、IIS、Azure App Service、またはASP.NET Coreをサポートする任意のサーバーに直接デプロイすることも可能です。</value>
@@ -698,6 +689,15 @@
   </data>
   <data name="Zero Configuration" xml:space="preserve">
     <value>ゼロ構成</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>より迅速に</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>お問い合わせや問題の報告はこちらへ。</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>はフリー・ソフトウェアです</value>
   </data>
 
 </root>
