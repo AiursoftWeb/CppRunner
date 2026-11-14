@@ -30,9 +30,6 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
-  <data name="logo" xml:space="preserve">
-    <value>โลโก้</value>
-  </data>
   <data name="Run code" xml:space="preserve">
     <value>เรียกใช้โค้ด</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>ลองใช้แดชบอร์ด</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>โลโก้</value>
   </data>
 
 </root>

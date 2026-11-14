@@ -30,9 +30,6 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
-  <data name="logo" xml:space="preserve">
-    <value>로고</value>
-  </data>
   <data name="Run code" xml:space="preserve">
     <value>코드 실행</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>대시보드 사용해보기</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>로고</value>
   </data>
 
 </root>

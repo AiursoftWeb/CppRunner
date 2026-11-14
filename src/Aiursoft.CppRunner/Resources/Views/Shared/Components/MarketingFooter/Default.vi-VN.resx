@@ -45,9 +45,6 @@
   <data name="Licence" xml:space="preserve">
     <value>Giấy phép</value>
   </data>
-  <data name="logo" xml:space="preserve">
-    <value>biểu trưng</value>
-  </data>
   <data name="Project" xml:space="preserve">
     <value>Dự án</value>
   </data>
@@ -62,6 +59,9 @@
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>Mã Nguồn</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>biểu trưng</value>
   </data>
 
 </root>

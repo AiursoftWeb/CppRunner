@@ -39,14 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Una base moderna, ricca di funzionalità e altamente estensibile per la tua prossima applicazione web.</value>
   </data>
-  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
-    <value>Ottieni di più con Aiursoft Template</value>
-  </data>
   <data name="AI Readable" xml:space="preserve">
     <value>Leggibile dall&apos;IA</value>
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Traduzioni Basate sull&apos;Intelligenza Artificiale</value>
+  </data>
+  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
+    <value>Ottieni di più con Aiursoft Template</value>
   </data>
   <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
@@ -147,6 +147,9 @@
   <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
     <value>C++ (GNU G++, stdc++20)</value>
   </data>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (su Ubuntu 24.04)</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
@@ -195,9 +198,6 @@
   <data name="Ctrl+Enter to run" xml:space="preserve">
     <value>Ctrl+Enter per eseguire</value>
   </data>
-  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
-    <value>CUDA 13.2.1 (su Ubuntu 24.04)</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Sito Web del Cruscotto</value>
   </data>
@@ -222,14 +222,14 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Dev &amp; Prod</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>Nativo DevOps</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>Sviluppa esclusivamente in UTC mentre il sistema converte automaticamente e visualizza le date nell&apos;ora locale dell&apos;utente.</value>
   </data>
   <data name="Developer Experience" xml:space="preserve">
     <value>Esperienza dello sviluppatore</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>Nativo DevOps</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Pagina delle discussioni</value>
@@ -273,14 +273,11 @@
   <data name="Exit:" xml:space="preserve">
     <value>Uscita:</value>
   </data>
-  <data name="Failed to save code:" xml:space="preserve">
-    <value>Impossibile salvare il codice:</value>
-  </data>
   <data name="FAQ" xml:space="preserve">
     <value>FAQ</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>più veloce</value>
+  <data name="Failed to save code:" xml:space="preserve">
+    <value>Impossibile salvare il codice:</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Funzionalità</value>
@@ -294,20 +291,17 @@
   <data name="Flexible API" xml:space="preserve">
     <value>API flessibile</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>per qualsiasi richiesta o per segnalare problemi.</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Fondatore e Architetto presso Aiursoft</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>Gratuito</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>Gratis per uso commerciale</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>Software libero</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>Gratis per uso commerciale</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Domande frequenti</value>
@@ -381,11 +375,11 @@
   <data name="Included" xml:space="preserve">
     <value>Incluso</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Include documentazione estesa ed esempi pratici per iniziare rapidamente.</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Include tutorial</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Include documentazione estesa ed esempi pratici per iniziare rapidamente.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Gestione File Integrata</value>
@@ -395,9 +389,6 @@
   </data>
   <data name="Interoperability" xml:space="preserve">
     <value>Interoperabilità</value>
-  </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>è Software Libero</value>
   </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>È gratuito usare Aiursoft Template?</value>
@@ -426,6 +417,12 @@
   <data name="Lua (5.4)" xml:space="preserve">
     <value>Lua (5.4)</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>Licenza MIT</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>Licenza MIT</value>
+  </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Mantieni un&apos;elevata qualità del codice</value>
   </data>
@@ -434,12 +431,6 @@
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown in HTML</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>Licenza MIT</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>Licenza MIT</value>
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>I modelli vengono convalidati sia sul lato client che sul lato server in base alle annotazioni dei dati.</value>
@@ -474,11 +465,11 @@
   <data name="Output" xml:space="preserve">
     <value>Output</value>
   </data>
-  <data name="Perl (5.39.5)" xml:space="preserve">
-    <value>Perl (5.39.5)</value>
-  </data>
   <data name="PHP (8.3.0)" xml:space="preserve">
     <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
   </data>
   <data name="Please enter a title." xml:space="preserve">
     <value>Inserisci un titolo.</value>
@@ -570,17 +561,17 @@
   <data name="Source Code" xml:space="preserve">
     <value>Codice Sorgente</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>Implementazione standard. Passa tra i provider senza ricompilazione.</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Standard OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Avvia un nuovo progetto</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>Implementazione standard. Passa tra i provider senza ricompilazione.</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Inizia a consegnare valore.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Avvia un nuovo progetto</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>Inizia con un singolo comando &apos;docker run&apos;.</value>
@@ -591,23 +582,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>Regole di lint rigorose</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>Test Unitari Rigidi</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>Regole rigorose per il linting e zero avvisi di default.</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>Regole rigorose di linting con 0 avvisi nel progetto predefinito.</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>Test Unitari Rigidi</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>Formattazione rigorosamente coerente</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>Supporta sia le variabili di ambiente che le impostazioni basate sul database, con priorità automatica alle variabili di ambiente per sovrascritture seamless.</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>Supporta JetBrains Rider per correggere facilmente lo stile del codice.</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>Supporta sia le variabili di ambiente che le impostazioni basate sul database, con priorità automatica alle variabili di ambiente per sovrascritture seamless.</value>
   </data>
   <data name="Swift (5.8.1)" xml:space="preserve">
     <value>Swift (5.8.1)</value>
@@ -618,14 +609,14 @@
   <data name="Technical Lead" xml:space="preserve">
     <value>Responsabile Tecnico</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>La Filosofia</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>La fondazione aziendale .NET definitiva e collaudata. Da Auth a AI, abbiamo risolto le parti difficili così che tu non debba farlo.</value>
   </data>
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>La barra di navigazione si adatta automaticamente in base ai ruoli e alle autorizzazioni dell&apos;utente.</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>La Filosofia</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>Il template è progettato per una distribuzione semplificata. Include il supporto completo per Docker, così puoi containerizzare la tua app ed eseguirla ovunque. Puoi anche distribuirla direttamente su IIS, Azure App Service o qualsiasi server che supporti ASP.NET Core.</value>
@@ -698,6 +689,15 @@
   </data>
   <data name="Zero Configuration" xml:space="preserve">
     <value>Configurazione Zero</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>più veloce</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>per qualsiasi richiesta o per segnalare problemi.</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>è Software Libero</value>
   </data>
 
 </root>
