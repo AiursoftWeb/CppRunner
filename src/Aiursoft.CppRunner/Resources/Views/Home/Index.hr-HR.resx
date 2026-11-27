@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="(no output)" xml:space="preserve">
+    <value>(bez izlaza)</value>
+  </data>
+  <data name="Bash (on Ubuntu 25.10)" xml:space="preserve">
+    <value>Bash (na Ubuntu 25.10)</value>
+  </data>
+  <data name="C (gcc 15.2.0)" xml:space="preserve">
+    <value>C (gcc 15.2.0)</value>
+  </data>
+  <data name="C# (.NET 7.0)" xml:space="preserve">
+    <value>C# (.NET 7.0)</value>
+  </data>
+  <data name="C++ (GNU G++, stdc++20)" xml:space="preserve">
+    <value>C++ (GNU G++, stdc++20)</value>
+  </data>
+  <data name="CUDA 13.2.1 (on Ubuntu 24.04)" xml:space="preserve">
+    <value>CUDA 13.2.1 (na Ubuntu 24.04)</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Click Run (or Ctrl+Enter) to execute the code." xml:space="preserve">
+    <value>Kliknite na Pokreni (ili Ctrl+Enter) za izvršavanje koda.</value>
+  </data>
+  <data name="Completed in" xml:space="preserve">
+    <value>Završeno u</value>
+  </data>
+  <data name="Could not save. Please try again." xml:space="preserve">
+    <value>Spremanje nije uspjelo. Pokušajte ponovno.</value>
+  </data>
+  <data name="Ctrl+Enter to run" xml:space="preserve">
+    <value>Ctrl+Enter za pokretanje</value>
+  </data>
+  <data name="Errors / Stderr" xml:space="preserve">
+    <value>Greške / Stderr</value>
+  </data>
+  <data name="Exit:" xml:space="preserve">
+    <value>Izlaz:</value>
+  </data>
+  <data name="Give your code a title" xml:space="preserve">
+    <value>Dajte svom kodu naslov</value>
+  </data>
+  <data name="Go (Golang 1.21.5)" xml:space="preserve">
+    <value>Go (Golang 1.21.5)</value>
+  </data>
+  <data name="Haskell (GHC 9.8.1)" xml:space="preserve">
+    <value>Haskell (GHC 9.8.1)</value>
+  </data>
+  <data name="Java (OpenJDK 23)" xml:space="preserve">
+    <value>Java (OpenJDK 23)</value>
+  </data>
+  <data name="Javascript (Node.js v24)" xml:space="preserve">
+    <value>Javascript (Node.js v24)</value>
+  </data>
+  <data name="Lisp (rigetti/lisp)" xml:space="preserve">
+    <value>Lisp (rigetti/lisp)</value>
+  </data>
+  <data name="Lua (5.4)" xml:space="preserve">
+    <value>Lua (5.4)</value>
+  </data>
+  <data name="Make it public (all people can see it)" xml:space="preserve">
+    <value>Učinite javnim (svi ga mogu vidjeti)</value>
+  </data>
+  <data name="Output" xml:space="preserve">
+    <value>Izlaz</value>
+  </data>
+  <data name="PHP (8.3.0)" xml:space="preserve">
+    <value>PHP (8.3.0)</value>
+  </data>
+  <data name="Perl (5.39.5)" xml:space="preserve">
+    <value>Perl (5.39.5)</value>
+  </data>
+  <data name="Please enter a title." xml:space="preserve">
+    <value>Unesite naslov.</value>
+  </data>
+  <data name="PowerShell Core (Ubuntu 24.04)" xml:space="preserve">
+    <value>PowerShell Core (Ubuntu 24.04)</value>
+  </data>
+  <data name="Python (CPython 3.11)" xml:space="preserve">
+    <value>Python (CPython 3.11)</value>
+  </data>
+  <data name="Python with PyTorch (Pytorch 2.7.0; cuda 12.6; cudnn 9)" xml:space="preserve">
+    <value>Python s PyTorchom (Pytorch 2.7.0; cuda 12.6; cudnn 9)</value>
+  </data>
+  <data name="Ruby (3.2.2)" xml:space="preserve">
+    <value>Ruby (3.2.2)</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Pokreni</value>
+  </data>
+  <data name="Running..." xml:space="preserve">
+    <value>Pokretanje...</value>
+  </data>
+  <data name="Rust (1.81)" xml:space="preserve">
+    <value>Rust (1.81)</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Spremi</value>
+  </data>
+  <data name="Save As" xml:space="preserve">
+    <value>Spremi kao</value>
+  </data>
+  <data name="Save Code" xml:space="preserve">
+    <value>Spremi kod</value>
+  </data>
+  <data name="Save execution results and error messages" xml:space="preserve">
+    <value>Spremi rezultate izvršavanja i poruke o greškama</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Spremanje...</value>
+  </data>
+  <data name="Source Code" xml:space="preserve">
+    <value>Izvorni kod</value>
+  </data>
+  <data name="Swift (5.8.1)" xml:space="preserve">
+    <value>Swift (5.8.1)</value>
+  </data>
+  <data name="Timed out after" xml:space="preserve">
+    <value>Vrijeme je isteklo nakon</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Vrijeme je isteklo</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Naslov</value>
+  </data>
+  <data name="TypeScript (4.9.3, node 16.8.1)" xml:space="preserve">
+    <value>TypeScript (4.9.3, node 16.8.1)</value>
+  </data>
+
+</root>
